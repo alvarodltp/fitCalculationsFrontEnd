@@ -1,32 +1,41 @@
 .App {
+ text-align: center;
+}
+
+body{
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#navbar {
+  margin-top: 0%;
+  float: left;
+  position: sticky;
+  width: 100%;
+  background-color: gray;
+  height: 40px;
+}
+
+#info-card {
+  margin-top: 2%;
+  display: inline-block;
+  width: 80%
+}
+
+#info-card p {
+  margin-bottom: 10px;
+}
+
+#image {
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+#steps > h2{
+  display: inline-block;
+  display: -moz-inline-box;
+  *display: inline; /* For IE7 */
+  zoom: 1; /* Trigger hasLayout */
+  width: 33%;
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
