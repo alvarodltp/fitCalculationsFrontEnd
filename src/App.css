@@ -39,3 +39,15 @@ body{
   width: 33%;
   text-align: center;
 }
+
+#bmr-form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+#bmr-results {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
