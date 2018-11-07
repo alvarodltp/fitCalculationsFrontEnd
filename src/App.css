@@ -31,7 +31,7 @@ body{
   margin-top: 10px;
 }
 
-#steps > h2{
+#steps > h3{
   display: inline-block;
   display: -moz-inline-box;
   *display: inline; /* For IE7 */
