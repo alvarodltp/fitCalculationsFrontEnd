@@ -19,7 +19,10 @@ class CalculationsContainer extends React.Component {
       goal: "",
       bmr: "",
       caloriesForGoal: "",
-      caloriesToMaintain: ""
+      caloriesToMaintain: "",
+      feet: "",
+      inches: "",
+      stepTwo: true
     }
   }
 
@@ -47,6 +50,18 @@ class CalculationsContainer extends React.Component {
     })
   }
 
+  getFeet = (e) => {
+    this.setState({
+      feet: e.target.innerText
+    })
+  }
+
+  getInches = (e) => {
+    this.setState({
+      inches: e.target.innerText
+    })
+  }
+
   getActivityLevel = (e) => {
     let activityLevel = e.target.innerText
     let activityLevelValue;
@@ -66,37 +81,75 @@ class CalculationsContainer extends React.Component {
     })
   }
 
-  calculateBmrCalories = (formType) => {
-  let weight;
-  let height;
-  formType === "metric" ? weight = this.state.weightKg : weight = this.state.weightLb
-  formType === "metric" ? height = this.state.heightCm : height = (this.state.heightFeet * 12).toFixed(2)
-  let age = this.state.age
-  let bmr;
+  calculateBmr = (formType) => {
+    let weight;
+    let height;
+    formType === "metric" ? weight = this.state.weightKg : weight = this.state.weightLb
+    formType === "metric" ? height = this.state.heightCm : height = (`${this.state.feet}.${this.state.inches}` * 12).toFixed(2)
+    let age = this.state.age
+    let bmr;
+    if(this.state.gender === "Male" && formType === "metric") {
+      bmr = (66.5 + 13.75 * weight + 5.003 * height - 6.755 * age).toFixed(2)
+    } else if (this.state.gender === "Male" && formType === "imperial") {
+      bmr = (66 + 6.2 * weight + 12.7 * height - 6.76 * age).toFixed(2)
+    } else if (this.state.gender === "Female" && formType === "metric") {
+      bmr = (655.1 + 9.563 * weight + 1.850 * height - 4.676 * age).toFixed(2)
+    } else if (this.state.gender === "Female" && formType === "imperial") {
+      bmr = (655.1 + 4.35 * weight + 4.7 * height - 4.7 * age).toFixed(2)
+    } else {
+      bmr = "Please Complete All Fields"
+    }
+
+    this.setState({
+      bmr: bmr
+    }, () => this.calculateCalories())
+  }
+
+  calculateCalories = () => {
+  let activityLevel = this.state.activityLevel
+  let currentBmr = this.state.bmr
+  let goal = this.state.goal
+  let caloriesToMaintain;
+  currentBmr != "" && activityLevel != null ? caloriesToMaintain = Math.round(currentBmr * activityLevel["value"]) : caloriesToMaintain = null
   let caloriesForGoal;
-  this.state.gender === "Male" && formType === "metric" ? bmr = (66.5 + 13.75 * weight + 5.003 * height - 6.755 * age).toFixed(2) : bmr = (655.1 + 9.563 * weight + 1.850 * height - 4.676 * age).toFixed(2)
-  this.state.gender === "Male" && formType === "imperial" ? bmr = (66 + 6.2 * weight + 12.7 * height - 6.76 * age).toFixed(2) : bmr = (655.1 + 4.35 * weight + 4.7 * height - 4.7 * age).toFixed(2)
-  let caloriesToMaintain = Math.round(bmr * this.state.activityLevel["value"])
-  if(this.state.goal === "Lose Weight"){
+  if(goal === "Lose Weight") {
     caloriesForGoal = caloriesToMaintain - 300
-  } else if (this.state.goal === "Maintain Current Weight") {
-    caloriesForGoal = caloriesToMaintain
-  } else if (this.state.goal === "Gain Muscle") {
+  } else if (goal === "Gain Muscle"){
     caloriesForGoal = caloriesToMaintain + 300
+  } else {
+    caloriesForGoal = caloriesToMaintain
   }
   this.setState({
-    bmr: bmr,
     caloriesToMaintain: caloriesToMaintain,
     caloriesForGoal: caloriesForGoal,
+  })
+}
+
+resetForm = () => {
+  this.setState({
+    name: "",
+    gender: "",
+    weightKg: "",
+    weightLb: "",
+    heightCm: "",
+    heightFeet: "",
+    age: "",
+    activityLevel: null,
+    goal: "",
+    bmr: "",
+    caloriesForGoal: "",
+    caloriesToMaintain: "",
+    feet: "",
+    inches: ""
   })
 }
 
   render(){
     return(
       <React.Fragment>
-        <Steps bmr={this.state.bmr}/>
-        <UserInfoForm handleChange={this.handleChange} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmrCalories={this.calculateBmrCalories}/>
-        {this.state.bmr ? <BmrCalorieResults bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain}/> : null}
+        <Steps caloriesForGoal={this.state.caloriesForGoal}/>
+        <UserInfoForm resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr}/>
+        {this.state.bmr ? <BmrCalorieResults height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain}/> : null}
         <PersonalizedMacros />
       </React.Fragment>
     )

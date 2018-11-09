@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, Form, Radio } from 'semantic-ui-react'
+import { Card, Button, Form, Radio, Icon } from 'semantic-ui-react'
 
 class UserInfoForm extends React.Component {
   constructor(){
@@ -10,6 +10,10 @@ class UserInfoForm extends React.Component {
   }
 
   handleChange = (e, { value }) => this.setState({ value })
+
+  clearForm = (e) => {
+    debugger
+  }
 
   render(){
     const genderOptions = [{ text: 'Male', value: 'male' }, { text: 'Female', value: 'female' }]
@@ -27,14 +31,14 @@ class UserInfoForm extends React.Component {
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-            <Form>
+            <Form onSubmit={this.clearForm}>
               <Form.Field>
                 <Radio
                   label='Metric (cm/Kg)'
                   name='radioGroup'
                   value='metric'
                   checked={this.state.value === 'metric'}
-                  onChange={this.handleChange}
+                  onChange={(e, value) => {this.handleChange(e, value); this.props.resetForm()}}
                 />
               </Form.Field>
               <Form.Field>
@@ -43,7 +47,7 @@ class UserInfoForm extends React.Component {
                   name='radioGroup'
                   value='imperial'
                   checked={this.state.value === 'imperial'}
-                  onChange={this.handleChange}
+                  onChange={(e, value) => {this.handleChange(e, value); this.props.resetForm()}}
                 />
               </Form.Field>
             </Form>
@@ -57,21 +61,25 @@ class UserInfoForm extends React.Component {
                 <Form.Input required onChange={this.props.handleChange} name='heightCm' type='number' label='Height (Centimeters)' placeholder='Height...' />
                 <Form.Select required onChange={this.props.getActivityLevel} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
                 <Form.Select required onChange={this.props.getGoal} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." /><br/>
+                <Button style={{width: "100%"}} onClick={() => this.props.calculateBmr(this.state.value)} type="submit" color='green'>
+                  Calculate BMR <Icon name="right arrow" />
+                </Button>
             </Form> :
             <Form>
                 <Form.Input required onChange={this.props.handleChange} name='name' label='Name' placeholder='Name...' />
                 <Form.Select required onChange={this.props.getGender} name='gender' label='Gender' options={genderOptions} placeholder='Gender...' />
                 <Form.Input required onChange={this.props.handleChange} name='age' type='number' label="Age" placeholder='Age...' />
                 <Form.Input required onChange={this.props.handleChange} name='weightLb' type='number' label='Weight (Pounds)' placeholder='Weight...' />
-                <Form.Select required onChange={this.props.handleChange} options={feetOptions} name='heightFeet' label='Height (Feet)' placeholder='Feet...' />
-                <Form.Select required onChange={this.props.handleChange} options={inchesOptions} name='heightInches' label='Height (Inches)' placeholder='Inches...' />
+                <Form.Select required onChange={this.props.getFeet} options={feetOptions} name='heightFeet' label='Height (Feet)' placeholder='Feet...' />
+                <Form.Select required onChange={this.props.getInches} options={inchesOptions} name='heightInches' label='Height (Inches)' placeholder='Inches...' />
                 <Form.Select required onChange={this.props.getActivityLevel} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
                 <Form.Select required onChange={this.props.getGoal} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." /><br/>
+                <Button style={{width: "100%"}} onClick={() => this.props.calculateBmr(this.state.value)} type="submit" color='green'>
+                  Calculate BMR <Icon name="right arrow" />
+                </Button>
             </Form> }
 
-                <Button onClick={() => this.props.calculateBmrCalories(this.state.value)} basic color='green'>
-                  Calculate BMR
-                </Button>
+
             </Card.Content>
           </Card>
       </div>
