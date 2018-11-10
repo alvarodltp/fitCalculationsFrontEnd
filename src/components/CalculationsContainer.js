@@ -22,7 +22,7 @@ class CalculationsContainer extends React.Component {
       caloriesToMaintain: "",
       feet: "",
       inches: "",
-      stepTwo: true
+      stepTwo: false
     }
   }
 
@@ -91,11 +91,11 @@ class CalculationsContainer extends React.Component {
     if(this.state.gender === "Male" && formType === "metric") {
       bmr = (66.5 + 13.75 * weight + 5.003 * height - 6.755 * age).toFixed(2)
     } else if (this.state.gender === "Male" && formType === "imperial") {
-      bmr = (66 + 6.2 * weight + 12.7 * height - 6.76 * age).toFixed(2)
+      bmr = (66 + 6.23 * weight + 12.7 * height - 6.8 * age).toFixed(2)
     } else if (this.state.gender === "Female" && formType === "metric") {
       bmr = (655.1 + 9.563 * weight + 1.850 * height - 4.676 * age).toFixed(2)
     } else if (this.state.gender === "Female" && formType === "imperial") {
-      bmr = (655.1 + 4.35 * weight + 4.7 * height - 4.7 * age).toFixed(2)
+      bmr = (655 + 4.35 * weight + 4.7 * height - 4.7 * age).toFixed(2)
     } else {
       bmr = "Please Complete All Fields"
     }
@@ -140,7 +140,37 @@ resetForm = () => {
     caloriesForGoal: "",
     caloriesToMaintain: "",
     feet: "",
-    inches: ""
+    inches: "",
+    bodyType: "",
+    protein: "",
+    carbs: "",
+    fats: ""
+  })
+}
+
+calculateMacros = (e) => {
+  let protein;
+  let fats;
+  let carbs;
+  let bodyType = e.target.parentElement.innerText.split(" ")[0].split("h")[0] + "h"
+  if(bodyType === "Ectomorph"){
+    protein = this.state.caloriesForGoal * .25 / 4
+    carbs = this.state.caloriesForGoal * .55 / 4
+    fats = this.state.caloriesForGoal * .20 / 9
+  } else if (bodyType === "Mesomorph"){
+    protein = this.state.caloriesForGoal * .30 / 4
+    carbs = this.state.caloriesForGoal * .40 / 4
+    fats = this.state.caloriesForGoal * .30 / 9
+  } else if (bodyType === "Endomorph"){
+    protein = this.state.caloriesForGoal * .35 / 4
+    carbs = this.state.caloriesForGoal * .25 / 4
+    fats = this.state.caloriesForGoal * .40 / 9
+  }
+  this.setState({
+    bodyType: bodyType,
+    protein: protein,
+    fats: fats,
+    carbs: carbs
   })
 }
 
@@ -149,8 +179,8 @@ resetForm = () => {
       <React.Fragment>
         <Steps caloriesForGoal={this.state.caloriesForGoal}/>
         <UserInfoForm resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr}/>
-        {this.state.bmr ? <BmrCalorieResults height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain}/> : null}
-        <PersonalizedMacros />
+        {this.state.bmr ? <BmrCalorieResults height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} showStepTwo={this.showStepTwo}/> : null}
+        {this.state.stepTwo === true ? <PersonalizedMacros calculateMacros={this.calculateMacros} /> : null }
       </React.Fragment>
     )
   }
