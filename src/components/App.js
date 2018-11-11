@@ -3,7 +3,7 @@ import '../App.css';
 import NavBar from './NavBar'
 import AppIntro from './AppIntro'
 import CalculationsContainer from './CalculationsContainer'
-
+import Footer from './Footer'
 
 
 class App extends React.Component {
@@ -13,6 +13,7 @@ class App extends React.Component {
         <NavBar />
         <AppIntro />
         <CalculationsContainer />
+        <Footer />
       </div>
     );
   }

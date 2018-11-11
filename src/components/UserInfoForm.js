@@ -62,7 +62,7 @@ class UserInfoForm extends React.Component {
                 <Form.Input required onChange={this.props.handleChange} name='heightCm' type='number' label='Height (Centimeters)' placeholder='Height...' />
                 <Form.Select required onChange={this.props.getActivityLevel} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
                 <Form.Select required onChange={this.props.getGoal} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." /><br/>
-                <Button style={{width: "100%"}} onClick={() => this.props.calculateBmr(this.state.value)} type="submit" color='green'>
+                <Button id="button" style={{width: "100%"}} onClick={() => this.props.calculateBmr(this.state.value)} type="submit">
                   Calculate BMR <Icon name="right arrow" />
                 </Button>
             </Form> :
@@ -75,7 +75,7 @@ class UserInfoForm extends React.Component {
                 <Form.Select required onChange={this.props.getInches} options={inchesOptions} name='heightInches' label='Height (Inches)' placeholder='Inches...' />
                 <Form.Select required onChange={this.props.getActivityLevel} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
                 <Form.Select required onChange={this.props.getGoal} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." /><br/>
-                <Button style={{width: "100%"}} onClick={() => this.props.calculateBmr(this.state.value)} type="submit" color='green'>
+                <Button id="button" style={{width: "100%"}} onClick={() => this.props.calculateBmr(this.state.value)} type="submit">
                   Calculate BMR <Icon name="right arrow" />
                 </Button>
             </Form> }

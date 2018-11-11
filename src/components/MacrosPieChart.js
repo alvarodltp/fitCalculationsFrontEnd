@@ -48,7 +48,7 @@ class MacrosPieChart extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Button color="green" id="macros-button">Get a detailed copy of your report</Button>
+        <Button id="macros-button">Get PDF Report</Button>
       </Card>
     )
   }

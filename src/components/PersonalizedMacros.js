@@ -7,7 +7,7 @@ class PersonalizedMacros extends React.Component {
       <React.Fragment>
         <h1>Step 2 - Select Your Body Type</h1>
         <div id="image-container">
-          <Card id="Ectomorph" onClick={this.props.calculateMacros} id="image-card">
+          <Card onClick={this.props.calculateMacros} id="image-card">
             <Image src='https://www.dropbox.com/s/60htmbhkx75vzdu/Ectomorph.jpg?raw=1' />
             <Card.Content>
               <Card.Header>Ectomorph</Card.Header>

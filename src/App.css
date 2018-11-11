@@ -10,10 +10,13 @@ body{
 #navbar {
   margin-top: 0%;
   float: left;
-  position: sticky;
   width: 100%;
-  background-color: gray;
-  height: 40px;
+  background-color: #A8FC00;
+  height: 50px;
+}
+
+#logo {
+  margin-top: -18px;
 }
 
 #info-card {
@@ -96,8 +99,26 @@ body{
   width: 100%;
   text-align: center;
   margin: 0 auto;
+  background-color: red;
+  color: white;
 }
 
 #share-icons {
   display: inline-flex;
+}
+
+#footer {
+  height: 50px;;
+  background-color: #A8FC00;
+  margin-top: 40px;
+}
+
+#button {
+  background-color: #5400FC;
+  color: white;
+  opacity: 0.5;
+}
+
+#button:hover {
+  opacity: 1;
 }
