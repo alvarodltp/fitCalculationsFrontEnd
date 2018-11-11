@@ -23,6 +23,18 @@ body{
 }
 
 #info-card p {
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#info-card h3 {
+  text-align: left;
+  margin-left: 10px;
+  font-style: italic;
+}
+
+#info-card p {
   margin-bottom: 10px;
 }
 
