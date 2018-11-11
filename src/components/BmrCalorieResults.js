@@ -15,7 +15,7 @@ class BmrCalorieResults extends React.Component {
             <h1>Calories To Accomplish Goal</h1>
             <Card.Description>Naturally muscular and athletic with a moderate metabolic rate.</Card.Description>
             <h1 style={{color: "green"}}>{this.props.caloriesForGoal}</h1>
-            <Button color="green" onClick={this.props.showStepTwo}>Step 2 - Personalized Macronutrients <Icon name="right arrow" /></Button>
+            <Button color="green" onClick={this.props.showStepTwo}>Step 2 - Select Body Type <Icon name="right arrow" /></Button>
         </Card>
       </div>
     )

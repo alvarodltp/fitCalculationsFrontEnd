@@ -31,12 +31,8 @@ body{
   margin-top: 10px;
 }
 
-#steps > h3{
+#steps > p{
   display: inline-block;
-  display: -moz-inline-box;
-  *display: inline; /* For IE7 */
-  zoom: 1; /* Trigger hasLayout */
-  width: 33%;
   text-align: center;
 }
 
@@ -54,4 +50,42 @@ body{
 
 #image-container {
   display: inline-block;
+  margin-bottom: 40px;
+}
+
+#body-card {
+  display: inline;
+}
+
+#macros-title {
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+#macros-numbers {
+  margin-top: 70px;
+  text-align: center;
+}
+
+#macros-grid {
+  margin-bottom: 20px;
+}
+
+#macros-numbers h3 {
+  font-size: 25px;
+}
+
+#macros-card{
+  margin: 0 auto;
+  width: 70%;
+}
+
+#macros-button {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#share-icons {
+  display: inline-flex;
 }

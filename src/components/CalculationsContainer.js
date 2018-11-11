@@ -3,6 +3,8 @@ import Steps from './Steps'
 import UserInfoForm from './UserInfoForm'
 import BmrCalorieResults from './BmrCalorieResults'
 import PersonalizedMacros from './PersonalizedMacros'
+import MacrosPieChart from './MacrosPieChart'
+import { Button } from 'semantic-ui-react'
 
 class CalculationsContainer extends React.Component {
   constructor(){
@@ -154,17 +156,17 @@ calculateMacros = (e) => {
   let carbs;
   let bodyType = e.target.parentElement.innerText.split(" ")[0].split("h")[0] + "h"
   if(bodyType === "Ectomorph"){
-    protein = this.state.caloriesForGoal * .25 / 4
-    carbs = this.state.caloriesForGoal * .55 / 4
-    fats = this.state.caloriesForGoal * .20 / 9
+    protein = (this.state.caloriesForGoal * .25 / 4).toFixed(1)
+    carbs = (this.state.caloriesForGoal * .55 / 4).toFixed(1)
+    fats = (this.state.caloriesForGoal * .20 / 9).toFixed(1)
   } else if (bodyType === "Mesomorph"){
-    protein = this.state.caloriesForGoal * .30 / 4
-    carbs = this.state.caloriesForGoal * .40 / 4
-    fats = this.state.caloriesForGoal * .30 / 9
+    protein = (this.state.caloriesForGoal * .30 / 4).toFixed(1)
+    carbs = (this.state.caloriesForGoal * .40 / 4).toFixed(1)
+    fats = (this.state.caloriesForGoal * .30 / 9).toFixed(1)
   } else if (bodyType === "Endomorph"){
-    protein = this.state.caloriesForGoal * .35 / 4
-    carbs = this.state.caloriesForGoal * .25 / 4
-    fats = this.state.caloriesForGoal * .40 / 9
+    protein = (this.state.caloriesForGoal * .35 / 4).toFixed(1)
+    carbs = (this.state.caloriesForGoal * .25 / 4).toFixed(1)
+    fats = (this.state.caloriesForGoal * .40 / 9).toFixed(1)
   }
   this.setState({
     bodyType: bodyType,
@@ -177,10 +179,10 @@ calculateMacros = (e) => {
   render(){
     return(
       <React.Fragment>
-        <Steps caloriesForGoal={this.state.caloriesForGoal}/>
         <UserInfoForm resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr}/>
         {this.state.bmr ? <BmrCalorieResults height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} showStepTwo={this.showStepTwo}/> : null}
         {this.state.stepTwo === true ? <PersonalizedMacros calculateMacros={this.calculateMacros} /> : null }
+        {this.state.fats && this.state.bodyType ? <MacrosPieChart protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
       </React.Fragment>
     )
   }
