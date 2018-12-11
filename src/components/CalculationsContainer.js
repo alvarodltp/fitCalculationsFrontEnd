@@ -10,7 +10,6 @@ class CalculationsContainer extends React.Component {
   constructor(){
     super()
     this.state={
-      name: "",
       gender: "",
       weightKg: "",
       weightLb: "",
@@ -24,13 +23,16 @@ class CalculationsContainer extends React.Component {
       caloriesToMaintain: "",
       feet: "",
       inches: "",
-      stepTwo: false
+      protein: "",
+      carbs: "",
+      fats: "",
+      macrosChart: false
     }
   }
 
-  showStepTwo = () => {
+  showMacrosChart = () => {
     this.setState({
-      stepTwo: true
+      macrosChart: true
     })
   }
 
@@ -143,10 +145,7 @@ resetForm = () => {
     caloriesToMaintain: "",
     feet: "",
     inches: "",
-    bodyType: "",
-    protein: "",
-    carbs: "",
-    fats: ""
+    bodyType: ""
   })
 }
 
@@ -154,7 +153,7 @@ calculateMacros = (e) => {
   let protein;
   let fats;
   let carbs;
-  let bodyType = e.target.parentElement.innerText.split(" ")[0].split("h")[0] + "h"
+  let bodyType = e.target.parentElement.getElementsByClassName("header")[0].innerText
   if(bodyType === "Ectomorph"){
     protein = (this.state.caloriesForGoal * .25 / 4).toFixed(1)
     carbs = (this.state.caloriesForGoal * .55 / 4).toFixed(1)
@@ -173,16 +172,16 @@ calculateMacros = (e) => {
     protein: protein,
     fats: fats,
     carbs: carbs
-  })
+  }, () => this.showMacrosChart())
 }
 
   render(){
     return(
       <React.Fragment>
-        <UserInfoForm resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr}/>
-        {this.state.bmr ? <BmrCalorieResults height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} showStepTwo={this.showStepTwo}/> : null}
-        {this.state.stepTwo === true ? <PersonalizedMacros calculateMacros={this.calculateMacros} /> : null }
-        {this.state.fats && this.state.bodyType ? <MacrosPieChart protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
+        {this.props.stepNumber === 1 ? <UserInfoForm addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr}/> : null }
+        {this.props.stepNumber === 3 ? <BmrCalorieResults height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
+        {this.props.stepNumber === 2 ? <PersonalizedMacros addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
+        { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
       </React.Fragment>
     )
   }

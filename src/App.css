@@ -52,7 +52,7 @@ body{
 }
 
 #bmr-form {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -63,9 +63,17 @@ body{
   margin-bottom: 40px;
 }
 
-#image-container {
-  display: inline-block;
+/* #image-container {
+  margin: 0 auto;
   margin-bottom: 40px;
+} */
+
+.ui.container {
+  overflow: auto;
+  white-space: nowrap;
+}
+.ui.card {
+  display: inline-block;
 }
 
 #body-card {
@@ -111,6 +119,7 @@ body{
   height: 50px;;
   background-color: #A8FC00;
   margin-top: 40px;
+  position: static;
 }
 
 #button {
@@ -121,4 +130,9 @@ body{
 
 #button:hover {
   opacity: 1;
+}
+
+#progress-bar {
+  margin: 0 auto;
+  width: 85%;
 }
