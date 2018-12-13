@@ -54,10 +54,11 @@ body{
 #bmr-form {
   width: 80%;
   margin: 0 auto;
+  margin-top: 30px;
 }
 
 #bmr-results {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 40px;
@@ -100,7 +101,7 @@ body{
 
 #macros-card{
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
 }
 
 #macros-button {
@@ -135,4 +136,10 @@ body{
 #progress-bar {
   margin: 0 auto;
   width: 85%;
+}
+
+#nutrition-package-intro{
+  margin: 0 auto;
+  width: 90%;
+  padding-bottom: 20px;
 }

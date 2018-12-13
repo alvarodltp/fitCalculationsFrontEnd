@@ -5,7 +5,6 @@ class PersonalizedMacros extends React.Component {
   render(){
     return(
       <React.Fragment>
-        <h3>Step 2 - Select Your Body Type</h3>
         <div id="image-container">
           <Card onClick={(e) => {this.props.calculateMacros(e); this.props.addOneToStep()}} id="image-card">
             <Image src='https://www.dropbox.com/s/60htmbhkx75vzdu/Ectomorph.jpg?raw=1' />
