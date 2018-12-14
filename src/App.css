@@ -135,11 +135,17 @@ body{
 
 #progress-bar {
   margin: 0 auto;
+  margin-top: 20px;
   width: 85%;
 }
 
-#nutrition-package-intro{
+#nutrition-package-intro p {
   margin: 0 auto;
   width: 90%;
   padding-bottom: 20px;
+}
+
+#steps-on-bar {
+  display: flex;
+  justify-content:space-between;
 }

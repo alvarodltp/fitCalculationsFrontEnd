@@ -6,6 +6,7 @@ import PersonalizedMacros from './PersonalizedMacros'
 import MacrosPieChart from './MacrosPieChart'
 import { Button } from 'semantic-ui-react'
 import ProgressExampleProgressRatio from './Progress'
+import NutritionPackageDetails from './NutritionPackageDetails'
 
 class CalculationsContainer extends React.Component {
   constructor(){
@@ -176,10 +177,7 @@ calculateMacros = (e) => {
   render(){
     return(
       <React.Fragment>
-        <div id="nutrition-package-intro">
-          <h1>Nutrition Calculation Package</h1>
-          <p>Lorem ipsum dolor amet intelligentsia man bun jean shorts taxidermy, green juice XOXO flannel irure. XOXO fugiat elit sunt pariatur mustache letterpress in kitsch af laborum dolore neutra marfa. Scenester raw denim poke meditation dolore messenger bag. Edison bulb selvage yr adaptogen etsy. Church-key single-origin coffee coloring book tbh sartorial flexitarian ut woke. Sartorial freegan kitsch, locavore aesthetic mustache blue bottle cred blog kogi banh mi dreamcatcher 90's. Typewriter cronut duis quinoa chartreuse cold-pressed seitan commodo.</p>
-        </div>
+        <NutritionPackageDetails />
         <ProgressExampleProgressRatio stepNumber={this.props.stepNumber}/>
         {this.props.stepNumber === 1 ? <UserInfoForm addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
         {this.props.stepNumber === 3 ? <BmrCalorieResults height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
