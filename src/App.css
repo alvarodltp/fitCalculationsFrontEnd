@@ -126,12 +126,12 @@ body{
 #button {
   background-color: #5400FC;
   color: white;
-  opacity: 0.5;
-}
-
-#button:hover {
   opacity: 1;
 }
+
+/* #button:hover {
+  opacity: 1;
+} */
 
 #progress-bar {
   margin: 0 auto;

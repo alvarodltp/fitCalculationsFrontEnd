@@ -5,9 +5,16 @@ class UserInfoForm extends React.Component {
   constructor(){
     super()
     this.state={
-      value: 'metric',
+      value: 'imperial',
+      isDisabled: false
     }
   }
+
+  // handleValidationForImperial = () => {
+  //
+  // }
+  //
+
 
   handleChange = (e, { value }) => this.setState({ value })
 
@@ -24,48 +31,26 @@ class UserInfoForm extends React.Component {
         <Form>
           <Form.Field>
             <Radio
-              label='Metric (cm/Kg)'
-              name='radioGroup'
-              value='metric'
-              checked={this.state.value === 'metric'}
-              onChange={(e, value) => {this.handleChange(e, value); this.props.resetForm()}}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Radio
               label='Imperial (Feet/Inches/Pounds)'
               name='radioGroup'
               value='imperial'
               checked={this.state.value === 'imperial'}
               onChange={(e, value) => {this.handleChange(e, value); this.props.resetForm()}}
             />
-          </Form.Field>
+          </Form.Field><br/>
         </Form>
-
-        {this.state.value === 'metric' ?
         <Form>
-            <Form.Select required onChange={this.props.getGender} name='gender' label='Gender' options={genderOptions} placeholder='Gender...' />
-            <Form.Input required onChange={this.props.handleChange} name='age' type='number' label="Age" placeholder='Age...' />
-            <Form.Input required onChange={this.props.handleChange} name='weightKg' type='number' label='Weight (Kg.)' placeholder='Weight...' />
-            <Form.Input required onChange={this.props.handleChange} name='heightCm' type='number' label='Height (Centimeters)' placeholder='Height...' />
-            <Form.Select required onChange={this.props.getActivityLevel} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
-            <Form.Select required onChange={this.props.getGoal} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." /><br/>
-            <Button id="button" style={{width: "100%"}} onClick={() => {this.props.calculateBmr(this.state.value); this.props.addOneToStep()}} type="submit">
-              Step 2 - Select Body Type <Icon name="right arrow" />
-            </Button>
-        </Form> :
-        <Form>
-            <Form.Select required onChange={this.props.getGender} name='gender' label='Gender' options={genderOptions} placeholder='Gender...' />
-            <Form.Input required onChange={this.props.handleChange} name='age' type='number' label="Age" placeholder='Age...' />
-            <Form.Input required onChange={this.props.handleChange} name='weightLb' type='number' label='Weight (Pounds)' placeholder='Weight...' />
-            <Form.Select required onChange={this.props.getFeet} options={feetOptions} name='heightFeet' label='Height (Feet)' placeholder='Feet...' />
-            <Form.Select required onChange={this.props.getInches} options={inchesOptions} name='heightInches' label='Height (Inches)' placeholder='Inches...' />
-            <Form.Select required onChange={this.props.getActivityLevel} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
-            <Form.Select required onChange={this.props.getGoal} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." /><br/>
-            <Button id="button" style={{width: "100%"}} onClick={() => {this.props.calculateBmr(this.state.value); this.props.addOneToStep()}} type="submit">
-              Step 2 - Select Body Type <Icon name="right arrow" />
-            </Button>
-        </Form> }
+          <Form.Select required onChange={this.props.getGender} name='gender' label='Gender' options={genderOptions} placeholder='Gender...' />
+          <Form.Input required onChange={this.props.handleChange} name='age' type='number' label="Age" placeholder='Age...' />
+          <Form.Input required onChange={this.props.handleChange} name='weightLb' type='number' label='Weight (Pounds)' placeholder='Weight...' />
+          <Form.Select required onChange={this.props.getFeet} options={feetOptions} name='heightFeet' label='Height (Feet)' placeholder='Feet...' />
+          <Form.Select required onChange={this.props.getInches} options={inchesOptions} name='heightInches' label='Height (Inches)' placeholder='Inches...' />
+          <Form.Select required onChange={this.props.getActivityLevel} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
+          <Form.Select required onChange={this.props.getGoal} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." /><br/>
+          <Button id="button" style={{width: "100%"}} onClick={() => {this.props.calculateBmr(this.state.value); this.props.addOneToStep(); this.props.calculateCalories()}} type="submit">
+            Step 2 - Select Body Type <Icon name="right arrow" />
+          </Button>
+        </Form>
         </Card.Content>
       </Card>`
     </div>

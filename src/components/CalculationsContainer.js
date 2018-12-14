@@ -17,7 +17,7 @@ class CalculationsContainer extends React.Component {
       heightCm: "",
       heightFeet: "",
       age: "",
-      activityLevel: null,
+      activityLevel: "",
       goal: "",
       bmr: "",
       caloriesForGoal: "",
@@ -94,17 +94,14 @@ class CalculationsContainer extends React.Component {
     let age = this.state.age
     let bmr;
     if(this.state.gender === "Male" && formType === "metric") {
-      bmr = (66.5 + 13.75 * weight + 5.003 * height - 6.755 * age).toFixed(2)
+      bmr = Math.round(66.5 + 13.75 * weight + 5.003 * height - 6.755 * age)
     } else if (this.state.gender === "Male" && formType === "imperial") {
-      bmr = (66 + 6.23 * weight + 12.7 * height - 6.8 * age).toFixed(2)
+      bmr = Math.round(66 + 6.23 * weight + 12.7 * height - 6.8 * age)
     } else if (this.state.gender === "Female" && formType === "metric") {
-      bmr = (655.1 + 9.563 * weight + 1.850 * height - 4.676 * age).toFixed(2)
+      bmr = Math.round(655.1 + 9.563 * weight + 1.850 * height - 4.676 * age)
     } else if (this.state.gender === "Female" && formType === "imperial") {
-      bmr = (655 + 4.35 * weight + 4.7 * height - 4.7 * age).toFixed(2)
-    } else {
-      bmr = "Please Complete All Fields"
+      bmr = Math.round(655 + 4.35 * weight + 4.7 * height - 4.7 * age)
     }
-
     this.setState({
       bmr: bmr
     }, () => this.calculateCalories())
@@ -156,17 +153,17 @@ calculateMacros = (e) => {
   let carbs;
   let bodyType = e.target.parentElement.getElementsByClassName("header")[0].innerText
   if(bodyType === "Ectomorph"){
-    protein = (this.state.caloriesForGoal * .25 / 4).toFixed(1)
-    carbs = (this.state.caloriesForGoal * .55 / 4).toFixed(1)
-    fats = (this.state.caloriesForGoal * .20 / 9).toFixed(1)
+    protein = Math.round(this.state.caloriesForGoal * .25 / 4)
+    carbs = Math.round(this.state.caloriesForGoal * .55 / 4)
+    fats = Math.round(this.state.caloriesForGoal * .20 / 9)
   } else if (bodyType === "Mesomorph"){
-    protein = (this.state.caloriesForGoal * .30 / 4).toFixed(1)
-    carbs = (this.state.caloriesForGoal * .40 / 4).toFixed(1)
-    fats = (this.state.caloriesForGoal * .30 / 9).toFixed(1)
+    protein = Math.round(this.state.caloriesForGoal * .30 / 4)
+    carbs = Math.round(this.state.caloriesForGoal * .40 / 4)
+    fats = Math.round(this.state.caloriesForGoal * .30 / 9)
   } else if (bodyType === "Endomorph"){
-    protein = (this.state.caloriesForGoal * .35 / 4).toFixed(1)
-    carbs = (this.state.caloriesForGoal * .25 / 4).toFixed(1)
-    fats = (this.state.caloriesForGoal * .40 / 9).toFixed(1)
+    protein = Math.round(this.state.caloriesForGoal * .35 / 4)
+    carbs = Math.round(this.state.caloriesForGoal * .25 / 4)
+    fats = Math.round(this.state.caloriesForGoal * .40 / 9)
   }
   this.setState({
     bodyType: bodyType,
@@ -184,7 +181,7 @@ calculateMacros = (e) => {
           <p>Lorem ipsum dolor amet intelligentsia man bun jean shorts taxidermy, green juice XOXO flannel irure. XOXO fugiat elit sunt pariatur mustache letterpress in kitsch af laborum dolore neutra marfa. Scenester raw denim poke meditation dolore messenger bag. Edison bulb selvage yr adaptogen etsy. Church-key single-origin coffee coloring book tbh sartorial flexitarian ut woke. Sartorial freegan kitsch, locavore aesthetic mustache blue bottle cred blog kogi banh mi dreamcatcher 90's. Typewriter cronut duis quinoa chartreuse cold-pressed seitan commodo.</p>
         </div>
         <ProgressExampleProgressRatio stepNumber={this.props.stepNumber}/>
-        {this.props.stepNumber === 1 ? <UserInfoForm addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr}/> : null }
+        {this.props.stepNumber === 1 ? <UserInfoForm addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
         {this.props.stepNumber === 3 ? <BmrCalorieResults height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
         {this.props.stepNumber === 2 ? <PersonalizedMacros addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
         { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
