@@ -28,7 +28,8 @@ class CalculationsContainer extends React.Component {
       protein: "",
       carbs: "",
       fats: "",
-      macrosChart: false
+      macrosChart: false,
+      resetForm: false
     }
   }
 
@@ -129,6 +130,7 @@ class CalculationsContainer extends React.Component {
 }
 
 resetForm = () => {
+  console.log("reseting")
   this.setState({
     name: "",
     gender: "",
@@ -137,14 +139,15 @@ resetForm = () => {
     heightCm: "",
     heightFeet: "",
     age: "",
-    activityLevel: null,
+    activityLevel: "",
     goal: "",
     bmr: "",
     caloriesForGoal: "",
     caloriesToMaintain: "",
     feet: "",
     inches: "",
-    bodyType: ""
+    bodyType: "",
+    resetForm: !this.state.resetForm
   })
 }
 
