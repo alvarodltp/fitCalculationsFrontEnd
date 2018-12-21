@@ -8,6 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faIgloo } from '@fortawesome/free-solid-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import { BrowserRouter, Route } from 'react-router-dom'
 library.add(faIgloo)
 library.add(fas)
 
@@ -31,7 +32,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavBar /><br/><br/><br/><br/>
-        <CalculationsContainer stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/>
+        <Route exact path="/nutrition-package-calculation" render={props => <CalculationsContainer {...props} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Footer />
       </div>
     );
