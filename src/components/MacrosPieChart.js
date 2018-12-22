@@ -48,26 +48,32 @@ class MacrosPieChart extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-          <Modal id="email-modal" trigger={<Button id="macros-button">Get Complete PDF Report</Button>} basic size='small'>
+
+          <Modal id="email-modal"
+          open={this.props.modalOpen}
+          trigger={<Button onClick={this.props.handleOpen} id="macros-button">Get Complete PDF Report</Button>}
+          basic
+          size='small'>
           <Header icon='mail' content='Get a Complete Personalized Report' />
-         <Modal.Content>
-           <p>
-             Enter your email address.
-           </p>
-         <Input iconPosition='left' placeholder='Email'>
-           <Icon name='at' />
-           <input />
-         </Input>
-         </Modal.Content>
+           <Modal.Content>
+             <p>
+               Enter your email address.
+             </p>
+           <Input onChange={this.props.getEmail} iconPosition='left' placeholder='Email'>
+             <Icon name='at' />
+             <input />
+           </Input>
+           </Modal.Content>
          <Modal.Actions>
-           <Button basic color='red' inverted>
+           <Button onClick={this.props.handleClose} basic color='red' inverted>
              <Icon name='remove' /> Cancel
            </Button>
-           <Button color='green' inverted>
+           <Button onClick={() => {this.props.saveEmailToUser(); this.props.handleClose()}} color='green' inverted>
              <Icon name='checkmark' /> Send
            </Button>
          </Modal.Actions>
        </Modal>
+
       </Card>
     )
   }

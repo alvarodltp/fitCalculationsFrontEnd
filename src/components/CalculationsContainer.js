@@ -33,9 +33,16 @@ class CalculationsContainer extends React.Component {
       bodyType: "",
       user: null,
       stats: null,
-      buttonDisabled: true
+      buttonDisabled: true,
+      email: "",
+      modalOpen: false,
+      emailValid: ""
     }
   }
+
+  handleOpen = () => this.setState({ modalOpen: true })
+
+  handleClose = () => this.setState({ modalOpen: false })
 
   enableButton = (e) => {
     if(this.state.gender != "" && this.state.age != "" && this.state.weightLb != "" && this.state.feet != "" && this.state.inches != "" && this.state.activityLevel != null){
@@ -78,6 +85,13 @@ class CalculationsContainer extends React.Component {
   getInches = (e) => {
     this.setState({
       inches: e.target.innerText
+    })
+  }
+
+  getEmail = (e) => {
+    console.log(e.target.value)
+    this.setState({
+      email: e.target.value
     })
   }
 
@@ -159,7 +173,8 @@ resetForm = () => {
     feet: "",
     inches: "",
     bodyType: "",
-    resetForm: !this.state.resetForm
+    resetForm: !this.state.resetForm,
+    modalOpen: false
   })
 }
 
@@ -242,7 +257,7 @@ updateUser = (bodyType, protein, carbs, fats) => {
       })
     }).then(response =>response.json())
     .then(response => {
-    }, this.updateStats(bodyType, protein, carbs, fats))
+    }, () => this.updateStats(bodyType, protein, carbs, fats))
 }
 
 saveStats = (user) => {
@@ -297,6 +312,30 @@ updateStats = (bodyType, protein, carbs, fats) => {
     })
 }
 
+validateEmail = (email) => {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  this.setState({
+    emailValid: re.test(email)
+  })
+}
+
+saveEmailToUser = () => {
+  let userId = this.state.user["id"]
+  fetch(`http://localhost:3001/users/${userId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        email: this.state.email
+      })
+    }).then(response =>response.json())
+    .then(response => {
+      console.log(response)
+    })
+}
+
 
   render(){
     return(
@@ -306,7 +345,7 @@ updateStats = (bodyType, protein, carbs, fats) => {
         {this.props.stepNumber === 1 ? <UserInfoForm enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
         {this.props.stepNumber === 3 ? <BmrCalorieResults height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
         {this.props.stepNumber === 2 ? <PersonalizedMacros updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
-        { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
+        { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose} saveEmailToUser={this.saveEmailToUser} getEmail={this.getEmail} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
       </React.Fragment>
     )
   }

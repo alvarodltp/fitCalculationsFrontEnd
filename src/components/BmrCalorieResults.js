@@ -9,9 +9,6 @@ class BmrCalorieResults extends React.Component {
             <h1>BMR</h1>
             <Card.Description>Naturally muscular and athletic with a moderate metabolic rate.</Card.Description>
             <h1 style={{color: "green"}}>{this.props.bmr}</h1>
-            <h1>Maintenance Calories</h1>
-            <Card.Description>Naturally muscular and athletic with a moderate metabolic rate.</Card.Description>
-            <h1 style={{color: "green"}}>{this.props.caloriesToMaintain}</h1>
             <h1>Calories To Accomplish Goal</h1>
             <Card.Description>Naturally muscular and athletic with a moderate metabolic rate.</Card.Description>
             <h1 style={{color: "green"}}>{this.props.caloriesForGoal}</h1>
@@ -22,3 +19,7 @@ class BmrCalorieResults extends React.Component {
 }
 
 export default BmrCalorieResults
+
+// <h1>Maintenance Calories</h1>
+// <Card.Description>Naturally muscular and athletic with a moderate metabolic rate.</Card.Description>
+// <h1 style={{color: "green"}}>{this.props.caloriesToMaintain}</h1>
