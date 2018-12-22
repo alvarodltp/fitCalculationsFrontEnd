@@ -31,7 +31,6 @@ class UserInfoForm extends React.Component {
       <Card id="bmr-form" style={{backgroundColor: "lightgray"}}>
         <Card.Content extra>
         <Form>
-          <div onClick={this.props.resetForm} style={{float: "right"}}><h4>Reset <FontAwesomeIcon icon="redo-alt" size="1x"/></h4></div>
           <Form.Field>
             <Radio
               label='Imperial (Feet/Inches/Pounds)'

@@ -15,9 +15,9 @@ body{
   height: 50px;
 }
 
-#logo {
+/* #logo {
   margin-top: -18px;
-}
+} */
 
 #info-card {
   margin-top: 2%;
@@ -39,6 +39,7 @@ body{
 
 #info-card p {
   margin-bottom: 10px;
+
 }
 
 #image {
@@ -167,4 +168,13 @@ body{
 
 #email-modal{
   margin: 0 auto;
+}
+
+#logo{
+  font-family: 'Lalezar', cursive;
+  margin-top: 5px;
+  font-size: 35px;
+  margin-left: 20px;
+  float: left;
+  font-weight: lighter;
 }

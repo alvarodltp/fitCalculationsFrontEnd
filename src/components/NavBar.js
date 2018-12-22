@@ -6,7 +6,7 @@ class NavBar extends React.Component {
   render(){
     return(
       <div id="navbar">
-        <Image id= "logo" size='small' src='https://www.dropbox.com/s/7yal793dwl4936f/Logo_NUBOD-04.png?raw=1'></Image>
+        <h1 id="logo">Fit Calculations</h1>
       </div>
     )
   }
