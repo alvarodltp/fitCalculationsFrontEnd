@@ -32,7 +32,16 @@ class CalculationsContainer extends React.Component {
       activityLevelText: "",
       bodyType: "",
       user: null,
-      stats: null
+      stats: null,
+      buttonDisabled: true
+    }
+  }
+
+  enableButton = (e) => {
+    if(this.state.gender != "" && this.state.age != "" && this.state.weightLb != "" && this.state.feet != "" && this.state.inches != "" && this.state.activityLevel != null){
+      this.setState({
+        buttonDisabled: false
+      })
     }
   }
 
@@ -294,7 +303,7 @@ updateStats = (bodyType, protein, carbs, fats) => {
       <React.Fragment>
         <NutritionPackageDetails />
         <ProgressExampleProgressRatio stepNumber={this.props.stepNumber}/>
-        {this.props.stepNumber === 1 ? <UserInfoForm saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
+        {this.props.stepNumber === 1 ? <UserInfoForm enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
         {this.props.stepNumber === 3 ? <BmrCalorieResults height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
         {this.props.stepNumber === 2 ? <PersonalizedMacros updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
         { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
