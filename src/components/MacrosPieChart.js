@@ -59,7 +59,9 @@ class MacrosPieChart extends React.Component {
              <p>
                Enter your email address.
              </p>
-           <Input onChange={this.props.getEmail} iconPosition='left' placeholder='Email'>
+             {this.props.errorMessage === true ?
+             <p>Invalid Email</p> : null}
+           <Input onChange={(e) => {this.props.getEmail(e); this.props.validateEmail(e)}} iconPosition='left' placeholder='Email'>
              <Icon name='at' />
              <input />
            </Input>
@@ -68,7 +70,7 @@ class MacrosPieChart extends React.Component {
            <Button onClick={this.props.handleClose} basic color='red' inverted>
              <Icon name='remove' /> Cancel
            </Button>
-           <Button onClick={() => {this.props.saveEmailToUser(); this.props.handleClose()}} color='green' inverted>
+           <Button disabled={this.props.submitButtonDisabled} onClick={this.props.saveEmailToUser} color='green' inverted>
              <Icon name='checkmark' /> Send
            </Button>
          </Modal.Actions>

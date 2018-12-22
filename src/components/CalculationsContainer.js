@@ -36,7 +36,9 @@ class CalculationsContainer extends React.Component {
       buttonDisabled: true,
       email: "",
       modalOpen: false,
-      emailValid: ""
+      emailValid: "",
+      errorMessage: false,
+      submitButtonDisabled: true
     }
   }
 
@@ -312,15 +314,19 @@ updateStats = (bodyType, protein, carbs, fats) => {
     })
 }
 
-validateEmail = (email) => {
+validateEmail = (e) => {
+  console.log(e.target.value)
+  let email = e.target.value
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   this.setState({
-    emailValid: re.test(email)
+    emailValid: re.test(email),
+    submitButtonDisabled: !re.test(email)
   })
 }
 
 saveEmailToUser = () => {
   let userId = this.state.user["id"]
+  if(this.state.emailValid === true) {
   fetch(`http://localhost:3001/users/${userId}`, {
       method: "PATCH",
       headers: {
@@ -333,7 +339,12 @@ saveEmailToUser = () => {
     }).then(response =>response.json())
     .then(response => {
       console.log(response)
+    }, () => this.handleClose())
+  } else {
+    this.setState({
+      errorMessage: true
     })
+  }
 }
 
 
@@ -345,7 +356,7 @@ saveEmailToUser = () => {
         {this.props.stepNumber === 1 ? <UserInfoForm enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
         {this.props.stepNumber === 3 ? <BmrCalorieResults height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
         {this.props.stepNumber === 2 ? <PersonalizedMacros updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
-        { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose} saveEmailToUser={this.saveEmailToUser} getEmail={this.getEmail} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
+        { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} errorMessage={this.errorMessage} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose} saveEmailToUser={this.saveEmailToUser} getEmail={this.getEmail} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
       </React.Fragment>
     )
   }
