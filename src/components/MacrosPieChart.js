@@ -1,6 +1,6 @@
 import React from 'react';
 import {Pie} from 'react-chartjs-2';
-import { Button, Header, Icon, Modal, Card, Grid, Input } from 'semantic-ui-react'
+import { Button, Header, Icon, Modal, Card, Grid, Input, Popup } from 'semantic-ui-react'
 
 
 class MacrosPieChart extends React.Component {
@@ -28,7 +28,7 @@ class MacrosPieChart extends React.Component {
 
     return (
       <Card centered id="macros-card">
-        <h1 id="macros-title">Personalized Macronutrient Needs</h1>
+        <h1 id="macros-title">Personalized Macronutrients</h1>
         <Grid id="macros-grid" columns="two">
           <Grid.Row>
             <Grid.Column id="pie-chart">
