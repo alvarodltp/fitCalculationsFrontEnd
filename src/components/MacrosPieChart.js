@@ -48,7 +48,6 @@ class MacrosPieChart extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-
           <Modal id="email-modal"
           open={this.props.modalOpen}
           trigger={<Button onClick={this.props.handleOpen} id="macros-button">Get Complete PDF Report</Button>}
@@ -59,8 +58,6 @@ class MacrosPieChart extends React.Component {
              <p>
                Enter your email address.
              </p>
-             {this.props.errorMessage === true ?
-             <p>Invalid Email</p> : null}
            <Input onChange={(e) => {this.props.getEmail(e); this.props.validateEmail(e)}} iconPosition='left' placeholder='Email'>
              <Icon name='at' />
              <input />
@@ -70,7 +67,7 @@ class MacrosPieChart extends React.Component {
            <Button onClick={this.props.handleClose} basic color='red' inverted>
              <Icon name='remove' /> Cancel
            </Button>
-           <Button disabled={this.props.submitButtonDisabled} onClick={this.props.saveEmailToUser} color='green' inverted>
+           <Button disabled={this.props.submitButtonDisabled} onClick={() => {this.props.saveEmailToUser(); this.props.handleClose()}} color='green' inverted>
              <Icon name='checkmark' /> Send
            </Button>
          </Modal.Actions>
