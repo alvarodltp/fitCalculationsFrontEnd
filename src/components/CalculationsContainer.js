@@ -134,7 +134,6 @@ class CalculationsContainer extends React.Component {
 }
 
 resetForm = () => {
-  console.log("reseting")
   this.setState({
     name: "",
     gender: "",
@@ -178,7 +177,7 @@ calculateMacros = (e) => {
     protein: protein,
     fats: fats,
     carbs: carbs
-  }, () => this.showMacrosChart(), this.updateUser(bodyType))
+  }, () => this.showMacrosChart(), this.updateUser(bodyType, protein, carbs, fats))
 }
 
 saveUser = () => {
@@ -211,7 +210,8 @@ saveUser = () => {
     })
 }
 
-updateUser = (bodyType) => {
+updateUser = (bodyType, protein, carbs, fats) => {
+  console.log(bodyType)
   let userId = this.state.user["id"]
   fetch(`http://localhost:3001/users/${userId}`, {
       method: "PATCH",
@@ -221,23 +221,19 @@ updateUser = (bodyType) => {
       },
       body: JSON.stringify({
         user: {
-          email: "",
           gender: this.state.gender,
           age: this.state.age,
           activity_level: this.state.activityLevelText,
           goal: this.state.goal,
           body_type: bodyType,
-          weight_in_kg: "",
           weight_in_lb: this.state.weightLb,
-          height_in_cm: "",
           height_in_feet: this.state.feet,
-          height_in_inches: this.state.inches,
-          bodyType: this.state.bodyType
+          height_in_inches: this.state.inches
         }
       })
     }).then(response =>response.json())
     .then(response => {
-    }, this.updateStats())
+    }, this.updateStats(bodyType, protein, carbs, fats))
 }
 
 saveStats = (user) => {
@@ -254,13 +250,7 @@ saveStats = (user) => {
       date: formatedDate,
       calories_to_maintain: this.state.caloriesToMaintain,
       calories_for_goal: this.state.caloriesForGoal,
-      bmr: this.state.bmr,
-      protein_grams: "",
-      carb_grams: "",
-      fat_grams: "",
-      protein_percentage: "",
-      carb_percentage: "",
-      fat_percentage: ""
+      bmr: this.state.bmr
       })
     }).then(response => response.json())
     .then(json => {
@@ -271,10 +261,11 @@ saveStats = (user) => {
     })
 }
 
-updateStats = () => {
+updateStats = (bodyType, protein, carbs, fats) => {
+  let today = new Date()
+  let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
   let userId = this.state.user["id"]
   let statsId = this.state.stats["id"]
-  debugger
   fetch(`http://localhost:3001/stats/${statsId}`, {
       method: "PATCH",
       headers: {
@@ -282,15 +273,14 @@ updateStats = () => {
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        user: {
-          user_id: statsId,
+          user_id: userId,
           calories_to_maintain: this.state.caloriesToMaintain,
           calories_for_goal: this.state.caloriesForGoal,
           bmr: this.state.bmr,
-          protein_grams: this.state.protein,
-          carb_grams: this.state.carbs,
-          fat_grams: this.state.fats
-        }
+          protein_grams: protein,
+          carb_grams: carbs,
+          fat_grams: fats,
+          date: formatedDate
       })
     }).then(response =>response.json())
     .then(response => {
