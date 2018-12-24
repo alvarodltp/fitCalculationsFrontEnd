@@ -12,8 +12,6 @@ import { BrowserRouter, Route } from 'react-router-dom'
 library.add(faIgloo)
 library.add(fas)
 
-
-
 class App extends React.Component {
   constructor(){
     super()
@@ -28,11 +26,16 @@ class App extends React.Component {
     })
   }
 
+scrollToTop = () => {
+ window.scrollTo(0, 0)
+}
+
+
   render() {
     return (
       <div className="App">
         <NavBar /><br/><br/><br/><br/>
-        <Route exact path="/nutrition-package-calculation" render={props => <CalculationsContainer {...props} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/nutrition-package-calculation" render={props => <CalculationsContainer {...props} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Footer />
       </div>
     );

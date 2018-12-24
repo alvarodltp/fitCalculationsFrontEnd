@@ -49,7 +49,7 @@ class UserInfoForm extends React.Component {
           <Form.Select onChange={(e) => {this.props.getInches(e); this.props.enableButton(e)}} options={inchesOptions} name='heightInches' label='Height (Inches)' placeholder='Inches...' />
           <Form.Select onChange={(e) => {this.props.getActivityLevel(e); this.props.enableButton(e)}} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
           <Form.Select onChange={(e) => {this.props.getGoal(e); this.props.enableButton(e)}} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." /><br/>
-          <Button disabled={this.props.buttonDisabled} id="button" style={{width: "100%"}} onClick={() => {this.props.calculateBmr(this.state.value); this.props.addOneToStep(); this.props.calculateCalories(); this.props.saveUser()}} type="submit">
+          <Button disabled={this.props.buttonDisabled} id="button" style={{width: "100%"}} onClick={() => {this.props.calculateBmr(this.state.value); this.props.addOneToStep(); this.props.calculateCalories(); this.props.saveUser(); this.props.scrollToTop()}} type="submit">
             Step 2 - Select Body Type <Icon name="right arrow" />
           </Button>
         </Form>
