@@ -6,8 +6,7 @@ class Footer extends React.Component {
     return(
       <div id="footer" className="ui vertical footer segment form-page">
         <div id="footer-content">
-          <p>2018 Fit Calculations - All rights reserved</p>
-          <Modal trigger={<p>Privacy Policy</p>}>
+          <Modal trigger={<p style={{fontWeight: "bold"}}>Privacy Policy</p>}>
             <Modal.Header>Privacy Policy</Modal.Header>
             <Modal.Content>
               <Modal.Description>
@@ -24,7 +23,8 @@ class Footer extends React.Component {
               </Modal.Description>
             </Modal.Content>
           </Modal>
-          <Modal trigger={<p>Disclaimer</p>}>
+          <p style={{fontWeight: "bold"}}>2018 Fit Calculations</p>
+          <Modal trigger={<p style={{fontWeight: "bold"}}>Disclaimer</p>}>
             <Modal.Header>Disclaimer</Modal.Header>
             <Modal.Content>
               <Modal.Description>

@@ -173,10 +173,11 @@ body{
 #logo{
   font-family: 'Lalezar', cursive;
   margin-top: 5px;
-  font-size: 35px;
+  font-size: 25px;
   margin-left: 20px;
   float: left;
   font-weight: lighter;
+  margin-top: 12px;
 }
 
 #nutrition-package-header{
