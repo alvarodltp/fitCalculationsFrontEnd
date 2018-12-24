@@ -8,6 +8,7 @@ import { Button } from 'semantic-ui-react'
 import ProgressExampleProgressRatio from './Progress'
 import NutritionPackageDetails from './NutritionPackageDetails'
 import swal from 'sweetalert'
+import NutritionPackageHeader from './NutritionPackageHeader'
 
 class CalculationsContainer extends React.Component {
   constructor(){
@@ -344,6 +345,7 @@ saveEmailToUser = () => {
   render(){
     return(
       <React.Fragment>
+        <NutritionPackageHeader />
         <NutritionPackageDetails />
         <ProgressExampleProgressRatio stepNumber={this.props.stepNumber}/>
         {this.props.stepNumber === 1 ? <UserInfoForm scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
