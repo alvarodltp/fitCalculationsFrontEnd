@@ -279,7 +279,6 @@ saveStats = (user) => {
       })
     }).then(response => response.json())
     .then(json => {
-      console.log(json)
       this.setState({
         stats: json
       })
@@ -287,6 +286,7 @@ saveStats = (user) => {
 }
 
 updateStats = (bodyType, protein, carbs, fats) => {
+  debugger
   let today = new Date()
   let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
   let userId = this.state.user["id"]
