@@ -4,15 +4,8 @@ import NavBar from './NavBar'
 import AppIntro from './AppIntro'
 import CalculationsContainer from './CalculationsContainer'
 import Footer from './Footer'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faIgloo } from '@fortawesome/free-solid-svg-icons'
-import { fas } from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter, Route } from 'react-router-dom'
 import NutritionPackageHeader from './NutritionPackageHeader'
-library.add(faIgloo)
-library.add(fas)
-
 
 class App extends React.Component {
   constructor(){
