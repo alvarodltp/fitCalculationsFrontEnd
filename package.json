@@ -35,5 +35,9 @@
   ],
   "devDependencies": {
     "@fortawesome/fontawesome-pro": "^5.6.1"
+  },
+  "engines": {
+    "node": "11.2.0",
+    "npm": "6.4.1"
   }
 }
