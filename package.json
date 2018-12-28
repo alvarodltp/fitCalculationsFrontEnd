@@ -2,6 +2,10 @@
   "name": "fitcalculationsfrontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "11.2.0",
+    "npm": "6.4.1"
+  },
   "dependencies": {
     "chart.js": "^2.7.3",
     "formsy-react": "^1.1.5",
@@ -29,9 +33,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "engines": {
-    "node": "11.2.0",
-    "npm": "6.4.1"
-  }
+  ]
 }
