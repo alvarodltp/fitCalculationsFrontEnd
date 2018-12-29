@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image} from 'semantic-ui-react'
+import {Image, Icon} from 'semantic-ui-react'
 
 
 class NavBar extends React.Component {
