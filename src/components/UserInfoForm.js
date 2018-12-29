@@ -1,7 +1,6 @@
 import React from 'react'
 import { Form, Card, Button, Radio, Icon } from 'semantic-ui-react'
 // import {Form, Input, Select, Label} from 'formsy-semantic-ui-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class UserInfoForm extends React.Component {
   constructor(){
