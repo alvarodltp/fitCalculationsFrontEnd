@@ -28,7 +28,7 @@ class MacrosPieChart extends React.Component {
 
     return (
       <Card centered id="macros-card">
-        <h1 id="macros-title">Personalized Macronutrients</h1>
+        <h2 id="macros-title">Daily Macronutrients Needs</h2>
         <Grid id="macros-grid" columns="two">
           <Grid.Row>
             <Grid.Column id="pie-chart">
@@ -42,15 +42,15 @@ class MacrosPieChart extends React.Component {
                />
             </Grid.Column>
             <Grid.Column id="macros-numbers">
-              <h3 style={{color: "green"}}>{this.props.protein}g Protein</h3>
-              <h3 style={{color: "green"}}>{this.props.carbs}g of Carbs</h3>
-              <h3 style={{color: "green"}}>{this.props.fats}g of Fats</h3>
+              <h3 style={{color: "green", fontStyle: "italic"}}>{this.props.protein}g Protein</h3>
+              <h3 style={{color: "green", fontStyle: "italic"}}>{this.props.carbs}g of Carbs</h3>
+              <h3 style={{color: "green", fontStyle: "italic"}}>{this.props.fats}g of Fats</h3>
             </Grid.Column>
           </Grid.Row>
         </Grid>
           <Modal id="email-modal"
           open={this.props.modalOpen}
-          trigger={<Button onClick={this.props.handleOpen} id="macros-button">Get Complete PDF Report</Button>}
+          trigger={<Button onClick={this.props.handleOpen} id="macros-button">Understand How To Use Your Results</Button>}
           basic
           size='small'>
           <Header icon='mail' content='Get a Complete Personalized Report' />
