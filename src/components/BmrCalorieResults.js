@@ -6,12 +6,10 @@ class BmrCalorieResults extends React.Component {
     return(
       <div>
         <Card id="bmr-results">
-            <h1>BMR(Basal Metabolic Rate)</h1>
             <Card.Description></Card.Description>
-            <h1 style={{color: "green"}}>{this.props.bmr}</h1>
-            <h1>Calories To Accomplish Goal</h1>
+            <h3>Your BMR (Basal Metabolic Rate) is</h3><h3 style={{color: "green", fontStyle: "italic"}}>{this.props.bmr}.</h3>
+            <h3>You need</h3><h3 style={{color: "green", fontStyle: "italic"}}>{this.props.caloriesForGoal}</h3><h3>daily calories in order to {this.props.goal}.</h3>
             <Card.Description></Card.Description>
-            <h1 style={{color: "green"}}>{this.props.caloriesForGoal}</h1>
         </Card>
       </div>
     )
