@@ -30,7 +30,7 @@ scrollToTop = () => {
     return (
       <div className="App">
         <NavBar /><br/><br/><br/><br/>
-        <Route exact path="/nutrition-package-calculation" render={props => <CalculationsContainer {...props} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/bmr-calories-macros" render={props => <CalculationsContainer {...props} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Footer />
       </div>
     );
