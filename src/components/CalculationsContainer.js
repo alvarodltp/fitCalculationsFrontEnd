@@ -164,7 +164,6 @@ calculateMacros = (e) => {
   let fats;
   let carbs;
   let bodyType = e.target.parentElement.getElementsByClassName("header")[0].innerText
-  console.log(bodyType)
   if(bodyType === "Ectomorph"){
     protein = Math.round(this.state.caloriesForGoal * .25 / 4)
     carbs = Math.round(this.state.caloriesForGoal * .55 / 4)
@@ -177,7 +176,7 @@ calculateMacros = (e) => {
     protein = Math.round(this.state.caloriesForGoal * .35 / 4)
     carbs = Math.round(this.state.caloriesForGoal * .25 / 4)
     fats = Math.round(this.state.caloriesForGoal * .40 / 9)
-  }
+  } 
   this.setState({
     bodyType: bodyType,
     protein: protein,
