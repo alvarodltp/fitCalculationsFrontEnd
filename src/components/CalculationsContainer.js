@@ -216,10 +216,8 @@ saveUser = () => {
 }
 
 updateUser = (bodyType, protein, carbs, fats) => {
-  console.log(bodyType, protein, carbs, fats)
   let userId = this.state.user["id"]
-  console.log(userId)
-  fetch(`https://fitcalculations-api.herokuapp.com//users/${userId}`, {
+  fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -239,13 +237,13 @@ updateUser = (bodyType, protein, carbs, fats) => {
       })
     }).then(response =>response.json())
     .then(response => {
-    }, () => this.updateStats(bodyType, protein, carbs, fats))
+    }, this.updateStats(bodyType, protein, carbs, fats))
 }
 
 saveStats = (user) => {
   let today = new Date()
   // let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
-  fetch("https://fitcalculations-api.herokuapp.com//stats", {
+  fetch("https://fitcalculations-api.herokuapp.com/stats", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -267,28 +265,20 @@ saveStats = (user) => {
 }
 
 updateStats = (bodyType, protein, carbs, fats) => {
-  debugger
-  let today = new Date()
-  let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
-  let userId = this.state.user["id"]
+console.log(protein)
   let statsId = this.state.stats["id"]
-  fetch(`https://fitcalculations-api.herokuapp.com//stats/${statsId}`, {
+  fetch(`https://fitcalculations-api.herokuapp.com/stats/${statsId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-          user_id: userId,
-          calories_to_maintain: this.state.caloriesToMaintain,
-          calories_for_goal: this.state.caloriesForGoal,
-          bmr: this.state.bmr,
           protein_grams: protein,
           carb_grams: carbs,
-          fat_grams: fats,
-          date: formatedDate
+          fat_grams: fats
       })
-    }).then(response =>response.json())
+    }).then(response => response.json())
     .then(response => {
       console.log(response)
     })
