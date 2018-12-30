@@ -209,7 +209,6 @@ saveUser = () => {
       })
     }).then(response => response.json())
     .then(json => {
-      console.log(json)
       this.setState({
         user: json
       }, this.saveStats(json))
@@ -217,7 +216,9 @@ saveUser = () => {
 }
 
 updateUser = (bodyType, protein, carbs, fats) => {
+  console.log(bodyType, protein, carbs, fats)
   let userId = this.state.user["id"]
+  console.log(userId)
   fetch(`https://fitcalculations-api.herokuapp.com//users/${userId}`, {
       method: "PATCH",
       headers: {
@@ -243,7 +244,7 @@ updateUser = (bodyType, protein, carbs, fats) => {
 
 saveStats = (user) => {
   let today = new Date()
-  let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
+  // let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
   fetch("https://fitcalculations-api.herokuapp.com//stats", {
     method: 'POST',
     headers: {
@@ -252,7 +253,7 @@ saveStats = (user) => {
     },
     body: JSON.stringify({
       user_id: user.id,
-      date: formatedDate,
+      date: new Date(),
       calories_to_maintain: this.state.caloriesToMaintain,
       calories_for_goal: this.state.caloriesForGoal,
       bmr: this.state.bmr
