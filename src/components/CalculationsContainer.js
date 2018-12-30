@@ -136,15 +136,15 @@ class CalculationsContainer extends React.Component {
     }
     this.setState({
       bmr: bmr
-    }, () => this.calculateCalories())
+    }, () => this.calculateCalories(bmr))
   }
 
-  calculateCalories = () => {
+  calculateCalories = (bmr) => {
+  console.log(`Bmr = ${bmr}`)
   let activityLevel = this.state.activityLevel
-  let currentBmr = this.state.bmr
   let goal = this.state.goal
   let caloriesToMaintain;
-  currentBmr != "" && activityLevel != null ? caloriesToMaintain = Math.round(currentBmr * activityLevel["value"]) : caloriesToMaintain = null
+  bmr != "" && activityLevel != null ? caloriesToMaintain = Math.round(bmr * activityLevel["value"]) : caloriesToMaintain = null
   let caloriesForGoal;
   if(goal === "Lose Weight") {
     caloriesForGoal = caloriesToMaintain - 300
@@ -159,33 +159,12 @@ class CalculationsContainer extends React.Component {
   })
 }
 
-resetForm = () => {
-  this.setState({
-    name: "",
-    gender: "",
-    weightKg: "",
-    weightLb: "",
-    heightCm: "",
-    heightFeet: "",
-    age: "",
-    activityLevel: "",
-    goal: "",
-    bmr: "",
-    caloriesForGoal: "",
-    caloriesToMaintain: "",
-    feet: "",
-    inches: "",
-    bodyType: "",
-    resetForm: !this.state.resetForm,
-    modalOpen: false
-  })
-}
-
 calculateMacros = (e) => {
   let protein;
   let fats;
   let carbs;
   let bodyType = e.target.parentElement.getElementsByClassName("header")[0].innerText
+  console.log(bodyType)
   if(bodyType === "Ectomorph"){
     protein = Math.round(this.state.caloriesForGoal * .25 / 4)
     carbs = Math.round(this.state.caloriesForGoal * .55 / 4)
@@ -209,7 +188,7 @@ calculateMacros = (e) => {
 
 saveUser = () => {
   // debugger
-  fetch("http://fitcalculations-api.herokuapp.com/users", {
+  fetch("https://fitcalculations-api.herokuapp.com/users", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
