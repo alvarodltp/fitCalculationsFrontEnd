@@ -1,3 +1,4 @@
+// import ReactGA from 'react-ga';
 import React from 'react';
 import {Pie} from 'react-chartjs-2';
 import { Button, Header, Icon, Modal, Card, Grid, Input, Popup } from 'semantic-ui-react'
@@ -50,7 +51,7 @@ class MacrosPieChart extends React.Component {
         </Grid>
           <Modal id="email-modal"
           open={this.props.modalOpen}
-          trigger={<Button onClick={this.props.handleOpen} id="macros-button">Understand How To Use Your Results</Button>}
+          trigger={<Button onClick={() => {this.props.handleOpen(); window.ga('send', {eventCategory: 'Using Your Results Button', eventAction: 'Click', eventLabel: 'Button To Open Modal'})}} id="macros-button">Understand How To Use Your Results</Button>}
           basic
           size='small'>
           <Header icon='mail' content='Get a Complete Personalized Report' />
