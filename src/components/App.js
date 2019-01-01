@@ -16,9 +16,18 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount() {
-    ReactGA.initialize('UA-131459392-1');
-    ReactGA.pageview('/homepage');
+componentDidMount() {
+  this.initGA()
+  this.logPageView()
+}
+
+initGA = () => {
+  ReactGA.initialize('UA-131459392-1');
+}
+
+logPageView = () => {
+  ReactGA.set({ page: window.location.pathname })
+  ReactGA.pageview(window.location.pathname);
 }
 
   addOneToStep = () => {
