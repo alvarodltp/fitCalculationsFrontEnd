@@ -6,7 +6,8 @@ import { Button, Header, Icon, Modal, Card, Grid, Input, Popup } from 'semantic-
 
 class MacrosPieChart extends React.Component {
 
-  trackEvent = () => {
+  sendEvent = (e) => {
+    e.preventDefault();
     ReactGA.event({
       category: 'Understand Your Results',
       action: 'Click'
@@ -59,7 +60,7 @@ class MacrosPieChart extends React.Component {
         </Grid>
           <Modal id="email-modal"
           open={this.props.modalOpen}
-          trigger={<Button onClick={ () => {this.props.handleOpen(); this.trackEvent()}} id="macros-button">Understand How To Use Your Results</Button>}
+          trigger={<Button onClick={ (e) => {this.props.handleOpen(); this.sendEvent(e)}} id="macros-button">Understand How To Use Your Results</Button>}
           basic
           size='small'>
           <Header icon='mail' content='Get a Complete Personalized Report' />
