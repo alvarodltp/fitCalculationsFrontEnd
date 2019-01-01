@@ -1,3 +1,4 @@
+import ReactGA from 'react-ga';
 import React from 'react';
 import '../App.css';
 import NavBar from './NavBar'
@@ -14,6 +15,11 @@ class App extends React.Component {
       stepNumber: 1
     }
   }
+
+  componentDidMount() {
+    ReactGA.initialize('UA-131459392-1');
+    ReactGA.pageview('/homepage');
+}
 
   addOneToStep = () => {
     this.setState({
