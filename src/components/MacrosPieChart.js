@@ -6,11 +6,33 @@ import { Button, Header, Icon, Modal, Card, Grid, Input, Popup } from 'semantic-
 
 class MacrosPieChart extends React.Component {
 
-  sendEvent = (e) => {
-    e.preventDefault();
+  sendEmail = () => {
+    // debugger
+    fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        service_id: 'default_service',
+        template_id: 'template_bLD8XqyE',
+        user_id: 'user_fFb7UZUUUS7jEGG8aJVSb',
+        template_params: {
+         "reply_to": "alvarodltp@gmail.com",
+         "from_name": "Fit Calculations",
+         "name": "Alvaro",
+         "to_name": "contact@alvarofitness.com",
+         "message_html": "This is a test."
+       }
+     })
+    })
+  }
+
+  getEvent = () => {
     ReactGA.event({
-      category: 'Understand Your Results',
-      action: 'Click'
+    category: 'Click',
+    action: 'Understand How To Use Your Results'
     })
   }
 
@@ -60,14 +82,18 @@ class MacrosPieChart extends React.Component {
         </Grid>
           <Modal id="email-modal"
           open={this.props.modalOpen}
-          trigger={<Button onClick={ (e) => {this.props.handleOpen(); this.sendEvent(e)}} id="macros-button">Understand How To Use Your Results</Button>}
+          trigger={<Button onClick={ (e) => {this.props.handleOpen(); this.sendEmail(); this.getEvent()}} id="macros-button">Understand How To Use Your Results</Button>}
           basic
           size='small'>
           <Header icon='mail' content='Get a Complete Personalized Report' />
            <Modal.Content>
              <p>
-               Enter your email address.
+               Enter your name and email address.
              </p>
+           <Input iconPosition='left' placeholder='Name'>
+             <Icon name='at' />
+             <input />
+           </Input>
            <Input onChange={(e) => {this.props.getEmail(e); this.props.validateEmail(e)}} iconPosition='left' placeholder='Email'>
              <Icon name='at' />
              <input />
