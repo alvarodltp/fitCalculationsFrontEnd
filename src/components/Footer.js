@@ -1,12 +1,23 @@
 import React from 'react'
-import { Modal } from 'semantic-ui-react'
+import { Modal, Icon, Button } from 'semantic-ui-react'
 
 class Footer extends React.Component {
+  constructor(){
+    super()
+    this.state={
+      modalOpen: false
+    }
+  }
+
+  handleOpen = () => this.setState({ modalOpen: true })
+
+  handleClose = () => this.setState({ modalOpen: false })
+
   render(){
     return(
       <div id="footer" className="ui vertical footer segment form-page">
         <div id="footer-content">
-          <Modal trigger={<p style={{fontWeight: "bold"}}>Privacy Policy</p>}>
+          <Modal open={this.state.modalOpen} id="footer-modal" trigger={<p style={{fontWeight: "bold"}} onClick={this.handleOpen}>Privacy Policy</p>}>
             <Modal.Header>Privacy Policy</Modal.Header>
             <Modal.Content>
               <Modal.Description>
@@ -22,9 +33,14 @@ class Footer extends React.Component {
                 </p>
               </Modal.Description>
             </Modal.Content>
+            <Modal.Actions>
+              <Button color='green' onClick={this.handleClose} inverted>
+                <Icon name='checkmark' /> Got it
+              </Button>
+            </Modal.Actions>
           </Modal>
           <p style={{fontWeight: "bold"}}>2018 Fit Calculations</p>
-          <Modal trigger={<p style={{fontWeight: "bold"}}>Disclaimer</p>}>
+          <Modal open={this.state.modalOpen} trigger={<p style={{fontWeight: "bold"}} onClick={this.handleOpen}>Disclaimer</p>}>
             <Modal.Header>Disclaimer</Modal.Header>
             <Modal.Content>
               <Modal.Description>
@@ -38,6 +54,11 @@ class Footer extends React.Component {
                 </p>
               </Modal.Description>
             </Modal.Content>
+            <Modal.Actions>
+              <Button color='green' onClick={this.handleClose} inverted>
+                <Icon name='checkmark' /> Got it
+              </Button>
+            </Modal.Actions>
           </Modal>
         </div>
        </div>

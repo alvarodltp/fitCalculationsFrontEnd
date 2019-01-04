@@ -22,7 +22,7 @@ class MacrosPieChart extends React.Component {
          "reply_to": "alvarodltp@gmail.com",
          "from_name": "Fit Calculations",
          "name": "Alvaro",
-         "to_name": "contact@alvarofitness.com",
+         "to_name": "alvarodltp@gmail.com",
          "message_html": "This is a test."
        }
      })
