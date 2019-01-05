@@ -15,6 +15,7 @@ class CalculationsContainer extends React.Component {
   constructor(){
     super()
     this.state={
+      name: "",
       gender: "",
       weightKg: "",
       weightLb: "",
@@ -98,6 +99,13 @@ class CalculationsContainer extends React.Component {
     })
   }
 
+  getName = (e) => {
+    console.log(e.target.value)
+    this.setState({
+      name: e.target.value
+    })
+  }
+
   getActivityLevel = (e) => {
     let activityLevel = e.target.innerText
     let activityLevelValue;
@@ -176,7 +184,7 @@ calculateMacros = (e) => {
     protein = Math.round(this.state.caloriesForGoal * .35 / 4)
     carbs = Math.round(this.state.caloriesForGoal * .25 / 4)
     fats = Math.round(this.state.caloriesForGoal * .40 / 9)
-  } 
+  }
   this.setState({
     bodyType: bodyType,
     protein: protein,
@@ -194,6 +202,7 @@ saveUser = () => {
       'Accept': 'application/json'
     },
     body: JSON.stringify({
+      name: "",
       email: "",
       gender: this.state.gender,
       age: this.state.age,
@@ -264,7 +273,6 @@ saveStats = (user) => {
 }
 
 updateStats = (bodyType, protein, carbs, fats) => {
-console.log(protein)
   let statsId = this.state.stats["id"]
   fetch(`https://fitcalculations-api.herokuapp.com/stats/${statsId}`, {
       method: "PATCH",
@@ -279,7 +287,6 @@ console.log(protein)
       })
     }).then(response => response.json())
     .then(response => {
-      console.log(response)
     })
 }
 
@@ -302,6 +309,7 @@ saveEmailToUser = () => {
         'Accept': 'application/json'
       },
       body: JSON.stringify({
+        name: this.state.name,
         email: this.state.email
       })
     }).then(response =>response.json())
@@ -330,11 +338,11 @@ saveEmailToUser = () => {
           {this.props.stepNumber === 1 ? <UserInfoForm scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
           {this.props.stepNumber === 3 ?
             <div>
-              <h2 id="section-title">Congratulations! Here are your personalized results. <Icon style={{color: "#7CFC00"}} name='check' /></h2>
+              <h1 id="section-title">Congratulations! Here are your personalized results. <Icon style={{color: "#7CFC00"}} name='check' /></h1>
             </div> : null }
           {this.props.stepNumber === 3 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
           {this.props.stepNumber === 2 ? <PersonalizedMacros scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
-          { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose} saveEmailToUser={this.saveEmailToUser} getEmail={this.getEmail} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
+          { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart getName={this.getName} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose} saveEmailToUser={this.saveEmailToUser} getEmail={this.getEmail} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
       </React.Fragment>
     )
   }

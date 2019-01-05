@@ -34,7 +34,7 @@ class NutritionPackageDetails extends React.Component {
     return (
       <React.Fragment>
       <div id="nutrition-package-intro">
-        <h2 id="section-title">BMR, Calories, and Macronutrients Calculator</h2>
+        <h1 id="section-title">BMR, Calories, and Macronutrients Calculator</h1>
       </div>
       <div id="nutrition-package-intro">
       <h3 id="section-title"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/> Who is this calculation for? </h3>

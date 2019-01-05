@@ -90,8 +90,7 @@ class MacrosPieChart extends React.Component {
              <p>
                Enter your name and email address.
              </p>
-           <Input iconPosition='left' placeholder='Name'>
-             <Icon name='at' />
+           <Input onChange={this.props.getName} placeholder='Name'>
              <input />
            </Input>
            <Input onChange={(e) => {this.props.getEmail(e); this.props.validateEmail(e)}} iconPosition='left' placeholder='Email'>
