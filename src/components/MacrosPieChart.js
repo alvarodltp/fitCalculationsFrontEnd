@@ -6,7 +6,7 @@ import { Button, Header, Icon, Modal, Card, Grid, Input, Popup } from 'semantic-
 class MacrosPieChart extends React.Component {
 
   sendEmail = () => {
-    // debugger
+    console.log(this.props.email)
     fetch("https://api.emailjs.com/api/v1.0/email/send", {
       method: 'POST',
       headers: {
