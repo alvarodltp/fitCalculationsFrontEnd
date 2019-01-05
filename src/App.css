@@ -139,7 +139,7 @@ body{
 
 #progress-bar {
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 65px;
   width: 85%;
 }
 
@@ -197,4 +197,17 @@ body{
   font-style: italic;
   margin-bottom: 15px;
   margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#share-buttons-mobile {
+  text-align: center!important;
+}
+
+#share-buttons-desktop {
+  display:inline-flex;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
 }

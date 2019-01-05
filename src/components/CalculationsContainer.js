@@ -10,6 +10,13 @@ import NutritionPackageDetails from './NutritionPackageDetails'
 import swal from 'sweetalert'
 import NutritionPackageHeader from './NutritionPackageHeader'
 import {Icon} from 'semantic-ui-react';
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
+import ShareButtonsMobile from './ShareButtons'
 
 class CalculationsContainer extends React.Component {
   constructor(){
@@ -338,6 +345,9 @@ saveEmailToUser = () => {
           {this.props.stepNumber === 3 ?
             <div>
               <h1 id="section-title">Congratulations! Here are your personalized results. <Icon style={{color: "#7CFC00"}} name='check' /></h1>
+              <MobileView>
+                <ShareButtonsMobile/>
+              </MobileView>
             </div> : null }
           {this.props.stepNumber === 3 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
           {this.props.stepNumber === 2 ? <PersonalizedMacros scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }

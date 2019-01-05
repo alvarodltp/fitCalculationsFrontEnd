@@ -3,7 +3,6 @@ import React from 'react';
 import {Pie} from 'react-chartjs-2';
 import { Button, Header, Icon, Modal, Card, Grid, Input, Popup } from 'semantic-ui-react'
 
-
 class MacrosPieChart extends React.Component {
 
   sendEmail = () => {
@@ -23,7 +22,7 @@ class MacrosPieChart extends React.Component {
          "from_name": "Fit Calculations",
          "name": this.props.name,
          "to_name": "alvarodltp@gmail.com",
-         "message_html": "Hello",
+         "html": "<h1>testing</h1>",
          "calories": this.props.calories,
          "protein": this.props.protein,
          "carbs": this.props.carbs,
