@@ -2,6 +2,7 @@ import ReactGA from 'react-ga';
 import React from 'react';
 import {Pie} from 'react-chartjs-2';
 import { Button, Header, Icon, Modal, Card, Grid, Input, Popup } from 'semantic-ui-react'
+import Email from './Email'
 
 class MacrosPieChart extends React.Component {
 
@@ -20,15 +21,15 @@ class MacrosPieChart extends React.Component {
         template_params: {
          "reply_to": "alvarodltp@gmail.com",
          "from_name": "Fit Calculations",
-         "name": this.props.name,
+         "name": "Rachel",
          "to_name": "alvarodltp@gmail.com",
-         "html": "<h1>testing</h1>",
          "calories": this.props.calories,
          "protein": this.props.protein,
          "carbs": this.props.carbs,
          "fats": this.props.fats,
          "bodyType": this.props.bodyType,
-         "goal": this.props.goal
+         "goal": this.props.goal,
+         "bmr": this.props.bmr
        }
      })
     })
