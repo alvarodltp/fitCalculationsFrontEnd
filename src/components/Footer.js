@@ -5,19 +5,24 @@ class Footer extends React.Component {
   constructor(){
     super()
     this.state={
-      modalOpen: false
+      modalOpenDisclaimer: false,
+      modalOpenPrivacy: false
     }
   }
 
-  handleOpen = () => this.setState({ modalOpen: true })
+  handleOpenDisclaimer = () => this.setState({ modalOpenDisclaimer: true })
 
-  handleClose = () => this.setState({ modalOpen: false })
+  handleCloseDisclaimer = () => this.setState({ modalOpenDisclaimer: false })
+
+  handleOpenPrivacy = () => this.setState({ modalOpenPrivacy: true })
+
+  handleClosePrivacy = () => this.setState({ modalOpenPrivacy: false })
 
   render(){
     return(
       <div id="footer" className="ui vertical footer segment form-page">
         <div id="footer-content">
-          <Modal open={this.state.modalOpen} id="footer-modal" trigger={<p style={{fontWeight: "bold"}} onClick={this.handleOpen}>Privacy Policy</p>}>
+          <Modal open={this.state.modalOpenPrivacy} id="footer-modal" trigger={<p style={{fontWeight: "bold"}} onClick={this.handleOpenPrivacy}>Privacy Policy</p>}>
             <Modal.Header>Privacy Policy</Modal.Header>
             <Modal.Content>
               <Modal.Description>
@@ -34,13 +39,13 @@ class Footer extends React.Component {
               </Modal.Description>
             </Modal.Content>
             <Modal.Actions>
-              <Button color='green' onClick={this.handleClose} inverted>
+              <Button color='green' onClick={this.handleClosePrivacy} inverted>
                 <Icon name='checkmark' /> Got it
               </Button>
             </Modal.Actions>
           </Modal>
           <p style={{fontWeight: "bold"}}>2018 Fit Calculations</p>
-          <Modal open={this.state.modalOpen} trigger={<p style={{fontWeight: "bold"}} onClick={this.handleOpen}>Disclaimer</p>}>
+          <Modal open={this.state.modalOpenDisclaimer} trigger={<p style={{fontWeight: "bold"}} onClick={this.handleOpenDisclaimer}>Disclaimer</p>}>
             <Modal.Header>Disclaimer</Modal.Header>
             <Modal.Content>
               <Modal.Description>
@@ -55,7 +60,7 @@ class Footer extends React.Component {
               </Modal.Description>
             </Modal.Content>
             <Modal.Actions>
-              <Button color='green' onClick={this.handleClose} inverted>
+              <Button color='green' onClick={this.handleCloseDisclaimer} inverted>
                 <Icon name='checkmark' /> Got it
               </Button>
             </Modal.Actions>

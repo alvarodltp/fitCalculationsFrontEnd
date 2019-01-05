@@ -21,9 +21,14 @@ class MacrosPieChart extends React.Component {
         template_params: {
          "reply_to": "alvarodltp@gmail.com",
          "from_name": "Fit Calculations",
-         "name": "Alvaro",
+         "name": this.props.name,
          "to_name": "alvarodltp@gmail.com",
-         "message_html": "This is a test."
+         "message_html": "Hello",
+         "calories": this.props.calories,
+         "protein": this.props.protein,
+         "carbs": this.props.carbs,
+         "fats": this.props.fats,
+         "bodyType": this.props.bodyType
        }
      })
     })
