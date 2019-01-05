@@ -28,7 +28,8 @@ class MacrosPieChart extends React.Component {
          "protein": this.props.protein,
          "carbs": this.props.carbs,
          "fats": this.props.fats,
-         "bodyType": this.props.bodyType
+         "bodyType": this.props.bodyType,
+         "goal": this.props.goal
        }
      })
     })

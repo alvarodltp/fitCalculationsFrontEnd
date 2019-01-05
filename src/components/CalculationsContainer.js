@@ -341,7 +341,7 @@ saveEmailToUser = () => {
             </div> : null }
           {this.props.stepNumber === 3 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
           {this.props.stepNumber === 2 ? <PersonalizedMacros scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
-          { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart name={this.state.name} getName={this.getName} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose} saveEmailToUser={this.saveEmailToUser} getEmail={this.getEmail} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
+          { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} getName={this.getName} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose} saveEmailToUser={this.saveEmailToUser} getEmail={this.getEmail} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
       </React.Fragment>
     )
   }
