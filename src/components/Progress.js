@@ -1,22 +1,11 @@
 import React from 'react'
 import { Progress } from 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile
-} from "react-device-detect";
-import ShareButtonsMobile from './ShareButtons'
-
 
 class ProgressRatio extends React.Component {
   render() {
     return(
       <React.Fragment>
-      <MobileView>
-        <ShareButtonsMobile/>
-      </MobileView>
       <div id="progress-bar">
         <Progress value={this.props.stepNumber} total='3' progress='ratio' success />
         <div id="steps-on-bar">

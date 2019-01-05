@@ -2,7 +2,6 @@ import ReactGA from 'react-ga';
 import React from 'react';
 import {Pie} from 'react-chartjs-2';
 import { Button, Header, Icon, Modal, Card, Grid, Input, Popup } from 'semantic-ui-react'
-import Email from './Email'
 
 class MacrosPieChart extends React.Component {
 
@@ -19,10 +18,10 @@ class MacrosPieChart extends React.Component {
         template_id: 'template_bLD8XqyE',
         user_id: 'user_fFb7UZUUUS7jEGG8aJVSb',
         template_params: {
-         "reply_to": "alvarodltp@gmail.com",
+         "reply_to": "fitcalculations@gmail.com",
          "from_name": "Fit Calculations",
-         "name": "Rachel",
-         "to_name": "alvarodltp@gmail.com",
+         "name": this.props.name,
+         "to_name": this.props.email,
          "calories": this.props.calories,
          "protein": this.props.protein,
          "carbs": this.props.carbs,
@@ -88,10 +87,10 @@ class MacrosPieChart extends React.Component {
         </Grid>
           <Modal id="email-modal"
           open={this.props.modalOpen}
-          trigger={<Button onClick={ (e) => {this.props.handleOpen(); this.sendEmail(); this.getEvent()}} id="macros-button">Understand How To Use Your Results</Button>}
+          trigger={<Button onClick={ (e) => {this.props.handleOpen(); this.sendEmail(); this.getEvent()}} id="macros-button">Learn How To Implement Your Results</Button>}
           basic
           size='small'>
-          <Header icon='mail' content='Get a Complete Personalized Report' />
+          <Header icon='mail' content='Get a free perzonalized report sent to your email as well as advice on how to put these numbers into action.' />
            <Modal.Content>
              <p>
                Enter your name and email address.

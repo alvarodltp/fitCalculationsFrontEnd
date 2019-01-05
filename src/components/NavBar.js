@@ -13,7 +13,7 @@ class NavBar extends React.Component {
     return(
       <div id="navbar">
         <h1 id="logo">Fit Calculations</h1>
-          <BrowserView >
+          <BrowserView style={{float:"right"}}>
             <ShareButtons/>
           </BrowserView>
       </div>

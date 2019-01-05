@@ -139,7 +139,7 @@ body{
 
 #progress-bar {
   margin: 0 auto;
-  margin-top: 65px;
+  margin-top: 20px;
   width: 85%;
 }
 
@@ -207,7 +207,6 @@ body{
 
 #share-buttons-desktop {
   display:inline-flex;
-  float: right;
   margin-top: 10px;
   margin-right: 10px;
 }
