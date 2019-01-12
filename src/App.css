@@ -2,9 +2,12 @@
  text-align: center;
 }
 
-body{
+html, body{
   background-color: white;
   font-family: 'Open Sans', sans-serif;
+  margin:0;
+  padding:0;
+  height:100%;
 }
 
 #navbar {
@@ -209,4 +212,18 @@ body{
   display:inline-flex;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+/* #background-image-home {
+  background-image: url("https://media.istockphoto.com/photos/lace-up-for-the-workout-of-your-life-picture-id618982838?k=6&m=618982838&s=612x612&w=0&h=Nst2TzKtZha_KJvCJaicDyRqdsR0HcvMTR624D7uNwc=");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+} */
+
+#macros-breakdown-form {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
 }

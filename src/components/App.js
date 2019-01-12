@@ -7,6 +7,9 @@ import CalculationsContainer from './CalculationsContainer'
 import Footer from './Footer'
 import { BrowserRouter, Route } from 'react-router-dom'
 import NutritionPackageHeader from './NutritionPackageHeader'
+import Homepage from './Homepage'
+import ServicesContainer from './ServicesContainer'
+import MacrosBreakdownForm from './MacrosBreakdownForm'
 
 class App extends React.Component {
   constructor(){
@@ -45,7 +48,10 @@ scrollToTop = () => {
     return (
       <div className="App">
         <NavBar /><br/><br/><br/><br/>
+        <Route exact path="/" render={props => <Homepage /> } />
+        <Route exact path="/services" render={props => <ServicesContainer /> } />
         <Route exact path="/bmr-calories-macros" render={props => <CalculationsContainer {...props} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Footer />
       </div>
     );

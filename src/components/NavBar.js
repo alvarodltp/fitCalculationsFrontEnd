@@ -7,6 +7,7 @@ import {
   isBrowser,
   isMobile
 } from "react-device-detect";
+import { Link } from "react-router-dom"
 
 class NavBar extends React.Component {
   render(){
@@ -16,6 +17,9 @@ class NavBar extends React.Component {
           <BrowserView style={{float:"right"}}>
             <ShareButtons/>
           </BrowserView>
+          <Link to="/services">
+          </Link>
+
       </div>
     )
   }
