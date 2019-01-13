@@ -9,7 +9,7 @@ import ProgressRatio from './Progress'
 import NutritionPackageDetails from './NutritionPackageDetails'
 import swal from 'sweetalert'
 import NutritionPackageHeader from './NutritionPackageHeader'
-import {Icon} from 'semantic-ui-react';
+import {Icon, Image} from 'semantic-ui-react';
 import {
   BrowserView,
   MobileView,
