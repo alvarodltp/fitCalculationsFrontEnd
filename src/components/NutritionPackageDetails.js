@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon} from 'semantic-ui-react';
+import {Icon, Button, Card} from 'semantic-ui-react';
 
 class NutritionPackageDetails extends React.Component {
   constructor(){
@@ -37,10 +37,31 @@ class NutritionPackageDetails extends React.Component {
         <h1 id="section-title">BMR, Calories, and Macronutrients Calculator</h1>
       </div>
       <div id="nutrition-package-intro">
-      <h3 id="section-title"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/> Who is this calculation for? </h3>
-        <p>This calculation is great for anyone interested in having a better understanding about their bodies in order to lose weight and/or gain muscle effectively.
-        The personalized result provided at the end of the calculation is a great tool to use in order to accomplish your fitness and health goals once and for all.</p>
+        <h1 id="section-title">This Calculation Is For You If...</h1>
+        <div id="bcm-for-who">
+          <Card style={{boxShadow: "none"}}>
+            <h4><Icon style={{color: "#7CFC00"}} name='check' size="large" />YOU WANT TO LOSE WEIGHT</h4>
+            <h4><Icon style={{color: "#7CFC00"}} name='check' size="large" />YOU WANT TO GAIN WEIGHT</h4>
+            <h4><Icon style={{color: "#7CFC00"}} name='check' size="large" />YOU WANT TO BE HEALTHIER</h4>
+          </Card>
+        </div>
+        <div id="benefits-calorie-calculator">
+          <div>
+            <Icon style={{color: "#7CFC00"}} name='heart' size="huge" />
+            <h3>Learn Your Calories</h3>
+          </div>
+          <div>
+            <Icon style={{color: "#7CFC00"}} name='food' size="huge" />
+            <h3>Learn Your Macros</h3>
+          </div>
+          <div>
+            <Icon style={{color: "#7CFC00"}} name='book' size="huge" />
+            <h3>Understand Your Results</h3>
+          </div>
+        </div>
+        <Button id="button-start-calculation" onClick={this.props.showBcmForm}>START CALCULATION</Button>
       </div>
+
       </React.Fragment>
     );
   }

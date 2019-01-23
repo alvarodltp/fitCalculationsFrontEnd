@@ -45,8 +45,15 @@ class CalculationsContainer extends React.Component {
       user: null,
       stats: null,
       buttonDisabled: true,
-      modalOpen: false
+      modalOpen: false,
+      showBcmForm: false
     }
+  }
+
+  showBcmForm = () => {
+    this.setState({
+      showBcmForm: !this.state.showBcmForm
+    })
   }
 
   handleOpen = () => this.setState({ modalOpen: true })
@@ -283,7 +290,7 @@ updateStats = (bodyType, protein, carbs, fats) => {
   render(){
     return(
       <React.Fragment>
-        {this.props.stepNumber === 1 ? <NutritionPackageDetails /> : null }
+        {this.props.stepNumber === 1 ? <NutritionPackageDetails showBcmForm={this.showBcmForm}/> : null }
         {this.props.stepNumber === 2 ?
           <div id="nutrition-package-intro">
             <h3 id="section-title"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/>Your body type</h3>
@@ -295,7 +302,7 @@ updateStats = (bodyType, protein, carbs, fats) => {
            : null }
 
           {this.props.stepNumber === 1 || this.props.stepNumber === 2 ? <ProgressRatio stepNumber={this.props.stepNumber}/> : null }
-          {this.props.stepNumber === 1 ? <UserInfoForm scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
+          {this.props.stepNumber === 1 && this.state.showBcmForm === true ? <UserInfoForm scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
           {this.props.stepNumber === 3 ?
             <div>
               <h1 id="section-title">Congratulations! Here are your personalized results. <Icon style={{color: "#7CFC00"}} name='check' /></h1>

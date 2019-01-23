@@ -243,3 +243,21 @@ html, body{
 #button-get-email{
   background-color: #A8FC00;
 }
+
+#benefits-calorie-calculator {
+  display: flex;
+  justify-content:space-between;
+}
+
+#button-start-calculation {
+  background-color: red;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 30%;
+}
+
+#bcm-for-who {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-shadow: none;
+}
