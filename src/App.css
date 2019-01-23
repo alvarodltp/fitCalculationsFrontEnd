@@ -227,3 +227,19 @@ html, body{
   margin: 0 auto;
   margin-top: 30px;
 }
+
+#sign-up-form-card {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #5400FC;
+}
+
+#sign-up-form-card h3{
+  color: white;
+}
+
+#button-get-email{
+  background-color: #A8FC00;
+}

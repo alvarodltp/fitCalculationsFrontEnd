@@ -2,6 +2,7 @@ import ReactGA from 'react-ga';
 import React from 'react';
 import {Pie} from 'react-chartjs-2';
 import { Button, Header, Icon, Modal, Card, Grid, Input, Popup } from 'semantic-ui-react'
+import SignUpForm from './SignUpForm'
 
 class MacrosPieChart extends React.Component {
 
@@ -64,6 +65,7 @@ class MacrosPieChart extends React.Component {
     }
 
     return (
+      <React.Fragment>
       <Card centered id="macros-card">
         <h2 id="macros-title">Daily Macronutrients Needs</h2>
         <Grid id="macros-grid" columns="two">
@@ -85,34 +87,8 @@ class MacrosPieChart extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-          <Modal id="email-modal"
-          open={this.props.modalOpen}
-          trigger={<Button onClick={ (e) => {this.props.handleOpen(); this.getEvent()}} id="macros-button">Learn How To Implement Your Results</Button>}
-          basic
-          size='small'>
-          <Header icon='mail' content='Get a free perzonalized report sent to your email as well as advice on how to put these numbers into action.' />
-           <Modal.Content>
-             <p>
-               Enter your name and email address.
-             </p>
-           <Input onChange={this.props.getName} placeholder='Name'>
-             <input />
-           </Input>
-           <Input onChange={(e) => {this.props.getEmail(e); this.props.validateEmail(e)}} iconPosition='left' placeholder='Email'>
-             <input />
-           </Input>
-           </Modal.Content>
-         <Modal.Actions>
-           <Button onClick={this.props.handleClose} basic color='red' inverted>
-             <Icon name='remove' /> Cancel
-           </Button>
-           <Button disabled={this.props.submitButtonDisabled} onClick={() => {this.props.saveEmailToUser(); this.sendEmail(); this.props.handleClose()}} color='green' inverted>
-             <Icon name='checkmark' /> Send
-           </Button>
-         </Modal.Actions>
-       </Modal>
-
       </Card>
+      </React.Fragment>
     )
   }
 }

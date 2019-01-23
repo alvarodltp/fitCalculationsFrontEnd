@@ -117,7 +117,7 @@ class MacrosBreakdownForm extends React.Component {
       <Card id="macros-breakdown-form">
         <Card.Content>
           <Form>
-          <p style={{color: "red", fontWeight: "bold"}}>If you already calculated your BMR, Calories, and Macros  before, enter your email address to automatically get your numbers.</p>
+          <p style={{color: "red"}}>If you already calculated your BMR, Calories, and Macros  before, enter your email address to automatically get your numbers.</p>
             <Form.Input onChange={(e) => {this.handleChange(e); this.validateEmail(e)}} name='email' type='text' placeholder='Email...' />
             <Button onClick={() => {this.fetchBmrCaloriesFatsFromUser(); this.checkEmail()}} disabled={this.state.macrosBreakdownEmailButtonDisabled} id="button" style={{width: "100%"}} type="submit">
               Get My Macros <Icon name="right arrow" />

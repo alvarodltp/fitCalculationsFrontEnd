@@ -7,7 +7,6 @@ import MacrosPieChart from './MacrosPieChart'
 import { Button } from 'semantic-ui-react'
 import ProgressRatio from './Progress'
 import NutritionPackageDetails from './NutritionPackageDetails'
-import swal from 'sweetalert'
 import NutritionPackageHeader from './NutritionPackageHeader'
 import {Icon, Image} from 'semantic-ui-react';
 import {
@@ -18,12 +17,12 @@ import {
 } from "react-device-detect";
 import ShareButtonsMobile from './ShareButtons'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
+import SignUpForm from './SignUpForm'
 
 class CalculationsContainer extends React.Component {
   constructor(){
     super()
     this.state={
-      name: "",
       gender: "",
       weightKg: "",
       weightLb: "",
@@ -46,10 +45,7 @@ class CalculationsContainer extends React.Component {
       user: null,
       stats: null,
       buttonDisabled: true,
-      email: "",
-      modalOpen: false,
-      emailValid: "",
-      submitButtonDisabled: true
+      modalOpen: false
     }
   }
 
@@ -98,18 +94,6 @@ class CalculationsContainer extends React.Component {
   getInches = (e) => {
     this.setState({
       inches: e.target.innerText
-    })
-  }
-
-  getEmail = (e) => {
-    this.setState({
-      email: e.target.value
-    })
-  }
-
-  getName = (e) => {
-    this.setState({
-      name: e.target.value
     })
   }
 
@@ -296,36 +280,6 @@ updateStats = (bodyType, protein, carbs, fats) => {
     })
 }
 
-validateEmail = (e) => {
-  let email = e.target.value
-  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  this.setState({
-    emailValid: re.test(email),
-    submitButtonDisabled: !re.test(email)
-  })
-}
-
-saveEmailToUser = () => {
-  let userId = this.state.user["id"]
-  if(this.state.emailValid === true) {
-  fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        name: this.state.name,
-        email: this.state.email
-      })
-    }).then(response =>response.json())
-      swal("Success!", "Your request has been received!", "success")
-  } else {
-
-  }
-}
-
-
   render(){
     return(
       <React.Fragment>
@@ -350,10 +304,12 @@ saveEmailToUser = () => {
               </MobileView>
             </div> : null }
           {this.props.stepNumber === 3 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
+          {this.props.stepNumber === 3 ? <SignUpForm user={this.state.user}/> : null}
           {this.props.stepNumber === 2 ? <PersonalizedMacros scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
-          { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} getName={this.getName} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
-           saveEmailToUser={this.saveEmailToUser} getEmail={this.getEmail} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
+          { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
+           saveEmailToUser={this.saveEmailToUser} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
            { this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
+
       </React.Fragment>
     )
   }

@@ -41,13 +41,13 @@ class UserInfoForm extends React.Component {
           </Form.Field><br/>
         </Form>
         <Form>
-          <Form.Select onChange={(e) => {this.props.getGender(e); this.props.enableButton(e)}} name='gender' label='Gender' options={genderOptions} placeholder='Gender...' />
-          <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} name='age' type='number' label="Age" placeholder='Age...' />
-          <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} name='weightLb' type='number' label='Weight (Pounds)' placeholder='Weight...' />
-          <Form.Select onChange={(e) => {this.props.getFeet(e); this.props.enableButton(e)}} options={feetOptions} name='heightFeet' label='Height (Feet)' placeholder='Feet...' />
-          <Form.Select onChange={(e) => {this.props.getInches(e); this.props.enableButton(e)}} options={inchesOptions} name='heightInches' label='Height (Inches)' placeholder='Inches...' />
-          <Form.Select onChange={(e) => {this.props.getActivityLevel(e); this.props.enableButton(e)}} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
-          <Form.Select onChange={(e) => {this.props.getGoal(e); this.props.enableButton(e)}} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." /><br/>
+          <Form.Select onChange={(e) => {this.props.getGender(e); this.props.enableButton(e)}} required={true} name='gender' label='Gender' options={genderOptions} placeholder='Gender...' />
+          <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} required={true} name='age' type='number' label="Age" placeholder='Age...' />
+          <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} required={true} name='weightLb' type='number' label='Weight (Pounds)' placeholder='Weight...' />
+          <Form.Select onChange={(e) => {this.props.getFeet(e); this.props.enableButton(e)}} required={true} options={feetOptions} name='heightFeet' label='Height (Feet)' placeholder='Feet...' />
+          <Form.Select onChange={(e) => {this.props.getInches(e); this.props.enableButton(e)}} required={true} options={inchesOptions} name='heightInches' label='Height (Inches)' placeholder='Inches...' />
+          <Form.Select onChange={(e) => {this.props.getActivityLevel(e); this.props.enableButton(e)}} required={true} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
+          <Form.Select onChange={(e) => {this.props.getGoal(e); this.props.enableButton(e)}} required={true} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." /><br/>
           <Button disabled={this.props.buttonDisabled} id="button" style={{width: "100%"}} onClick={() => {this.props.calculateBmr(this.state.value); this.props.addOneToStep(); this.props.calculateCalories(); this.props.saveUser(); this.props.scrollToTop()}} type="submit">
             Step 2 - Select Body Type <Icon name="right arrow" />
           </Button>
