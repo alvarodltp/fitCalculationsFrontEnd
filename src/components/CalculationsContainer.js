@@ -46,7 +46,7 @@ class CalculationsContainer extends React.Component {
       stats: null,
       buttonDisabled: true,
       modalOpen: false,
-      showBcmForm: false
+      showBcmForm: true
     }
   }
 
@@ -294,7 +294,7 @@ updateStats = (bodyType, protein, carbs, fats) => {
         {this.props.stepNumber === 2 ?
           <div id="nutrition-package-intro">
             <h3 id="section-title"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/>Your body type</h3>
-            <p>
+            <p id="body-type-explanation">
               Knowing and understanding your body type is essential when embarking on any weight loss/fitness journey because it will help set realistic expectations.
               It will also help us understand the type of exercises and nutrition you’ll need to help shape or change your body composition (muscle over fat ratio).
             </p>
@@ -305,7 +305,7 @@ updateStats = (bodyType, protein, carbs, fats) => {
           {this.props.stepNumber === 1 && this.state.showBcmForm === true ? <UserInfoForm scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
           {this.props.stepNumber === 3 ?
             <div>
-              <h1 id="section-title">Congratulations! Here are your personalized results. <Icon style={{color: "#7CFC00"}} name='check' /></h1>
+              <h2 id="section-title">CONGRATULATIONS! HERE ARE YOUR PERSONALIZED RESULTS. <Icon style={{color: "#7CFC00"}} name='check' /></h2>
               <MobileView>
                 <ShareButtonsMobile/>
               </MobileView>

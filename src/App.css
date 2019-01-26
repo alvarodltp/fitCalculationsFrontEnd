@@ -59,13 +59,14 @@ html, body{
   width: 80%;
   margin: 0 auto;
   margin-top: 30px;
+  background: linear-gradient(330deg, rgba(84,0,240,1) 0%, rgba(168,252,0,1) 100%);
 }
 
 #bmr-results {
   width: 80%;
   margin: 0 auto;
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 /* #image-container {
@@ -128,11 +129,12 @@ html, body{
   margin-top: 40px;
   position: static;
   margin-bottom: 0%;
+  color: gray;
 }
 
 #button {
-  background-color: #5400FC;
-  color: white;
+  background-color: #A8FC00;
+  color: gray;
   opacity: 1;
 }
 
@@ -144,11 +146,6 @@ html, body{
   margin: 0 auto;
   margin-top: 20px;
   width: 85%;
-}
-
-#nutrition-package-intro{
-  margin: 0 auto;
-  width: 90%;
 }
 
 #steps-on-bar {
@@ -176,6 +173,7 @@ html, body{
 }
 
 #logo{
+  color: gray;
   font-family: 'Lalezar', cursive;
   margin-top: 5px;
   font-size: 25px;
@@ -197,11 +195,8 @@ html, body{
 }
 
 #section-title {
-  font-style: italic;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-bottom: 25px;
+  margin-top: -20px;
 }
 
 #share-buttons-mobile {
@@ -231,7 +226,7 @@ html, body{
 #sign-up-form-card {
   width: 80%;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 30px;
   background-color: #5400FC;
 }
@@ -247,17 +242,54 @@ html, body{
 #benefits-calorie-calculator {
   display: flex;
   justify-content:space-between;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 #button-start-calculation {
   background-color: red;
   margin-top: 40px;
   margin-bottom: 40px;
-  width: 30%;
+  width: 60%;
 }
 
 #bcm-for-who {
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   box-shadow: none;
+}
+
+#bcm-header{
+  width: 100%;
+  height: 300px;
+  margin-top: 0px;
+  background-color: gray;
+  box-shadow: none;
+  background: linear-gradient(330deg, rgba(84,0,240,1) 50%, rgba(211,211,211,1) 100%);
+}
+
+#bcm-header h1{
+  margin-top: 30%;
+}
+
+.ui.card {
+ border-radius: 0px !important;
+}
+
+#background-section-info{
+  box-shadow: none;
+  width: 100%;
+}
+
+#benefits-bcm {
+  margin-bottom: 40px;
+}
+
+#icons {
+  color: #5400FC;
+}
+
+#body-type-explanation{
+  margin-left: 30px;
+  margin-right: 30px;
 }

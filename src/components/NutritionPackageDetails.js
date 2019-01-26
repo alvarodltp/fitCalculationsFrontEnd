@@ -34,32 +34,33 @@ class NutritionPackageDetails extends React.Component {
     return (
       <React.Fragment>
       <div id="nutrition-package-intro">
-        <h1 id="section-title">BMR, Calories, and Macronutrients Calculator</h1>
-      </div>
-      <div id="nutrition-package-intro">
-        <h1 id="section-title">This Calculation Is For You If...</h1>
         <div id="bcm-for-who">
-          <Card style={{boxShadow: "none"}}>
-            <h4><Icon style={{color: "#7CFC00"}} name='check' size="large" />YOU WANT TO LOSE WEIGHT</h4>
-            <h4><Icon style={{color: "#7CFC00"}} name='check' size="large" />YOU WANT TO GAIN WEIGHT</h4>
-            <h4><Icon style={{color: "#7CFC00"}} name='check' size="large" />YOU WANT TO BE HEALTHIER</h4>
+          <Card id="background-section-info">
+            <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
+            <h4><Icon style={{color: "#7CFC00"}} name='check' size="medium" />You want to lose weight</h4>
+            <h4><Icon style={{color: "#7CFC00"}} name='check' size="medium" />You want to gain muscle</h4>
+            <h4><Icon style={{color: "#7CFC00"}} name='check' size="medium" />You want to be healthier</h4>
+            <h4><Icon style={{color: "#7CFC00"}} name='check' size="medium" />You want to know what works for you</h4>
           </Card>
         </div>
-        <div id="benefits-calorie-calculator">
-          <div>
-            <Icon style={{color: "#7CFC00"}} name='heart' size="huge" />
-            <h3>Learn Your Calories</h3>
+        <h2 style={{marginBottom: "40px"}}>LIFE CHANGING INFORMATION IN LESS THAN 60 SECONDS</h2>
+        <div>
+          <div id="benefits-bcm">
+            <Icon id="icons" name='heart' size="huge" />
+            <h4>Personalized calculation of your daily needed calories</h4>
           </div>
-          <div>
-            <Icon style={{color: "#7CFC00"}} name='food' size="huge" />
-            <h3>Learn Your Macros</h3>
+          <div id="benefits-bcm">
+            <Icon id="icons" name='food' size="huge" />
+            <h4>Personalized calculations of your daily needed macros</h4>
           </div>
-          <div>
-            <Icon style={{color: "#7CFC00"}} name='book' size="huge" />
-            <h3>Understand Your Results</h3>
+          <div id="benefits-bcm">
+            <Icon id="icons" name='book' size="huge" />
+            <h4>Personalized ebook with your results</h4>
           </div>
         </div>
-        <Button id="button-start-calculation" onClick={this.props.showBcmForm}>START CALCULATION</Button>
+        <div>
+          <h2 style={{marginTop: "40px"}, {marginBottom: "40px"}}>LET'S GET YOUR NUMBERS!</h2>
+        </div>
       </div>
 
       </React.Fragment>
