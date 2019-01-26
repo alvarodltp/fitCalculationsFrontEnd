@@ -196,7 +196,7 @@ html, body{
 
 #section-title {
   margin-bottom: 25px;
-  margin-top: -20px;
+  margin-top: -30px;
 }
 
 #share-buttons-mobile {
@@ -254,9 +254,18 @@ html, body{
 }
 
 #bcm-for-who {
+  margin: 0 auto;
+  width: 80%;
   margin-top: 30px;
   margin-bottom: 40px;
   box-shadow: none;
+}
+
+#bcm-for-who h4 {
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 70%
 }
 
 #bcm-header{
@@ -276,12 +285,13 @@ html, body{
  border-radius: 0px !important;
 }
 
-#background-section-info{
-  box-shadow: none;
-  width: 100%;
+.ui.success.progress{
+  background-color: lightgray;
 }
 
 #benefits-bcm {
+  width: 80%;
+  margin: 0 auto;
   margin-bottom: 40px;
 }
 
@@ -292,4 +302,20 @@ html, body{
 #body-type-explanation{
   margin-left: 30px;
   margin-right: 30px;
+}
+
+#title-bcm {
+  margin-top: 5px;
+}
+
+#title-body-type {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+#lets-get-numbers {
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 80%;
 }

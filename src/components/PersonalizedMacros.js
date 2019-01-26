@@ -17,7 +17,7 @@ class PersonalizedMacros extends React.Component {
             <Image src='https://www.dropbox.com/s/yvm1kswytfgpy6x/Mesomorph%20copy.jpg?raw=1' />
             <Card.Content>
               <Card.Header>Mesomorph</Card.Header>
-              <Card.Description>Naturally muscular and athletic with a moderate metabolic rate.</Card.Description>
+              <Card.Description>Naturally athletic with a moderate metabolic rate. In between an Ectomorph and an Endomorph.</Card.Description>
             </Card.Content>
           </Card>
           <Card onClick={(e) => {this.props.calculateMacros(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">

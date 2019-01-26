@@ -291,27 +291,27 @@ updateStats = (bodyType, protein, carbs, fats) => {
     return(
       <React.Fragment>
         {this.props.stepNumber === 1 ? <NutritionPackageDetails showBcmForm={this.showBcmForm}/> : null }
-        {this.props.stepNumber === 2 ?
-          <div id="nutrition-package-intro">
-            <h3 id="section-title"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/>Your body type</h3>
-            <p id="body-type-explanation">
-              Knowing and understanding your body type is essential when embarking on any weight loss/fitness journey because it will help set realistic expectations.
-              It will also help us understand the type of exercises and nutrition you’ll need to help shape or change your body composition (muscle over fat ratio).
-            </p>
-          </div>
-           : null }
-
           {this.props.stepNumber === 1 || this.props.stepNumber === 2 ? <ProgressRatio stepNumber={this.props.stepNumber}/> : null }
           {this.props.stepNumber === 1 && this.state.showBcmForm === true ? <UserInfoForm scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
           {this.props.stepNumber === 3 ?
             <div>
-              <h2 id="section-title">CONGRATULATIONS! HERE ARE YOUR PERSONALIZED RESULTS. <Icon style={{color: "#7CFC00"}} name='check' /></h2>
+              <h2 id="title-bcm">CONGRATULATIONS! HERE ARE YOUR PERSONALIZED RESULTS. <Icon style={{color: "#7CFC00"}} name='check' /></h2>
               <MobileView>
                 <ShareButtonsMobile/>
               </MobileView>
             </div> : null }
           {this.props.stepNumber === 3 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
           {this.props.stepNumber === 3 ? <SignUpForm user={this.state.user}/> : null}
+          {this.props.stepNumber === 2 ?
+            <div id="nutrition-package-intro">
+              <h2 id="title-body-type"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/>YOUR BODY TYPE</h2>
+              <div>
+                  <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />Knowing your body type will personalize your results further.</h4>
+                  <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />It will help us understand the type of exercises and nutrition you’ll need.</h4>
+                  <h4><Icon style={{marginBottom: "30px", color: "#5400FC"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, selected the thicker one.</h4>
+              </div>
+            </div>
+             : null }
           {this.props.stepNumber === 2 ? <PersonalizedMacros scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
           { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
            saveEmailToUser={this.saveEmailToUser} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
