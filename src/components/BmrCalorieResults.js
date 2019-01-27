@@ -4,14 +4,10 @@ import { Card, Button, Icon } from 'semantic-ui-react'
 class BmrCalorieResults extends React.Component {
   render(){
     return(
-      <div>
-        <Card id="bmr-results">
-            <Card.Description></Card.Description>
-            <h3>Your BMR (Basal Metabolic Rate) is</h3><h3 style={{color: "green", fontStyle: "italic"}}>{this.props.bmr}</h3>
-            <h3>and you need</h3><h3 style={{color: "green", fontStyle: "italic"}}>{this.props.caloriesForGoal}</h3><h3>daily calories in order to {this.props.goal}</h3>
-            <Card.Description></Card.Description>
-        </Card>
-      </div>
+        <div id="bmr-results">
+            <h2 id="bmr-results-text"><Icon style={{color: "yellow"}} name="star" size="large" />YOU NEED {this.props.caloriesForGoal} DAILY CALORIES IN ORDER TO {this.props.goal.toUpperCase()}</h2>
+            <p>This is your key number! Based on the information you entered in the previous steps, we have determined you need this many calories to accomplish your goal. You can always come back to this calculation if your activity level or goal change as this will affect your numbers.</p>
+        </div>
     )
   }
 }

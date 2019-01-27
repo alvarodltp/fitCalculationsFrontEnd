@@ -67,7 +67,8 @@ class MacrosPieChart extends React.Component {
     return (
       <React.Fragment>
       <Card centered id="macros-card">
-        <h2 id="macros-title">Daily Macronutrients Needs</h2>
+        <h2 id="macros-title">YOUR DAILY MACRONUTRIENT NEEDS</h2>
+        <p>This your key number, based on the information you entered in the previous steps, we have determined you need this many calories to accomplish your goal. You can always come back to his calculation if your activity level or goal change as this will affect the number of calories you will need.</p>
         <Grid id="macros-grid" columns="two">
           <Grid.Row>
             <Grid.Column id="pie-chart">
@@ -81,9 +82,9 @@ class MacrosPieChart extends React.Component {
                />
             </Grid.Column>
             <Grid.Column id="macros-numbers">
-              <h3 style={{color: "green", fontStyle: "italic"}}>{this.props.protein}g Protein</h3>
-              <h3 style={{color: "green", fontStyle: "italic"}}>{this.props.carbs}g of Carbs</h3>
-              <h3 style={{color: "green", fontStyle: "italic"}}>{this.props.fats}g of Fats</h3>
+              <h3>{this.props.protein}g Protein</h3>
+              <h3>{this.props.carbs}g Carbs</h3>
+              <h3>{this.props.fats}g Fats</h3>
             </Grid.Column>
           </Grid.Row>
         </Grid>

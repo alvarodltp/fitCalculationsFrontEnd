@@ -41,22 +41,22 @@ class NutritionPackageDetails extends React.Component {
             <h4><Icon style={{color: "#7CFC00"}} name='check' size="medium" />You want to be healthier</h4>
             <h4><Icon style={{color: "#7CFC00"}} name='check' size="medium" />You want to know what works for you</h4>
         </div>
-        <h2 style={{marginBottom: "40px"}}>LIFE CHANGING INFORMATION IN LESS THAN 60 SECONDS</h2>
+        <h2 style={{marginBottom: "40px"}}>LIFE CHANGING INFORMATION IN LESS THAN 60 SECONDS!</h2>
         <div>
           <div id="benefits-bcm">
             <Icon id="icons" name='heart' size="huge" />
-            <h4>Personalized calculation of your daily needed calories</h4>
+            <h4>Personalized calculation of your daily calorie needs</h4>
             <p>Learn how many calories you need to eat daily to reach your goal.</p>
           </div>
           <div id="benefits-bcm">
             <Icon id="icons" name='food' size="huge" />
-            <h4>Personalized calculations of your daily needed macros</h4>
-            <p>Learn how proteins, carbs, and fats need to divided based on your calorie results.</p>
+            <h4>Personalized calculations of your daily macronutrient needs</h4>
+            <p>Learn many grams of proteins, carbs, and fats you need to eat based on your calorie results.</p>
           </div>
           <div id="benefits-bcm">
             <Icon id="icons" name='book' size="huge" />
-            <h4>Personalized ebook with your results</h4>
-            <p>We want you to succeed! Get an ebook sent to your email with a detailed summary of your results.</p>
+            <h4>Personalized FREE ebook with your results</h4>
+            <p>We want you to succeed! Get the ebook with a detailed summary of your results sent to your email.</p>
           </div>
         </div>
         <div>

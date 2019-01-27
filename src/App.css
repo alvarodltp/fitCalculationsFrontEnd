@@ -65,8 +65,14 @@ html, body{
 #bmr-results {
   width: 80%;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 20px;
+}
+
+#bmr-results-text {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 90%;
 }
 
 /* #image-container {
@@ -88,8 +94,7 @@ html, body{
 
 #macros-title {
   margin: 0 auto;
-  margin-bottom: 20px;
-  font-style: italic;
+  margin-bottom: 10px;
   margin-top: 15px;
 }
 
@@ -226,8 +231,8 @@ html, body{
 #sign-up-form-card {
   width: 80%;
   margin: 0 auto;
-  margin-top: 10px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: #5400FC;
 }
 
@@ -283,6 +288,7 @@ html, body{
 
 .ui.card {
  border-radius: 0px !important;
+ box-shadow: none;
 }
 
 .ui.success.progress{
@@ -304,10 +310,6 @@ html, body{
   margin-right: 30px;
 }
 
-#title-bcm {
-  margin-top: 5px;
-}
-
 #title-body-type {
   margin-top: 25px;
   margin-bottom: 20px;
@@ -318,4 +320,16 @@ html, body{
   margin-top: 40px;
   margin-bottom: 40px;
   width: 80%;
+}
+
+#congratulations-bcm-header {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#title-bcm {
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  width: 90%;
 }

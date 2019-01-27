@@ -8,7 +8,7 @@ import { Button } from 'semantic-ui-react'
 import ProgressRatio from './Progress'
 import NutritionPackageDetails from './NutritionPackageDetails'
 import NutritionPackageHeader from './NutritionPackageHeader'
-import {Icon, Image} from 'semantic-ui-react';
+import {Icon, Image, Card} from 'semantic-ui-react'
 import {
   BrowserView,
   MobileView,
@@ -18,6 +18,7 @@ import {
 import ShareButtonsMobile from './ShareButtons'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import SignUpForm from './SignUpForm'
+import Confetti from 'react-dom-confetti';
 
 class CalculationsContainer extends React.Component {
   constructor(){
@@ -46,7 +47,11 @@ class CalculationsContainer extends React.Component {
       stats: null,
       buttonDisabled: true,
       modalOpen: false,
-      showBcmForm: true
+      showBcmForm: true,
+      proteinPercentage: "",
+      carbPercentage: "",
+      fatPercentage: "",
+      completed: false
     }
   }
 
@@ -170,24 +175,40 @@ calculateMacros = (e) => {
   let fats;
   let carbs;
   let bodyType = e.target.parentElement.getElementsByClassName("header")[0].innerText
+  let proteinPercentage;
+  let carbPercentage;
+  let fatPercentage;
   if(bodyType === "Ectomorph"){
     protein = Math.round(this.state.caloriesForGoal * .25 / 4)
     carbs = Math.round(this.state.caloriesForGoal * .55 / 4)
     fats = Math.round(this.state.caloriesForGoal * .20 / 9)
+    proteinPercentage = 25
+    carbPercentage = 55
+    fatPercentage = 20
   } else if (bodyType === "Mesomorph"){
     protein = Math.round(this.state.caloriesForGoal * .30 / 4)
     carbs = Math.round(this.state.caloriesForGoal * .40 / 4)
     fats = Math.round(this.state.caloriesForGoal * .30 / 9)
+    proteinPercentage = 30
+    carbPercentage = 40
+    fatPercentage = 30
   } else if (bodyType === "Endomorph"){
     protein = Math.round(this.state.caloriesForGoal * .35 / 4)
     carbs = Math.round(this.state.caloriesForGoal * .25 / 4)
     fats = Math.round(this.state.caloriesForGoal * .40 / 9)
+    proteinPercentage = 35
+    carbPercentage = 25
+    fatPercentage = 40
   }
   this.setState({
     bodyType: bodyType,
     protein: protein,
     fats: fats,
-    carbs: carbs
+    carbs: carbs,
+    proteinPercentage: proteinPercentage,
+    carbPercentage: carbPercentage,
+    fatPercentage: fatPercentage,
+    completed: true
   }, () => this.showMacrosChart(), this.updateUser(bodyType, protein, carbs, fats))
 }
 
@@ -288,20 +309,24 @@ updateStats = (bodyType, protein, carbs, fats) => {
 }
 
   render(){
+  const config = {
+    angle: 90,
+    spread: 360,
+    startVelocity: 50,
+    elementCount: 200,
+    decay: 0.9
+  };
     return(
       <React.Fragment>
         {this.props.stepNumber === 1 ? <NutritionPackageDetails showBcmForm={this.showBcmForm}/> : null }
           {this.props.stepNumber === 1 || this.props.stepNumber === 2 ? <ProgressRatio stepNumber={this.props.stepNumber}/> : null }
           {this.props.stepNumber === 1 && this.state.showBcmForm === true ? <UserInfoForm scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
           {this.props.stepNumber === 3 ?
-            <div>
-              <h2 id="title-bcm">CONGRATULATIONS! HERE ARE YOUR PERSONALIZED RESULTS. <Icon style={{color: "#7CFC00"}} name='check' /></h2>
-              <MobileView>
-                <ShareButtonsMobile/>
-              </MobileView>
+            <div id="congratulations-bcm-header">
+              <h2 id="title-bcm">CONGRATULATIONS, HERE ARE YOUR RESULTS! <Icon style={{color: "#7CFC00"}} name='check' /></h2>
+              <p>Great! Your personalized information and ebook are ready for you. Make sure to enter your name and email in the form below so we can send you a free ebook with a detailed report.</p>
             </div> : null }
           {this.props.stepNumber === 3 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
-          {this.props.stepNumber === 3 ? <SignUpForm user={this.state.user}/> : null}
           {this.props.stepNumber === 2 ?
             <div id="nutrition-package-intro">
               <h2 id="title-body-type"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/>YOUR BODY TYPE</h2>
@@ -315,11 +340,16 @@ updateStats = (bodyType, protein, carbs, fats) => {
           {this.props.stepNumber === 2 ? <PersonalizedMacros scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
           { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
            saveEmailToUser={this.saveEmailToUser} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
+           {this.props.stepNumber === 3 ? <SignUpForm user={this.state.user}/> : null}
            { this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
-
+           {this.state.completed ? <Confetti active={true} config={ config }/> : null }
       </React.Fragment>
     )
   }
 }
 
 export default CalculationsContainer
+
+// <MobileView>
+//   <ShareButtonsMobile/>
+// </MobileView>
