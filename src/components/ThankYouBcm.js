@@ -7,9 +7,8 @@ import {
   isBrowser,
   isMobile
 } from "react-device-detect";
-import { Link } from "react-router-dom"
 
-class NavBar extends React.Component {
+class ThankYouBcm extends React.Component {
 
   refreshPage = () => {
     window.location.reload()
@@ -17,14 +16,11 @@ class NavBar extends React.Component {
 
   render(){
     return(
-        <div id="navbar">
-          <h1 onClick={this.refreshPage} id="logo">FIT CALCULATIONS</h1>
-          <BrowserView style={{float:"right"}}>
-            <ShareButtons/>
-          </BrowserView>
+        <div id="header-thankyou-bcm">
+          <h1>You're in!</h1>
         </div>
     )
   }
 }
 
-export default NavBar
+export default ThankYouBcm

@@ -333,3 +333,21 @@ html, body{
   margin-bottom: 10px;
   width: 90%;
 }
+
+#body-type-points{
+  margin: 0 auto;
+  width: 80%;
+}
+
+#header-thankyou-bcm {
+  margin-top: -22px;
+  width: 100%;
+  height: 200px;
+  background-color: gray;
+  box-shadow: none;
+}
+
+#header-thankyou-bcm h1 {
+  font-size: 50px;
+  padding-top: 60px;
+}

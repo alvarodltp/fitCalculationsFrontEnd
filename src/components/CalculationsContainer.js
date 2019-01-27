@@ -18,7 +18,6 @@ import {
 import ShareButtonsMobile from './ShareButtons'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import SignUpForm from './SignUpForm'
-import Confetti from 'react-dom-confetti';
 
 class CalculationsContainer extends React.Component {
   constructor(){
@@ -309,13 +308,6 @@ updateStats = (bodyType, protein, carbs, fats) => {
 }
 
   render(){
-  const config = {
-    angle: 90,
-    spread: 360,
-    startVelocity: 50,
-    elementCount: 200,
-    decay: 0.9
-  };
     return(
       <React.Fragment>
         {this.props.stepNumber === 1 ? <NutritionPackageDetails showBcmForm={this.showBcmForm}/> : null }
@@ -328,21 +320,21 @@ updateStats = (bodyType, protein, carbs, fats) => {
             </div> : null }
           {this.props.stepNumber === 3 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
           {this.props.stepNumber === 2 ?
-            <div id="nutrition-package-intro">
+            <div>
               <h2 id="title-body-type"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/>YOUR BODY TYPE</h2>
-              <div>
+              <div id="body-type-points">
                   <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />Knowing your body type will personalize your results further.</h4>
                   <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />It will help us understand the type of exercises and nutrition you’ll need.</h4>
-                  <h4><Icon style={{marginBottom: "30px", color: "#5400FC"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, selected the thicker one.</h4>
+                  <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, selected the one on the right.</h4>
               </div>
             </div>
              : null }
           {this.props.stepNumber === 2 ? <PersonalizedMacros scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
           { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
            saveEmailToUser={this.saveEmailToUser} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
-           {this.props.stepNumber === 3 ? <SignUpForm user={this.state.user}/> : null}
+           {this.props.stepNumber === 3 ? <SignUpForm user={this.state.user} calories={this.state.caloriesForGoal} bodyType={this.state.bodyType} goal={this.state.goal} bmr={this.state.bmr} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
            { this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
-           {this.state.completed ? <Confetti active={true} config={ config }/> : null }
+
       </React.Fragment>
     )
   }

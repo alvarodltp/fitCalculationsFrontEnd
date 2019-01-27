@@ -1,47 +1,9 @@
-import ReactGA from 'react-ga';
 import React from 'react';
 import {Pie} from 'react-chartjs-2';
 import { Button, Header, Icon, Modal, Card, Grid, Input, Popup } from 'semantic-ui-react'
 import SignUpForm from './SignUpForm'
 
 class MacrosPieChart extends React.Component {
-
-  sendEmail = () => {
-    console.log(this.props.email)
-    fetch("https://api.emailjs.com/api/v1.0/email/send", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        service_id: 'default_service',
-        template_id: 'template_bLD8XqyE',
-        user_id: 'user_fFb7UZUUUS7jEGG8aJVSb',
-        template_params: {
-         "reply_to": "fitcalculations@gmail.com",
-         "from_name": "Fit Calculations",
-         "name": this.props.name,
-         "to_name": this.props.email,
-         "calories": this.props.calories,
-         "protein": this.props.protein,
-         "carbs": this.props.carbs,
-         "fats": this.props.fats,
-         "bodyType": this.props.bodyType,
-         "goal": this.props.goal,
-         "bmr": this.props.bmr
-       }
-     })
-    })
-  }
-
-  getEvent = () => {
-    ReactGA.event({
-    category: 'Click',
-    action: 'Understand How To Use Your Results'
-    })
-  }
-
   render() {
       const data = {
       labels: [
@@ -67,7 +29,7 @@ class MacrosPieChart extends React.Component {
     return (
       <React.Fragment>
       <Card centered id="macros-card">
-        <h2 id="macros-title">YOUR DAILY MACRONUTRIENT NEEDS</h2>
+        <h2 id="macros-title"><Icon style={{color: "yellow"}} name="star" size="small" />YOUR DAILY MACRONUTRIENT NEEDS</h2>
         <p>This your key number, based on the information you entered in the previous steps, we have determined you need this many calories to accomplish your goal. You can always come back to his calculation if your activity level or goal change as this will affect the number of calories you will need.</p>
         <Grid id="macros-grid" columns="two">
           <Grid.Row>

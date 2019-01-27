@@ -8,6 +8,7 @@ import {
 } from "react-device-detect";
 import { Link } from "react-router-dom"
 import swal from 'sweetalert'
+import ReactGA from 'react-ga';
 
 class SignUpForm extends React.Component {
   constructor(){
@@ -18,6 +19,13 @@ class SignUpForm extends React.Component {
       emailValid: "",
       submitButtonDisabled: true
     }
+  }
+
+  getEvent = () => {
+    ReactGA.event({
+    category: 'Click',
+    action: 'Submit'
+    })
   }
 
   getEmail = (e) => {
@@ -55,10 +63,40 @@ class SignUpForm extends React.Component {
           email: this.state.email
         })
       }).then(response =>response.json())
+      .then(this.sendEmail())
         swal("Success!", "Your request has been received!", "success")
     } else {
 
     }
+  }
+
+  sendEmail = () => {
+    console.log(this.props.email)
+    fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        service_id: 'default_service',
+        template_id: 'fit_calculations_lead_magnet',
+        user_id: 'user_fFb7UZUUUS7jEGG8aJVSb',
+        template_params: {
+         "reply_to": "fitcalculations@gmail.com",
+         "from_name": "Fit Calculations",
+         "name": this.state.name.replace(/^\w/, c => c.toUpperCase()),
+         "to_name": this.state.email,
+         "calories": this.props.calories,
+         "protein": this.props.protein,
+         "carbs": this.props.carbs,
+         "fats": this.props.fats,
+         "bodyType": this.props.bodyType,
+         "goal": this.props.goal,
+         "bmr": this.props.bmr
+       }
+     })
+    })
   }
 
   render(){
@@ -70,7 +108,7 @@ class SignUpForm extends React.Component {
               <Form.Input onChange={this.getName} width={6} fluid placeholder='NAME' />
               <Form.Input onChange={(e) => {this.getEmail(e); this.validateEmail(e)}} width={6} fluid placeholder='EMAIL' />
             </Form.Group>
-            <Button id="button-get-email" type='submit'disabled={this.state.submitButtonDisabled} onClick={this.saveEmailToUser}>SUBMIT</Button>
+            <Button id="button-get-email" type='submit'disabled={this.state.submitButtonDisabled} onClick={() => {this.getEvent(); this.saveEmailToUser()}}>SUBMIT</Button>
           </Form>
         </Card>
     )

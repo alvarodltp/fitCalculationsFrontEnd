@@ -51,12 +51,12 @@ class NutritionPackageDetails extends React.Component {
           <div id="benefits-bcm">
             <Icon id="icons" name='food' size="huge" />
             <h4>Personalized calculations of your daily macronutrient needs</h4>
-            <p>Learn many grams of proteins, carbs, and fats you need to eat based on your calorie results.</p>
+            <p>Learn how many grams of proteins, carbs, and fats you need to eat based on your calorie results.</p>
           </div>
           <div id="benefits-bcm">
             <Icon id="icons" name='book' size="huge" />
             <h4>Personalized FREE ebook with your results</h4>
-            <p>We want you to succeed! Get the ebook with a detailed summary of your results sent to your email.</p>
+            <p>Let's get results! Get the ebook with a detailed summary of your results sent straight to your email.</p>
           </div>
         </div>
         <div>

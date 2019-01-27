@@ -10,6 +10,8 @@ import NutritionPackageHeader from './NutritionPackageHeader'
 import Homepage from './Homepage'
 import ServicesContainer from './ServicesContainer'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
+import Confetti from 'react-dom-confetti';
+import ThankYouBcm from './ThankYouBcm'
 
 class App extends React.Component {
   constructor(){
@@ -18,6 +20,7 @@ class App extends React.Component {
       stepNumber: 1
     }
   }
+
 
 componentDidMount() {
   this.initGA()
@@ -52,6 +55,7 @@ scrollToTop = () => {
         <Route exact path="/services" render={props => <ServicesContainer /> } />
         <Route exact path="/bmr-calories-macros" render={props => <CalculationsContainer {...props} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
+        <Route exact path="/thank-you-bcm" render={props => <ThankYouBcm /> } />
         <Footer />
       </div>
     );
