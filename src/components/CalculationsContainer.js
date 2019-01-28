@@ -9,13 +9,6 @@ import ProgressRatio from './Progress'
 import NutritionPackageDetails from './NutritionPackageDetails'
 import NutritionPackageHeader from './NutritionPackageHeader'
 import {Icon, Image, Card} from 'semantic-ui-react'
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile
-} from "react-device-detect";
-import ShareButtonsMobile from './ShareButtons'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import SignUpForm from './SignUpForm'
 
@@ -313,10 +306,14 @@ updateStats = (bodyType, protein, carbs, fats) => {
         {this.props.stepNumber === 1 ? <NutritionPackageDetails showBcmForm={this.showBcmForm}/> : null }
           {this.props.stepNumber === 1 || this.props.stepNumber === 2 ? <ProgressRatio stepNumber={this.props.stepNumber}/> : null }
           {this.props.stepNumber === 1 && this.state.showBcmForm === true ? <UserInfoForm scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
-          {this.props.stepNumber === 3 ?
+            {this.props.stepNumber === 3 ?
             <div id="congratulations-bcm-header">
+              <h1>YOUR RESULTS</h1>
+            </div> : null }
+          {this.props.stepNumber === 3 ?
+            <div id="congratulations-message">
               <h2 id="title-bcm">CONGRATULATIONS, HERE ARE YOUR RESULTS! <Icon style={{color: "#7CFC00"}} name='check' /></h2>
-              <p>Great! Your personalized information and ebook are ready for you. Make sure to enter your name and email in the form below so we can send you a free ebook with a detailed report.</p>
+              <p>Your personalized information and ebook are ready for you. Make sure to enter your name and email in the form below so we can send you a free ebook with a detailed report.</p>
             </div> : null }
           {this.props.stepNumber === 3 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
           {this.props.stepNumber === 2 ?
@@ -325,7 +322,7 @@ updateStats = (bodyType, protein, carbs, fats) => {
               <div id="body-type-points">
                   <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />Knowing your body type will personalize your results further.</h4>
                   <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />It will help us understand the type of exercises and nutrition you’ll need.</h4>
-                  <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, selected the one on the right.</h4>
+                  <h4><Icon style={{color: "#5400FC", marginBottom: "20px"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, select the broader one.</h4>
               </div>
             </div>
              : null }
@@ -341,7 +338,3 @@ updateStats = (bodyType, protein, carbs, fats) => {
 }
 
 export default CalculationsContainer
-
-// <MobileView>
-//   <ShareButtonsMobile/>
-// </MobileView>

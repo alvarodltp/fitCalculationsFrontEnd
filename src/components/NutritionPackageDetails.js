@@ -56,7 +56,7 @@ class NutritionPackageDetails extends React.Component {
           <div id="benefits-bcm">
             <Icon id="icons" name='book' size="huge" />
             <h4>Personalized FREE ebook with your results</h4>
-            <p>Let's get results! Get the ebook with a detailed summary of your results sent straight to your email.</p>
+            <p>Let's get results! Get a free ebook with a detailed summary of your results sent straight to your email.</p>
           </div>
         </div>
         <div>

@@ -17,8 +17,15 @@ class SignUpForm extends React.Component {
       name: "",
       email: "",
       emailValid: "",
-      submitButtonDisabled: true
+      submitButtonDisabled: true,
+      completed: false
     }
+  }
+
+  activateConfetti = () => {
+    this.setState({
+      completed: true
+    })
   }
 
   getEvent = () => {
@@ -108,7 +115,9 @@ class SignUpForm extends React.Component {
               <Form.Input onChange={this.getName} width={6} fluid placeholder='NAME' />
               <Form.Input onChange={(e) => {this.getEmail(e); this.validateEmail(e)}} width={6} fluid placeholder='EMAIL' />
             </Form.Group>
-            <Button id="button-get-email" type='submit'disabled={this.state.submitButtonDisabled} onClick={() => {this.getEvent(); this.saveEmailToUser()}}>SUBMIT</Button>
+            <Link to="/thank-you-bcm">
+              <Button id="button-get-email" type='submit'disabled={this.state.submitButtonDisabled} onClick={() => {this.getEvent(); this.saveEmailToUser(); this.activateConfetti()}}>SUBMIT</Button>
+            </Link>
           </Form>
         </Card>
     )
