@@ -30,7 +30,7 @@ class MacrosPieChart extends React.Component {
       <React.Fragment>
       <Card centered id="macros-card">
         <h2 id="macros-title"><Icon style={{color: "yellow"}} name="star" size="small" />YOUR DAILY MACRONUTRIENT NEEDS</h2>
-        <p style={{paddingBottom: "20px"}}>This your key number, based on the information you entered in the previous steps, we have determined you need this many calories to accomplish your goal. You can always come back to his calculation if your activity level or goal change as this will affect the number of calories you will need.</p>
+        <p style={{paddingBottom: "20px"}}>Macronutrients are very important for a successfull diet</p>
         <Grid id="macros-grid" columns="two">
           <Grid.Row>
             <Grid.Column id="pie-chart">

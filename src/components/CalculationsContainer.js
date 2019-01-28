@@ -322,7 +322,7 @@ updateStats = (bodyType, protein, carbs, fats) => {
               <div id="body-type-points">
                   <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />Knowing your body type will personalize your results further.</h4>
                   <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />It will help us understand the type of exercises and nutrition you’ll need.</h4>
-                  <h4><Icon style={{color: "#5400FC", marginBottom: "20px"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, select the broader one.</h4>
+                  <h4 style={{marginBottom: "15px"}}><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, select the broader one.</h4>
               </div>
             </div>
              : null }
