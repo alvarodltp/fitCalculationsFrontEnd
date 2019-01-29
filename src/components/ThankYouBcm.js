@@ -39,7 +39,6 @@ componentDidMount() {
           <div id="header-thankyou-bcm">
             <h1>YOU'RE IN!</h1>
           </div>
-          <Confetti id="confetti" active={ this.state.completed } config={ config } />
           <div id="thank-you-bcm-text">
             <h3>Your ebook has been sent to your email! Make sure to check the spam folder.</h3>
             <p>Before you dive in, you can help someone else achive their dream body. Please help spread the word by sharing the calculation with the buttons below. It really helps.</p>
@@ -60,3 +59,5 @@ componentDidMount() {
 }
 
 export default ThankYouBcm
+
+  // <Confetti id="confetti" active={ this.state.completed } config={ config } />

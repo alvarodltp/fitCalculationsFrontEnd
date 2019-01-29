@@ -329,7 +329,7 @@ updateStats = (bodyType, protein, carbs, fats) => {
           {this.props.stepNumber === 2 ? <PersonalizedMacros scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
           { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
            saveEmailToUser={this.saveEmailToUser} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
-           {this.props.stepNumber === 3 ? <SignUpForm user={this.state.user} calories={this.state.caloriesForGoal} bodyType={this.state.bodyType} goal={this.state.goal} bmr={this.state.bmr} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
+           {this.props.stepNumber === 3 ? <SignUpForm scrollToTop={this.props.scrollToTop} user={this.state.user} calories={this.state.caloriesForGoal} bodyType={this.state.bodyType} goal={this.state.goal} bmr={this.state.bmr} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
            { this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
 
       </React.Fragment>

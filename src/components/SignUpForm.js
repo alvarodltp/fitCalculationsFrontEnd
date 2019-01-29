@@ -98,7 +98,7 @@ class SignUpForm extends React.Component {
          "protein": this.props.protein,
          "carbs": this.props.carbs,
          "fats": this.props.fats,
-         "bodyType": this.props.bodyType,
+         "bodyType": this.props.bodyType.toUpperCase(),
          "goal": this.props.goal,
          "bmr": this.props.bmr
        }
@@ -116,7 +116,7 @@ class SignUpForm extends React.Component {
               <Form.Input onChange={(e) => {this.getEmail(e); this.validateEmail(e)}} width={6} fluid placeholder='EMAIL' />
             </Form.Group>
             <Link to="/thank-you-bcm">
-              <Button id="button-get-email" type='submit'disabled={this.state.submitButtonDisabled} onClick={() => {this.getEvent(); this.saveEmailToUser(); this.activateConfetti()}}>SUBMIT</Button>
+              <Button id="button-get-email" type='submit'disabled={this.state.submitButtonDisabled} onClick={() => {this.getEvent(); this.saveEmailToUser(); this.activateConfetti(); this.props.scrollToTop()}}>SUBMIT</Button>
             </Link>
           </Form>
         </Card>

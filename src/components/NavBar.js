@@ -14,9 +14,7 @@ class NavBar extends React.Component {
   render(){
     return(
         <div id="navbar">
-          <Link to="/bmr-calories-macros">
             <h1 id="logo">FIT CALCULATIONS</h1>
-          </Link>
           <BrowserView style={{float:"right"}}>
             <ShareButtons/>
           </BrowserView>
