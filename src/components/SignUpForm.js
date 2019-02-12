@@ -110,7 +110,7 @@ class SignUpForm extends React.Component {
     return(
       <Card id="sign-up-form-card">
           <Form id="sign-up-form-card">
-            <h3>LEARN ABOUT YOUR RESULTS WITH A DETAILED PERSONALIZED EBOOK SENT TO YOUR EMAIL</h3>
+            <h2>LEARN ABOUT YOUR RESULTS WITH A DETAILED PERSONALIZED EBOOK SENT TO YOUR EMAIL</h2>
             <Form.Group widths='equal'>
               <Form.Input onChange={this.getName} width={6} fluid placeholder='NAME' />
               <Form.Input onChange={(e) => {this.getEmail(e); this.validateEmail(e)}} width={6} fluid placeholder='EMAIL' />

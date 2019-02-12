@@ -10,11 +10,19 @@ html, body{
   height:100%;
 }
 
+p {
+  font-size: 15px;
+}
+
+h4 {
+  font-size: 17px;
+}
+
 #navbar {
   margin-top: 0%;
   float: left;
   width: 100%;
-  background-color: #A8FC00;
+  background: linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%);
   height: 50px;
 }
 
@@ -59,7 +67,9 @@ html, body{
   width: 80%;
   margin: 0 auto;
   margin-top: 30px;
-  background: linear-gradient(330deg, rgba(84,0,240,1) 0%, rgba(168,252,0,1) 100%);
+  background: #eaeaea;
+  border-radius: 15px !important;
+  box-shadow: none;
 }
 
 #bmr-results {
@@ -67,6 +77,9 @@ html, body{
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 20px;
+  border-radius: 15px !important;
+  box-shadow: none;
+  background: #eaeaea;
 }
 
 #bmr-results-text {
@@ -114,6 +127,9 @@ html, body{
 #macros-card{
   margin: 0 auto;
   width: 80%;
+  border-radius: 15px !important;
+  box-shadow: none;
+  background: #eaeaea;
 }
 
 #macros-button {
@@ -130,15 +146,17 @@ html, body{
 
 #footer {
   height: 50px;
-  background-color: #A8FC00;
+  background: linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%);
   margin-top: 40px;
   position: static;
   color: gray;
+  border-radius: 0px !important;
+  box-shadow: none;
 }
 
 #button {
-  background-color: #A8FC00;
-  color: gray;
+  background-color: #2761f1;
+  color: white;
   opacity: 1;
 }
 
@@ -177,14 +195,14 @@ html, body{
 }
 
 #logo{
-  color: gray;
-  font-family: 'Lalezar', cursive;
+  color: white;
+  font-family: 'Lato';
   margin-top: 5px;
   font-size: 25px;
   margin-left: 10px;
   float: left;
-  font-weight: lighter;
-  margin-top: 12px;
+  margin-top: 9px;
+  font-style: italic;
 }
 
 #nutrition-package-header{
@@ -196,6 +214,7 @@ html, body{
 #footer-content {
   display: flex;
   justify-content:space-between;
+  color: white;
 }
 
 #section-title {
@@ -232,15 +251,18 @@ html, body{
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #5400FC;
+  background: linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%);
+  border-radius: 15px !important;
+  box-shadow: none;
 }
 
-#sign-up-form-card h3{
+#sign-up-form-card h2{
   color: white;
 }
 
 #button-get-email{
-  background-color: #A8FC00;
+  background-color: #2761f1;
+  color: white;;
 }
 
 #benefits-calorie-calculator {
@@ -295,13 +317,25 @@ html, body{
 }
 
 #benefits-bcm {
+  padding-top: 30px;
+  padding-bottom: 30px;
   width: 80%;
   margin: 0 auto;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  background: white;
+  transition: background 0.3s ease-in-out;
+
+}
+
+#benefits-bcm:hover {
+background: #eaeaea;
+border-radius: 15px !important;
+box-shadow: none;
+
 }
 
 #icons {
-  color: #5400FC;
+  color: #2761f1;
 }
 
 #body-type-explanation{
@@ -325,7 +359,7 @@ html, body{
   margin-top: -22px;
   width: 100%;
   height: 200px;
-  background: #5400FC;
+  background: #2761f1;
   box-shadow: none;
   padding-top: 10px;
   color: white;
@@ -343,7 +377,6 @@ html, body{
   width: 80%;
 }
 
-
 #title-bcm {
   margin: 0 auto;
   margin-top: 0px;
@@ -360,7 +393,7 @@ html, body{
   margin-top: -22px;
   width: 100%;
   height: 200px;
-  background: #5400FC;
+  background: #2761f1;
   box-shadow: none;
 }
 
@@ -379,4 +412,8 @@ html, body{
 
 #confetti {
   margin: 0 auto;
+}
+
+.check {
+  color: #2761f1;
 }

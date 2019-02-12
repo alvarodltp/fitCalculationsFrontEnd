@@ -312,7 +312,7 @@ updateStats = (bodyType, protein, carbs, fats) => {
             </div> : null }
           {this.props.stepNumber === 3 ?
             <div id="congratulations-message">
-              <h2 id="title-bcm">CONGRATULATIONS, HERE ARE YOUR RESULTS! <Icon style={{color: "#7CFC00"}} name='check' /></h2>
+              <h2 id="title-bcm">CONGRATULATIONS, YOUR RESULTS ARE READY! <Icon style={{color: "#7CFC00"}} name='check' /></h2>
               <p>Your personalized information and ebook are ready for you. Make sure to enter your name and email in the form below so we can send you a free ebook with a detailed report.</p>
             </div> : null }
           {this.props.stepNumber === 3 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
@@ -320,17 +320,17 @@ updateStats = (bodyType, protein, carbs, fats) => {
             <div>
               <h2 id="title-body-type"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/>YOUR BODY TYPE</h2>
               <div id="body-type-points">
-                  <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />Knowing your body type will personalize your results further.</h4>
-                  <h4><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />It will help us understand the type of exercises and nutrition you’ll need.</h4>
-                  <h4 style={{marginBottom: "15px"}}><Icon style={{color: "#5400FC"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, select the broader one.</h4>
+                  <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />Knowing your body type will personalize your results further.</h4>
+                  <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />It will help us understand the type of exercises and nutrition you’ll need.</h4>
+                  <h4 style={{marginBottom: "15px"}}><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, select the broader one.</h4>
               </div>
             </div>
              : null }
           {this.props.stepNumber === 2 ? <PersonalizedMacros scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
           { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
            saveEmailToUser={this.saveEmailToUser} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
-           {this.props.stepNumber === 3 ? <SignUpForm scrollToTop={this.props.scrollToTop} user={this.state.user} calories={this.state.caloriesForGoal} bodyType={this.state.bodyType} goal={this.state.goal} bmr={this.state.bmr} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
-           { this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
+          {this.props.stepNumber === 3 ? <SignUpForm scrollToTop={this.props.scrollToTop} user={this.state.user} calories={this.state.caloriesForGoal} bodyType={this.state.bodyType} goal={this.state.goal} bmr={this.state.bmr} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
+          { this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
 
       </React.Fragment>
     )

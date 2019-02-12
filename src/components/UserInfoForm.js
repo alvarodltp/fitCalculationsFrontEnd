@@ -27,7 +27,7 @@ class UserInfoForm extends React.Component {
     return(
 
     <div>
-      <Card id="bmr-form" style={{backgroundColor: "lightgray"}}>
+      <Card id="bmr-form">
         <Card.Content extra>
         <Form>
           <Form.Field>
