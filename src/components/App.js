@@ -36,15 +36,26 @@ logPageView = () => {
   ReactGA.pageview(window.location.pathname);
 }
 
-  addOneToStep = () => {
-    this.setState({
-      stepNumber: this.state.stepNumber + 1
-    })
-  }
+addOneToStep = () => {
+  this.setState({
+    stepNumber: this.state.stepNumber + 1
+  })
+}
+
+substractOneFromStep = () => {
+  this.setState({
+    stepNumber: this.state.stepNumber - 1
+  })
+  this.scrollToBottom()
+}
 
 scrollToTop = () => {
  window.scrollTo(0, 0)
 }
+
+// scrollToBottom = () => {
+//   window.scrollTo(0,9999);
+// }
 
 
   render() {
@@ -53,7 +64,7 @@ scrollToTop = () => {
         <NavBar /><br/><br/><br/><br/>
         <Route exact path="/" render={props => <Homepage /> } />
         <Route exact path="/services" render={props => <ServicesContainer /> } />
-        <Route exact path="/bmr-calories-macros" render={props => <CalculationsContainer {...props} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/bmr-calories-macros" render={props => <CalculationsContainer {...props} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you-bcm" render={props => <ThankYouBcm /> } />
         <Footer />

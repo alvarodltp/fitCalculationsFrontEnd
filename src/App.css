@@ -417,3 +417,12 @@ box-shadow: none;
 .check {
   color: #2761f1;
 }
+
+#breakdown-form {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 25px;
+  background: #eaeaea;
+  border-radius: 15px !important;
+  box-shadow: none;
+}

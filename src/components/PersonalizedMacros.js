@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, Card, Image } from 'semantic-ui-react'
+import { Icon, Card, Image, Button } from 'semantic-ui-react'
 
 class PersonalizedMacros extends React.Component {
   render(){
