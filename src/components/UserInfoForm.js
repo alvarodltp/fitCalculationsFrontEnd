@@ -42,8 +42,8 @@ class UserInfoForm extends React.Component {
         </Form>
         <Form>
           <Form.Select onChange={(e) => {this.props.getGender(e); this.props.enableButton(e)}} required={true} name='gender' label='Gender' options={genderOptions} placeholder='Gender...' />
-          <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} required={true} name='age' type='number' label="Age" placeholder='Age...' />
-          <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} required={true} name='weightLb' type='number' label='Weight (Pounds)' placeholder='Weight...' />
+          <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} onInput={(e)=>{e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0,2)}} required={true} name='age' type='number' label="Age" placeholder='Age...' />
+          <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} onInput={(e)=>{e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0,3)}} required={true} name='weightLb' type='number' label='Weight (Pounds)' placeholder='Weight...' />
           <Form.Select onChange={(e) => {this.props.getFeet(e); this.props.enableButton(e)}} required={true} options={feetOptions} name='heightFeet' label='Height (Feet)' placeholder='Feet...' />
           <Form.Select onChange={(e) => {this.props.getInches(e); this.props.enableButton(e)}} required={true} options={inchesOptions} name='heightInches' label='Height (Inches)' placeholder='Inches...' />
           <Form.Select onChange={(e) => {this.props.getActivityLevel(e); this.props.enableButton(e)}} required={true} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
