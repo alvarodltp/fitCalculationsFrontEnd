@@ -66,8 +66,8 @@ class SignUpForm extends React.Component {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          name: this.state.name,
-          email: this.state.email
+          name: this.state.name.replace(/^\w/, c => c.toUpperCase()),
+          email: this.state.email.toLowerCase()
         })
       }).then(response =>response.json())
       // .then(this.sendEmail())
@@ -110,14 +110,15 @@ class SignUpForm extends React.Component {
     return(
       <Card id="sign-up-form-card">
           <Form id="sign-up-form-card">
-            <h2>LEARN ABOUT YOUR RESULTS WITH A DETAILED PERSONALIZED EBOOK SENT TO YOUR EMAIL</h2>
+            <h2>GET YOUR RESULTS, ADVICE ON HOW TO IMPLEMENT THESE NUMBERS, AND MUCH MORE USEFUL INFORMATION SENT RIGHT TO YOUR EMAIL</h2>
             <Form.Group widths='equal'>
               <Form.Input onChange={this.getName} maxLength="255" width={8} fluid placeholder='NAME' />
               <Form.Input onChange={(e) => {this.getEmail(e); this.validateEmail(e)}} maxLength="255" width={8} fluid placeholder='EMAIL' />
             </Form.Group>
-            <Link to="/thank-you-bcm">
-              <Button id="button-get-email" type='submit' disabled={this.state.submitButtonDisabled} onClick={() => {this.getEvent(); this.saveEmailToUser(); this.activateConfetti(); this.props.scrollToTop()}}>SUBMIT</Button>
-            </Link>
+            {this.state.emailValid === true ?
+              <Link to="/thank-you-bcm">
+                <Button id="button-get-email" type='submit' disabled={this.state.submitButtonDisabled} onClick={() => {this.getEvent(); this.saveEmailToUser(); this.activateConfetti(); this.props.scrollToTop()}}>SUBMIT</Button>
+              </Link> : null }
           </Form>
         </Card>
     )

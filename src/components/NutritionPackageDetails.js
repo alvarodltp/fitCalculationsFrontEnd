@@ -50,7 +50,7 @@ class NutritionPackageDetails extends React.Component {
           </Card>
           <Card id="benefits-bcm">
             <Icon id="icons" name='food' size="huge" />
-            <h4>Personalized calculations of your daily macronutrient needs</h4>
+            <h4>Personalized calculation of your daily macronutrient needs</h4>
             <p>Learn how many grams of proteins, carbs, and fats you need to eat based on your calorie results.</p>
           </Card>
           <Card id="benefits-bcm">
