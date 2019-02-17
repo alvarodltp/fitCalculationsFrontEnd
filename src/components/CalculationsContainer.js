@@ -44,7 +44,12 @@ class CalculationsContainer extends React.Component {
       proteinPercentage: "",
       carbPercentage: "",
       fatPercentage: "",
-      completed: false
+      completed: false,
+      numberOfMeals: "",
+      proteinBreakdown: "",
+      caloriesBreakdown: "",
+      carbsBreakdown: "",
+      fatsBreakdown: ""
     }
   }
 
@@ -59,7 +64,7 @@ class CalculationsContainer extends React.Component {
   handleClose = () => this.setState({ modalOpen: false })
 
   enableButton = (e) => {
-    if(this.state.gender != "" && this.state.age != "" && this.state.weightLb != "" && this.state.feet != "" && this.state.inches != "" && this.state.activityLevel != null){
+    if(this.state.gender != "" && this.state.age != "" && this.state.weightLb != "" && this.state.feet != "" && this.state.inches != "" && this.state.activityLevel != null && this.state.goal != ""){
       this.setState({
         buttonDisabled: false
       })
@@ -301,6 +306,25 @@ updateStats = (bodyType, protein, carbs, fats) => {
     })
 }
 
+getNumber = (e) => {
+  this.setState({
+    numberOfMeals: e.target.innerText[0]
+  })
+}
+
+calculateBreakdown = () => {
+  if(this.state.numberOfMeals != "") {
+    this.setState({
+      caloriesBreakdown: Math.round(this.state.caloriesForGoal/this.state.numberOfMeals),
+      proteinBreakdown: Math.round(this.state.protein/this.state.numberOfMeals),
+      carbsBreakdown: Math.round(this.state.carbs/this.state.numberOfMeals),
+      fatsBreakdown: Math.round(this.state.fats/this.state.numberOfMeals)
+    })
+  } else {
+
+  }
+}
+
   render(){
     return(
       <React.Fragment>
@@ -330,7 +354,7 @@ updateStats = (bodyType, protein, carbs, fats) => {
           {this.props.stepNumber === 2 && this.state.user != null ? <PersonalizedMacros substractOneFromStep={this.props.substractOneFromStep} scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
           { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
            saveEmailToUser={this.saveEmailToUser} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
-          {this.props.stepNumber === 3 ? <MacrosBreakdownCard caloriesForGoal={this.state.caloriesForGoal} proteins={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null }
+          {this.props.stepNumber === 3 ? <MacrosBreakdownCard getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
           {this.props.stepNumber === 3 ? <SignUpForm scrollToTop={this.props.scrollToTop} user={this.state.user} calories={this.state.caloriesForGoal} bodyType={this.state.bodyType} goal={this.state.goal} bmr={this.state.bmr} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
           { this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
       </React.Fragment>

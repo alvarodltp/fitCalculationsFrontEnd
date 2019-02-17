@@ -1,48 +1,28 @@
 import React from 'react'
-import { Card, Button, Form } from 'semantic-ui-react'
+import { Card, Button, Form, Icon } from 'semantic-ui-react'
 
 class MacrosBreakdownCard extends React.Component {
-  constructor(){
-    super()
-    this.state={
-      numberOfMeals: "",
-      proteinBreakdown: "",
-      caloriesBreakdown: "",
-      carbsBreakdown: "",
-      fatsBreakdown: ""
-    }
-  }
-
-  getNumber = (e) => {
-    this.setState({
-      numberofMeals: e.target.innerText
-    })
-  }
-
-  calculateBreakdown = () => {
-    let proteinBreakdown = this.state.protein
-    let caloriesBreakdown = this.state.caloriesForGoal
-    let carbsBreakdown = this.state.carbs
-    let fatsBreakdown = this.state.fatsBreakdown
-    this.setState({
-      proteinBreakdown: proteinBreakdown/this.state.numberOfMeals,
-      caloriesBreakdown: caloriesBreakdown/this.state.numberOfMeals,
-      carbsBreakdown: carbsBreakdown/this.state.numberOfMeals,
-      fatsBreakdown: fatsBreakdown/this.state.numberOfMeals
-    })
-  }
-
   render(){
-    const options = [{ text: '1', value: '1' }, { text: '2', value: '2' }, { text: '3', value: '3' }, { text: '4', value: '4' }, { text: '5', value: '5' }, { text: '6', value: '6' }]
+    const options = [{ text: '1 Meal', value: '1' }, { text: '2 Meals', value: '2' }, { text: '3 Meals', value: '3' }, { text: '4 Meals', value: '4' }, { text: '5 Meals', value: '5' }, { text: '6 Meals', value: '6' }, { text: '7 Meals', value: '7' }, { text: '8 Meals', value: '8' }]
     return(
-      <Form id="breakdown-form">
-        <Form.Select onChange={this.getNumber} required={true} options={options} name='meals' label='Meals Per Day' placeholder='Select One...' />
-        <Button onClick={this.calculateBreakdown}>Calculate Daily Breakdown</Button>
-        <h3>{this.state.caloriesBreakdown}</h3>
-        <h3>{this.state.proteinBreakdown}</h3>
-        <h3>{this.state.carbsBreakdown}</h3>
-        <h3>{this.state.fatsBreakdown}</h3>
-      </Form>
+      <Card id="bmr-results">
+        <Card.Content>
+          <h2 id="bmr-results-text"><Icon style={{color: "yellow", border: "black"}} name="star" size="small" />CALCULATE YOUR MACROS BREAKDOWN</h2>
+          <p>Based on the number of meals you will be eating per day, we can estimate what your macros should be for each meal. We recommend between 3 and 6 meals for optimal results.</p>
+          <Form>
+            <Form.Select onChange={this.props.getNumber} required={true} options={options} name='meals' placeholder='Number of meals...' />
+            <Button id="button" onClick={this.props.calculateBreakdown}>Calculate Your Daily Breakdown</Button>
+            {this.props.caloriesBreakdown ?
+            <div style={{marginTop: "20px"}}>
+              <h3><Icon style={{color: "#7CFC00"}} name="check circle" size="small" /> {this.props.caloriesBreakdown} CALORIES PER MEAL</h3>
+              <h3><Icon style={{color: "#7CFC00"}} name="check circle" size="small" /> {this.props.proteinBreakdown}G OF PROTEIN PER MEAL</h3>
+              <h3><Icon style={{color: "#7CFC00"}} name="check circle" size="small" /> {this.props.carbsBreakdown}G OF CARBS PER MEAL</h3>
+              <h3><Icon style={{color: "#7CFC00"}} name="check circle" size="small" /> {this.props.fatsBreakdown}G OF FATS PER MEAL</h3>
+            </div> : null }
+          </Form>
+        </Card.Content>
+      </Card>
+
     )
   }
 }

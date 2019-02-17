@@ -7,7 +7,7 @@ class BmrCalorieResults extends React.Component {
         <Card id="bmr-results">
           <Card.Content>
             <h2 id="bmr-results-text"><Icon style={{color: "yellow", border: "black"}} name="star" size="small" />YOU NEED {this.props.caloriesForGoal} DAILY CALORIES IN ORDER TO {this.props.goal.toUpperCase()}</h2>
-            <p>This is your key number! Based on the information you entered in the previous steps, we have determined you need this many calories to accomplish your goal. You can always come back to this calculation if your activity level or goal change as this will affect your numbers.</p>
+            <p>This is your key number! Based on the information you entered in the previous steps, we have determined you need {this.props.caloriesForGoal} calories to accomplish your goal. You can always come back to this calculation if your activity level or goal change as this will affect your numbers.</p>
           </Card.Content>
         </Card>
     )

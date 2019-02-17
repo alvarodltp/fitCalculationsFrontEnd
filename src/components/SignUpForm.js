@@ -112,8 +112,8 @@ class SignUpForm extends React.Component {
           <Form id="sign-up-form-card">
             <h2>LEARN ABOUT YOUR RESULTS WITH A DETAILED PERSONALIZED EBOOK SENT TO YOUR EMAIL</h2>
             <Form.Group widths='equal'>
-              <Form.Input onChange={this.getName} width={6} fluid placeholder='NAME' />
-              <Form.Input onChange={(e) => {this.getEmail(e); this.validateEmail(e)}} width={6} fluid placeholder='EMAIL' />
+              <Form.Input onChange={this.getName} maxLength="255" width={8} fluid placeholder='NAME' />
+              <Form.Input onChange={(e) => {this.getEmail(e); this.validateEmail(e)}} maxLength="255" width={8} fluid placeholder='EMAIL' />
             </Form.Group>
             <Link to="/thank-you-bcm">
               <Button id="button-get-email" type='submit' disabled={this.state.submitButtonDisabled} onClick={() => {this.getEvent(); this.saveEmailToUser(); this.activateConfetti(); this.props.scrollToTop()}}>SUBMIT</Button>
