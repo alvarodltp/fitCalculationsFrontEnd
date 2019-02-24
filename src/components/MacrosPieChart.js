@@ -44,9 +44,9 @@ class MacrosPieChart extends React.Component {
                />
             </Grid.Column>
             <Grid.Column id="macros-numbers">
-              <h3>{this.props.protein}G PROTEIN</h3>
-              <h3>{this.props.carbs}G CARBS</h3>
-              <h3>{this.props.fats}G FATS</h3>
+              <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.protein}G PROTEIN</h3>
+              <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.carbs}G CARBS</h3>
+              <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.fats}G FATS</h3>
             </Grid.Column>
           </Grid.Row>
         </Grid>

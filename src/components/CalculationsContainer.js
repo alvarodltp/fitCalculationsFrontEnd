@@ -12,6 +12,8 @@ import {Icon, Image, Card} from 'semantic-ui-react'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import SignUpForm from './SignUpForm'
 import MacrosBreakdownCard from './MacrosBreakdownCard'
+import DietType from './DietType'
+import Motivation from './Motivation'
 
 class CalculationsContainer extends React.Component {
   constructor(){
@@ -49,7 +51,9 @@ class CalculationsContainer extends React.Component {
       proteinBreakdown: "",
       caloriesBreakdown: "",
       carbsBreakdown: "",
-      fatsBreakdown: ""
+      fatsBreakdown: "",
+      dietType: "",
+      motivationToGetFit: ""
     }
   }
 
@@ -106,6 +110,21 @@ class CalculationsContainer extends React.Component {
       inches: e.target.innerText
     })
   }
+
+  getDietType = (e) => {
+    let dietType = e.target.innerText
+    this.setState({
+      dietType: dietType
+    })
+  }
+
+  getMotivationToGetFit = (e) => {
+    let motivationToGetFit = e.target.parentElement.getElementsByClassName("header")[0].innerText
+    this.setState({
+      motivationToGetFit: motivationToGetFit
+    }, () => this.addDietTypeAndMotivationToUser())
+  }
+
 
   getActivityLevel = (e) => {
     let activityLevel = e.target.innerText
@@ -207,7 +226,7 @@ calculateMacros = (e) => {
     carbPercentage: carbPercentage,
     fatPercentage: fatPercentage,
     completed: true
-  }, () => this.showMacrosChart(), this.updateUser(bodyType, protein, carbs, fats))
+  }, () => this.showMacrosChart(), this.updateUser(bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage))
 }
 
 saveUser = () => {
@@ -239,7 +258,7 @@ saveUser = () => {
     })
 }
 
-updateUser = (bodyType, protein, carbs, fats) => {
+updateUser = (bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage) => {
   let userId = this.state.user["id"]
   fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
       method: "PATCH",
@@ -261,7 +280,7 @@ updateUser = (bodyType, protein, carbs, fats) => {
       })
     }).then(response =>response.json())
     .then(response => {
-    }, this.updateStats(bodyType, protein, carbs, fats))
+    }, this.updateStats(bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage))
 }
 
 saveStats = (user) => {
@@ -288,7 +307,7 @@ saveStats = (user) => {
     })
 }
 
-updateStats = (bodyType, protein, carbs, fats) => {
+updateStats = (bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage) => {
   let statsId = this.state.stats["id"]
   fetch(`https://fitcalculations-api.herokuapp.com/stats/${statsId}`, {
       method: "PATCH",
@@ -299,7 +318,10 @@ updateStats = (bodyType, protein, carbs, fats) => {
       body: JSON.stringify({
           protein_grams: protein,
           carb_grams: carbs,
-          fat_grams: fats
+          fat_grams: fats,
+          protein_percentage: proteinPercentage,
+          carb_percentage: carbPercentage,
+          fat_percentage: fatPercentage
       })
     }).then(response => response.json())
     .then(response => {
@@ -325,38 +347,45 @@ calculateBreakdown = () => {
   }
 }
 
+addDietTypeAndMotivationToUser = () => {
+  let userId = this.state.user["id"]
+  fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        user: {
+          diet_type: this.state.dietType,
+          reason_to_get_fit: this.state.motivationToGetFit
+        }
+      })
+    }).then(response =>response.json())
+    .then(response => {
+      console.log(response)
+    })
+}
+
   render(){
     return(
       <React.Fragment>
-        {this.props.stepNumber === 1 ? <NutritionPackageDetails showBcmForm={this.showBcmForm}/> : null }
-          {this.props.stepNumber === 1 || this.props.stepNumber === 2 ? <ProgressRatio stepNumber={this.props.stepNumber}/> : null }
+          {this.props.stepNumber === 1 ? <NutritionPackageDetails showBcmForm={this.showBcmForm}/> : null }
+          {this.props.stepNumber === 1 || this.props.stepNumber === 2 || this.props.stepNumber === 3 || this.props.stepNumber === 4 ? <ProgressRatio stepNumber={this.props.stepNumber}/> : null }
           {this.props.stepNumber === 1 && this.state.showBcmForm === true ? <UserInfoForm scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
-            {this.props.stepNumber === 3 ?
+          {this.props.stepNumber === 3 ? <DietType getDietType={this.getDietType} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
+            {this.props.stepNumber === 5 ?
             <div id="congratulations-bcm-header">
               <h1>YOUR RESULTS</h1>
             </div> : null }
-          {this.props.stepNumber === 3 ?
-            <div id="congratulations-message">
-              <h2 id="title-bcm">CONGRATULATIONS, YOUR RESULTS ARE READY! <Icon style={{color: "#7CFC00"}} name='check' /></h2>
-              <p>Your personalized information and ebook are ready for you. Make sure to enter your name and email in the form below so we can send you a free ebook with a detailed report.</p>
-            </div> : null }
-          {this.props.stepNumber === 3 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
-          {this.props.stepNumber === 2 ?
-            <div>
-              <h2 id="title-body-type"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/>YOUR BODY TYPE</h2>
-              <div id="body-type-points">
-                  <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />Knowing your body type will personalize your results further.</h4>
-                  <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />It will help us understand the type of exercises and nutrition you’ll need.</h4>
-                  <h4 style={{marginBottom: "15px"}}><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, select the broader one.</h4>
-              </div>
-            </div>
-             : null }
-          {this.props.stepNumber === 2 && this.state.user != null ? <PersonalizedMacros substractOneFromStep={this.props.substractOneFromStep} scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
-          { this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
+          {this.props.stepNumber === 4 ? <Motivation getMotivationToGetFit={this.getMotivationToGetFit} addDietTypeAndMotivationToUser={this.addDietTypeAndMotivationToUser} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
+          {this.props.stepNumber === 5 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
+          {this.props.stepNumber === 2 && this.state.user != null ? <PersonalizedMacros user={this.state.user} substractOneFromStep={this.props.substractOneFromStep} scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
+          {this.state.macrosChart === true && this.state.protein != "" && this.props.stepNumber === 5? <MacrosPieChart email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
            saveEmailToUser={this.saveEmailToUser} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
-          {this.props.stepNumber === 3 ? <MacrosBreakdownCard getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
-          {this.props.stepNumber === 3 ? <SignUpForm scrollToTop={this.props.scrollToTop} user={this.state.user} calories={this.state.caloriesForGoal} bodyType={this.state.bodyType} goal={this.state.goal} bmr={this.state.bmr} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
-          { this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
+          {this.props.stepNumber === 5 ? <MacrosBreakdownCard getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
+          {this.props.stepNumber === 5 ? <SignUpForm scrollToTop={this.props.scrollToTop} user={this.state.user} calories={this.state.caloriesForGoal} bodyType={this.state.bodyType} goal={this.state.goal} bmr={this.state.bmr} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
+          {this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
       </React.Fragment>
     )
   }

@@ -14,10 +14,10 @@ class MacrosBreakdownCard extends React.Component {
             <Button id="button" onClick={this.props.calculateBreakdown}>Calculate Your Daily Breakdown</Button>
             {this.props.caloriesBreakdown ?
             <div style={{marginTop: "20px"}}>
-              <h3><Icon style={{color: "#7CFC00"}} name="check circle" size="small" /> {this.props.caloriesBreakdown} CALORIES PER MEAL</h3>
-              <h3><Icon style={{color: "#7CFC00"}} name="check circle" size="small" /> {this.props.proteinBreakdown}G OF PROTEIN PER MEAL</h3>
-              <h3><Icon style={{color: "#7CFC00"}} name="check circle" size="small" /> {this.props.carbsBreakdown}G OF CARBS PER MEAL</h3>
-              <h3><Icon style={{color: "#7CFC00"}} name="check circle" size="small" /> {this.props.fatsBreakdown}G OF FATS PER MEAL</h3>
+              <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" /> {this.props.caloriesBreakdown} CALORIES PER MEAL</h3>
+              <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" /> {this.props.proteinBreakdown}G OF PROTEIN PER MEAL</h3>
+              <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" /> {this.props.carbsBreakdown}G OF CARBS PER MEAL</h3>
+              <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" /> {this.props.fatsBreakdown}G OF FATS PER MEAL</h3>
             </div> : null }
           </Form>
         </Card.Content>
