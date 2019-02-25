@@ -1,32 +1,33 @@
 import React from 'react'
-import {Image, Icon, Card} from 'semantic-ui-react'
-import ShareButtons from './ShareButtons'
-import { Link } from "react-router-dom"
+import {Image, Card} from 'semantic-ui-react'
 
 class Motivation extends React.Component {
 
   render(){
     return(
-      <div id="image-container">
-        <Card onClick={(e) => {this.props.addDietTypeAndMotivationToUser(); this.props.getMotivationToGetFit(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
-          <Image />
+      <div id="img-container-motivation">
+        <Card onClick={(e) => {this.props.getMotivationToGetFit(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
+          <Image id="img-motivation" src={'../athletic_event.png'} />
           <Card.Content>
-            <Card.Header>Athletic or Sporting Event</Card.Header>
-            <Card.Description>Naturally thin, with a fast metabolic rate.</Card.Description>
+            <Card.Header>Athletic Event</Card.Header>
           </Card.Content>
         </Card>
-        <Card onClick={(e) => {this.props.addDietTypeAndMotivationToUser(); this.props.getMotivationToGetFit(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
-          <Image />
+        <Card onClick={(e) => {this.props.getMotivationToGetFit(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
+          <Image id="img-motivation" src={'../vacation.png'} />
           <Card.Content>
-            <Card.Header>Vacation or Wedding</Card.Header>
-            <Card.Description>In between an Ectomorph and an Endomorph with a moderate metabolic rate. </Card.Description>
+            <Card.Header>Vacation</Card.Header>
           </Card.Content>
         </Card>
-        <Card onClick={(e) => {this.props.addDietTypeAndMotivationToUser(); this.props.getMotivationToGetFit(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
-          <Image />
+        <Card onClick={(e) => {this.props.getMotivationToGetFit(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
+          <Image id="img-motivation" src={'../wedding_social.png'} />
           <Card.Content>
-            <Card.Header>Health Related Reasons</Card.Header>
-            <Card.Description>Naturally broad and thick with a slow metabolic rate.</Card.Description>
+            <Card.Header>Wedding/Social Event</Card.Header>
+          </Card.Content>
+        </Card>
+        <Card onClick={(e) => {this.props.getMotivationToGetFit(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
+          <Image id="img-motivation" src={'../health.png'} />
+          <Card.Content>
+            <Card.Header>Health Reasons</Card.Header>
           </Card.Content>
         </Card>
       </div>

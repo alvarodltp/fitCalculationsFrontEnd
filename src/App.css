@@ -50,7 +50,6 @@ h4 {
 
 #info-card p {
   margin-bottom: 10px;
-
 }
 
 #image {
@@ -251,18 +250,40 @@ h4 {
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  background: linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%);
-  border-radius: 15px !important;
-  box-shadow: none;
+  /* background: linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%); */
+  /* border-radius: 15px !important;
+  box-shadow: none; */
 }
 
-#sign-up-form-card h2{
-  color: white;
+
+#sign-up-input {
+  width: 80%;
 }
+
+/* #sign-up-form-card h2{
+  color: white;
+} */
+
+#sign-up-text {
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+#sign-up-text p{
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* #sign-up-div {
+  height: 62vh;
+} */
 
 #button-get-email{
   background-color: #2761f1;
-  color: white;;
+  color: white;
+  width: 80%;
 }
 
 #benefits-calorie-calculator {
@@ -425,4 +446,39 @@ box-shadow: none;
   background: #eaeaea;
   border-radius: 15px !important;
   box-shadow: none;
+}
+
+#title-for-details {
+  margin-bottom: 50px;
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+#img-motivation {
+  margin: 0 auto;
+  background-color: white;
+}
+
+#img-diet-type {
+  margin: 0 auto;
+  background-color: white;
+}
+
+#img-container-motivation {
+  margin-top: 30px;
+  height: 62vh;
+}
+
+#image-container-diet-type {
+  margin-top: 30px;
+  height: 62vh;
+}
+
+#image-card {
+  box-shadow: none;
+  transition: transform .4s;
+}
+
+#image-card:hover {
+  transform: scale(1.1)
 }

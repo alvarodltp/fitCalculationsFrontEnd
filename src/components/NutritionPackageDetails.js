@@ -36,10 +36,9 @@ class NutritionPackageDetails extends React.Component {
       <div id="nutrition-package-intro">
         <div id="bcm-for-who">
             <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
-            <h4><Icon id="check-icon" name='check' size="medium" />You want to lose weight</h4>
+            <h4><Icon id="check-icon" name='check' size="medium" />You want to lose fat</h4>
             <h4><Icon id="check-icon" name='check' size="medium" />You want to gain muscle</h4>
-            <h4><Icon id="check-icon" name='check' size="medium" />You want to be healthier</h4>
-            <h4><Icon id="check-icon" name='check' size="medium" />You want to know what works for you</h4>
+            <h4><Icon id="check-icon" name='check' size="medium" />You want to be healthier overall</h4>
         </div>
         <h2 style={{marginBottom: "40px"}}>LIFE CHANGING INFORMATION IN LESS THAN 60 SECONDS!</h2>
         <div>
@@ -51,7 +50,7 @@ class NutritionPackageDetails extends React.Component {
           <Card id="benefits-bcm">
             <Icon id="icons" name='food' size="huge" />
             <h4>Personalized calculation of your daily macronutrient needs</h4>
-            <p>Learn how many grams of proteins, carbs, and fats you need to eat based on your calorie results.</p>
+            <p>Learn how many grams of proteins, carbs, and fats you need to eat based on your calorie results and body type.</p>
           </Card>
           <Card id="benefits-bcm">
             <Icon id="icons" name='book' size="huge" />

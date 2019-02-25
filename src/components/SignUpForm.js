@@ -1,12 +1,5 @@
 import React from 'react'
-import {Form, Image, Icon, Card, Button} from 'semantic-ui-react'
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile
-} from "react-device-detect";
-import { Link } from "react-router-dom"
+import {Image, Icon, Card, Button, Input, Checkbox, Form} from 'semantic-ui-react'
 import swal from 'sweetalert'
 import ReactGA from 'react-ga';
 
@@ -18,7 +11,8 @@ class SignUpForm extends React.Component {
       email: "",
       emailValid: "",
       submitButtonDisabled: true,
-      completed: false
+      completed: false,
+      checked: false
     }
   }
 
@@ -47,6 +41,12 @@ class SignUpForm extends React.Component {
     })
   }
 
+  checkCheckbox = (e) => {
+    this.setState({
+      checked: !this.state.checked
+    })
+  }
+
   validateEmail = (e) => {
     let email = e.target.value
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -58,7 +58,7 @@ class SignUpForm extends React.Component {
 
   saveEmailToUser = () => {
     let userId = this.props.user["id"]
-    if(this.state.emailValid === true) {
+    if(this.state.emailValid === true && this.state.checked === true) {
     fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
         method: "PATCH",
         headers: {
@@ -70,10 +70,9 @@ class SignUpForm extends React.Component {
           email: this.state.email.toLowerCase()
         })
       }).then(response =>response.json())
-      // .then(this.sendEmail())
-        swal("Success!", "Your request has been received!", "success")
+      .then(this.props.addOneToStep())
+        swal("Success!", "Your results have been sent!", "success")
     } else {
-
     }
   }
 
@@ -108,19 +107,24 @@ class SignUpForm extends React.Component {
 
   render(){
     return(
-      <Card id="sign-up-form-card">
-          <Form id="sign-up-form-card">
-            <h2>GET YOUR RESULTS, ADVICE ON HOW TO IMPLEMENT THESE NUMBERS, AND MUCH MORE USEFUL INFORMATION SENT RIGHT TO YOUR EMAIL</h2>
-            <Form.Group widths='equal'>
-              <Form.Input onChange={this.getName} maxLength="255" width={8} fluid placeholder='NAME' />
-              <Form.Input onChange={(e) => {this.getEmail(e); this.validateEmail(e)}} maxLength="255" width={8} fluid placeholder='EMAIL' />
-            </Form.Group>
-            {this.state.emailValid === true ?
-              <Link to="/thank-you-bcm">
-                <Button id="button-get-email" type='submit' disabled={this.state.submitButtonDisabled} onClick={() => {this.getEvent(); this.saveEmailToUser(); this.activateConfetti(); this.props.scrollToTop()}}>SUBMIT</Button>
-              </Link> : null }
-          </Form>
-        </Card>
+      <React.Fragment>
+        <div id="sign-up-div">
+          <div id="sign-up-text">
+            <h1>AWESOME JOB!</h1>
+            <h2>Your have finished the calculation process</h2>
+            <p>To get your results and a full report on how to implement your numbers, just let us know where to send it.</p>
+          </div>
+          <div id="sign-up-form-card">
+            <Input id="sign-up-input" required fluid onChange={this.getName} size='huge' maxLength="255" placeholder='Name' /><br/>
+            <Input id="sign-up-input" required fluid onChange={(e) => {this.getEmail(e); this.validateEmail(e)}} size='huge' maxLength="255" placeholder='Email Address'/><br/>
+            <Checkbox onChange={this.checkCheckbox} required label='I agree to the Terms and Conditions' /><br/><br/>
+            <Button style={{fontStyle: "bold"}} size={"huge"} id="button-get-email" type='submit' onClick={() => {this.getEvent(); this.saveEmailToUser(); this.activateConfetti(); this.props.scrollToTop()}}>Yes, send me my results!</Button>
+          </div>
+          <div>
+            <p style={{fontSize: "11px", fontColor: "lightgray", marginBottom: "20px"}}>When you sign up, we'll keep you updated with a few emails per week.</p>
+          </div>
+        </div>
+      </React.Fragment>
     )
   }
 }

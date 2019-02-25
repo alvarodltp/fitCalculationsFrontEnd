@@ -2,18 +2,12 @@ import React from 'react'
 import { Icon, Card, Image, Button, Dimmer, Loader } from 'semantic-ui-react'
 
 class PersonalizedMacros extends React.Component {
-  constructor(){
-    super()
-    this.state={
-      loading: true
-    }
-  }
 
   render(){
     return(
       <React.Fragment>
       { this.props.user === null ?
-      <Dimmer active={this.state.loading} inverted>
+      <Dimmer active={this.props.loading} inverted>
         <Loader inverted>Loading Body Types</Loader>
       </Dimmer> :
       <div>
