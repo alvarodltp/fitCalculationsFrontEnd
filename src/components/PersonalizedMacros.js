@@ -6,19 +6,21 @@ class PersonalizedMacros extends React.Component {
   render(){
     return(
       <React.Fragment>
-      { this.props.user === null ?
-      <Dimmer active={this.props.loading} inverted>
-        <Loader inverted>Loading Body Types</Loader>
-      </Dimmer> :
       <div>
           <div>
-            <h2 id="title-body-type"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/>YOUR BODY TYPE</h2>
+            <h2 id="title-body-type"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/>SELECT YOUR BODY TYPE</h2>
             <div id="body-type-points">
                 <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />Knowing your body type will personalize your results further.</h4>
                 <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />It will help us understand the type of exercises and nutrition you’ll need.</h4>
                 <h4 style={{marginBottom: "15px"}}><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, select the broader one.</h4>
             </div>
           </div>
+
+          { this.props.user === null ?
+            <div>
+            <Icon loading={this.props.loading} size='large' name='spinner' />
+            <p>Loading Body Types</p>
+          </div> :
           <div id="image-container">
             <Card onClick={(e) => {this.props.calculateMacros(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
               <Image src={'../Ectomorph.jpg'} />
@@ -41,8 +43,8 @@ class PersonalizedMacros extends React.Component {
                 <Card.Description>Naturally broad and thick with a slow metabolic rate.</Card.Description>
               </Card.Content>
             </Card>
-          </div>
-        </div> }
+          </div> }
+        </div>
       </React.Fragment>
     )
   }

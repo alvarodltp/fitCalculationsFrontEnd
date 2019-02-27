@@ -14,6 +14,7 @@ import SignUpForm from './SignUpForm'
 import MacrosBreakdownCard from './MacrosBreakdownCard'
 import DietType from './DietType'
 import Motivation from './Motivation'
+import Confetti from 'react-dom-confetti';
 
 class CalculationsContainer extends React.Component {
   constructor(){
@@ -54,8 +55,22 @@ class CalculationsContainer extends React.Component {
       fatsBreakdown: "",
       dietType: "",
       motivationToGetFit: "",
-      loading: true
+      loading: true,
+      cardInfo: false,
+      confetti: false
     }
+  }
+
+  activateConfetti = () => {
+    this.setState({
+      confetti: true
+    })
+  }
+
+  displayCardInfo = () => {
+    this.setState({
+      cardInfo: !this.state.cardInfo
+    })
   }
 
   showBcmForm = () => {
@@ -371,8 +386,21 @@ addDietTypeAndMotivationToUser = () => {
 }
 
   render(){
+    const config = {
+      angle: 90,
+      spread: 45,
+      startVelocity: 45,
+      elementCount: 50,
+      dragFriction: 0.1,
+      duration: 3000,
+      delay: 0,
+      width: "10px",
+      height: "10px",
+      colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+    };
     return(
       <React.Fragment>
+          <Confetti id="confetti" active={this.state.confetti} config={config}/>
           {this.props.stepNumber === 1 ? <NutritionPackageDetails showBcmForm={this.showBcmForm}/> : null }
           {this.props.stepNumber === 1 || this.props.stepNumber === 2 || this.props.stepNumber === 3 || this.props.stepNumber === 4 || this.props.stepNumber === 5 ? <ProgressRatio stepNumber={this.props.stepNumber}/> : null }
           {this.props.stepNumber === 1 && this.state.showBcmForm === true ? <UserInfoForm scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm} handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories}/> : null }
@@ -382,12 +410,12 @@ addDietTypeAndMotivationToUser = () => {
               <h1>YOUR RESULTS</h1>
             </div> : null }
           {this.props.stepNumber === 4 ? <Motivation getMotivationToGetFit={this.getMotivationToGetFit} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
-          {this.props.stepNumber === 6 ? <BmrCalorieResults goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
+          {this.props.stepNumber === 6 ? <BmrCalorieResults displayCardInfo={this.displayCardInfo} cardInfo={this.state.cardInfo} goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} /> : null }
           {this.props.stepNumber === 2 && this.state.user != null ? <PersonalizedMacros loading={this.state.loading} user={this.state.user} substractOneFromStep={this.props.substractOneFromStep} scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
-          {this.state.macrosChart === true && this.state.protein != "" && this.props.stepNumber === 6 ? <MacrosPieChart email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
+          {this.props.stepNumber === 6 && this.state.macrosChart === true && this.state.protein != "" ? <MacrosPieChart displayCardInfo={this.displayCardInfo} cardInfo={this.state.cardInfo} email={this.state.email} calories={this.state.caloriesForGoal} bmr={this.state.bmr} bodyType={this.state.bodyType} goal={this.state.goal} name={this.state.name} user={this.state.user} submitButtonDisabled={this.state.submitButtonDisabled} validateEmail={this.validateEmail} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}
           protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats}/> : null}
-          {this.props.stepNumber === 6 ? <MacrosBreakdownCard getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
-          {this.props.stepNumber === 5 ? <SignUpForm user={this.state.user} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} /> : null}
+          {this.props.stepNumber === 6 ? <MacrosBreakdownCard cardInfo={this.state.cardInfo} displayCardInfo={this.displayCardInfo} getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
+          {this.props.stepNumber === 5 ? <SignUpForm activateConfetti={this.activateConfetti} user={this.state.user} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} /> : null}
           {this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
       </React.Fragment>
     )

@@ -29,6 +29,7 @@ class MacrosPieChart extends React.Component {
     return (
       <React.Fragment>
       <Card centered id="macros-card">
+      <Card.Content>
         <h2 id="macros-title"><Icon style={{color: "yellow"}} name="star" size="small" />YOUR DAILY MACRONUTRIENT NEEDS</h2>
         <p style={{paddingBottom: "20px"}}>The amount of protein, cabohydrates, and fats you intake is essential for optimal results. We calculate these numbers based on your total daily calorie needs and your body type. Different body types have different needs so it is important to calculate these numbers based on what you need.</p>
         <Grid id="macros-grid" columns="two">
@@ -49,7 +50,8 @@ class MacrosPieChart extends React.Component {
               <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.fats}G FATS</h3>
             </Grid.Column>
           </Grid.Row>
-        </Grid>
+        </Grid> 
+        </Card.Content>
       </Card>
       </React.Fragment>
     )

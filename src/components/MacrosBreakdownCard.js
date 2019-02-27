@@ -6,8 +6,8 @@ class MacrosBreakdownCard extends React.Component {
     const options = [{ text: '1 Meal', value: '1' }, { text: '2 Meals', value: '2' }, { text: '3 Meals', value: '3' }, { text: '4 Meals', value: '4' }, { text: '5 Meals', value: '5' }, { text: '6 Meals', value: '6' }, { text: '7 Meals', value: '7' }, { text: '8 Meals', value: '8' }]
     return(
       <Card id="bmr-results">
-        <Card.Content>
-          <h2 id="bmr-results-text"><Icon style={{color: "yellow", border: "black"}} name="star" size="small" />CALCULATE YOUR MACROS BREAKDOWN</h2>
+      <h2 id="bmr-results-text"><Icon style={{color: "yellow", border: "black"}} name="star" size="small" />CALCULATE YOUR MACROS BREAKDOWN</h2>
+        <Card.Content onClick={this.props.displayCardInfo}>
           <p>Based on the number of meals you will be eating per day, we can estimate what your macros should be for each meal. We recommend between 3 and 6 meals for optimal results.</p>
           <Form>
             <Form.Select onChange={this.props.getNumber} required={true} options={options} name='meals' placeholder='Number of meals...' />

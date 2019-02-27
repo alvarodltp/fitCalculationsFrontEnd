@@ -1,5 +1,7 @@
 import React from 'react';
-import {Icon, Button, Card} from 'semantic-ui-react';
+import {Icon, Button, Card, Image, Divider, Header} from 'semantic-ui-react';
+import SimpleSlider from './SimpleSlider'
+import Typing from 'react-typing-animation';
 
 class NutritionPackageDetails extends React.Component {
   constructor(){
@@ -33,6 +35,18 @@ class NutritionPackageDetails extends React.Component {
   render() {
     return (
       <React.Fragment>
+      <div id="header-main-landing">
+      <Typing>
+        <h1 style={{paddingTop: "45px", fontSize: "40px", color: "black", fontStyle: "italic"}} >KNOW YOUR FITNESS POTENTIAL</h1>
+      </Typing>
+      <Divider style={{fontSize: "18px", marginTop: "40px"}} horizontal>
+          <Icon style={{color: "red"}} name='hand point down outline' />
+            GET YOUR NUMBERS NOW
+          <Icon style={{color: "red"}} name='hand point down outline' />
+      </Divider>
+      <Button size="huge" id="gender-button"><Icon style={{color: "white"}} name='woman' /> I'M A WOMAN</Button>
+      <Button size="huge" id="gender-button"><Icon style={{color: "white"}} name='man' /> I'M A MAN</Button>
+      </div>
       <div id="nutrition-package-intro">
         <div id="bcm-for-who">
             <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
@@ -44,13 +58,18 @@ class NutritionPackageDetails extends React.Component {
         <div>
           <Card id="benefits-bcm">
             <Icon id="icons" name='heart' size="huge" />
-            <h4>Personalized calculation of your daily calorie needs</h4>
-            <p>Learn how many calories you need to eat daily to reach your goal.</p>
+            <h4>Calculate your daily calorie needs</h4>
+            <p>Go no further and get the exact numbers you need to reach your goal.</p>
           </Card>
           <Card id="benefits-bcm">
             <Icon id="icons" name='food' size="huge" />
-            <h4>Personalized calculation of your daily macronutrient needs</h4>
-            <p>Learn how many grams of proteins, carbs, and fats you need to eat based on your calorie results and body type.</p>
+            <h4>Calculate your daily macronutrient needs</h4>
+            <p>The amount of proteins, carbs, and fats you need to eat based on your calorie results and body type are key for success.</p>
+          </Card>
+          <Card id="benefits-bcm">
+            <Icon id="icons" name='thumbs up' size="huge" />
+            <h4>Personalized recommendations based on your information</h4>
+            <p>Either you want to get lean and muscular or start your weight loss journey, the key is right here.</p>
           </Card>
           <Card id="benefits-bcm">
             <Icon id="icons" name='book' size="huge" />
@@ -69,3 +88,7 @@ class NutritionPackageDetails extends React.Component {
 }
 
 export default NutritionPackageDetails
+
+// <div style={{width: "85%", margin: "0 auto"}}>
+//   <SimpleSlider />
+// </div>

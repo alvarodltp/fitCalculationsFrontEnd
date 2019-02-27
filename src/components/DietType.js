@@ -8,6 +8,7 @@ class DietType extends React.Component {
   render(){
     return(
       <div id="image-container-diet-type">
+        <h2 id="title-body-type"><Icon name="angle right" size="mini"/>SELECT YOUR CURRENT DIET</h2>
         <Card onClick={(e) => {this.props.getDietType(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
           <Image id="img-diet-type" src={'../standard_diet.png'} />
           <Card.Content>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image, Icon, Card, Button, Input, Checkbox, Form} from 'semantic-ui-react'
+import {Image, Icon, Card, Button, Input, Checkbox, Form, Divider} from 'semantic-ui-react'
 import swal from 'sweetalert'
 import ReactGA from 'react-ga';
 
@@ -111,14 +111,16 @@ class SignUpForm extends React.Component {
         <div id="sign-up-div">
           <div id="sign-up-text">
             <h1>AWESOME JOB!</h1>
-            <h2>Your have finished the calculation process</h2>
-            <p>To get your results and a full report on how to implement your numbers, just let us know where to send it.</p>
+            <Divider style={{fontSize: "18px", marginTop: "35px"}} horizontal>
+              Your Results Are Ready
+            </Divider>
+            <p>To get your results and a full report on your fitness potential, just let us know where to send it.</p>
           </div>
           <div id="sign-up-form-card">
             <Input id="sign-up-input" required fluid onChange={this.getName} size='huge' maxLength="255" placeholder='Name' /><br/>
             <Input id="sign-up-input" required fluid onChange={(e) => {this.getEmail(e); this.validateEmail(e)}} size='huge' maxLength="255" placeholder='Email Address'/><br/>
             <Checkbox onChange={this.checkCheckbox} required label='I agree to the Terms and Conditions' /><br/><br/>
-            <Button style={{fontStyle: "bold"}} size={"huge"} id="button-get-email" type='submit' onClick={() => {this.getEvent(); this.saveEmailToUser(); this.activateConfetti(); this.props.scrollToTop()}}>Yes, send me my results!</Button>
+            <Button style={{fontStyle: "bold"}} size={"huge"} id="button-get-email" type='submit' onClick={() => {this.getEvent(); this.saveEmailToUser(); this.props.activateConfetti(); this.props.scrollToTop()}}>Yes, send me my results!</Button>
           </div>
           <div>
             <p style={{fontSize: "11px", fontColor: "lightgray", marginBottom: "20px"}}>When you sign up, we'll keep you updated with a few emails per week.</p>
