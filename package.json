@@ -7,6 +7,7 @@
     "npm": "6.4.1"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.7",
     "@sendgrid/mail": "^6.3.1",
     "chart.js": "^2.7.3",
     "emailjs-com": "^2.3.2",
@@ -23,6 +24,7 @@
     "react-scripts": "^2.1.5",
     "react-share": "^2.4.0",
     "react-slick": "^0.23.2",
+    "react-spinners": "^0.5.1",
     "react-typing-animation": "^1.6.2",
     "semantic-ui-react": "^0.83.0",
     "slick-carousel": "^1.8.1",

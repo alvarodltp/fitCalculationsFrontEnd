@@ -1,26 +1,8 @@
 import React from 'react'
 import {Image, Icon, Card, Button, Input, Checkbox, Form, Divider} from 'semantic-ui-react'
-import swal from 'sweetalert'
 import ReactGA from 'react-ga';
 
 class SignUpForm extends React.Component {
-  constructor(){
-    super()
-    this.state={
-      name: "",
-      email: "",
-      emailValid: "",
-      submitButtonDisabled: true,
-      completed: false,
-      checked: false
-    }
-  }
-
-  activateConfetti = () => {
-    this.setState({
-      completed: true
-    })
-  }
 
   getEvent = () => {
     ReactGA.event({
@@ -29,52 +11,6 @@ class SignUpForm extends React.Component {
     })
   }
 
-  getEmail = (e) => {
-    this.setState({
-      email: e.target.value
-    })
-  }
-
-  getName = (e) => {
-    this.setState({
-      name: e.target.value
-    })
-  }
-
-  checkCheckbox = (e) => {
-    this.setState({
-      checked: !this.state.checked
-    })
-  }
-
-  validateEmail = (e) => {
-    let email = e.target.value
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    this.setState({
-      emailValid: re.test(email),
-      submitButtonDisabled: !re.test(email)
-    })
-  }
-
-  saveEmailToUser = () => {
-    let userId = this.props.user["id"]
-    if(this.state.emailValid === true && this.state.checked === true) {
-    fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: this.state.name.replace(/^\w/, c => c.toUpperCase()),
-          email: this.state.email.toLowerCase()
-        })
-      }).then(response =>response.json())
-      .then(this.props.addOneToStep())
-        swal("Success!", "Your results have been sent!", "success")
-    } else {
-    }
-  }
 
   // sendEmail = () => {
   //   console.log(this.props.email)
@@ -105,6 +41,7 @@ class SignUpForm extends React.Component {
   //   })
   // }
 
+
   render(){
     return(
       <React.Fragment>
@@ -117,10 +54,10 @@ class SignUpForm extends React.Component {
             <p>To get your results and a full report on your fitness potential, just let us know where to send it.</p>
           </div>
           <div id="sign-up-form-card">
-            <Input id="sign-up-input" required fluid onChange={this.getName} size='huge' maxLength="255" placeholder='Name' /><br/>
-            <Input id="sign-up-input" required fluid onChange={(e) => {this.getEmail(e); this.validateEmail(e)}} size='huge' maxLength="255" placeholder='Email Address'/><br/>
-            <Checkbox onChange={this.checkCheckbox} required label='I agree to the Terms and Conditions' /><br/><br/>
-            <Button style={{fontStyle: "bold"}} size={"huge"} id="button-get-email" type='submit' onClick={() => {this.getEvent(); this.saveEmailToUser(); this.props.activateConfetti(); this.props.scrollToTop()}}>Yes, send me my results!</Button>
+            <Input id="sign-up-input" required fluid onChange={this.props.getName} size='huge' maxLength="255" placeholder='Name' /><br/>
+            <Input id="sign-up-input" required fluid onChange={(e) => {this.props.getEmail(e); this.props.validateEmail(e)}} size='huge' maxLength="255" placeholder='Email Address'/><br/>
+            <Checkbox id="checkbox" onChange={this.props.checkCheckbox} required label='Yes, send my results and awesome information to stay in shape.' /><br/><br/>
+            <Button style={{fontStyle: "bold"}} size={"huge"} id="button-get-email" type='submit' onClick={(e) => {this.getEvent(); this.props.saveEmailToUser(e); this.props.activateConfetti(); this.props.scrollToTop()}}>Submit!</Button>
           </div>
           <div>
             <p style={{fontSize: "11px", fontColor: "lightgray", marginBottom: "20px"}}>When you sign up, we'll keep you updated with a few emails per week.</p>

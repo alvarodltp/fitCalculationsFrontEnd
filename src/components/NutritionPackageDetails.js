@@ -37,33 +37,35 @@ class NutritionPackageDetails extends React.Component {
       <React.Fragment>
       <div id="header-main-landing">
       <Typing>
-        <h1 style={{paddingTop: "45px", fontSize: "40px", color: "black", fontStyle: "italic"}} >KNOW YOUR FITNESS POTENTIAL</h1>
+        <h1 style={{paddingTop: "45px", fontSize: "40px", color: "black", fontStyle: "italic"}} >ACHIEVE YOUR FITNESS POTENTIAL</h1>
       </Typing>
       <Divider style={{fontSize: "18px", marginTop: "40px"}} horizontal>
-          <Icon style={{color: "red"}} name='hand point down outline' />
-            GET YOUR NUMBERS NOW
-          <Icon style={{color: "red"}} name='hand point down outline' />
+           START YOUR TRANSFORMATION NOW
       </Divider>
-      <Button size="huge" id="gender-button"><Icon style={{color: "white"}} name='woman' /> I'M A WOMAN</Button>
-      <Button size="huge" id="gender-button"><Icon style={{color: "white"}} name='man' /> I'M A MAN</Button>
+      <Button onClick={this.props.getGenderOnButton} value="Female" size="huge" id="gender-button">I'M A WOMAN</Button>
+      <Button onClick={this.props.getGenderOnButton} value="Male" size="huge" id="gender-button">I'M A MAN</Button>
       </div>
       <div id="nutrition-package-intro">
         <div id="bcm-for-who">
-            <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
-            <h4><Icon id="check-icon" name='check' size="medium" />You want to lose fat</h4>
-            <h4><Icon id="check-icon" name='check' size="medium" />You want to gain muscle</h4>
-            <h4><Icon id="check-icon" name='check' size="medium" />You want to be healthier overall</h4>
+          <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
         </div>
+      </div>
+      <Card id="for-you-if-card">
+        <h4><Icon id="check-icon" name='check' size="medium" />You are tired of following diets that don't work</h4>
+        <h4><Icon id="check-icon" name='check' size="medium" />You are tired of restricting yourself from foods you love</h4>
+        <h4><Icon id="check-icon" name='check' size="medium" />You are working out but not seeing results</h4>
+        <h4><Icon id="check-icon" name='check' size="medium" />You want to gain muscle or lose weight ASAP</h4>
+      </Card>
         <h2 style={{marginBottom: "40px"}}>LIFE CHANGING INFORMATION IN LESS THAN 60 SECONDS!</h2>
         <div>
           <Card id="benefits-bcm">
             <Icon id="icons" name='heart' size="huge" />
-            <h4>Calculate your daily calorie needs</h4>
+            <h4>Get and understand your calorie needs</h4>
             <p>Go no further and get the exact numbers you need to reach your goal.</p>
           </Card>
           <Card id="benefits-bcm">
             <Icon id="icons" name='food' size="huge" />
-            <h4>Calculate your daily macronutrient needs</h4>
+            <h4>Perfect breakdown of daily macronutrients</h4>
             <p>The amount of proteins, carbs, and fats you need to eat based on your calorie results and body type are key for success.</p>
           </Card>
           <Card id="benefits-bcm">
@@ -73,14 +75,13 @@ class NutritionPackageDetails extends React.Component {
           </Card>
           <Card id="benefits-bcm">
             <Icon id="icons" name='book' size="huge" />
-            <h4>All your personalized results sent to your email</h4>
+            <h4>All your personalized results and more sent to your email</h4>
             <p>Health professionals charge hundreds, if not thousands of dollars for information you will get absolutely FREE.</p>
           </Card>
         </div>
         <div>
-          <h2 id="lets-get-numbers">LET'S GET YOUR NUMBERS!</h2>
+          <h2 id="lets-get-numbers">GET YOUR NUMBERS!</h2>
         </div>
-      </div>
 
       </React.Fragment>
     );

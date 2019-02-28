@@ -1,12 +1,14 @@
 import React from 'react'
-import {Image, Card, Icon} from 'semantic-ui-react'
+import {Image, Card, Icon, Divider} from 'semantic-ui-react'
 
 class Motivation extends React.Component {
 
   render(){
     return(
       <div id="img-container-motivation">
-        <h2 id="title-body-type"><Icon name="angle right" size="mini"/>SELECT YOUR MAIN MOTIVATION</h2>
+        <Divider id="title-body-type" horizontal>
+            SELECT YOUR MOTIVATION
+        </Divider>
         <Card onClick={(e) => {this.props.getMotivationToGetFit(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
           <Image id="img-motivation" src={'../athletic_event.png'} />
           <Card.Content>

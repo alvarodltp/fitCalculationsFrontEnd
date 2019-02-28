@@ -1,5 +1,13 @@
 import React from 'react'
-import { Icon, Card, Image, Button, Dimmer, Loader } from 'semantic-ui-react'
+import { Icon, Card, Image, Button, Divider } from 'semantic-ui-react'
+import { css } from '@emotion/core';
+import { BeatLoader } from 'react-spinners';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 
 class PersonalizedMacros extends React.Component {
 
@@ -7,21 +15,30 @@ class PersonalizedMacros extends React.Component {
     return(
       <React.Fragment>
       <div>
-          <div>
-            <h2 id="title-body-type"><Icon onClick={this.displayBmrInfo} name="angle right" size="mini"/>SELECT YOUR BODY TYPE</h2>
+          <div style={{marginBottom: "40px"}}>
+            <Divider id="title-body-type" horizontal>
+                SELECT YOUR BODY TYPE
+            </Divider>
             <div id="body-type-points">
-                <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />Knowing your body type will personalize your results further.</h4>
-                <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />It will help us understand the type of exercises and nutrition you’ll need.</h4>
+                <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />Knowing your body type will add more accuracy to your macronutrient needs.</h4>
+                <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />It will determine the type of exercise and nutrition you’ll need to get to your goal as fast and safe as possible.</h4>
                 <h4 style={{marginBottom: "15px"}}><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, select the broader one.</h4>
             </div>
           </div>
-
           { this.props.user === null ?
             <div>
-            <Icon loading={this.props.loading} size='large' name='spinner' />
-            <p>Loading Body Types</p>
+            <div className='sweet-loading'>
+              <BeatLoader
+                css={override}
+                sizeUnit={"px"}
+                size={30}
+                color={this.props.gender === "Female" ? '#e80aaa' : '#2761f1'}
+                loading={this.props.loading}
+              />
+            </div>
+            <p>Calculating Calories/ <br/>Loading Body Types</p>
           </div> :
-          <div id="image-container">
+          <div style={{marginBottom: "50px"}}>
             <Card onClick={(e) => {this.props.calculateMacros(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
               <Image src={'../Ectomorph.jpg'} />
               <Card.Content>
