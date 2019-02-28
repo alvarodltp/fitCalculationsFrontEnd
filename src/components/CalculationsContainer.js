@@ -16,6 +16,7 @@ import DietType from './DietType'
 import Motivation from './Motivation'
 import Confetti from 'react-dom-confetti';
 import swal from 'sweetalert'
+import LandingPage from './LandingPage'
 
 class CalculationsContainer extends React.Component {
   constructor(){
@@ -480,6 +481,7 @@ getGenderOnButton = (e) => {
           {this.props.stepNumber === 6 ? <MacrosBreakdownCard cardInfo={this.state.cardInfo} displayCardInfo={this.displayCardInfo} getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
           {this.props.stepNumber === 5 ? <SignUpForm getName={this.getName} getEmail={this.getEmail} validateEmail={this.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} /> : null}
           {this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
+          {this.props.stepNumber === 10 ? <LandingPage /> : null }
       </React.Fragment>
     )
   }

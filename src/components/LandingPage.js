@@ -6,7 +6,9 @@ class LandingPage extends React.Component {
   render(){
     return(
       <React.Fragment>
-        <h1>SO WHAT'S NEXT, {this.props.name.toUpperCase()}?</h1>
+      <div style={{width: "80%", margin: "0 auto"}}>
+        <h1>TAKE ADVANTAGE OF A LIMITED DISCOUNT AND GET THE GUIDE THAT WILL UNLEASH YOUR FULL FITNESS POTENTIAL</h1>
+      </div>
       </React.Fragment>
     )
   }
