@@ -54,8 +54,8 @@ class SignUpForm extends React.Component {
             <p>To get your results and a full report on your fitness potential, just let us know where to send it.</p>
           </div>
           <div id="sign-up-form-card">
-            <Input id="sign-up-input" required fluid onChange={this.props.getName} size='huge' maxLength="255" placeholder='Name' /><br/>
-            <Input id="sign-up-input" required fluid onChange={(e) => {this.props.getEmail(e); this.props.validateEmail(e)}} size='huge' maxLength="255" placeholder='Email Address'/><br/>
+            <Input id="sign-up-input" fluid onChange={this.props.getName} size='huge' maxLength="255" placeholder='Name' /><br/>
+            <Input id="sign-up-input" fluid onChange={(e) => {this.props.getEmail(e); this.props.validateEmail(e)}} size='huge' maxLength="255" placeholder='Email Address'/><br/>
             <Checkbox id="checkbox" onChange={this.props.checkCheckbox} required label='Yes, send my results and awesome information to stay in shape.' /><br/><br/>
             <Button style={{fontStyle: "bold"}} size={"huge"} id="button-get-email" type='submit' onClick={(e) => {this.getEvent(); this.props.saveEmailToUser(e); this.props.activateConfetti(); this.props.scrollToTop()}}>Submit!</Button>
           </div>

@@ -39,14 +39,14 @@ class BmrCalorieResults extends React.Component {
            and get the body you want. You are closer to your goals than what you think. This super powerful personalized information available to you is all you need, and now it is up to you to take this information and apply it to your life to get the body you deserve. Read your results fully and let us know if you have any questions!</p>
         </div> }
         <Card id="calories-result">
-          <Card.Content id="calories-card">
+          <Card.Content>
             <h2 id="bmr-results-text">YOUR CALORIES</h2>
-            <p>You need {this.props.caloriesForGoal} daily calories in order to {this.props.goal.toLowerCase()}. {this.props.name.charAt(0).toUpperCase()}, don't freak out...ok, maybe you already did and that is ok. About 80% of clients though their numbers were too high, yet when they follow the program,
+            <p>You need {this.props.caloriesForGoal} daily calories in order to {this.props.goal.toLowerCase()}. {this.props.name.toUpperCase()}, don't freak out...ok, maybe you already did and that is ok. About 80% of clients though their numbers were too high, yet when they follow the program,
             they see results. Eating less won't help you {this.props.goal.toLowerCase()}. This is one of the biggest misconceptions when it comes to nutrition but YOU WILL accomplish your goals as long as you follow your results.</p>
           </Card.Content>
         </Card>
         <Card id="diet-type-result">
-          <Card.Content id="calories-card">
+          <Card.Content>
             <h2 id="bmr-results-text">YOUR DIET</h2>
             <p>Having a {this.props.dietType.toLowerCase()} is great as long as you are getting a balanced amount of nutrients your body needs to perform at its best. Our advise to you is not to focuse too much on calories but instead on hitting your macros consistently.
             As long as you get the right amount of macros that we have calculated for you, the calories will add up to your goal number automatically. And guess what...you can always hit your macros eating the foods you love!</p>

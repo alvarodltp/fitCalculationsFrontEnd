@@ -95,7 +95,6 @@ h4 {
 #diet-type-result {
   width: 80%;
   margin: 0 auto;
-  margin-top: 10px;
   margin-bottom: 20px;
   border-radius: 15px !important;
   box-shadow: none;
@@ -128,7 +127,6 @@ h4 {
 #macros-title {
   margin: 0 auto;
   margin-bottom: 10px;
-  margin-top: 5px;
 }
 
 #macros-numbers {
@@ -443,12 +441,13 @@ box-shadow: none;
 }
 
 #header-main-landing {
-  margin-top: -25px;
+  margin-top: -28px;
   margin-bottom: 60px;
   width: 100%;
   height: 350px;
-  background: #eaeaea;
+  background: #2761f1;
   box-shadow: none;
+  color: white;
 }
 
 #header-thankyou-bcm h1 {
@@ -523,17 +522,17 @@ box-shadow: none;
 #gender-button {
   width: 35%;
   color: white;
-  background-color: #2761f1;
+  background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
   margin-top: 40px;
 }
 
 #gender-button:hover {
-  background-image: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
+  background: #e80aaa;
 }
 
 #intro-results {
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 20px;
   width: 80%;
 }
 
