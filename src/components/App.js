@@ -17,7 +17,7 @@ class App extends React.Component {
   constructor(){
     super()
     this.state={
-      stepNumber: 1
+      stepNumber: 0
     }
   }
 
@@ -67,7 +67,7 @@ scrollToTop = () => {
         <Route exact path="/bmr-calories-macros" render={props => <CalculationsContainer {...props} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you-bcm" render={props => <ThankYouBcm /> } />
-        {this.state.stepNumber === 1 || this.state.stepNumber === 6 ? <Footer /> : null }
+        {this.state.stepNumber === 0 || this.state.stepNumber === 5 ? <Footer /> : null }
       </div>
     );
   }

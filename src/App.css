@@ -80,6 +80,8 @@ h4 {
   border-radius: 15px !important;
   box-shadow: none;
   background: #eaeaea;
+  /* border-style: solid;
+  border-color: #2761f1; */
 }
 
 #calories-result {
@@ -90,6 +92,8 @@ h4 {
   border-radius: 15px !important;
   box-shadow: none;
   background: #eaeaea;
+  /* border-style: solid;
+  border-color: #2761f1; */
 }
 
 #diet-type-result {
@@ -99,6 +103,8 @@ h4 {
   border-radius: 15px !important;
   box-shadow: none;
   background: #eaeaea;
+  /* border-style: solid;
+  border-color: #2761f1; */
 }
 
 #bmr-results-text {
@@ -148,6 +154,8 @@ h4 {
   border-radius: 15px !important;
   box-shadow: none;
   background: #eaeaea;
+  /* border-style: solid;
+  border-color: #2761f1; */
 }
 
 #macros-button {
@@ -393,8 +401,8 @@ box-shadow: none;
 
 #lets-get-numbers {
   margin: 0 auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 80%;
 }
 
@@ -446,6 +454,8 @@ box-shadow: none;
   width: 100%;
   height: 350px;
   background: #2761f1;
+  /* background: url(/cool-background.png) no-repeat;
+  background-size: cover; */
   box-shadow: none;
   color: white;
 }
@@ -543,4 +553,15 @@ box-shadow: none;
 
 #checkbox {
   width: 60%
+}
+
+#landing-main-benefits {
+  margin: 0 auto;
+  width: 70%;
+  line-height: 1.5;
+  margin-top: 30px;
+}
+
+.ui.progress{
+  background: blue
 }

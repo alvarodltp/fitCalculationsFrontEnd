@@ -50,11 +50,29 @@ class NutritionPackageDetails extends React.Component {
           <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
         </div>
       </div>
-      <Card id="for-you-if-card">
-        <h4><Icon id="check-icon" name='check' size="medium" />You are tired of following diets that don't work</h4>
-        <h4><Icon id="check-icon" name='check' size="medium" />You are tired of restricting yourself from foods you love</h4>
-        <h4><Icon id="check-icon" name='check' size="medium" />You are working out but not seeing results</h4>
-        <h4><Icon id="check-icon" name='check' size="medium" />You want to gain muscle or lose weight ASAP</h4>
+      <Card>
+        <Image id="img-motivation" src={'../food-you-love.png'} />
+        <Card.Content>
+          <Card.Header>You are tired of following diets that don't work</Card.Header>
+        </Card.Content>
+      </Card>
+      <Card>
+        <Image id="img-motivation" src={'../burger.png'} />
+        <Card.Content>
+          <Card.Header>You are tired of restricting yourself from foods you love</Card.Header>
+        </Card.Content>
+      </Card>
+      <Card>
+        <Image id="img-motivation" src={'../calendar.png'} />
+        <Card.Content>
+          <Card.Header>You are working out but not seeing results</Card.Header>
+        </Card.Content>
+      </Card>
+      <Card>
+        <Image id="img-motivation" src={'../results.png'} />
+        <Card.Content>
+          <Card.Header>You want to gain muscle or lose weight ASAP</Card.Header>
+        </Card.Content>
       </Card>
         <h2 style={{marginBottom: "40px"}}>LIFE CHANGING INFORMATION IN LESS THAN 60 SECONDS!</h2>
         <div>

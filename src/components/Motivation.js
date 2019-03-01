@@ -24,7 +24,7 @@ class Motivation extends React.Component {
         <Card onClick={(e) => {this.props.getMotivationToGetFit(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
           <Image id="img-motivation" src={'../wedding_social.png'} />
           <Card.Content>
-            <Card.Header>Wedding/Social Event</Card.Header>
+            <Card.Header>Social Event</Card.Header>
           </Card.Content>
         </Card>
         <Card onClick={(e) => {this.props.getMotivationToGetFit(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">

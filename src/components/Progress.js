@@ -13,7 +13,7 @@ class ProgressRatio extends React.Component {
           {this.props.stepNumber >= 2 ? <p style={{fontWeight: "bold"}}>2.Body <Icon style={{color: "#7CFC00"}} name='check' /></p> : <p id="steps-text">2.Body </p>}
           {this.props.stepNumber >= 3 ? <p style={{fontWeight: "bold"}}>3.Diet <Icon style={{color: "#7CFC00"}} name='check' /></p> : <p id="steps-text">3.Diet</p>}
           {this.props.stepNumber >= 4 ? <p style={{fontWeight: "bold"}}>4.Motivation  <Icon style={{color: "#7CFC00"}} name='check' /></p> : <p id="steps-text">4.Motivation</p>}
-          {this.props.stepNumber === 5 ? <p style={{fontWeight: "bold"}}>5.Results  <Icon style={{color: "#7CFC00"}} name='check' /></p> : <p id="steps-text">5.Results</p>}
+          {this.props.stepNumber === 4 ? <p style={{fontWeight: "bold"}}>5.Results  <Icon style={{color: "#7CFC00"}} name='check' /></p> : <p id="steps-text">5.Results</p>}
         </div>
       </div>
       </React.Fragment>
