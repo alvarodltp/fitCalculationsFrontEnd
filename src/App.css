@@ -244,8 +244,13 @@ h4 {
 }
 
 #section-title {
-  margin-bottom: 25px;
+  margin: 0 auto;
+  font-size: 30px;
+  margin-bottom: 35px;
   margin-top: -30px;
+  font-style: italic;
+  width: 80%;
+
 }
 
 #share-buttons-mobile {
@@ -293,7 +298,12 @@ h4 {
 
 #sign-up-text {
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 25px;
+}
+
+#sign-up-text h1 {
+  font-size: 40px;
+  font-style: italic;
 }
 
 #sign-up-text p{
@@ -365,13 +375,13 @@ h4 {
 }
 
 #benefits-bcm {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   width: 80%;
   margin: 0 auto;
   margin-bottom: 20px;
   background: white;
-  transition: background 0.3s ease-in-out;
+  transition: background 0.4s ease-in-out;
 
 }
 
@@ -392,7 +402,8 @@ box-shadow: none;
 }
 
 #title-body-type {
-  font-size: 20px;
+  font-size: 30px;
+  font-style: italic;
   margin: 0 auto;
   width: 80%;
   margin-top: 25px;
@@ -404,6 +415,8 @@ box-shadow: none;
   margin-top: 20px;
   margin-bottom: 20px;
   width: 80%;
+  font-style: italic;
+  font-size: 30px;
 }
 
 /* #congratulations-bcm-header {
@@ -435,9 +448,14 @@ box-shadow: none;
   width: 90%;
 }
 
-#body-type-points{
+#body-type-points-card{
   margin: 0 auto;
-  width: 80%;
+  width: 60%;
+  margin-bottom: 15px;
+}
+
+#body-type-points {
+  text-align: left;
 }
 
 #header-thankyou-bcm {
@@ -449,7 +467,7 @@ box-shadow: none;
 }
 
 #header-main-landing {
-  margin-top: -28px;
+  margin-top: -35px;
   margin-bottom: 60px;
   width: 100%;
   height: 350px;
@@ -498,7 +516,7 @@ box-shadow: none;
 
 #img-motivation {
   margin: 0 auto;
-  background-color: white;
+  background-color:  #ffffff00;
 }
 
 #img-diet-type {
@@ -552,7 +570,7 @@ box-shadow: none;
 }
 
 #checkbox {
-  width: 60%
+  width: 50%
 }
 
 #landing-main-benefits {

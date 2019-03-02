@@ -19,19 +19,20 @@ class PersonalizedMacros extends React.Component {
             <Divider id="title-body-type" horizontal>
                 SELECT YOUR BODY TYPE
             </Divider>
-            <div id="body-type-points">
-                <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />Knowing your body type will add more accuracy to your macronutrient needs.</h4>
-                <h4><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />It will determine the type of exercise and nutrition you’ll need to get to your goal as fast and safe as possible.</h4>
-                <h4 style={{marginBottom: "15px"}}><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, select the broader one.</h4>
-            </div>
           </div>
+            <Card id="body-type-points-card">
+                <h4 id="body-type-points"><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />Knowing your body type will add more accuracy to your macronutrient needs.</h4>
+                <h4 id="body-type-points"><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />It will determine the type of exercise and nutrition you’ll need to get to your goal as fast and safe as possible.</h4>
+                <h4 id="body-type-points"><Icon style={{color: "#2761f1"}} name='hand point right outline' size="medium" />If you think you are in between 2 body types, select the broader one.</h4>
+            </Card>
+
           { this.props.user === null ?
             <div>
             <div className='sweet-loading'>
               <BeatLoader
                 css={override}
                 sizeUnit={"px"}
-                size={30}
+                size={20}
                 color={this.props.gender === "Female" ? '#e80aaa' : '#2761f1'}
                 loading={this.props.loading}
               />

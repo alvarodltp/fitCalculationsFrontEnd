@@ -12,15 +12,15 @@ class DietType extends React.Component {
           SELECT YOUR CURRENT DIET
       </Divider>
         <Card onClick={(e) => {this.props.getDietType(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
-          <Image id="img-diet-type" src={'../standard_diet.png'} />
-          <Card.Content>
-            <Card.Header>Standard Western</Card.Header>
-          </Card.Content>
-        </Card>
-        <Card onClick={(e) => {this.props.getDietType(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
           <Image id="img-diet-type" src={'../vegan_diet.png'} />
           <Card.Content>
             <Card.Header>Vegan</Card.Header>
+          </Card.Content>
+        </Card>
+        <Card onClick={(e) => {this.props.getDietType(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
+          <Image id="img-diet-type" src={'../standard_diet.png'} />
+          <Card.Content>
+            <Card.Header>Standard Western</Card.Header>
           </Card.Content>
         </Card>
         <Card onClick={(e) => {this.props.getDietType(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
