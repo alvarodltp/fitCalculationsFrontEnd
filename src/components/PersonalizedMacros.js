@@ -28,7 +28,7 @@ class PersonalizedMacros extends React.Component {
 
           { this.props.user === null ?
             <div>
-            <div className='sweet-loading'>
+            <div style={{marginBottom: "40px"}} className='sweet-loading'>
               <BeatLoader
                 css={override}
                 sizeUnit={"px"}
@@ -37,7 +37,7 @@ class PersonalizedMacros extends React.Component {
                 loading={this.props.loading}
               />
             </div>
-            <p>Calculating Calories/ <br/>Loading Body Types</p>
+            <p style={{fontStyle: "italic"}}>Calculating Calories/Loading Body Types</p>
           </div> :
           <div style={{marginBottom: "50px"}}>
             <Card onClick={(e) => {this.props.calculateMacros(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">

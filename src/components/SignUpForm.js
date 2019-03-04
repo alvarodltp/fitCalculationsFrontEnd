@@ -60,7 +60,7 @@ class SignUpForm extends React.Component {
           <div style={{width: "70%", margin: "0 auto"}}>
             <Checkbox onChange={this.props.checkCheckbox} required label='Yes, send me my results and awesome content to stay in shape.' />
           </div><br/><br/>
-            <Button style={{fontStyle: "bold"}} size={"huge"} id="button-get-email" type='submit' onClick={(e) => {this.getEvent(); this.props.saveEmailToUser(e); this.props.activateConfetti(); this.props.scrollToTop()}}>Submit!</Button>
+            <Button size={"huge"} id="button-get-email" type='submit' onClick={(e) => {this.getEvent(); this.props.saveEmailToUser(e); this.props.activateConfetti(); this.props.scrollToTop()}}>Submit!</Button>
         </div><br/>
       </React.Fragment>
     )

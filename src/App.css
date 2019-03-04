@@ -320,7 +320,9 @@ h4 {
 #button-get-email{
   background-color: #2761f1;
   color: white;
-  width: 80%;
+  width: 65%;
+  font-style: bold;
+
 }
 
 #benefits-calorie-calculator {
