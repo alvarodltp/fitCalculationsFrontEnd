@@ -2,6 +2,7 @@ import React from 'react';
 import {Pie} from 'react-chartjs-2';
 import { Button, Header, Icon, Modal, Card, Grid, Input, Popup } from 'semantic-ui-react'
 import SignUpForm from './SignUpForm'
+import Fade from 'react-reveal/Fade';
 
 class MacrosPieChart extends React.Component {
   render() {
@@ -28,10 +29,13 @@ class MacrosPieChart extends React.Component {
 
     return (
       <React.Fragment>
-      <Card centered id="macros-card">
-      <Card.Content>
+      <Card centered id="calories-result" onClick={this.props.displayMacrosInfo}>
         <h2 id="macros-title">YOUR DAILY MACRONUTRIENTS</h2>
-        <p style={{paddingBottom: "20px"}}>The amount of protein, cabohydrates, and fats you intake is essential for optimal results. We calculate these numbers based on your total daily calorie needs and your body type. Different body types have different needs so it is important to calculate these numbers based on what you need.</p>
+      </Card>
+      <Fade top when={this.props.macrosInfo}>
+        <div style={{width: "80%", margin: "0 auto"}}>
+          <p>The amount of protein, cabohydrates, and fats you intake is essential for optimal results. We calculate these numbers based on your total daily calorie needs and your body type. Different body types have different needs so it is important to calculate these numbers based on what you need.</p>
+        </div>
         <Grid id="macros-grid" columns="two">
           <Grid.Row>
             <Grid.Column id="pie-chart">
@@ -51,8 +55,7 @@ class MacrosPieChart extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        </Card.Content>
-      </Card>
+      </Fade>
       </React.Fragment>
     )
   }
