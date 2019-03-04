@@ -420,7 +420,7 @@ box-shadow: none;
 #lets-get-numbers {
   margin: 0 auto;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   width: 80%;
   font-style: italic;
   font-size: 30px;

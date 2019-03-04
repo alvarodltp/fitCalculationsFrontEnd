@@ -39,8 +39,8 @@ class BmrCalorieResults extends React.Component {
           <p>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}, that's awesome you have a {this.props.motivationToGetFit.toLowerCase()} coming up! It isn't rocket science to {this.props.goal.toLowerCase()}
             and get the body you want. You are closer to your goals than what you think. You have super powerful information available to you now, and it is up to you to take action to get the body you deserve. Read your results fully and let us know if you have any questions!</p>
         </div> }
-        <Card id="calories-result" onClick={this.props.displayCaloriesInfo}>
-          <h2 id="bmr-results-text">YOUR CALORIES</h2>
+        <Card id="calories-result">
+          <h2 id="bmr-results-text">YOUR CALORIES - {this.props.caloriesForGoal}</h2>
         </Card>
           <Fade top when={this.props.displayCalories}>
             <div style={{width: "80%", margin: "0 auto"}}>
@@ -48,8 +48,8 @@ class BmrCalorieResults extends React.Component {
               they get amazing results. Eating less won't help you {this.props.goal.toLowerCase()}. This is one of the biggest misconceptions when it comes to nutrition. Trust your results and you will get amazong results.</p>
             </div>
           </Fade>
-        <Card id="calories-result" onClick={this.props.displayDietInfo}>
-          <h2 id="bmr-results-text">YOUR DIET</h2>
+        <Card id="calories-result">
+          <h2 id="bmr-results-text">YOUR DIET - {this.props.dietType.toUpperCase()}</h2>
         </Card>
         <Fade top when={this.props.displayDiet}>
           <div style={{width: "80%", margin: "0 auto"}}>

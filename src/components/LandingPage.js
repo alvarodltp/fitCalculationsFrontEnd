@@ -1,5 +1,7 @@
 import React from 'react'
 import {Image, Icon, Button, Card} from 'semantic-ui-react'
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
 
 class LandingPage extends React.Component {
 
@@ -20,7 +22,7 @@ class LandingPage extends React.Component {
         <Image style={{width: "250px", margin: "0 auto", marginBottom: "50px"}}src={'../ebook.png'} />
         <Button style={{background: "#2761f1", color: "white", margin: "0 auto", marginBottom: "30px"}} content='START YOUR JOURNEY TODAY' size="huge" icon='angle double right' labelPosition='right' />
         <div id="landing-main-benefits">
-        <h1 style={{fontSize:"40px"}}>A few things you get...</h1><br/>
+        <h1 style={{fontSize:"40px"}}>A Few Things You Get...</h1><br/>
           <Card>
             <Image id="img-motivation" src={'../vacation.png'} />
             <Card.Content>
@@ -65,10 +67,86 @@ class LandingPage extends React.Component {
                 <Card.Description>Our coaches create your personal macro strategy and provide you with super simple, yet ridiculously comprehensive program to follow based on your fat loss or muscle building goals.</Card.Description>
             </Card.Content>
           </Card>
-          <h1 style={{fontSize:"40px"}}>UYFP Case Studies</h1><br/>
-          <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' size='small' circular />
-          <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' size='small' circular />
-          <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' size='small' circular />
+
+          <div id="landing-main-benefits">
+          <h1 style={{fontSize:"40px"}}>What Clients Say</h1><br/>
+            <Card>
+              <Image id="img-motivation" src={'../vacation.png'} />
+              <Card.Content>
+                <Card.Description>"Our coaches create your personal macro strategy and provide you with super simple." - Steve</Card.Description>
+              </Card.Content>
+            </Card>
+            <Card>
+              <Image id="img-motivation" src={'../vacation.png'} />
+              <Card.Content>
+                <Card.Description>"Our coaches create your personal macro strategy and provide you with super simple." - Steve</Card.Description>
+              </Card.Content>
+            </Card>
+            <Card>
+              <Image id="img-motivation" src={'../vacation.png'} />
+              <Card.Content>
+                <Card.Description>"Our coaches create your personal macro strategy and provide you with super simple." - Steve</Card.Description>
+              </Card.Content>
+            </Card>
+            <Card>
+              <Image id="img-motivation" src={'../vacation.png'} />
+              <Card.Content>
+                <Card.Description>"Our coaches create your personal macro strategy and provide you with super simple." - Steve</Card.Description>
+              </Card.Content>
+            </Card>
+          </div>
+          <h1 style={{fontSize:"40px"}}>How It Works</h1>
+            <VerticalTimeline>
+              <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                iconStyle={{ background: '#2761f1', color: '#fff' }}
+              >
+                <h3 className="vertical-timeline-element-title">Purchase your personalized guide</h3>
+                <p>
+                  Our coaches have your numbers ready to start working on a personalized strategy for you exclusively as soon as you make the purchase.
+                </p>
+              </VerticalTimelineElement>
+              <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                iconStyle={{ background: '#2761f1', color: '#fff' }}
+              >
+                <h3 className="vertical-timeline-element-title">Numbers Check</h3>
+                <p>
+                  Your assigned coach will review your information and will ensure your numbers are perfect for success.
+                </p>
+              </VerticalTimelineElement>
+              <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                iconStyle={{ background: '#2761f1', color: '#fff' }}
+              >
+                <h3 className="vertical-timeline-element-title">Strategy Plan</h3>
+                <p>
+                  Your coach will review your information such as goal, diet type, and motivation and will build a plan that your body will respond to for best results.
+                </p>
+              </VerticalTimelineElement>
+              <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                iconStyle={{ background: '#2761f1', color: '#fff' }}
+              >
+                <h3 className="vertical-timeline-element-title">Personalized Plan Implementation</h3>
+                <p>
+                  Once your coach has gathered all your information and has come up with a perfect strategy for you, we will review the plan once again to make sure its perfect.
+                </p>
+              </VerticalTimelineElement>
+              <VerticalTimelineElement
+                className="vertical-timeline-element--education"
+                iconStyle={{ background: '#2761f1', color: '#fff' }}
+              >
+                <h3 className="vertical-timeline-element-title">Your plan is ready</h3>
+                <p>
+                  We will send you the plan within 2 business days of purchase.
+                </p>
+              </VerticalTimelineElement>
+              <VerticalTimelineElement
+                iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
+              />
+            </VerticalTimeline>
+          <h1 style={{fontSize:"40px"}}>Your Coach</h1>
         </div>
       </React.Fragment>
     )

@@ -29,12 +29,12 @@ class MacrosPieChart extends React.Component {
 
     return (
       <React.Fragment>
-      <Card centered id="calories-result" onClick={this.props.displayMacrosInfo}>
+      <Card centered id="calories-result">
         <h2 id="macros-title">YOUR DAILY MACRONUTRIENTS</h2>
       </Card>
       <Fade top when={this.props.macrosInfo}>
         <div style={{width: "80%", margin: "0 auto"}}>
-          <p>The amount of protein, cabohydrates, and fats you intake is essential for optimal results. We calculate these numbers based on your total daily calorie needs and your body type. Different body types have different needs so it is important to calculate these numbers based on what you need.</p>
+          <p>The amount of protein, cabohydrates, and fats you intake is essential for optimal results. Different body types have different needs so it is important to calculate these numbers based on what you need.</p>
         </div>
         <Grid id="macros-grid" columns="two">
           <Grid.Row>

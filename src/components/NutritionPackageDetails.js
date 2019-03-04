@@ -48,30 +48,32 @@ class NutritionPackageDetails extends React.Component {
       <div id="nutrition-package-intro">
           <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
       </div>
-      <Card id="image-card">
-        <Image id="img-motivation" src={'../food-you-love.png'} />
-        <Card.Content>
-          <Card.Header>You are tired of following diets that don't work</Card.Header>
-        </Card.Content>
-      </Card>
-      <Card id="image-card">
-        <Image id="img-motivation" src={'../burger.png'} />
-        <Card.Content>
-          <Card.Header>You are tired of restricting yourself from foods you love</Card.Header>
-        </Card.Content>
-      </Card>
-      <Card id="image-card">
-        <Image id="img-motivation" src={'../calendar.png'} />
-        <Card.Content>
-          <Card.Header>You are working out but not seeing results</Card.Header>
-        </Card.Content>
-      </Card>
-      <Card id="image-card">
-        <Image id="img-motivation" src={'../results.png'} />
-        <Card.Content>
-          <Card.Header>You want to gain muscle or lose weight ASAP</Card.Header>
-        </Card.Content>
-      </Card>
+      <div>
+        <Card id="image-card">
+          <Image id="img-motivation" src={'../food-you-love.png'} />
+          <Card.Content>
+            <Card.Header>You are tired of following diets that don't work</Card.Header>
+          </Card.Content>
+        </Card>
+        <Card id="image-card">
+          <Image id="img-motivation" src={'../burger.png'} />
+          <Card.Content>
+            <Card.Header>You are tired of restricting yourself from foods you love</Card.Header>
+          </Card.Content>
+        </Card>
+        <Card id="image-card">
+          <Image id="img-motivation" src={'../calendar.png'} />
+          <Card.Content>
+            <Card.Header>You are working out but not seeing results</Card.Header>
+          </Card.Content>
+        </Card>
+        <Card id="image-card">
+          <Image id="img-motivation" src={'../results.png'} />
+          <Card.Content>
+            <Card.Header>You want to gain muscle or lose weight ASAP</Card.Header>
+          </Card.Content>
+        </Card>
+      </div>
         <h2 style={{margin: "0 auto", marginBottom: "20px", marginTop: "30px", fontSize: "30px", fontStyle: "italic", width: "80%"}}>LIFE CHANGING INFORMATION IN LESS THAN 60 SECONDS</h2>
         <div>
           <Card id="benefits-bcm">
@@ -105,6 +107,8 @@ class NutritionPackageDetails extends React.Component {
         </div>
         <div>
           <h2 id="lets-get-numbers">GET YOUR NUMBERS!</h2>
+          <Button onClick={this.props.getGenderOnButton} value="Female" size="huge" id="gender-button">I'M A WOMAN</Button>
+          <Button onClick={this.props.getGenderOnButton} value="Male" size="huge" id="gender-button">I'M A MAN</Button><br/><br/>
         </div>
 
       </React.Fragment>
