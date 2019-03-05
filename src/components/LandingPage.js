@@ -100,8 +100,9 @@ class LandingPage extends React.Component {
               <VerticalTimelineElement
                 className="vertical-timeline-element--work"
                 iconStyle={{ background: '#2761f1', color: '#fff' }}
+                icon={<h2 style={{marginTop: "15px"}}>1</h2>}
               >
-                <h3 className="vertical-timeline-element-title">Purchase your personalized guide</h3>
+                <h3 className="vertical-timeline-element-title">Invest In Yourself</h3>
                 <p>
                   Our coaches have your numbers ready to start working on a personalized strategy for you exclusively as soon as you make the purchase.
                 </p>
@@ -109,6 +110,7 @@ class LandingPage extends React.Component {
               <VerticalTimelineElement
                 className="vertical-timeline-element--work"
                 iconStyle={{ background: '#2761f1', color: '#fff' }}
+                icon={<h2 style={{marginTop: "15px"}}>2</h2>}
               >
                 <h3 className="vertical-timeline-element-title">Numbers Check</h3>
                 <p>
@@ -118,6 +120,7 @@ class LandingPage extends React.Component {
               <VerticalTimelineElement
                 className="vertical-timeline-element--work"
                 iconStyle={{ background: '#2761f1', color: '#fff' }}
+                icon={<h2 style={{marginTop: "15px"}}>3</h2>}
               >
                 <h3 className="vertical-timeline-element-title">Strategy Plan</h3>
                 <p>
@@ -127,6 +130,7 @@ class LandingPage extends React.Component {
               <VerticalTimelineElement
                 className="vertical-timeline-element--work"
                 iconStyle={{ background: '#2761f1', color: '#fff' }}
+                icon={<h2 style={{marginTop: "15px"}}>4</h2>}
               >
                 <h3 className="vertical-timeline-element-title">Personalized Plan Implementation</h3>
                 <p>
@@ -136,6 +140,7 @@ class LandingPage extends React.Component {
               <VerticalTimelineElement
                 className="vertical-timeline-element--education"
                 iconStyle={{ background: '#2761f1', color: '#fff' }}
+                icon={<h2 style={{marginTop: "15px"}}>5</h2>}
               >
                 <h3 className="vertical-timeline-element-title">Your plan is ready</h3>
                 <p>
@@ -143,10 +148,21 @@ class LandingPage extends React.Component {
                 </p>
               </VerticalTimelineElement>
               <VerticalTimelineElement
-                iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
-              />
+                className="vertical-timeline-element--education"
+                iconStyle={{ background: '#2761f1', color: '#fff' }}
+                icon={<Icon style={{marginTop: "20px", marginRight: "1px", color: "yellow"}}name="star" size="large"/>}
+              >
+                <h3 className="vertical-timeline-element-title">It's Your Time To Shine</h3>
+                <p>
+                  We can't wait to see your results.
+                </p>
+              </VerticalTimelineElement>
             </VerticalTimeline>
           <h1 style={{fontSize:"40px"}}>Your Coach</h1>
+          <Card>
+
+          </Card>
+
         </div>
       </React.Fragment>
     )

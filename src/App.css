@@ -592,3 +592,17 @@ box-shadow: none;
 .ui.progress{
   background: blue
 }
+
+.vertical-timeline::before {
+  background: #2761f1 !important;
+}
+
+.vertical-timeline-element-content {
+  background: white !important;
+  box-shadow: 0 3px 0 #eaeaea !important;
+}
+
+.vertical-timeline-element-content:before {
+  border: 7px solid transparent !important;
+  border-right: 7px solid #eaeaea !important;
+}
