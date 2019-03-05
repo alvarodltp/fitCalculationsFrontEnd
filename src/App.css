@@ -91,7 +91,7 @@ h4 {
   margin-bottom: 10px;
   border-radius: 15px !important;
   box-shadow: none;
-  background: #eaeaea;
+  background: #2761f1;
   /* border-style: solid;
   border-color: #2761f1; */
 }
@@ -113,6 +113,7 @@ h4 {
   width: 90%;
   font-size: 30px;
   font-style: italic;
+  color: white;
 }
 
 /* #image-container {
@@ -138,6 +139,7 @@ h4 {
   width: 90%;
   font-size: 30px;
   font-style: italic;
+  color: white;
 }
 
 #macros-numbers {
@@ -584,7 +586,7 @@ box-shadow: none;
 
 #landing-main-benefits {
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
   line-height: 1.5;
   margin-top: 30px;
 }
@@ -605,4 +607,8 @@ box-shadow: none;
 .vertical-timeline-element-content:before {
   border: 7px solid transparent !important;
   border-right: 7px solid #eaeaea !important;
+}
+
+.ui.card>.content {
+  font-size: 1.1em;
 }
