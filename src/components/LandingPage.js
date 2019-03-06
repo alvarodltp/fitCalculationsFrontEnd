@@ -2,6 +2,7 @@ import React from 'react'
 import {Image, Icon, Button, Card, Grid} from 'semantic-ui-react'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import ReactCompareImage from 'react-compare-image';
 
 class LandingPage extends React.Component {
 
@@ -14,13 +15,12 @@ class LandingPage extends React.Component {
         <h2>Just a few questions for you:</h2>
       </div>
         <ul style={{width: "100%", fontSize: "20px", marginBottom: "10px"}}>
-          <li style={{textAlign: "left", width:"70%", margin: "0 auto"}}>Are you ready to learn the secrets that Hollywood stars, athletes and fitness models use to keep a perfect physique year round?</li><br/>
+          <li style={{textAlign: "left", width:"70%", margin: "0 auto"}}>Are you ready to learn the secrets that fitness models use to keep a perfect physique year round?</li><br/>
           <li style={{textAlign: "left", width:"70%", margin: "0 auto"}}>Are you interested in a program that will teach you the tricks that let you eat the foods you love while still making progress towards your goal?</li><br/>
           <li style={{textAlign: "left", width:"70%", margin: "0 auto"}}>Are you ready to sidestep the internet's endless parade of hollow tactics and finally learn tested strategies to {this.props.goal.toLowerCase()} without having to deal with restricting diets?</li><br/>
         </ul>
         <p style={{fontSize: "20px", width: "80%", margin:"0 auto", marginBottom: "50px"}}>If you are, then I’m excited to announce A NEW PROGRAM THAT’S YEARS IN THE MAKING.</p>
         <Image style={{width: "250px", margin: "0 auto", marginBottom: "50px"}}src={'../ebook.png'} />
-        <Button style={{background: "red", color: "white", margin: "0 auto", marginBottom: "30px"}} content='START YOUR TRANSFORMATION TODAY' size="huge" icon='angle double right' labelPosition='right' />
         <div id="landing-main-benefits">
         <h1 style={{fontSize:"40px"}}>A Few Of The Things You Get...</h1><br/>
           <Card>
@@ -69,20 +69,11 @@ class LandingPage extends React.Component {
           </Card>
 
           <div id="landing-main-benefits">
-            <h1 style={{fontSize:"40px"}}>Unlimited Support</h1><br/>
-            <Image style={{margin: "0 auto"}} circular size="medium" src={'../Alvaro.png'}/>
-            <Card style={{width: "100%"}}>
-              <p style={{fontSize: "20px", textAlign: "left"}}>Hi there!</p>
-              <p style={{fontSize: "20px", textAlign: "left"}}>I am Alvaro, the founder of Fit Calculations. I have been training busy professionals for over 10 years and I know first hand what it takes to lose weight, gain muscle and get ripped.</p>
-              <p style={{fontSize: "20px", textAlign: "left"}}>This program is like nothing you have ever seen. If you are ready to commit, you are about to get in the best shape of your life.</p><br/>
-            </Card>
+            <h1 style={{fontSize:"40px"}}>For A Limited Time Only!</h1><br/>
+            <Image style={{width: "250px", margin: "0 auto", marginBottom: "40px"}} src={'../ebook.png'} />
+            <Button style={{background: "red", color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "10px"}} content='Get Your Personalized Plan For Just $49.00' size="huge" icon='angle double right' labelPosition='right' />
           </div>
 
-          <div id="landing-main-benefits">
-            <Card style={{width: "60%"}}>
-              <Button style={{background: "red", color: "white", margin: "0 auto", marginBottom: "30px"}} content='FOR A LIMITED TIME, GET YOUR PERSONALIZED PLAN FOR $49.00' size="huge" icon='angle double right' labelPosition='right' />
-            </Card>
-          </div>
 
           <div id="landing-main-benefits">
           <h1 style={{fontSize:"40px"}}>What Clients Say</h1><br/>
@@ -116,70 +107,77 @@ class LandingPage extends React.Component {
               <VerticalTimelineElement
                 className="vertical-timeline-element--work"
                 iconStyle={{ background: '#2761f1', color: '#fff' }}
-                icon={<h2 style={{marginTop: "15px"}}>1</h2>}
+                icon={null}
               >
-                <Image style={{margin: "0 auto"}} src={'../vegan_diet.png'} />
+                <Image style={{margin: "0 auto"}} src={null} />
                 <h3 style={{fontSize: "18px"}}>Invest In Yourself</h3>
                 <p style={{fontSize: "15px"}}>
-                  Our coaches have your numbers ready to start working on a personalized strategy for you exclusively as soon as you invest in yourself.
+                  Our coaches have your numbers ready to start working on a personalized strategy exclusively for you as soon as you make a purchase.
                 </p>
               </VerticalTimelineElement>
               <VerticalTimelineElement
                 className="vertical-timeline-element--work"
                 iconStyle={{ background: '#2761f1', color: '#fff' }}
-                icon={<h2 style={{marginTop: "15px"}}>2</h2>}
+                icon={null}
               >
-                <Image style={{margin: "0 auto"}} src={'../vegan_diet.png'} />
+                <Image style={{margin: "0 auto"}} src={null} />
                 <h3 style={{fontSize: "18px"}}>Numbers Check</h3>
                 <p style={{fontSize: "15px"}}>
-                  We will review your information and will ensure your numbers are perfect for success.
+                  After we get your order, your information and numbers are reviewed to ensure everything looks perfect and your plan will set you up success.
                 </p>
               </VerticalTimelineElement>
               <VerticalTimelineElement
                 className="vertical-timeline-element--work"
                 iconStyle={{ background: '#2761f1', color: '#fff' }}
-                icon={<h2 style={{marginTop: "15px"}}>3</h2>}
+                icon={null}
               >
-                <Image style={{margin: "0 auto"}} src={'../vegan_diet.png'} />
-                <h3 style={{fontSize: "18px"}}>Strategy Planning</h3>
+                <Image style={{margin: "0 auto"}} src={null} />
+                <h3 style={{fontSize: "18px"}}>Plan Strategy And Implementation</h3>
                 <p style={{fontSize: "15px"}}>
-                  We will use all your goal, diet type, and motivation and will build a plan that your body will respond to for best results.
+                  Aside from the information you provided, your calories, and macronutrients, we have other valuable information such as BMR, BMI, macronutrient breakdown percetange, and other information we will use to make sure your plan is perfect.
                 </p>
               </VerticalTimelineElement>
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                iconStyle={{ background: '#2761f1', color: '#fff' }}
-                icon={<h2 style={{marginTop: "15px"}}>4</h2>}
-              >
-                <Image style={{margin: "0 auto"}} src={'../vegan_diet.png'} />
-                <h3 style={{fontSize: "18px"}}>Personalized Plan Implementation</h3>
-                <p style={{fontSize: "15px"}}>
-                  Once your coach has gathered all your information and has come up with a perfect strategy for you, we will review the plan once again to make sure its perfect.
-                </p>
-              </VerticalTimelineElement>
+
               <VerticalTimelineElement
                 className="vertical-timeline-element--education"
                 iconStyle={{ background: '#2761f1', color: '#fff' }}
-                icon={<h2 style={{marginTop: "15px"}}>5</h2>}
+                icon={null}
               >
-                <Image style={{margin: "0 auto"}} src={'../vegan_diet.png'} />
-                <h3 style={{fontSize: "18px"}}>Your plan is ready</h3>
+                <Image style={{margin: "0 auto"}} src={null} />
+                <h3 style={{fontSize: "18px"}}>Your Plan Is Ready</h3>
                 <p style={{fontSize: "15px"}}>
                   We will send you the plan within 2 business days of purchase.
                 </p>
               </VerticalTimelineElement>
-              <VerticalTimelineElement
-                className="vertical-timeline-element--education"
-                iconStyle={{ background: '#2761f1', color: '#fff' }}
-                icon={<Icon style={{marginTop: "20px", marginRight: "1px", color: "yellow"}}name="star" size="large"/>}
-              >
-                <Image style={{margin: "0 auto"}} src={'../vegan_diet.png'} />
-                <h3 style={{fontSize: "18px"}}>It's Your Time To Shine</h3>
-                <p style={{fontSize: "15px"}}>
-                  We can't wait to see your results.
-                </p>
-              </VerticalTimelineElement>
             </VerticalTimeline>
+
+            <div id="landing-main-benefits">
+              <h1 style={{fontSize:"40px"}}>They Did It And So Can You</h1><br/>
+              <Grid id="transformation-images" stackable columns={3}>
+                <Grid.Row>
+                  <Grid.Column>
+                    <ReactCompareImage style={{height: "15%"}} leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
+                  </Grid.Column>
+                  <Grid.Column>
+                    <ReactCompareImage style={{width: "15%"}} leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
+                  </Grid.Column>
+                  <Grid.Column>
+                    <ReactCompareImage style={{width: "15%"}} leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </div><br/>
+
+            <div id="landing-main-benefits">
+              <h1 style={{fontSize:"40px"}}>Get Unlimited Support</h1><br/>
+              <Image style={{margin: "0 auto"}} circular size="small" src={'../Alvaro.png'}/>
+              <Card style={{width: "100%"}}>
+                <p style={{fontSize: "20px", textAlign: "left"}}>Hi there!</p>
+                <p style={{fontSize: "20px", textAlign: "left"}}>I am Alvaro, the founder of Fit Calculations. I have been training busy professionals for over 8 years and I know first hand what it takes to lose weight, gain muscle and get fit.</p>
+                <p style={{fontSize: "20px", textAlign: "left"}}>This program is like nothing you have ever seen. If you are ready to commit, you are about to get in the best shape of your life.</p>
+              </Card>
+              <Button style={{background: "red", color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "30px"}} content='Get Your Personalized Plan For Just $49.00' size="huge" icon='angle double right' labelPosition='right' />
+            </div>
 
             <div>
               <Card>

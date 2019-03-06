@@ -15,6 +15,7 @@
     "formsy-semantic-ui-react": "^0.3.3",
     "react": "^16.7.0",
     "react-chartjs-2": "^2.7.4",
+    "react-compare-image": "^0.8.1",
     "react-confetti": "^2.3.0",
     "react-device-detect": "^1.6.1",
     "react-dom": "^16.7.0",
