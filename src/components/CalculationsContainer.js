@@ -34,6 +34,7 @@ class CalculationsContainer extends React.Component {
       activityLevel: null,
       goal: "",
       bmr: "",
+      bmi: "",
       caloriesForGoal: "",
       caloriesToMaintain: "",
       feet: "",
@@ -207,8 +208,14 @@ class CalculationsContainer extends React.Component {
   calculateBmr = (formType) => {
     let weight;
     let height;
+    let weightInKg = (this.state.weightLb/2.2046).toFixed(2)
+    let heightInFeet = this.state.feet * 30.48
+    let heightInInches = this.state.inches * 2.54
+    let heightInCm = heightInFeet + heightInInches
+    let heightInm2 = heightInCm / 100
+    let bmi = (weightInKg/(heightInm2 * heightInm2)).toFixed(2)
     formType === "metric" ? weight = this.state.weightKg : weight = this.state.weightLb
-    formType === "metric" ? height = this.state.heightCm : height = (`${this.state.feet}.${this.state.inches}` * 12).toFixed(2)
+    formType === "metric" ? height = this.state.heightCm : height = heightInCm/2.54
     let age = this.state.age
     let bmr;
     if(this.state.gender === "Male" && formType === "metric") {
@@ -221,7 +228,8 @@ class CalculationsContainer extends React.Component {
       bmr = Math.round(655 + 4.35 * weight + 4.7 * height - 4.7 * age)
     }
     this.setState({
-      bmr: bmr
+      bmr: bmr,
+      bmi: bmi
     }, () => this.calculateCalories(bmr))
   }
 
@@ -233,7 +241,7 @@ class CalculationsContainer extends React.Component {
   bmr != "" && activityLevel != null ? caloriesToMaintain = Math.round(bmr * activityLevel["value"]) : caloriesToMaintain = null
   let caloriesForGoal;
   if(goal === "Lose Weight") {
-    caloriesForGoal = caloriesToMaintain - 300
+    caloriesForGoal = caloriesToMaintain - 500
   } else if (goal === "Gain Muscle"){
     caloriesForGoal = caloriesToMaintain + 300
   } else {
@@ -255,8 +263,8 @@ calculateMacros = (e) => {
   let fatPercentage;
   if(bodyType === "Ectomorph"){
     protein = Math.round(this.state.caloriesForGoal * .25 / 4)
-    carbs = Math.round(this.state.caloriesForGoal * .55 / 4)
-    fats = Math.round(this.state.caloriesForGoal * .20 / 9)
+    carbs = Math.round(this.state.caloriesForGoal * .50 / 4)
+    fats = Math.round(this.state.caloriesForGoal * .25 / 9)
     proteinPercentage = 25
     carbPercentage = 55
     fatPercentage = 20
@@ -355,7 +363,8 @@ saveStats = (user) => {
       date: new Date(),
       calories_to_maintain: this.state.caloriesToMaintain,
       calories_for_goal: this.state.caloriesForGoal,
-      bmr: this.state.bmr
+      bmr: this.state.bmr,
+      bmi: this.state.bmi
       })
     }).then(response => response.json())
     .then(json => {
@@ -503,7 +512,7 @@ getGenderOnButton = (e) => {
         {this.props.stepNumber === 10 ? <MacrosBreakdownCard cardInfo={this.state.cardInfo} displayCardInfo={this.displayCardInfo} getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
         {this.props.stepNumber === 4 ? <SignUpForm getName={this.getName} getEmail={this.getEmail} validateEmail={this.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} /> : null}
         {this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
-        {this.props.stepNumber === 5 ? <LandingPage goal={this.state.goal}/> : null }
+        {this.props.stepNumber === 0 ? <LandingPage goal={this.state.goal}/> : null }
       </React.Fragment>
     )
   }

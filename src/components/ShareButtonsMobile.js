@@ -19,7 +19,7 @@ import {
 
 class ShareButtonsMobile extends React.Component {
   render(){
-    let shareUrl = "https://www.fitcalculations.com/bmr-calories-macros"
+    let shareUrl = "https://www.fitcalculations.com/"
     return(
       <div id="share-buttons-mobile">
         <FacebookShareButton

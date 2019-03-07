@@ -30,15 +30,15 @@ class MacrosPieChart extends React.Component {
     return (
       <React.Fragment>
       <Card centered id="calories-result">
-        <h2 id="macros-title">YOUR DAILY MACRONUTRIENTS</h2>
+        <h2 id="macros-title">YOUR DAILY MACROS</h2>
       </Card>
       <Fade top when={this.props.macrosInfo}>
         <div style={{width: "80%", margin: "0 auto"}}>
-          <p>The amount of protein, cabohydrates, and fats you intake is essential for optimal results. Different body types have different needs so it is important to calculate these numbers based on what you need.</p>
-        </div>
-        <Grid id="macros-grid" columns="two">
+          <p style={{textAlign: "left", fontSize: "18px"}}>The amount of protein, cabohydrates, and fats you intake is essential for optimal results. Different body types have different needs so it is important to calculate these numbers based on what you need.</p>
+        </div><br/>
+        <Grid style={{margin: "0 auto", width: "90%"}} columns={2}>
           <Grid.Row>
-            <Grid.Column id="pie-chart">
+            <Grid.Column width={8}>
             <Pie
                data={data}
                width={300}
@@ -48,10 +48,12 @@ class MacrosPieChart extends React.Component {
                }}
                />
             </Grid.Column>
-            <Grid.Column id="macros-numbers">
-              <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.protein}G PROTEIN</h3>
-              <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.carbs}G CARBS</h3>
-              <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.fats}G FATS</h3>
+            <Grid.Column width={8} >
+              <div id="macros-numbers">
+                <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.protein}G PROTEIN</h3>
+                <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.carbs}G CARBS</h3>
+                <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.fats}G FATS</h3>
+              </div>
             </Grid.Column>
           </Grid.Row>
         </Grid>
