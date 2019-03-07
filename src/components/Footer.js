@@ -1,5 +1,12 @@
 import React from 'react'
 import { Modal, Icon, Button } from 'semantic-ui-react'
+import ShareButtons from './ShareButtons'
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 
 class Footer extends React.Component {
   constructor(){
@@ -45,6 +52,7 @@ class Footer extends React.Component {
             </Modal.Actions>
           </Modal>
           <p style={{fontWeight: "bold"}}>2018 Fit Calculations</p>
+
           <Modal open={this.state.modalOpenDisclaimer} trigger={<p style={{fontWeight: "bold"}} onClick={this.handleOpenDisclaimer}>Disclaimer</p>}>
             <Modal.Header>Disclaimer</Modal.Header>
             <Modal.Content>
@@ -66,6 +74,9 @@ class Footer extends React.Component {
             </Modal.Actions>
           </Modal>
         </div>
+        <BrowserView style={{margin: "0 auto", float: "left"}}>
+          <ShareButtons/>
+        </BrowserView>
        </div>
     )
   }
