@@ -218,14 +218,12 @@ class CalculationsContainer extends React.Component {
     formType === "metric" ? height = this.state.heightCm : height = heightInCm/2.54
     let age = this.state.age
     let bmr;
-    if(this.state.gender === "Male" && formType === "metric") {
-      bmr = Math.round(66.5 + 13.75 * weight + 5.003 * height - 6.755 * age)
-    } else if (this.state.gender === "Male" && formType === "imperial") {
-      bmr = Math.round(66 + 6.23 * weight + 12.7 * height - 6.8 * age)
-    } else if (this.state.gender === "Female" && formType === "metric") {
-      bmr = Math.round(655.1 + 9.563 * weight + 1.850 * height - 4.676 * age)
-    } else if (this.state.gender === "Female" && formType === "imperial") {
-      bmr = Math.round(655 + 4.35 * weight + 4.7 * height - 4.7 * age)
+    if(this.state.gender === "Male") {
+      // bmr = Math.round(66.5 + 13.75 * weight + 5.003 * height - 6.755 * age) #harris
+      bmr = Math.round(10 * weightInKg + 6.25 * heightInCm - 5 * age + 5)
+    } else if (this.state.gender === "Female") {
+      // bmr = Math.round(655.1 + 9.563 * weight + 1.850 * height - 4.676 * age) #harris
+      bmr = Math.round(10 * weightInKg + 6.25 * heightInCm - 5 * age - 161)
     }
     this.setState({
       bmr: bmr,
@@ -512,7 +510,7 @@ getGenderOnButton = (e) => {
         {this.props.stepNumber === 10 ? <MacrosBreakdownCard cardInfo={this.state.cardInfo} displayCardInfo={this.displayCardInfo} getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
         {this.props.stepNumber === 4 ? <SignUpForm getName={this.getName} getEmail={this.getEmail} validateEmail={this.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} /> : null}
         {this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
-        {this.props.stepNumber === 5 ? <LandingPage goal={this.state.goal}/> : null }
+        {this.props.stepNumber === 0 ? <LandingPage motivationToGetFit={this.state.motivationToGetFit} goal={this.state.goal}/> : null }
       </React.Fragment>
     )
   }

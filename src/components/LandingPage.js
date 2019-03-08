@@ -4,6 +4,7 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 import ReactCompareImage from 'react-compare-image';
 import { FaCheck } from "react-icons/fa";
+import WeightChart from './WeightChart'
 
 class LandingPage extends React.Component {
 
@@ -56,7 +57,7 @@ class LandingPage extends React.Component {
         </div>
 
           <div id="landing-main-benefits">
-            <h1 style={{fontSize:"40px"}}>For A Limited Time Only!</h1><br/>
+            <h1 style={{fontSize:"40px"}}>This Program Is For You If:</h1><br/>
             <Grid id="transformation-images" stackable columns={2}>
               <Grid.Row>
                 <Grid.Column width={5}>
@@ -64,24 +65,29 @@ class LandingPage extends React.Component {
                 </Grid.Column>
                 <Grid.Column width={11}>
                   <p style={{fontSize: "20px", textAlign: "left"}}>
-                    <Icon name="check"/> We are confident your personalized program will give.
+                    <Icon name="check"/>You are busy and don't have time for useless information
                   </p>
                   <p style={{fontSize: "20px", textAlign: "left"}}>
-                    <Icon name="check"/> We are confident your personalized program will give.
+                    <Icon name="check"/>You want straight to the point instructions on how to get to your goal
                   </p>
                   <p style={{fontSize: "20px", textAlign: "left"}}>
-                    <Icon name="check"/> We are confident your personalized program will give.
+                    <Icon name="check"/>You want results ASAP without compromising your health
                   </p>
                   <p style={{fontSize: "20px", textAlign: "left"}}>
-                    <Icon name="check"/> We are confident your personalized program will give.
+                    <Icon name="check"/>You want to be part of a supportive community
                   </p>
                   <p style={{fontSize: "20px", textAlign: "left"}}>
-                    <Icon name="check"/> We are confident your personalized program will give.
+                    <Icon name="check"/>You are commited to work hard so you can play hard
                   </p>
                   <Button id="cta-btn" style={{background: '#2761f1', color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "20px"}} content='YES! I WANT TO GET IN THE BEST SHAPE OF MY LIFE' size="huge" icon='angle double right' labelPosition='right' />
                 </Grid.Column>
               </Grid.Row>
             </Grid>
+          </div>
+
+          <div style={{width: "60%", margin: "0 auto", marginTop: "30px"}}>
+            <h1 style={{fontSize:"40px"}}>Check Where You Can Be For Your {this.props.motivationToGetFit}</h1>
+            <WeightChart />
           </div>
 
             <div id="landing-main-benefits">
@@ -150,7 +156,7 @@ class LandingPage extends React.Component {
                   <Image style={{margin: "0 auto"}} src={null} />
                   <h3 style={{fontSize: "18px"}}>Plan Strategy And Implementation</h3>
                   <p style={{fontSize: "15px", textAlign: "left"}}>
-                    Aside from the information you provided, your calories, and macronutrients, we have other valuable information such as BMR, BMI, macronutrient breakdown percetange, and other information we will use to make sure your plan is perfect.
+                    We have a total of 18 data points such as your BMR, BMI, macronutrient breakdown percetange, and other useful information we will use to make your plan perfect.
                   </p>
                 </VerticalTimelineElement>
 
@@ -168,23 +174,23 @@ class LandingPage extends React.Component {
             </div><br/>
 
 
-            <div id="landing-main-benefits">
-              <h1 style={{fontSize:"40px"}}>They Did It And So Can You</h1><br/>
-              <Grid id="transformation-images" stackable columns={3}>
-                <Grid.Row>
-                  <Grid.Column>
-                    <ReactCompareImage leftImage={'../Al.jpg'} rightImage={'../ebook.png'} hover={true} />
-                  </Grid.Column>
-                  <Grid.Column>
-                    <ReactCompareImage leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
-                  </Grid.Column>
-                  <Grid.Column>
-                    <ReactCompareImage leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </div><br/>
-            <Button style={{width: "60%", background: '#2761f1', color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "30px"}} content='Start Your Transformation Today' size="huge" icon='angle double right' labelPosition='right' />
+            // <div id="landing-main-benefits">
+            //   <h1 style={{fontSize:"40px"}}>They Did It And So Can You</h1><br/>
+            //   <Grid id="transformation-images" stackable columns={3}>
+            //     <Grid.Row>
+            //       <Grid.Column>
+            //         <ReactCompareImage leftImage={'../Al.jpg'} rightImage={'../ebook.png'} hover={true} />
+            //       </Grid.Column>
+            //       <Grid.Column>
+            //         <ReactCompareImage leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
+            //       </Grid.Column>
+            //       <Grid.Column>
+            //         <ReactCompareImage leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
+            //       </Grid.Column>
+            //     </Grid.Row>
+            //   </Grid>
+            // </div><br/>
+            // <Button style={{width: "60%", background: '#2761f1', color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "30px"}} content='Start Your Transformation Today' size="huge" icon='angle double right' labelPosition='right' />
 
             <div id="landing-main-benefits">
               <h1 style={{fontSize:"40px"}}>Get Unlimited Support</h1><br/>
