@@ -74,9 +74,6 @@ class Footer extends React.Component {
             </Modal.Actions>
           </Modal>
         </div>
-        <BrowserView style={{margin: "0 auto", float: "left"}}>
-          <ShareButtons/>
-        </BrowserView>
        </div>
     )
   }
