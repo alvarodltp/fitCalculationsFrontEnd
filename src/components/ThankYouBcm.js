@@ -40,8 +40,8 @@ componentDidMount() {
             <h1>YOU'RE IN!</h1>
           </div>
           <div id="thank-you-bcm-text">
-            <h3>Your ebook has been sent to your email! Make sure to check the spam folder.</h3>
-            <p>Before you dive in, you can help someone else achive their dream body. Please help spread the word by sharing the calculation with the buttons below. It really helps.</p>
+            <h3>Thanks for requesting an invite. This calculator is a game changer and we can't wait for you to use it!</h3>
+            <p>Please share the page with the buttons below and get a 50% OFF coupon for our signature Unleash Your Fitness Potential program. A personalized fitness guide that will take you to the next level.</p>
             <p>Enjoy.</p>
           </div>
           <MobileView id="thank-you-page-buttons">

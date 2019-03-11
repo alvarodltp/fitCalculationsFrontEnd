@@ -19,7 +19,7 @@ import {
 
 class ShareButtons extends React.Component {
   render(){
-    let shareUrl = "https://www.fitcalculations.com/"
+    let shareUrl = "https://www.fitcalculations.com/invite"
     return(
       <div id="share-buttons-desktop">
         <FacebookShareButton

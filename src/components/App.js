@@ -58,7 +58,6 @@ scrollToTop = () => {
 //   window.scrollTo(0,9999);
 // }
 
-
   render() {
     return (
       <div className="App">
@@ -67,8 +66,8 @@ scrollToTop = () => {
         <Route exact path="/services" render={props => <ServicesContainer /> } />
         <Route exact path="/bmr-calories-macros" render={props => <CalculationsContainer {...props} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
-        <Route exact path="/thank-you-bcm" render={props => <ThankYouBcm /> } />
-        <Route exact path="/invite" render={props => <Invite /> } />
+        <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
+        <Route exact path="/invite" render={props => <Invite {...props} /> } />
       </div>
     );
   }

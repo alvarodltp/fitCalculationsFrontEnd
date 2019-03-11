@@ -641,7 +641,7 @@ box-shadow: none;
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px; */
-  background: url("https://images.pexels.com/photos/1117493/pexels-photo-1117493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center center fixed;
+  background: url("https://image.shutterstock.com/image-photo/side-view-muscular-couple-doing-450w-296937782.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -659,7 +659,7 @@ box-shadow: none;
   margin: 0 auto;
   width: 70%;
   padding-top: 150px;
-  color: white;
+  color: black;
 }
 
 #invite-button {
@@ -668,6 +668,15 @@ box-shadow: none;
   opacity: 1;
   margin-top: 10px;
   width: 50%;
+  -webkit-transition: background-color .4s;
+  -moz-transition: background-color .4s;
+  -ms-transition: background-color .4s;
+  -o-transition: background-color .4s;
+  transition: background-color .4s;
+}
+
+#invite-button:hover {
+  background-color: #e80aaa
 }
 
 #invite-button-input {
