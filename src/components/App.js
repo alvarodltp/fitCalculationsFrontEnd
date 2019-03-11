@@ -61,17 +61,21 @@ scrollToTop = () => {
   render() {
     return (
       <div className="App">
-        <NavBar /><br/><br/><br/><br/>
+        <NavBar />
         <Route exact path="/" render={props => <Homepage /> } />
         <Route exact path="/services" render={props => <ServicesContainer /> } />
-        <Route exact path="/bmr-calories-macros" render={props => <CalculationsContainer {...props} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/testing-fit" render={props => <CalculationsContainer {...props} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
         <Route exact path="/invite" render={props => <Invite {...props} /> } />
+
       </div>
-    );
+    )
   }
 }
 
+// <NavBar /><br/><br/><br/><br/>
 // {this.state.stepNumber === 0 || this.state.stepNumber === 5 ? <Footer /> : null }
+
+
 export default App;

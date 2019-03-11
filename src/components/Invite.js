@@ -57,13 +57,14 @@ class Invite extends React.Component {
       <React.Fragment>
         <div id="invite-page">
           <div id="invite-title-container">
-            <h1 id="invite-title">THE MOST POWERFUL FITNESS CALCULATOR EVER CREATED TO FINALLY GET THE BODY YOU WANT.</h1>
+            <h1 id="invite-title">THE MOST POWERFUL AND ACCURATE FITNESS CALCULATOR EVER CREATED TO HELP YOU ACHIEVE THE BODY YOU WANT.</h1>
+            <p style={{color: "white"}}>In 60 seconds, get information that will last you a lifetime.</p>
           </div>
-          <Card id="invite-button-input">
+          <div id="invite-button-input">
             {this.state.errorMessage ? <p style={{color: "red"}}>{this.state.errorMessage}</p> : null}
-            <Input style={{width: "50%"}} onChange={(e) => {this.handleChange(e); this.validateEmail(e)}} name='email' type='text' placeholder='Email...' size="large"/><br/>
-            <Button onClick={() => {this.saveUser(); this.activateConfetti()}} id="invite-button" size="large">Get My Invite</Button>
-          </Card>
+            <Input id="sign-up-input" fluid onChange={(e) => {this.handleChange(e); this.validateEmail(e)}} name='email' type='text' placeholder='Email Address' size="large"/><br/>
+            <Button style={{width: "80%", marginRight: "0px", marginTop: "0px"}} onClick={() => {this.saveUser(); this.activateConfetti()}} id="invite-button" size="large">Get My Invite</Button>
+          </div>
         </div>
       </React.Fragment>
     )
