@@ -510,11 +510,7 @@ getGenderOnButton = (e) => {
         {this.props.stepNumber === 10 ? <MacrosBreakdownCard cardInfo={this.state.cardInfo} displayCardInfo={this.displayCardInfo} getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
         {this.props.stepNumber === 4 ? <SignUpForm getName={this.getName} getEmail={this.getEmail} validateEmail={this.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} /> : null}
         {this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
-<<<<<<< HEAD
-        {this.props.stepNumber === 0 ? <LandingPage motivationToGetFit={this.state.motivationToGetFit} goal={this.state.goal}/> : null }
-=======
         {this.props.stepNumber === 10 ? <LandingPage goal={this.state.goal}/> : null }
->>>>>>> 6c0ff3f94a24f460ef3a81bb2a28d8b6c6734b31
       </React.Fragment>
     )
   }

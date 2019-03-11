@@ -12,6 +12,7 @@ import ServicesContainer from './ServicesContainer'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import Confetti from 'react-dom-confetti';
 import ThankYouBcm from './ThankYouBcm'
+import Invite from './Invite'
 
 class App extends React.Component {
   constructor(){
@@ -67,10 +68,11 @@ scrollToTop = () => {
         <Route exact path="/bmr-calories-macros" render={props => <CalculationsContainer {...props} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you-bcm" render={props => <ThankYouBcm /> } />
-        {this.state.stepNumber === 0 || this.state.stepNumber === 5 ? <Footer /> : null }
+        <Route exact path="/invite" render={props => <Invite /> } />
       </div>
     );
   }
 }
 
+// {this.state.stepNumber === 0 || this.state.stepNumber === 5 ? <Footer /> : null }
 export default App;
