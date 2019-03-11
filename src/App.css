@@ -20,6 +20,7 @@ h4 {
 
 #navbar {
   overflow: auto;
+  /* background: #2761f1; */
   background: linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%);
   position: static;
   top: 0;
@@ -565,6 +566,11 @@ box-shadow: none;
   color: white;
   background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
   margin-top: 40px;
+  -webkit-transition: background .6s;
+  -moz-transition: background .6s;
+  -ms-transition: background .6s;
+  -o-transition: background .6s;
+  transition: background .6s;
 }
 
 #gender-button:hover {
@@ -657,9 +663,9 @@ box-shadow: none;
 
 #invite-title-container {
   margin: 0 auto;
-  width: 70%;
-  padding-top: 100px;
+  width: 80%;
   color: white;
+  padding-top: 70px;
 }
 
 #invite-button {
@@ -680,6 +686,7 @@ box-shadow: none;
 
 #invite-button-input {
   margin: 0 auto;
-  margin-top: 45px;
-  width: 60%
+  margin-top: 60px;
+  width: 60%;
+  align: left;
 }

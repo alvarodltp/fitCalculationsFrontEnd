@@ -57,10 +57,11 @@ class Invite extends React.Component {
       <React.Fragment>
         <div id="invite-page">
           <div id="invite-title-container">
-            <h1 id="invite-title">THE MOST POWERFUL AND ACCURATE FITNESS CALCULATOR EVER CREATED TO HELP YOU ACHIEVE THE BODY YOU WANT.</h1>
-            <p style={{color: "white"}}>In 60 seconds, get information that will last you a lifetime.</p>
+            <h1 id="invite-title">THE SMARTEST AND MOST ACCURATE FITNESS CALCULATOR EVER CREATED TO HELP YOU ACHIEVE THE BODY OF YOUR DREAMS</h1>
+            <p style={{color: "white"}}>Say bye to guessing when it comes to getting fit.</p>
           </div>
           <div id="invite-button-input">
+            <p>We are launching soon! Be the first to know.</p>
             {this.state.errorMessage ? <p style={{color: "red"}}>{this.state.errorMessage}</p> : null}
             <Input id="sign-up-input" fluid onChange={(e) => {this.handleChange(e); this.validateEmail(e)}} name='email' type='text' placeholder='Email Address' size="large"/><br/>
             <Button style={{width: "80%", marginRight: "0px", marginTop: "0px"}} onClick={() => {this.saveUser(); this.activateConfetti()}} id="invite-button" size="large">Get My Invite</Button>
