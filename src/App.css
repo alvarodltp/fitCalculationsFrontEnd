@@ -3,6 +3,7 @@
 }
 
 html, body {
+  height: 100%;
   background-color: white;
   font-family: 'Open Sans', sans-serif;
   margin:0;
@@ -20,8 +21,8 @@ h4 {
 
 #navbar {
   overflow: auto;
-  /* background: #2761f1; */
-  background: linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%);
+  background: #2761f1;
+  /* background: linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%); */
   position: static;
   top: 0;
   left: 0;
@@ -533,6 +534,12 @@ box-shadow: none;
   background-color:  #ffffff00;
 }
 
+#img-invite-page {
+  margin: 0 auto;
+  background-color:  #ffffff00;
+  height: 70px;
+}
+
 #img-diet-type {
   margin: 0 auto;
   background-color: white;
@@ -644,20 +651,14 @@ box-shadow: none;
 }
 
 #invite-page {
-  margin: 0 auto;
   background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
   /* background: url("https://image.shutterstock.com/image-photo/side-view-muscular-couple-doing-450w-296937782.jpg") no-repeat center center fixed; */
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  height: calc(100vh - 50px);
+  height: 300px;
 }
+
 /* calc(100vh - 50px) */
 #invite-title {
-  font-size: 30px;
+  font-size: 28px;
   font-style: italic;
 }
 
@@ -665,7 +666,7 @@ box-shadow: none;
   margin: 0 auto;
   width: 80%;
   color: white;
-  padding-top: 70px;
+  padding-top: 25px;
 }
 
 #invite-button {
@@ -673,20 +674,28 @@ box-shadow: none;
   color: white;
   opacity: 1;
   margin-top: 10px;
-  -webkit-transition: background-color .5s;
-  -moz-transition: background-color .5s;
-  -ms-transition: background-color .5s;
-  -o-transition: background-color .5s;
-  transition: background-color .5s;
+  -webkit-transition: filter .5s;
+  -moz-transition: filter .5s;
+  -ms-transition: filter .5s;
+  -o-transition: filter .5s;
+  transition: filter .5s;
+  position: relative;
+  text-decoration: none;
+  width: 80%;
+  margin-right: 0px;
+  margin-top: 0px;
 }
 
 #invite-button:hover {
-  background-color: #e80aaa
+  filter: brightness(110%);
+  /* background-color: #e80aaa; */
+  cursor: pointer;
+  /* text-transform: uppercase; */
 }
 
 #invite-button-input {
   margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 20px;
   width: 60%;
   align: left;
 }

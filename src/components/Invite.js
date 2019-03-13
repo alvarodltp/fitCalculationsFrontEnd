@@ -1,5 +1,5 @@
 import React from 'react'
-import {Input, Button, Card, Divider} from 'semantic-ui-react'
+import {Input, Button, Card, Divider, Image} from 'semantic-ui-react'
 import Confetti from 'react-dom-confetti';
 import ThankYouBcm from './ThankYouBcm'
 
@@ -57,15 +57,42 @@ class Invite extends React.Component {
       <React.Fragment>
         <div id="invite-page">
           <div id="invite-title-container">
-            <h1 id="invite-title">THE SMARTEST AND MOST ACCURATE FITNESS CALCULATOR EVER CREATED</h1>
+            <h1 id="invite-title">THE SMARTEST AND MOST POWERFUL FITNESS CALCULATOR EVER CREATED</h1>
             <p style={{color: "white"}}>Say good bye to guessing when it comes to getting fit.</p>
           </div>
           <div id="invite-button-input">
             <p>We are launching soon! Be the first to know.</p>
             {this.state.errorMessage ? <p style={{color: "red"}}>{this.state.errorMessage}</p> : null}
             <Input id="sign-up-input" fluid onChange={(e) => {this.handleChange(e); this.validateEmail(e)}} name='email' type='text' placeholder='Email Address' size="large"/><br/>
-            <Button style={{width: "80%", marginRight: "0px", marginTop: "0px"}} onClick={() => {this.saveUser(); this.activateConfetti()}} id="invite-button" size="large">Get My Invite</Button>
+            <Button onClick={this.saveUser} id="invite-button" size="large">Get My Invite</Button>
           </div>
+        </div>
+        <div style={{marginTop: "30px"}}>
+        <h2 style={{fontStyle: "italic", marginBottom: "15px"}}>THIS IS FOR YOU IF</h2>
+          <Card id="image-card">
+            <Image id="img-invite-page" src={'../calendar.png'} />
+            <Card.Content>
+              <Card.Header>You are working out but not seeing results</Card.Header>
+            </Card.Content>
+          </Card>
+          <Card id="image-card">
+            <Image id="img-invite-page" src={'../food-you-love.png'} />
+            <Card.Content>
+              <Card.Header>You are tired of following diets that don't work</Card.Header>
+            </Card.Content>
+          </Card>
+          <Card id="image-card">
+            <Image id="img-invite-page" src={'../results.png'} />
+            <Card.Content>
+              <Card.Header>You want to gain muscle or lose weight ASAP</Card.Header>
+            </Card.Content>
+          </Card>
+          <Card id="image-card">
+            <Image id="img-invite-page" src={'../burger.png'} />
+            <Card.Content>
+              <Card.Header>You are tired of restricting yourself from foods you love</Card.Header>
+            </Card.Content>
+          </Card>
         </div>
       </React.Fragment>
     )
