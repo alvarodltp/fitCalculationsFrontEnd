@@ -37,8 +37,8 @@ componentDidMount() {
                 <h1>YOU'RE IN!</h1>
               </div>
               <div id="thank-you-bcm-text">
-                <h3>Thanks for requesting an invite. This calculator is a game changer and we can't wait for you to use it!</h3>
-                <p>Please share the page with the buttons below and get a 50% OFF coupon for our signature Unleash Your Fitness Potential program when it launches. A personalized fitness guide that works 100% of the time with people who follow it.</p>
+                <h3>Thanks for requesting an invite. This calculator is a game changer and we can't wait to show you!</h3>
+                <p>Please share the page with the buttons below and get a 50% OFF coupon for our signature Unleash Your Fitness Potential program when it launches. A personalized fitness guide that works 100% of the time for people who follow it.</p>
                 <p>Enjoy.</p>
               </div>
               <MobileView id="thank-you-page-buttons">
