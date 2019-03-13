@@ -57,8 +57,8 @@ class Invite extends React.Component {
       <React.Fragment>
         <div id="invite-page">
           <div id="invite-title-container">
-            <h1 id="invite-title">THE SMARTEST AND MOST ACCURATE FITNESS CALCULATOR EVER CREATED TO HELP YOU ACHIEVE THE BODY OF YOUR DREAMS</h1>
-            <p style={{color: "white"}}>Say bye to guessing when it comes to getting fit.</p>
+            <h1 id="invite-title">THE SMARTEST AND MOST ACCURATE FITNESS CALCULATOR EVER CREATED</h1>
+            <p style={{color: "white"}}>Say good bye to guessing when it comes to getting fit.</p>
           </div>
           <div id="invite-button-input">
             <p>We are launching soon! Be the first to know.</p>
