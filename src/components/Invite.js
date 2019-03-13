@@ -113,8 +113,8 @@ class Invite extends React.Component {
             <div id="invite-button-input">
               <p>We are launching soon! Be the first to know.</p>
               {this.state.errorMessage ? <p style={{color: "red", fontSize: "12px", marginBottom: "2px"}}>{this.state.errorMessage}</p> : null}
-              <Input id="sign-up-input" fluid onChange={(e) => {this.handleChange(e); this.validateEmail(e)}} name='email' type='text' placeholder='Email Address' size="large"/><br/>
-              <Button onClick={this.saveUser} id="invite-button" size="large">Get My Invite</Button>
+              <Input id="sign-up-input-mobile" fluid onChange={(e) => {this.handleChange(e); this.validateEmail(e)}} name='email' type='text' placeholder='Email Address' size="large"/><br/>
+              <Button onClick={this.saveUser} id="invite-button-mobile" size="large">Get My Invite</Button>
             </div>
           </div>
           <div style={{marginTop: "30px"}}>

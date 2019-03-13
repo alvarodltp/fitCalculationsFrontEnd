@@ -4,6 +4,7 @@ import ShareButtons from './ShareButtons'
 import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
 import ShareButtonsMobile from './ShareButtons'
 import Confetti from 'react-dom-confetti';
+import Slide from 'react-reveal/Slide';
 
 class ThankYouBcm extends React.Component {
 
@@ -30,22 +31,24 @@ componentDidMount() {
     };
     return(
         <React.Fragment>
-        <div style={{height: "86vh"}}>
-          <div id="header-thankyou-bcm">
-            <h1>YOU'RE IN!</h1>
-          </div>
-          <div id="thank-you-bcm-text">
-            <h3>Thanks for requesting an invite. This calculator is a game changer and we can't wait for you to use it!</h3>
-            <p>Please share the page with the buttons below and get a 50% OFF coupon for our signature Unleash Your Fitness Potential program. A personalized fitness guide that will take you to the next level.</p>
-            <p>Enjoy.</p>
-          </div>
-          <MobileView id="thank-you-page-buttons">
-            <ShareButtonsMobile/>
-          </MobileView>
-          <BrowserView id="thank-you-page-buttons">
-            <ShareButtons/>
-          </BrowserView>
-        </div>
+          <Slide bottom>
+            <div style={{height: "86vh"}}>
+              <div id="header-thankyou-bcm">
+                <h1>YOU'RE IN!</h1>
+              </div>
+              <div id="thank-you-bcm-text">
+                <h3>Thanks for requesting an invite. This calculator is a game changer and we can't wait for you to use it!</h3>
+                <p>Please share the page with the buttons below and get a 50% OFF coupon for our signature Unleash Your Fitness Potential program when it launches. A personalized fitness guide that works 100% of the time with people who follow it.</p>
+                <p>Enjoy.</p>
+              </div>
+              <MobileView id="thank-you-page-buttons">
+                <ShareButtonsMobile/>
+              </MobileView>
+              <BrowserView id="thank-you-page-buttons">
+                <ShareButtons/>
+              </BrowserView>
+            </div>
+          </Slide>
         </React.Fragment>
 
 
