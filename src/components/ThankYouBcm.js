@@ -1,12 +1,7 @@
 import React from 'react'
 import {Image, Icon, Button} from 'semantic-ui-react'
 import ShareButtons from './ShareButtons'
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile
-} from "react-device-detect";
+import { BrowserView, MobileView, isBrowser, isMobile } from "react-device-detect";
 import ShareButtonsMobile from './ShareButtons'
 import Confetti from 'react-dom-confetti';
 

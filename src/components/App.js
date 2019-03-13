@@ -13,13 +13,13 @@ import MacrosBreakdownForm from './MacrosBreakdownForm'
 import Confetti from 'react-dom-confetti';
 import ThankYouBcm from './ThankYouBcm'
 import Invite from './Invite'
-import { AnimatedSwitch } from 'react-router-transition';
 
 class App extends React.Component {
   constructor(){
     super()
     this.state={
-      stepNumber: 0
+      stepNumber: 0,
+      mobileDevice: false
     }
   }
 
@@ -27,6 +27,13 @@ class App extends React.Component {
 componentDidMount() {
   this.initGA()
   this.logPageView()
+  this.isMobileDevice()
+}
+
+isMobileDevice = () => {
+  this.setState({
+    mobileDevice: (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
+  })
 }
 
 initGA = () => {
@@ -68,7 +75,7 @@ scrollToTop = () => {
         <Route exact path="/testing-fit" render={props => <CalculationsContainer {...props} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
-        <Route exact path="/invite" render={props => <Invite {...props} /> } />
+        <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
       </div>
     )
   }

@@ -61,7 +61,8 @@ class Invite extends React.Component {
   render(){
     return(
       <React.Fragment>
-      <BrowserView>
+      {this.props.mobileDevice === false ?
+      <div>
         <div id="invite-page">
           <div id="invite-title-container">
             <h1 id="invite-title">THE SMARTEST AND MOST POWERFUL FITNESS CALCULATOR EVER CREATED</h1>
@@ -101,8 +102,9 @@ class Invite extends React.Component {
             </Card.Content>
           </Card>
         </div>
-        </BrowserView>
-        <MobileView>
+        </div> :
+
+        <div>
           <div id="invite-page-mobile">
             <div id="invite-title-container">
               <h1 id="invite-title">THE SMARTEST AND MOST POWERFUL FITNESS CALCULATOR EVER CREATED</h1>
@@ -142,7 +144,8 @@ class Invite extends React.Component {
               </Card.Content>
             </Card>
           </div>
-        </MobileView>
+          </div> }
+
       </React.Fragment>
     )
   }
