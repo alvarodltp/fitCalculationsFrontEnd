@@ -2,6 +2,12 @@ import React from 'react'
 import {Input, Button, Card, Divider, Image} from 'semantic-ui-react'
 import Confetti from 'react-dom-confetti';
 import ThankYouBcm from './ThankYouBcm'
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 
 class Invite extends React.Component {
   constructor(){
@@ -55,6 +61,7 @@ class Invite extends React.Component {
   render(){
     return(
       <React.Fragment>
+      <BrowserView>
         <div id="invite-page">
           <div id="invite-title-container">
             <h1 id="invite-title">THE SMARTEST AND MOST POWERFUL FITNESS CALCULATOR EVER CREATED</h1>
@@ -62,7 +69,7 @@ class Invite extends React.Component {
           </div>
           <div id="invite-button-input">
             <p>We are launching soon! Be the first to know.</p>
-            {this.state.errorMessage ? <p style={{color: "red"}}>{this.state.errorMessage}</p> : null}
+            {this.state.errorMessage ? <p style={{color: "red", fontSize: "12px", marginBottom: "2px"}}>{this.state.errorMessage}</p> : null}
             <Input id="sign-up-input" fluid onChange={(e) => {this.handleChange(e); this.validateEmail(e)}} name='email' type='text' placeholder='Email Address' size="large"/><br/>
             <Button onClick={this.saveUser} id="invite-button" size="large">Get My Invite</Button>
           </div>
@@ -94,6 +101,48 @@ class Invite extends React.Component {
             </Card.Content>
           </Card>
         </div>
+        </BrowserView>
+        <MobileView>
+          <div id="invite-page-mobile">
+            <div id="invite-title-container">
+              <h1 id="invite-title">THE SMARTEST AND MOST POWERFUL FITNESS CALCULATOR EVER CREATED</h1>
+              <p style={{color: "white"}}>Say good bye to guessing when it comes to getting fit.</p>
+            </div>
+            <div id="invite-button-input">
+              <p>We are launching soon! Be the first to know.</p>
+              {this.state.errorMessage ? <p style={{color: "red", fontSize: "12px", marginBottom: "2px"}}>{this.state.errorMessage}</p> : null}
+              <Input id="sign-up-input" fluid onChange={(e) => {this.handleChange(e); this.validateEmail(e)}} name='email' type='text' placeholder='Email Address' size="large"/><br/>
+              <Button onClick={this.saveUser} id="invite-button" size="large">Get My Invite</Button>
+            </div>
+          </div>
+          <div style={{marginTop: "30px"}}>
+          <h2 style={{fontStyle: "italic", marginBottom: "15px"}}>THIS IS FOR YOU IF</h2>
+            <Card id="image-card">
+              <Image id="img-invite-page" src={'../calendar.png'} />
+              <Card.Content>
+                <Card.Header>You are working out but not seeing results</Card.Header>
+              </Card.Content>
+            </Card>
+            <Card id="image-card">
+              <Image id="img-invite-page" src={'../food-you-love.png'} />
+              <Card.Content>
+                <Card.Header>You are tired of following diets that don't work</Card.Header>
+              </Card.Content>
+            </Card>
+            <Card id="image-card">
+              <Image id="img-invite-page" src={'../results.png'} />
+              <Card.Content>
+                <Card.Header>You want to gain muscle or lose weight ASAP</Card.Header>
+              </Card.Content>
+            </Card>
+            <Card id="image-card">
+              <Image id="img-invite-page" src={'../burger.png'} />
+              <Card.Content>
+                <Card.Header>You are tired of restricting yourself from foods you love</Card.Header>
+              </Card.Content>
+            </Card>
+          </div>
+        </MobileView>
       </React.Fragment>
     )
   }
