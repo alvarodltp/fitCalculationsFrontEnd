@@ -564,7 +564,6 @@ notify = () => {
 
     return(
       <React.Fragment>
-        <Button onClick={this.notify} />
         <Confetti id="confetti" active={this.state.confetti} config={config}/>
         {this.props.stepNumber === 0 ? <NutritionPackageDetails getGenderOnButton={this.getGenderOnButton} showBcmForm={this.showBcmForm}/> : null }
         {this.props.stepNumber === 0 || this.props.stepNumber === 1 || this.props.stepNumber === 2 || this.props.stepNumber === 3 || this.props.stepNumber === 4 ? <Stepper completeColor={"#2761f1"} activeColor={"#e80aaa"} steps={ [{title: 'Info'}, {title: 'Body'}, {title: 'Diet'}, {title: 'Motivation'}, {title: 'Results'}] } activeStep={ this.props.stepNumber } /> : null }
