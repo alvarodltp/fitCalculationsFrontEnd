@@ -29,6 +29,7 @@ class BmrCalorieResults extends React.Component {
         <Divider style={{margin: "0 auto", fontSize: "40px", fontStyle: "italic", marginTop: "40px", width: "80%"}} horizontal>
           YOUR RESULTS
         </Divider>
+
         {this.props.motivationToGetFit === "Health Reasons" ?
         <div id="intro-results">
           <p style={{fontSize: "18px"}}>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}, that's awesome you want to {this.props.goal.toLowerCase()} and most importantly, that you want to improve your {this.props.motivationToGetFit.slice(0, 6).toLowerCase()}! It really isn't rocket science
