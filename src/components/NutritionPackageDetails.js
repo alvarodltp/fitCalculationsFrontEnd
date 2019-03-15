@@ -2,6 +2,7 @@ import React from 'react';
 import {Icon, Button, Card, Image, Divider, Header} from 'semantic-ui-react';
 import SimpleSlider from './SimpleSlider'
 import Typing from 'react-typing-animation';
+import Bounce from 'react-reveal/Zoom';
 
 class NutritionPackageDetails extends React.Component {
   constructor(){
@@ -36,14 +37,14 @@ class NutritionPackageDetails extends React.Component {
     return (
       <React.Fragment>
       <div id="header-main-landing">
-      <Typing>
+      <Bounce left>
         <h1 style={{paddingTop: "45px", fontSize: "40px", color: "white", fontStyle: "italic"}} >UNLEASH YOUR FITNESS POTENTIAL</h1>
-      </Typing>
-      <Divider style={{fontSize: "18px", marginTop: "40px"}} horizontal>
+      </Bounce>
+        <Divider style={{fontSize: "18px", marginTop: "40px"}} horizontal>
            START YOUR TRANSFORMATION NOW
-      </Divider>
-      <Button onClick={this.props.getGenderOnButton} value="Female" size="huge" id="gender-button">I'M A WOMAN</Button>
-      <Button onClick={this.props.getGenderOnButton} value="Male" size="huge" id="gender-button">I'M A MAN</Button>
+        </Divider>
+        <Button onClick={this.props.getGenderOnButton} value="Female" size="huge" id="gender-button">I'M A WOMAN</Button>
+        <Button onClick={this.props.getGenderOnButton} value="Male" size="huge" id="gender-button">I'M A MAN</Button>
       </div>
       <div id="nutrition-package-intro">
           <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
