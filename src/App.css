@@ -721,5 +721,14 @@ box-shadow: none;
   text-decoration: none;
   width: 90%;
   margin-right: 0px;
+}
 
+#results-card-drop {
+  color: white;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 80%;
+  background: #2761f1;
+  height: 40px;
+  border-radius: 15px !important;
 }

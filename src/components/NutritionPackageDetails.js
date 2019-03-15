@@ -40,7 +40,7 @@ class NutritionPackageDetails extends React.Component {
       <Bounce left>
         <h1 style={{paddingTop: "45px", fontSize: "40px", color: "white", fontStyle: "italic"}} >UNLEASH YOUR FITNESS POTENTIAL</h1>
       </Bounce>
-        <Divider style={{fontSize: "18px", marginTop: "40px"}} horizontal>
+        <Divider style={{fontSize: "18px", marginTop: "40px", color: "white"}} horizontal>
            START YOUR TRANSFORMATION NOW
         </Divider>
         <Button onClick={this.props.getGenderOnButton} value="Female" size="huge" id="gender-button">I'M A WOMAN</Button>
