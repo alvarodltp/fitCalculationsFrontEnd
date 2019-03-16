@@ -732,3 +732,13 @@ box-shadow: none;
   height: 40px;
   border-radius: 15px !important;
 }
+
+#results-card-drop-active {
+  color: white;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 80%;
+  background: #e80aaa;
+  height: 40px;
+  border-radius: 15px !important;
+}
