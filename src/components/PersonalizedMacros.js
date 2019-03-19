@@ -37,7 +37,7 @@ class PersonalizedMacros extends React.Component {
                 loading={this.props.loading}
               />
             </div>
-            <p style={{fontStyle: "italic", fontSize: "10px"}}>
+            <p style={{fontStyle: "italic", fontSize: "12px"}}>
               Calculating Calories/<br/>
               Loading Body Types
             </p>

@@ -18,9 +18,9 @@ class MacroPercentageChart extends React.Component {
     }
 
     return (
-     <Grid style={{margin: "0 auto", width: "90%"}} columns={2}>
+     <Grid style={{margin: "0 auto", width: "100%"}} columns={2}>
        <Grid.Row>
-         <Grid.Column width={8}>
+         <Grid.Column width={10}>
          <Doughnut
             data={data}
             width={300}
@@ -30,11 +30,11 @@ class MacroPercentageChart extends React.Component {
             }}
             />
          </Grid.Column>
-         <Grid.Column width={8} >
+         <Grid.Column width={6} >
            <div id="macros-numbers">
-             <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.proteinPercentage}% PROTEIN</h3>
-             <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.carbPercentage}% CARBS</h3>
-             <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.fatPercentage}% FATS</h3>
+             <p><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.proteinPercentage}% Protein</p>
+             <p><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.carbPercentage}% Carbs</p>
+             <p><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.fatPercentage}% Fats</p>
            </div>
          </Grid.Column>
        </Grid.Row>

@@ -7,7 +7,7 @@ class UserInfoForm extends React.Component {
   constructor(){
     super()
     this.state={
-      value: 'imperial',
+      value: 'imperial'
     }
   }
 
@@ -20,11 +20,10 @@ class UserInfoForm extends React.Component {
     const weightPerWeek = [{key: '0.5', text: 'Slow - 0.5 lb. Per Week', value: '0.5'}, {key: '1.5', text: ' Steady - 1 lb. To 1.5 lb. Per Week', value: '1.5'}, {key: '2.0', text: 'Accelerated - 2 lb. Per Week', value: '2.0'}]
     const feetOptions = [{key: 2, text: "2", value: 2}, {key: 3, text: "3", value: 3}, {key: 4, text: "4", value: 4}, {key: 5, text: "5", value: 5}, {key: 6, text: "6", value: 6}, {key: 7, text: "7", value: 7}, {key: 8, text: "8", value: 8}]
     const inchesOptions = [{key: 0, text: "0", value: 0}, {key: 1, text: "1", value: 1}, {key: 2, text: "2", value: 2}, {key: 3, text: "3", value: 3}, {key: 4, text: "4", value: 4}, {key: 5, text: "5", value: 5}, {key: 6, text: "6", value: 6}, {key: 7, text: "7", value: 7}, {key: 8, text: "8", value: 8}, {key: 9, text: "9", value: 9}, {key: 10, text: "10", value: 10}, {key: 11, text: "11", value: 11}]
-    return(
 
-      <div>
-        <Card id="bmr-form">
-          <Card.Content extra>
+    return(
+      <Card id="bmr-form-mobile">
+        <Card.Content extra>
           <Form>
             <Grid stackable columns={2}>
               <Grid.Row>
@@ -65,9 +64,10 @@ class UserInfoForm extends React.Component {
               Step 2 - Select Body Type <Icon name="right arrow" />
             </Button>
           </Form>
-          </Card.Content>
-        </Card>
-      </div>
+        </Card.Content>
+      </Card>
+
+
     )
   }
 }

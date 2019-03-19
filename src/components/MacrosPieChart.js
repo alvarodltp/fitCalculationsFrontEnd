@@ -29,9 +29,9 @@ class MacrosPieChart extends React.Component {
 
     return (
       <React.Fragment>
-        <Grid style={{margin: "0 auto", width: "90%"}} columns={2}>
+        <Grid style={{margin: "0 auto", width: "100%"}} columns={2}>
           <Grid.Row>
-            <Grid.Column width={8}>
+            <Grid.Column width={10}>
             <Pie
                data={data}
                width={300}
@@ -41,11 +41,11 @@ class MacrosPieChart extends React.Component {
                }}
                />
             </Grid.Column>
-            <Grid.Column width={8} >
+            <Grid.Column width={6} >
               <div id="macros-numbers">
-                <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.protein}G PROTEIN</h3>
-                <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.carbs}G CARBS</h3>
-                <h3><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.fats}G FATS</h3>
+                <p><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.protein}G Protein</p>
+                <p><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.carbs}G Carbs</p>
+                <p><Icon style={{color: "#7CFC00"}} name="check" size="small" />{this.props.fats}G Fats</p>
               </div>
             </Grid.Column>
           </Grid.Row>

@@ -172,25 +172,7 @@ class LandingPage extends React.Component {
                 </VerticalTimelineElement>
               </VerticalTimeline>
             </div><br/>
-
-
-            // <div id="landing-main-benefits">
-            //   <h1 style={{fontSize:"40px"}}>They Did It And So Can You</h1><br/>
-            //   <Grid id="transformation-images" stackable columns={3}>
-            //     <Grid.Row>
-            //       <Grid.Column>
-            //         <ReactCompareImage leftImage={'../Al.jpg'} rightImage={'../ebook.png'} hover={true} />
-            //       </Grid.Column>
-            //       <Grid.Column>
-            //         <ReactCompareImage leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
-            //       </Grid.Column>
-            //       <Grid.Column>
-            //         <ReactCompareImage leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
-            //       </Grid.Column>
-            //     </Grid.Row>
-            //   </Grid>
-            // </div><br/>
-            // <Button style={{width: "60%", background: '#2761f1', color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "30px"}} content='Start Your Transformation Today' size="huge" icon='angle double right' labelPosition='right' />
+            <Button style={{width: "60%", background: '#2761f1', color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "30px"}} content='Start Your Transformation Today' size="huge" icon='angle double right' labelPosition='right' />
 
             <div id="landing-main-benefits">
               <h1 style={{fontSize:"40px"}}>Get Unlimited Support</h1><br/>
@@ -214,7 +196,7 @@ class LandingPage extends React.Component {
               <Grid stackable columns={2}>
                 <Grid.Row>
                   <Grid.Column style={{marginBottom: "40px"}} width={5}>
-                    <Image src={'../Alvaro.png'} circular/>
+                    <Image src={'../money-back-green.png'} circular/>
                   </Grid.Column>
                   <Grid.Column width={11}>
                     <p style={{fontSize: "20px", textAlign: "left"}}>We are confident your personalized program will give you the results you want. However, if you haven't got closer to your goals, I will refund 100% of the cost.</p>
@@ -230,3 +212,21 @@ class LandingPage extends React.Component {
 }
 
 export default LandingPage
+
+// <div id="landing-main-benefits">
+//   <h1 style={{fontSize:"40px"}}>They Did It And So Can You</h1><br/>
+//   <Grid id="transformation-images" stackable columns={3}>
+//     <Grid.Row>
+//       <Grid.Column>
+//         <ReactCompareImage leftImage={'../Al.jpg'} rightImage={'../ebook.png'} hover={true} />
+//       </Grid.Column>
+//       <Grid.Column>
+//         <ReactCompareImage leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
+//       </Grid.Column>
+//       <Grid.Column>
+//         <ReactCompareImage leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
+//       </Grid.Column>
+//     </Grid.Row>
+//   </Grid>
+// </div><br/>
+// <Button style={{width: "60%", background: '#2761f1', color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "30px"}} content='Start Your Transformation Today' size="huge" icon='angle double right' labelPosition='right' />

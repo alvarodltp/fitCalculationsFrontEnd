@@ -43,8 +43,8 @@ class NutritionPackageDetails extends React.Component {
         <Divider style={{fontSize: "18px", marginTop: "40px", color: "white"}} horizontal>
            START YOUR TRANSFORMATION NOW
         </Divider>
-        <Button onClick={this.props.getGenderOnButton} value="Female" size="huge" id="gender-button">I'M A WOMAN</Button>
-        <Button onClick={this.props.getGenderOnButton} value="Male" size="huge" id="gender-button">I'M A MAN</Button>
+        <Button onClick={this.props.getGenderOnButton} value="Female" size="large" id="gender-button">I'M A WOMAN</Button>
+        <Button onClick={this.props.getGenderOnButton} value="Male" size="large" id="gender-button">I'M A MAN</Button>
       </div>
       <div id="nutrition-package-intro">
           <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
@@ -108,8 +108,8 @@ class NutritionPackageDetails extends React.Component {
         </div>
         <div>
           <h2 id="lets-get-numbers">GET YOUR NUMBERS!</h2>
-          <Button onClick={this.props.getGenderOnButton} value="Female" size="huge" id="gender-button">I'M A WOMAN</Button>
-          <Button onClick={this.props.getGenderOnButton} value="Male" size="huge" id="gender-button">I'M A MAN</Button><br/><br/>
+          <Button onClick={this.props.getGenderOnButton} value="Female" size="large" id="gender-button">I'M A WOMAN</Button>
+          <Button onClick={this.props.getGenderOnButton} value="Male" size="large" id="gender-button">I'M A MAN</Button><br/><br/>
         </div>
 
       </React.Fragment>

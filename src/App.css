@@ -68,11 +68,19 @@ h4 {
 }
 
 #bmr-form {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  border-radius: 15px !important;
+  box-shadow: none;
+}
+
+#bmr-form-mobile {
   width: 80%;
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 50px;
-  background: #eaeaea;
   border-radius: 15px !important;
   box-shadow: none;
 }
@@ -148,16 +156,17 @@ h4 {
 }
 
 #macros-numbers {
-  margin-top: 70px;
+  margin-top: 100px;
   text-align: center;
+  font-style: italic;
 }
 
 /* #macros-grid {
   margin-bottom: 20px;
 } */
 
-#macros-numbers h3 {
-  font-size: 25px;
+#macros-numbers p {
+  font-size: 18px;
 }
 
 #macros-card{
@@ -348,12 +357,12 @@ h4 {
   margin-right: 40px;
 }
 
-#button-start-calculation {
+/* #button-start-calculation {
   background-color: red;
   margin-top: 40px;
   margin-bottom: 40px;
   width: 60%;
-}
+} */
 
 #bcm-for-who {
   margin: 0 auto;
@@ -577,7 +586,7 @@ box-shadow: none;
 }
 
 #gender-button {
-  width: 35%;
+  width: 30%;
   color: white;
   background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
   margin-top: 40px;
@@ -592,10 +601,27 @@ box-shadow: none;
   background: #e80aaa;
 }
 
+#gender-button-mobile {
+  width: 40%;
+  color: white;
+  background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
+  margin-top: 40px;
+  -webkit-transition: background .6s;
+  -moz-transition: background .6s;
+  -ms-transition: background .6s;
+  -o-transition: background .6s;
+  transition: background .6s;
+}
+
+#gender-button-mobile:hover {
+  background: #e80aaa;
+}
+
 #intro-results {
   margin: 0 auto;
   margin-top: 20px;
   width: 80%;
+  margin-bottom: 30px;
 }
 
 #for-you-if-card {
@@ -656,6 +682,28 @@ box-shadow: none;
 
 .ui.card>.content {
   font-size: 1.1em;
+}
+
+.ui.selection.dropdown {
+  background: transparent;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom-color: #2761f1;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-width: medium;
+}
+
+.ui.form input[type=number] {
+  background: transparent;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom-color: #2761f1;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-width: medium;
 }
 
 #invite-page {
@@ -741,4 +789,19 @@ box-shadow: none;
   background: #e80aaa;
   height: 40px;
   border-radius: 15px !important;
+}
+
+#start-today-card {
+  color: white;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 80%;
+  background: red;
+  height: 40px;
+  border-radius: 15px !important;
+}
+
+#more-info-Button {
+  float: right;
+  background: transparent
 }

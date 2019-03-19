@@ -77,7 +77,10 @@ class CalculationsContainer extends React.Component {
       caloriesShown: false,
       dietShown: false,
       macrosShown: false,
-      cardioShown: false
+      cardioShown: false,
+      exerciseShown: false,
+      landingPageShown: false,
+      maxHeartRate: 0
     }
   }
 
@@ -92,6 +95,17 @@ class CalculationsContainer extends React.Component {
       caloriesShown: !this.state.caloriesShown,
       dietShown: false,
       macrosShown: false,
+      cardioShown: false,
+      exerciseShown: false
+    })
+  }
+
+  showExercise = () => {
+    this.setState({
+      exerciseShown: !this.state.exerciseShown,
+      caloriesShown: false,
+      dietShown: false,
+      macrosShown: false,
       cardioShown: false
     })
   }
@@ -101,7 +115,8 @@ class CalculationsContainer extends React.Component {
       macrosShown: !this.state.macrosShown,
       caloriesShown: false,
       dietShown: false,
-      cardioShown: false
+      cardioShown: false,
+      exerciseShown: false
     })
   }
 
@@ -110,7 +125,8 @@ class CalculationsContainer extends React.Component {
       dietShown: !this.state.dietShown,
       caloriesShown: false,
       macrosShown: false,
-      cardioShown: false
+      cardioShown: false,
+      exerciseShown: false
     })
   }
 
@@ -119,14 +135,30 @@ class CalculationsContainer extends React.Component {
       cardioShown: !this.state.cardioShown,
       caloriesShown: false,
       macrosShown: false,
-      dietShown: false
+      dietShown: false,
+      exerciseShown: false
+    })
+  }
+
+  showLandingPage = () => {
+    this.setState({
+      landingPageShown: !this.state.landingPageShown,
+      cardioShown: false,
+      caloriesShown: false,
+      macrosShown: false,
+      dietShown: false,
+      exerciseShown: false
     })
   }
 
   activateConfetti = () => {
-    this.setState({
-      confetti: true
-    })
+    if(this.state.emailValid === true) {
+      this.setState({
+        confetti: true
+      })
+    } else {
+
+    }
   }
 
   showBcmForm = () => {
@@ -276,13 +308,13 @@ class CalculationsContainer extends React.Component {
   } else if (goal === "Lose Weight" && weightToManage === "Steady"){
     caloriesForGoal = caloriesToMaintain - 500
   } else if (goal === "Lose Weight" && weightToManage === "Accelerated"){
-    caloriesForGoal = caloriesToMaintain - 700
+    caloriesForGoal = caloriesToMaintain - 1000
   } else if (goal === "Gain Muscle" && weightToManage === "Slow"){
     caloriesForGoal = caloriesToMaintain + 250
   } else if (goal === "Gain Muscle" && weightToManage === "Steady"){
     caloriesForGoal = caloriesToMaintain + 500
   } else if (goal === "Gain Muscle" && weightToManage === "Accelerated"){
-    caloriesForGoal = caloriesToMaintain + 500
+    caloriesForGoal = caloriesToMaintain + 1000
   } else {
     caloriesForGoal = caloriesToMaintain
   }
@@ -506,7 +538,7 @@ saveEmailToUser = () => {
       swal("Success!", "Your results have been sent!", "success")
       this.setState({
         loadingResults: false
-      })
+      }, this.calculateMaxHeartRate())
   } else {
   }
 }
@@ -563,6 +595,14 @@ notify = () => {
   }
 }
 
+calculateMaxHeartRate = () => {
+  let age = this.state.age
+  let maxHeartRate = 220 - age
+  debugger
+  this.setState({
+    maxHeartRate: maxHeartRate
+  })
+}
 
   render(){
     const config = {
@@ -588,12 +628,11 @@ notify = () => {
         {this.props.stepNumber === 2 ? <DietType getDietType={this.getDietType} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
         {this.props.stepNumber === 3 ? <Motivation getMotivationToGetFit={this.getMotivationToGetFit} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
         <ToastContainer autoClose={false} draggable={true}/>
-        {this.props.stepNumber === 5 ? <BmrCalorieResults showMacros={this.showMacros} macrosShown={this.state.macrosShown} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats} showCardio={this.showCardio} cardioShown={this.state.cardioShown} showDiet={this.showDiet} dietShown={this.state.dietShown} showCalories={this.showCalories} caloriesShown={this.state.caloriesShown} safeCalories={this.state.safeCalories} dietType={this.state.dietType} motivationToGetFit={this.state.motivationToGetFit} name={this.state.name} displayCalories={this.state.displayCalories} displayCaloriesInfo={this.displayCaloriesInfo} displayDiet={this.state.displayDiet} displayDietInfo={this.displayDietInfo} cardInfo={this.state.cardInfo} goal= {this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} proteinPercentage={this.state.proteinPercentage} carbPercentage={this.state.carbPercentage} fatPercentage={this.state.fatPercentage} /> : null }
+        {this.props.stepNumber === 5 ? <BmrCalorieResults maxHeartRate={this.state.maxHeartRate} age={this.state.age} showLandingPage={this.showLandingPage} landingPageShown={this.state.landingPageShown} showExercise={this.showExercise} exerciseShown={this.state.exerciseShown} showMacros={this.showMacros} macrosShown={this.state.macrosShown} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats} showCardio={this.showCardio} cardioShown={this.state.cardioShown} showDiet={this.showDiet} dietShown={this.state.dietShown} showCalories={this.showCalories} caloriesShown={this.state.caloriesShown} safeCalories={this.state.safeCalories} dietType={this.state.dietType} motivationToGetFit={this.state.motivationToGetFit} name={this.state.name} displayCalories={this.state.displayCalories} displayCaloriesInfo={this.displayCaloriesInfo} displayDiet={this.state.displayDiet} displayDietInfo={this.displayDietInfo} cardInfo={this.state.cardInfo} goal={this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} proteinPercentage={this.state.proteinPercentage} carbPercentage={this.state.carbPercentage} fatPercentage={this.state.fatPercentage} /> : null }
         {this.props.stepNumber === 1 ? <PersonalizedMacros loading={this.state.loading} user={this.state.user} substractOneFromStep={this.props.substractOneFromStep} scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
         {this.props.stepNumber === 10 ? <MacrosBreakdownCard cardInfo={this.state.cardInfo} displayCardInfo={this.displayCardInfo} getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
         {this.props.stepNumber === 4 ? <SignUpForm safeCalories={this.state.safeCalories} notify={this.notify} getName={this.getName} getEmail={this.getEmail} validateEmail={this.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} /> : null}
         {this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
-        {this.props.stepNumber === 10 ? <LandingPage goal={this.state.goal}/> : null }
       </React.Fragment>
     )
   }

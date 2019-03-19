@@ -12,13 +12,15 @@ import Fade from 'react-reveal/Fade';
 import CaloriesBarChart from './CaloriesBarChart'
 import MacroPercentageChart from './MacroPercentageChart'
 import MacrosPieChart from './MacrosPieChart'
+import LandingPage from './LandingPage'
+import ExerciseTable from './ExerciseTable'
 
 class BmrCalorieResults extends React.Component {
 
   render(){
     return(
       <React.Fragment>
-      <Divider style={{fontSize: "35px", fontStyle: "italic"}} horizontal>
+      <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
           Your Results
       </Divider>
         {this.props.motivationToGetFit === "Health Reasons" ?
@@ -28,7 +30,7 @@ class BmrCalorieResults extends React.Component {
         </div> :
         <div id="intro-results">
           <p style={{textAlign: "left", fontSize: "18px"}}>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}, that's awesome you have a {this.props.motivationToGetFit.toLowerCase()} coming up! It isn't rocket science to {this.props.goal.toLowerCase()}
-             and get the body you want. You are closer to your goals than what you think. You have super powerful information available to you now, and it is up to you to take action to get the body you deserve. Read your results fully and let us know if you have any questions!</p>
+             get the body you want. It's simple, follow your results and you will be amazed at the progress you will make. Don't hesitate to chat us if you have any questions!</p>
         </div> }
 
         {this.props.caloriesShown === true ?
@@ -40,11 +42,11 @@ class BmrCalorieResults extends React.Component {
         </div> }
 
           {this.props.caloriesShown === true ?
-          <Fade top when={this.props.displayCalories}>
+          <Fade top >
             <div style={{width: "80%", margin: "0 auto", marginTop:"10px"}}>
-              <p style={{textAlign: "left", fontSize: "18px"}}>You need {this.props.caloriesForGoal} daily calories in order to {this.props.goal.toLowerCase()}. {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}, this was calculated based on your personal needs. Remember, less calories doesn't mean better. This is the number you need to get to your goal.</p>
+              <p style={{textAlign: "left", fontSize: "18px"}}>Based on your information, you need {this.props.caloriesForGoal} daily calories in order to {this.props.goal.toLowerCase()}. {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}. Remember, less calories doesn't mean better. This is the number you need to get to your goal.</p>
             </div>
-            <div style={{width: "70%"}}>
+            <div style={{width: "80%", margin: "0 auto"}}>
               <CaloriesBarChart caloriesForGoal={this.props.caloriesForGoal} caloriesToMaintain={this.props.caloriesToMaintain} bmr={this.props.bmr}/>
             </div>
           </Fade> : null }
@@ -58,9 +60,9 @@ class BmrCalorieResults extends React.Component {
           </div> }
 
         {this.props.dietShown === true ?
-        <Fade top when={this.props.displayDiet}>
+        <Fade top >
           <div style={{width: "80%", margin: "0 auto", marginTop:"10px"}}>
-            <p style={{textAlign: "left", fontSize: "18px"}}>Having a {this.props.dietType.toLowerCase()} diet is great as long as you are getting a balanced amount of nutrients your body needs to perform at its best. Here is out advice... don't focus too much on calories and instead make sure you are hitting your macros consistently. By hitting your macros we mean getting very close to the daily grams of protein, carbohydrates, and fats you need.</p>
+            <p style={{textAlign: "left", fontSize: "18px"}}>Having a {this.props.dietType.toLowerCase()} diet is great as long as you are getting a balanced amount of nutrients your body needs to perform at its best. Here is our advice... don't focus too much on calories and instead make sure you are hitting your macros consistently. By hitting your macros we mean getting very close to the daily grams of protein, carbohydrates, and fats your body needs.</p>
           </div>
           <div style={{width: "70%", margin: "0 auto"}}>
             <MacroPercentageChart proteinPercentage={this.props.proteinPercentage} carbPercentage={this.props.carbPercentage} fatPercentage={this.props.fatPercentage}/>
@@ -76,14 +78,50 @@ class BmrCalorieResults extends React.Component {
         </div> }
 
         {this.props.macrosShown === true ?
-        <Fade top when={this.props.displayMacros}>
+        <Fade top >
           <div style={{width: "80%", margin: "0 auto", marginTop:"10px"}} >
-            <p style={{textAlign: "left", fontSize: "18px"}}>Having a {this.props.dietType.toLowerCase()} diet is great as long as you are getting a balanced amount of nutrients your body needs to perform at its best. Here is out advice... don't focus too much on calories and instead make sure you are hitting your macros consistently. By hitting your macros we mean getting very close to the daily grams of protein, carbohydrates, and fats you need.</p>
+            <p style={{textAlign: "left", fontSize: "18px"}}>Macros are the basic building blocks of food - protein, carbs, and fats. These make up the calories we calculated based on your needs and goal. Your macro split is as follows: </p>
           </div>
           <div style={{width: "70%", margin: "0 auto"}}>
             <MacrosPieChart protein={this.props.protein} carbs={this.props.carbs} fats={this.props.fats}/>
           </div>
         </Fade> : null }
+
+
+        {this.props.exerciseShown === true ?
+        <div onClick={this.props.showExercise} id="results-card-drop-active">
+          <h2 style={{fontSize:"30px", fontStyle: "italic"}}>EXERCISE<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+        </div> :
+        <div onClick={this.props.showExercise} id="results-card-drop">
+          <h2 style={{fontSize:"30px", fontStyle: "italic"}}>EXERCISE<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+        </div> }
+
+        {this.props.exerciseShown === true ?
+        <Fade top>
+          <div style={{width: "80%", margin: "0 auto", marginTop:"10px", marginBottom: "20px"}} >
+            <p style={{textAlign: "left", fontSize: "18px"}}>These are your THR(Target Heart Rate) zones. Hover over to learn and determine what zone is most appropiate based on your goal to {this.props.goal.toLowerCase()}.</p>
+          </div>
+          <div style={{width: "80%", margin: "0 auto"}}>
+            <ExerciseTable age={this.props.age} maxHeartRate={this.props.maxHeartRate}/>
+          </div>
+        </Fade> : null }
+
+        {this.props.landingPageShown === true ?
+        <div onClick={this.props.showLandingPage} id="results-card-drop">
+          <h2 style={{fontSize:"30px", fontStyle: "italic"}}>START TODAY<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+        </div> :
+        <div onClick={this.props.showLandingPage} id="start-today-card">
+          <h2 style={{fontSize:"30px", fontStyle: "italic"}}>START TODAY<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+        </div> }
+
+        {this.props.landingPageShown === true ?
+        <Fade bottom>
+          <div style={{width: "100%", margin: "0 auto"}}>
+            <LandingPage goal={this.props.goal} motivationToGetFit={this.props.motivationToGetFit}/>
+          </div>
+        </Fade> : null }<br/>
+
+
       </React.Fragment>
     )
   }

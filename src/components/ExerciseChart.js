@@ -2,7 +2,7 @@ import React from 'react';
 import {Bar} from 'react-chartjs-2';
 import { Popup } from 'semantic-ui-react'
 
-class CaloriesBarChart extends React.Component {
+class ExerciseChart extends React.Component {
   render() {
       const data = {
       labels: [
@@ -31,4 +31,4 @@ class CaloriesBarChart extends React.Component {
   }
 }
 
-export default CaloriesBarChart
+export default ExerciseChart
