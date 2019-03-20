@@ -202,14 +202,21 @@ h4 {
 }
 
 #button {
-  background-color: #2761f1;
-  color: white;
-  opacity: 1;
+  border: 2px solid;
+  border-color: #e80aaa;
+  background-color: transparent;
+  color: black;
 }
 
-/* #button:hover {
-  opacity: 1;
-} */
+#button:hover {
+  color: white;
+  background: #e80aaa;
+  -webkit-transition: background .6s;
+  -moz-transition: background .6s;
+  -ms-transition: background .6s;
+  -o-transition: background .6s;
+  transition: background .6s;
+}
 
 #progress-bar {
   margin: 0 auto;
@@ -311,6 +318,14 @@ h4 {
 
 #sign-up-input {
   width: 80%;
+  background: transparent;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom-color: #2761f1;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-width: medium;
 }
 
 #sign-up-input-mobile {
@@ -338,16 +353,31 @@ h4 {
   margin-bottom: 30px;
 }
 
+.ui.checkbox .box:after, .ui.checkbox label:after {
+  color: #e80aaa;
+}
+
 /* #sign-up-div {
   height: 62vh;
 } */
 
 #button-get-email{
-  background-color: #2761f1;
-  color: white;
+  border: 2px solid;
+  border-color: #e80aaa;
+  background-color: transparent;
+  color: black;
   width: 65%;
   font-style: bold;
+}
 
+#button-get-email:hover {
+  color: white;
+  background: #e80aaa;
+  -webkit-transition: background .6s;
+  -moz-transition: background .6s;
+  -ms-transition: background .6s;
+  -o-transition: background .6s;
+  transition: background .6s;
 }
 
 #benefits-calorie-calculator {
@@ -549,6 +579,7 @@ box-shadow: none;
 #img-motivation {
   margin: 0 auto;
   background-color: #ffffff00;
+  height: 70px;
 }
 
 #img-invite-page {
@@ -588,17 +619,22 @@ box-shadow: none;
 #gender-button {
   width: 30%;
   color: white;
-  background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
   margin-top: 40px;
+  background: transparent;
+  border: 2px solid;
+  border-color: #e80aaa;
   -webkit-transition: background .6s;
   -moz-transition: background .6s;
   -ms-transition: background .6s;
   -o-transition: background .6s;
   transition: background .6s;
+  /* color: white;
+  background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1); */
 }
 
 #gender-button:hover {
   background: #e80aaa;
+  color: white;
 }
 
 #gender-button-mobile {
@@ -772,12 +808,24 @@ box-shadow: none;
 }
 
 #results-card-drop {
-  color: white;
+  color: black;
   margin: 0 auto;
   margin-top: 15px;
   width: 80%;
-  background: #2761f1;
-  height: 40px;
+  background: transparent;
+  border: 2px solid;
+  border-color: #2761f1;
+  height: 45px;
+  border-radius: 15px !important;
+}
+
+#results-card-drop:hover {
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 80%;
+  border: 3px solid;
+  border-color: #e80aaa;
+  height: 45px;
   border-radius: 15px !important;
 }
 
@@ -792,12 +840,26 @@ box-shadow: none;
 }
 
 #start-today-card {
+  color: black;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 80%;
+  background: transparent;
+  border: 2px solid;
+  border-color: #2761f1;
+  height: 45px;
+  border-radius: 15px !important;
+}
+
+#start-today-card:hover {
   color: white;
   margin: 0 auto;
   margin-top: 15px;
   width: 80%;
   background: red;
-  height: 40px;
+  border: 2px solid;
+  border-color: #e80aaa;
+  height: 45px;
   border-radius: 15px !important;
 }
 

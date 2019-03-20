@@ -38,7 +38,7 @@ class BmrCalorieResults extends React.Component {
           <h1 style={{fontSize:"30px", fontStyle: "italic"}}>CALORIES<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus"/></h1>
         </div> :
         <div id="results-card-drop" onClick={this.props.showCalories} >
-          <h1 style={{fontSize:"30px", fontStyle: "italic"}}>CALORIES<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus"/></h1>
+          <h1 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>CALORIES<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus"/></h1>
         </div> }
 
           {this.props.caloriesShown === true ?
@@ -56,7 +56,7 @@ class BmrCalorieResults extends React.Component {
             <h2 style={{fontSize:"30px", fontStyle: "italic"}}>DIET<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
           </div> :
           <div id="results-card-drop" onClick={this.props.showDiet}>
-            <h2 style={{fontSize:"30px", fontStyle: "italic"}}>DIET<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+            <h2 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>DIET<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
           </div> }
 
         {this.props.dietShown === true ?
@@ -74,7 +74,7 @@ class BmrCalorieResults extends React.Component {
           <h2 style={{fontSize:"30px", fontStyle: "italic"}}>MACROS<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
         </div> :
         <div onClick={this.props.showMacros} id="results-card-drop">
-          <h2 style={{fontSize:"30px", fontStyle: "italic"}}>MACROS<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+          <h2 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>MACROS<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
         </div> }
 
         {this.props.macrosShown === true ?
@@ -93,7 +93,7 @@ class BmrCalorieResults extends React.Component {
           <h2 style={{fontSize:"30px", fontStyle: "italic"}}>EXERCISE<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
         </div> :
         <div onClick={this.props.showExercise} id="results-card-drop">
-          <h2 style={{fontSize:"30px", fontStyle: "italic"}}>EXERCISE<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+          <h2 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>EXERCISE<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
         </div> }
 
         {this.props.exerciseShown === true ?
@@ -107,11 +107,11 @@ class BmrCalorieResults extends React.Component {
         </Fade> : null }
 
         {this.props.landingPageShown === true ?
-        <div onClick={this.props.showLandingPage} id="results-card-drop">
+        <div onClick={this.props.showLandingPage} id="results-card-drop-active">
           <h2 style={{fontSize:"30px", fontStyle: "italic"}}>START TODAY<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
         </div> :
         <div onClick={this.props.showLandingPage} id="start-today-card">
-          <h2 style={{fontSize:"30px", fontStyle: "italic"}}>START TODAY<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+          <h2 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>START TODAY<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
         </div> }
 
         {this.props.landingPageShown === true ?

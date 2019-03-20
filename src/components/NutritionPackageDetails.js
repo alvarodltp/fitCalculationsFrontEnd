@@ -53,25 +53,25 @@ class NutritionPackageDetails extends React.Component {
         <Card id="image-card">
           <Image id="img-motivation" src={'../food-you-love.png'} />
           <Card.Content>
-            <Card.Header>You are tired of following diets that don't work</Card.Header>
+            <h4>You are tired of following diets that don't work</h4>
           </Card.Content>
         </Card>
         <Card id="image-card">
           <Image id="img-motivation" src={'../burger.png'} />
           <Card.Content>
-            <Card.Header>You are tired of restricting yourself from foods you love</Card.Header>
+            <h4>You are tired of restricting yourself from foods you love</h4>
           </Card.Content>
         </Card>
         <Card id="image-card">
           <Image id="img-motivation" src={'../calendar.png'} />
           <Card.Content>
-            <Card.Header>You are working out but not seeing results</Card.Header>
+            <h4>You are working out but not seeing results</h4>
           </Card.Content>
         </Card>
         <Card id="image-card">
           <Image id="img-motivation" src={'../results.png'} />
           <Card.Content>
-            <Card.Header>You want to gain muscle or lose weight ASAP</Card.Header>
+            <h4>You want to gain muscle or lose weight ASAP</h4>
           </Card.Content>
         </Card>
       </div>
@@ -80,36 +80,36 @@ class NutritionPackageDetails extends React.Component {
           <Card id="benefits-bcm">
             <Image id="img-motivation" src={'../calories.png'} />
             <Card.Content>
-              <Card.Header>Calculate your calorie needs based on science</Card.Header>
+              <h4>Calculate your calorie needs based on science</h4>
               <Card.Description style={{width: "70%", margin: "0 auto"}}>Go no further and get the exact numbers you need to reach your goal.</Card.Description>
             </Card.Content>
           </Card>
           <Card id="benefits-bcm">
             <Image id="img-motivation" src={'../macros-breakdown.png'} />
             <Card.Content>
-              <Card.Header>Perfect breakdown of daily personalized macronutrients</Card.Header>
+              <h4>Perfect breakdown of daily personalized macronutrients</h4>
               <Card.Description style={{width: "70%", margin: "0 auto"}}>The amount of proteins, carbs, and fats you need to eat based on your calorie results and body type are key for success.</Card.Description>
             </Card.Content>
           </Card>
           <Card id="benefits-bcm">
             <Image id="img-motivation" src={'../personalized-info.png'} />
             <Card.Content>
-              <Card.Header>Powerfull recommendations based on your results</Card.Header>
+              <h4>Powerfull recommendations based on your results</h4>
               <Card.Description style={{width: "70%", margin: "0 auto"}}>Either you want to get lean and muscular or start your weight loss journey, the key is right here.</Card.Description>
             </Card.Content>
           </Card>
           <Card id="benefits-bcm">
             <Image id="img-motivation" src={'../email-results.png'} />
             <Card.Content>
-              <Card.Header>A detailed report sent right to your inbox so you can start seeing results fast </Card.Header>
+              <h4>A detailed report sent right to your inbox so you can start seeing results fast </h4>
               <Card.Description style={{width: "70%", margin: "0 auto"}}>Health professionals charge hundreds, if not thousands of dollars for information you will get absolutely FREE.</Card.Description>
             </Card.Content>
           </Card>
         </div>
         <div>
           <h2 id="lets-get-numbers">GET YOUR NUMBERS!</h2>
-          <Button onClick={this.props.getGenderOnButton} value="Female" size="large" id="gender-button">I'M A WOMAN</Button>
-          <Button onClick={this.props.getGenderOnButton} value="Male" size="large" id="gender-button">I'M A MAN</Button><br/><br/>
+          <Button style={{width: "30%", marginTop: "40px"}} onClick={this.props.getGenderOnButton} value="Female" size="large" id="button">I'M A WOMAN</Button>
+          <Button style={{width: "30%", marginTop: "40px"}} onClick={this.props.getGenderOnButton} value="Male" size="large" id="button">I'M A MAN</Button><br/><br/>
         </div>
 
       </React.Fragment>
