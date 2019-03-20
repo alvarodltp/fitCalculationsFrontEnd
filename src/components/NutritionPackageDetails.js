@@ -3,6 +3,7 @@ import {Icon, Button, Card, Image, Divider, Header} from 'semantic-ui-react';
 import SimpleSlider from './SimpleSlider'
 import Typing from 'react-typing-animation';
 import Bounce from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
 
 class NutritionPackageDetails extends React.Component {
   constructor(){
@@ -13,6 +14,8 @@ class NutritionPackageDetails extends React.Component {
       displayCaloriesInfo: false
     }
   }
+
+
 
   displayBmrInfo = () => {
     this.setState({
@@ -33,6 +36,8 @@ class NutritionPackageDetails extends React.Component {
   }
 
 
+
+
   render() {
     return (
       <React.Fragment>
@@ -43,8 +48,15 @@ class NutritionPackageDetails extends React.Component {
         <Divider style={{fontSize: "18px", marginTop: "40px", color: "white"}} horizontal>
            START YOUR TRANSFORMATION NOW
         </Divider>
-        <Button onClick={this.props.getGenderOnButton} value="Female" size="large" id="gender-button">I'M A WOMAN</Button>
-        <Button onClick={this.props.getGenderOnButton} value="Male" size="large" id="gender-button">I'M A MAN</Button>
+        {this.props.mobileDevice === false ?
+        <div>
+          <Button onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Female" size="large" id="gender-button">I'M A WOMAN</Button>
+          <Button onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Male" size="large" id="gender-button">I'M A MAN</Button>
+        </div> :
+        <div>
+          <Button onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Female" size="small" id="gender-button-mobile">I'M A WOMAN</Button>
+          <Button onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Male" size="small" id="gender-button-mobile">I'M A MAN</Button>
+        </div> }
       </div>
       <div id="nutrition-package-intro">
           <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
@@ -81,7 +93,7 @@ class NutritionPackageDetails extends React.Component {
             <Image id="img-motivation" src={'../calories.png'} />
             <Card.Content>
               <h4>Calculate your calorie needs based on science</h4>
-              <Card.Description style={{width: "70%", margin: "0 auto"}}>Go no further and get the exact numbers you need to reach your goal.</Card.Description>
+              <Card.Description style={{width: "70%", margin: "0 auto"}}>Get the exact numbers you need to reach your goal.</Card.Description>
             </Card.Content>
           </Card>
           <Card id="benefits-bcm">
@@ -94,22 +106,36 @@ class NutritionPackageDetails extends React.Component {
           <Card id="benefits-bcm">
             <Image id="img-motivation" src={'../personalized-info.png'} />
             <Card.Content>
-              <h4>Powerfull recommendations based on your results</h4>
+              <h4>Powerful recommendations based on your results</h4>
               <Card.Description style={{width: "70%", margin: "0 auto"}}>Either you want to get lean and muscular or start your weight loss journey, the key is right here.</Card.Description>
             </Card.Content>
           </Card>
           <Card id="benefits-bcm">
             <Image id="img-motivation" src={'../email-results.png'} />
             <Card.Content>
-              <h4>A detailed report sent right to your inbox so you can start seeing results fast </h4>
+              <h4>Your results sent right to your inbox so you can apply them and start seeing results fast </h4>
               <Card.Description style={{width: "70%", margin: "0 auto"}}>Health professionals charge hundreds, if not thousands of dollars for information you will get absolutely FREE.</Card.Description>
             </Card.Content>
           </Card>
         </div>
+
+        <h2 id="lets-get-numbers">GET YOUR NUMBERS!</h2>
+
         <div>
-          <h2 id="lets-get-numbers">GET YOUR NUMBERS!</h2>
-          <Button style={{width: "30%", marginTop: "40px"}} onClick={this.props.getGenderOnButton} value="Female" size="large" id="button">I'M A WOMAN</Button>
-          <Button style={{width: "30%", marginTop: "40px"}} onClick={this.props.getGenderOnButton} value="Male" size="large" id="button">I'M A MAN</Button><br/><br/>
+          {this.props.mobileDevice === false ?
+          <div>
+            <Button style={{width: "30%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Female" size="large" id="button">I'M A WOMAN</Button>
+            <Button style={{width: "30%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Male" size="large" id="button">I'M A MAN</Button>
+          </div> :
+          <div>
+            <Button style={{width: "45%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Female" size="small" id="button-mobile">I'M A WOMAN</Button>
+            <Button style={{width: "45%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Male" size="small" id="button-mobile">I'M A MAN</Button>
+          </div> }
+
+          {this.props.showForm === false ?
+          <Fade right>
+            <Image src={'../iphone-right.png'} />
+          </Fade> : null }
         </div>
 
       </React.Fragment>

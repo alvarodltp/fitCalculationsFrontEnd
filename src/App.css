@@ -206,6 +206,15 @@ h4 {
   border-color: #e80aaa;
   background-color: transparent;
   color: black;
+  margin-bottom: 20px;
+}
+
+#button-mobile {
+  border: 2px solid;
+  border-color: #e80aaa;
+  background-color: transparent;
+  color: black;
+  margin-bottom: 20px;
 }
 
 #button:hover {
@@ -474,7 +483,7 @@ box-shadow: none;
 #lets-get-numbers {
   margin: 0 auto;
   margin-top: 20px;
-  margin-bottom: 0px;
+  margin-bottom: 15px;
   width: 80%;
   font-style: italic;
   font-size: 30px;
@@ -638,10 +647,12 @@ box-shadow: none;
 }
 
 #gender-button-mobile {
-  width: 40%;
+  width: 45%;
   color: white;
-  background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
   margin-top: 40px;
+  background: transparent;
+  border: 2px solid;
+  border-color: #e80aaa;
   -webkit-transition: background .6s;
   -moz-transition: background .6s;
   -ms-transition: background .6s;
