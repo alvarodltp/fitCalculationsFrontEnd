@@ -537,7 +537,7 @@ saveEmailToUser = () => {
       })
     }).then(response => response.json())
     .then(this.props.addOneToStep())
-      swal("Success!", "Your results have been sent!", "success")
+      swal("Success!", "Your results are ready!", "success")
       this.setState({
         loadingResults: false
       }, this.calculateMaxHeartRate())
@@ -612,6 +612,12 @@ displayForm = () => {
   })
 }
 
+hideForm = () => {
+  this.setState({
+    showForm: false
+  })
+}
+
   render(){
     const config = {
       angle: 90,
@@ -632,7 +638,7 @@ displayForm = () => {
         <Confetti id="confetti" active={this.state.confetti} config={config}/>
         {this.props.stepNumber === 0 ? <NutritionPackageDetails displayForm={this.displayForm} showForm={this.state.showForm} mobileDevice={this.props.mobileDevice} getGenderOnButton={this.getGenderOnButton} showBcmForm={this.showBcmForm}/> : null }
         {this.state.showForm === true || this.props.stepNumber === 1 || this.props.stepNumber === 2 || this.props.stepNumber === 3 || this.props.stepNumber === 4 ? <Stepper completeColor={"#2761f1"} activeColor={"#e80aaa"} steps={ [{title: 'Info'}, {title: 'Body'}, {title: 'Diet'}, {title: 'Motivation'}, {title: 'Results'}] } activeStep={ this.props.stepNumber } /> : null }
-        {this.state.showForm === true ? <UserInfoForm mobileDevice={this.props.mobileDevice} getWeightToLose={this.getWeightToLose} gender={this.state.gender} getGenderOnButton={this.getGenderOnButton} scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm}
+        {this.state.showForm === true ? <UserInfoForm hideForm={this.hideForm} mobileDevice={this.props.mobileDevice} getWeightToLose={this.getWeightToLose} gender={this.state.gender} getGenderOnButton={this.getGenderOnButton} scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} saveUser={this.saveUser} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm}
         handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} goal={this.state.goal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories} /> : null }
         {this.props.stepNumber === 2 ? <DietType getDietType={this.getDietType} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
         {this.props.stepNumber === 3 ? <Motivation getMotivationToGetFit={this.getMotivationToGetFit} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}

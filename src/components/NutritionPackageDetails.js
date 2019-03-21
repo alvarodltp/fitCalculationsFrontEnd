@@ -134,7 +134,7 @@ class NutritionPackageDetails extends React.Component {
 
           {this.props.showForm === false ?
           <Fade right>
-            <Image src={'../iphone-right.png'} />
+            <Image src={'../iphone-macros.png'} />
           </Fade> : null }
         </div>
 

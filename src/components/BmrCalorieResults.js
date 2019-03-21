@@ -113,21 +113,20 @@ class BmrCalorieResults extends React.Component {
         <div onClick={this.props.showLandingPage} id="start-today-card">
           <h2 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>START TODAY<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
         </div> }
-
-        {this.props.landingPageShown === true ?
-        <Fade bottom>
-          <div style={{width: "100%", margin: "0 auto"}}>
-            <LandingPage goal={this.props.goal} motivationToGetFit={this.props.motivationToGetFit}/>
-          </div>
-        </Fade> : null }<br/>
-
-
       </React.Fragment>
     )
   }
 }
 
 export default BmrCalorieResults
+
+// {this.props.landingPageShown === true ?
+// <Fade bottom>
+//   <div style={{width: "100%", margin: "0 auto"}}>
+//     <LandingPage goal={this.props.goal} motivationToGetFit={this.props.motivationToGetFit}/>
+//   </div>
+// </Fade> : null }<br/>
+
 
 // <Card id="landing-main-benefits">
 //     <h1>Congrats {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}, your results are ready! <Icon style={{color: "#7CFC00"}} name='check' /></h1>
