@@ -192,8 +192,8 @@ h4 {
 }
 
 #footer {
-  height: 65px;
-  background: linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%);
+  height: 55px;
+  background: #2761f1;
   position: static;
   color: gray;
   border-radius: 0px !important;
@@ -599,7 +599,7 @@ box-shadow: none;
 
 #img-diet-type {
   margin: 0 auto;
-  background-color: white;
+  background-color: transparent;
 }
 
 #img-container-motivation {
@@ -686,6 +686,8 @@ box-shadow: none;
   line-height: 1.5;
   margin-top: 30px;
 }
+
+
 
 #money-back {
   margin: 0 auto;
@@ -877,4 +879,8 @@ box-shadow: none;
 #more-info-Button {
   float: right;
   background: transparent
+}
+
+#testimonial-card {
+  background: transparent;
 }

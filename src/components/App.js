@@ -77,13 +77,14 @@ scrollToTop = () => {
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
         <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
+        {this.state.stepNumber === 0 || this.state.stepNumber === 5 ? <Footer /> : null }
+
       </div>
     )
   }
 }
 
 // <NavBar /><br/><br/><br/><br/>
-// {this.state.stepNumber === 0 || this.state.stepNumber === 5 ? <Footer /> : null }
 
 
 export default App;
