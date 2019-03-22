@@ -25,23 +25,6 @@ class PersonalizedMacros extends React.Component {
                 <p id="body-type-points"><Icon style={{color: "#2761f1"}} name='angle right ' size="small" />It will determine the type of exercise and nutrition you need to get to your goal as fast and safe as possible.</p>
                 <p id="body-type-points"><Icon style={{color: "#2761f1"}} name='angle right' size="small" />If you think you are in between 2 body types, select the broader one.</p>
             </Card><br/>
-
-          {this.props.user === null ?
-          <div>
-            <div style={{marginBottom: "40px", marginTop: "30px"}} className='sweet-loading'>
-              <BeatLoader
-                css={override}
-                sizeUnit={"px"}
-                size={15}
-                color={this.props.gender === "Female" ? '#e80aaa' : '#2761f1'}
-                loading={this.props.loading}
-              />
-            </div>
-            <p style={{fontStyle: "italic", fontSize: "12px"}}>
-              Calculating Calories/<br/>
-              Loading Body Types
-            </p><br/>
-          </div> :
           <div style={{marginBottom: "50px"}}>
             <Card style={{width: "250px"}} onClick={(e) => {this.props.calculateMacros(e); this.props.addOneToStep()}} id="image-card">
               <Image src={'../Ectomorph.jpg'} />
@@ -64,7 +47,7 @@ class PersonalizedMacros extends React.Component {
                 <Card.Description>Naturally broad and thick with a slow metabolic rate.</Card.Description>
               </Card.Content>
             </Card>
-          </div> }
+          </div>
         </div>
       </React.Fragment>
     )
@@ -73,4 +56,19 @@ class PersonalizedMacros extends React.Component {
 
 export default PersonalizedMacros
 
-// 'https://www.dropbox.com/s/60htmbhkx75vzdu/Ectomorph.jpg?raw=1'
+// {this.props.user === null ?
+// <div>
+//   <div style={{marginBottom: "40px", marginTop: "30px"}} className='sweet-loading'>
+//     <BeatLoader
+//       css={override}
+//       sizeUnit={"px"}
+//       size={15}
+//       color={this.props.gender === "Female" ? '#e80aaa' : '#2761f1'}
+//       loading={this.props.loading}
+//     />
+//   </div>
+//   <p style={{fontStyle: "italic", fontSize: "12px"}}>
+//     Calculating Calories/<br/>
+//     Loading Body Types
+//   </p><br/>
+// </div> :

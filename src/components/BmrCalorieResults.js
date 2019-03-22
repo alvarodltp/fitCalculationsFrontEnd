@@ -25,11 +25,11 @@ class BmrCalorieResults extends React.Component {
       </Divider>
         {this.props.motivationToGetFit === "Health Reasons" ?
         <div id="intro-results">
-          <p style={{fontSize: "15px"}}>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}, that's awesome you want to {this.props.goal.toLowerCase()} and most importantly, that you want to improve your {this.props.motivationToGetFit.slice(0, 6).toLowerCase()}! It really isn't rocket science
+          <p style={{fontSize: "15px"}}>{this.props.user["name"].charAt(0).toUpperCase() + this.props.user["name"].slice(1)}, that's awesome you want to {this.props.goal.toLowerCase()} and most importantly, that you want to improve your {this.props.motivationToGetFit.slice(0, 6).toLowerCase()}! It really isn't rocket science
             and you are closer to your goals than what you think. You have super powerful information available to you now, and it is up to you to take action to get the body and health you deserve. Read your results fully and let us know if you have any questions!</p>
         </div> :
         <div id="intro-results">
-          <p style={{textAlign: "left", fontSize: "18px"}}>{this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}, that's awesome you have a {this.props.motivationToGetFit.toLowerCase()} coming up! It isn't rocket science to {this.props.goal.toLowerCase()}
+          <p style={{textAlign: "left", fontSize: "18px"}}>{this.props.user["name"].charAt(0).toUpperCase() + this.props.user["name"].slice(1)}, that's awesome you have a {this.props.motivationToGetFit.toLowerCase()} coming up! It isn't rocket science to {this.props.goal.toLowerCase()}
              get the body you want. It's simple, follow your results and you will be amazed at the progress you will make. Don't hesitate to chat us if you have any questions!</p>
         </div> }
 
@@ -44,7 +44,7 @@ class BmrCalorieResults extends React.Component {
           {this.props.caloriesShown === true ?
           <Fade top >
             <div style={{width: "80%", margin: "0 auto", marginTop:"10px"}}>
-              <p style={{textAlign: "left", fontSize: "18px"}}>Based on your information, you need {this.props.caloriesForGoal} daily calories in order to {this.props.goal.toLowerCase()}. {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}. Remember, less calories doesn't mean better. This is the number you need to get to your goal.</p>
+              <p style={{textAlign: "left", fontSize: "18px"}}>Based on your information, you need {this.props.caloriesForGoal} daily calories in order to {this.props.goal.toLowerCase()}. {this.props.user["name"].charAt(0).toUpperCase() + this.props.user["name"].slice(1)}. Remember, less calories doesn't mean better. This is the number you need to get to your goal.</p>
             </div>
             <div style={{width: "80%", margin: "0 auto"}}>
               <CaloriesBarChart caloriesForGoal={this.props.caloriesForGoal} caloriesToMaintain={this.props.caloriesToMaintain} bmr={this.props.bmr}/>

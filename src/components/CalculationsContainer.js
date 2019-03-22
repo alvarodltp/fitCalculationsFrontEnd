@@ -66,7 +66,7 @@ class CalculationsContainer extends React.Component {
       fatsBreakdown: "",
       dietType: "",
       motivationToGetFit: "",
-      loading: true,
+      loading: false,
       loadingResults: false,
       caloriesInfo: false,
       macrosInfo: false,
@@ -82,7 +82,8 @@ class CalculationsContainer extends React.Component {
       exerciseShown: false,
       landingPageShown: false,
       maxHeartRate: 0,
-      showForm: false
+      showForm: false,
+      showResultsPage: false
     }
   }
 
@@ -237,7 +238,6 @@ class CalculationsContainer extends React.Component {
 
   getDietType = (e) => {
     let dietType = e.target.parentElement.getElementsByClassName("header")[0].innerText
-    console.log(dietType)
     this.setState({
       dietType: dietType
     })
@@ -247,7 +247,7 @@ class CalculationsContainer extends React.Component {
     let motivationToGetFit = e.target.parentElement.getElementsByClassName("header")[0].innerText
     this.setState({
       motivationToGetFit: motivationToGetFit
-    }, () => this.addDietTypeAndMotivationToUser())
+    })
   }
 
 
@@ -294,7 +294,7 @@ class CalculationsContainer extends React.Component {
     this.setState({
       bmr: bmr,
       bmi: bmi
-    }, () => this.calculateCalories(bmr))
+    }, () => this.calculateCalories(bmr), this.calculateMaxHeartRate())
   }
 
   calculateCalories = (bmr) => {
@@ -379,7 +379,7 @@ calculateMacros = (e) => {
     carbPercentage: carbPercentage,
     fatPercentage: fatPercentage,
     completed: true
-  }, () => this.props.scrollToTop(), this.showMacrosChart(), this.updateUser(bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage))
+  }, () => this.props.scrollToTop(), this.showMacrosChart())
 }
 
 saveUser = () => {
@@ -390,51 +390,52 @@ saveUser = () => {
       'Accept': 'application/json'
     },
     body: JSON.stringify({
-      name: "",
-      email: "",
+      name: this.state.name.replace(/^\w/, c => c.toUpperCase()),
+      email: this.state.email.toLowerCase(),
       gender: this.state.gender,
       age: this.state.age,
       activity_level: this.state.activityLevelText,
       goal: this.state.goal,
-      body_type: "",
-      weight_in_kg: "",
+      body_type: this.state.bodyType,
       weight_in_lb: this.state.weightLb,
-      height_in_cm: "",
       height_in_feet: this.state.feet,
       height_in_inches: this.state.inches,
+      diet_type: this.state.dietType,
+      reason_to_get_fit: this.state.motivationToGetFit
       })
     }).then(response => response.json())
-    .then(json => {
+    .then(user => {
+      debugger
       this.setState({
-        user: json
-      }, this.saveStats(json))
+        user: user
+      }, this.saveStats(user))
     })
 }
 
-updateUser = (bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage) => {
-  let userId = this.state.user["id"]
-  fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        user: {
-          gender: this.state.gender,
-          age: this.state.age,
-          activity_level: this.state.activityLevelText,
-          goal: this.state.goal,
-          body_type: bodyType,
-          weight_in_lb: this.state.weightLb,
-          height_in_feet: this.state.feet,
-          height_in_inches: this.state.inches
-        }
-      })
-    }).then(response =>response.json())
-    .then(response => {
-    }, this.updateStats(bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage))
-}
+// updateUser = (bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage) => {
+//   let userId = this.state.user["id"]
+//   fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
+//       method: "PATCH",
+//       headers: {
+//         "Content-Type": "application/json",
+//         'Accept': 'application/json'
+//       },
+//       body: JSON.stringify({
+//         user: {
+//           gender: this.state.gender,
+//           age: this.state.age,
+//           activity_level: this.state.activityLevelText,
+//           goal: this.state.goal,
+//           body_type: bodyType,
+//           weight_in_lb: this.state.weightLb,
+//           height_in_feet: this.state.feet,
+//           height_in_inches: this.state.inches
+//         }
+//       })
+//     }).then(response =>response.json())
+//     .then(response => {
+//     }, this.updateStats(bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage))
+// }
 
 saveStats = (user) => {
   let today = new Date()
@@ -451,37 +452,43 @@ saveStats = (user) => {
       calories_to_maintain: this.state.caloriesToMaintain,
       calories_for_goal: this.state.caloriesForGoal,
       bmr: this.state.bmr,
-      bmi: this.state.bmi
+      bmi: this.state.bmi,
+      protein_grams: this.state.protein,
+      carb_grams: this.state.carbs,
+      fat_grams: this.state.fats,
+      protein_percentage: this.state.proteinPercentage,
+      carb_percentage: this.state.carbPercentage,
+      fat_percentage: this.state.fatPercentage
       })
     }).then(response => response.json())
     .then(json => {
       this.setState({
         stats: json,
         loading: false
-      })
+      }, this.showResultsPage())
     })
 }
 
-updateStats = (bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage) => {
-  let statsId = this.state.stats["id"]
-  fetch(`https://fitcalculations-api.herokuapp.com/stats/${statsId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-          protein_grams: protein,
-          carb_grams: carbs,
-          fat_grams: fats,
-          protein_percentage: proteinPercentage,
-          carb_percentage: carbPercentage,
-          fat_percentage: fatPercentage
-      })
-    }).then(response => response.json())
-    .then(response => {
-    })
-}
+// updateStats = (bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage) => {
+//   let statsId = this.state.stats["id"]
+//   fetch(`https://fitcalculations-api.herokuapp.com/stats/${statsId}`, {
+//       method: "PATCH",
+//       headers: {
+//         "Content-Type": "application/json",
+//         'Accept': 'application/json'
+//       },
+//       body: JSON.stringify({
+//           protein_grams: protein,
+//           carb_grams: carbs,
+//           fat_grams: fats,
+//           protein_percentage: proteinPercentage,
+//           carb_percentage: carbPercentage,
+//           fat_percentage: fatPercentage
+//       })
+//     }).then(response => response.json())
+//     .then(response => {
+//     })
+// }
 
 getNumber = (e) => {
   this.setState({
@@ -502,48 +509,47 @@ calculateBreakdown = () => {
   }
 }
 
-addDietTypeAndMotivationToUser = () => {
-  let userId = this.state.user["id"]
-  fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        user: {
-          diet_type: this.state.dietType,
-          reason_to_get_fit: this.state.motivationToGetFit
-        }
-      })
-    }).then(response =>response.json())
-    .then(response => {
-      console.log(response)
-    })
-}
+// addDietTypeAndMotivationToUser = () => {
+//   let userId = this.state.user["id"]
+//   fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
+//       method: "PATCH",
+//       headers: {
+//         "Content-Type": "application/json",
+//         'Accept': 'application/json'
+//       },
+//       body: JSON.stringify({
+//         user: {
+//
+//         }
+//       })
+//     }).then(response =>response.json())
+//     .then(response => {
+//       console.log(response)
+//     })
+// }
 
-saveEmailToUser = () => {
-  let userId = this.state.user["id"]
-  if(this.state.emailValid === true && this.state.checked === true) {
-  fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        name: this.state.name.replace(/^\w/, c => c.toUpperCase()),
-        email: this.state.email.toLowerCase()
-      })
-    }).then(response => response.json())
-    .then(this.props.addOneToStep())
-      swal("Success!", "Your results are ready!", "success")
-      this.setState({
-        loadingResults: false
-      }, this.calculateMaxHeartRate())
-  } else {
-  }
-}
+// saveEmailToUser = () => {
+//   let userId = this.state.user["id"]
+//   if(this.state.emailValid === true && this.state.checked === true) {
+//   fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
+//       method: "PATCH",
+//       headers: {
+//         "Content-Type": "application/json",
+//         'Accept': 'application/json'
+//       },
+//       body: JSON.stringify({
+//         name: this.state.name.replace(/^\w/, c => c.toUpperCase()),
+//         email: this.state.email.toLowerCase()
+//       })
+//     }).then(response => response.json())
+//     .then(this.props.addOneToStep())
+//       swal("Success!", "Your results are ready!", "success")
+//       this.setState({
+//         loadingResults: false
+//       }, this.calculateMaxHeartRate())
+//   } else {
+//   }
+// }
 
 checkCheckbox = (e) => {
   this.setState({
@@ -618,6 +624,12 @@ hideForm = () => {
   })
 }
 
+showResultsPage = () =>{
+  this.setState({
+    showResultsPage: true
+  })
+}
+
   render(){
     const config = {
       angle: 90,
@@ -643,10 +655,10 @@ hideForm = () => {
         {this.props.stepNumber === 2 ? <DietType getDietType={this.getDietType} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
         {this.props.stepNumber === 3 ? <Motivation getMotivationToGetFit={this.getMotivationToGetFit} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
         <ToastContainer autoClose={false} draggable={true}/>
-        {this.props.stepNumber === 0 ? <BmrCalorieResults maxHeartRate={this.state.maxHeartRate} age={this.state.age} showLandingPage={this.showLandingPage} landingPageShown={this.state.landingPageShown} showExercise={this.showExercise} exerciseShown={this.state.exerciseShown} showMacros={this.showMacros} macrosShown={this.state.macrosShown} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats} showCardio={this.showCardio} cardioShown={this.state.cardioShown} showDiet={this.showDiet} dietShown={this.state.dietShown} showCalories={this.showCalories} caloriesShown={this.state.caloriesShown} safeCalories={this.state.safeCalories} dietType={this.state.dietType} motivationToGetFit={this.state.motivationToGetFit} name={this.state.name} displayCalories={this.state.displayCalories} displayCaloriesInfo={this.displayCaloriesInfo} displayDiet={this.state.displayDiet} displayDietInfo={this.displayDietInfo} cardInfo={this.state.cardInfo} goal={this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} proteinPercentage={this.state.proteinPercentage} carbPercentage={this.state.carbPercentage} fatPercentage={this.state.fatPercentage} /> : null }
-        {this.props.stepNumber === 1 ? <PersonalizedMacros loading={this.state.loading} user={this.state.user} substractOneFromStep={this.props.substractOneFromStep} scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
+        {this.state.showResultsPage === true ? <BmrCalorieResults loading={this.state.loading} maxHeartRate={this.state.maxHeartRate} age={this.state.age} showLandingPage={this.showLandingPage} landingPageShown={this.state.landingPageShown} showExercise={this.showExercise} exerciseShown={this.state.exerciseShown} showMacros={this.showMacros} macrosShown={this.state.macrosShown} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats} showCardio={this.showCardio} cardioShown={this.state.cardioShown} showDiet={this.showDiet} dietShown={this.state.dietShown} showCalories={this.showCalories} caloriesShown={this.state.caloriesShown} safeCalories={this.state.safeCalories} dietType={this.state.dietType} motivationToGetFit={this.state.motivationToGetFit} user={this.state.user} displayCalories={this.state.displayCalories} displayCaloriesInfo={this.displayCaloriesInfo} displayDiet={this.state.displayDiet} displayDietInfo={this.displayDietInfo} cardInfo={this.state.cardInfo} goal={this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} proteinPercentage={this.state.proteinPercentage} carbPercentage={this.state.carbPercentage} fatPercentage={this.state.fatPercentage} /> : null }
+        {this.props.stepNumber === 1 ? <PersonalizedMacros user={this.state.user} substractOneFromStep={this.props.substractOneFromStep} scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
         {this.props.stepNumber === 10 ? <MacrosBreakdownCard cardInfo={this.state.cardInfo} displayCardInfo={this.displayCardInfo} getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
-        {this.props.stepNumber === 4 ? <SignUpForm safeCalories={this.state.safeCalories} notify={this.notify} getName={this.getName} getEmail={this.getEmail} validateEmail={this.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} /> : null}
+        {this.props.stepNumber === 4 ? <SignUpForm saveUser={this.saveUser} safeCalories={this.state.safeCalories} notify={this.notify} getName={this.getName} getEmail={this.getEmail} validateEmail={this.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} showResultsPage={this.showResultsPage} scrollToTop={this.props.scrollToTop} /> : null}
         {this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
       </React.Fragment>
     )
