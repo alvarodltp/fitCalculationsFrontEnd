@@ -412,6 +412,7 @@ saveUser = () => {
 
 updateUser = () => {
   let usersArr = this.props.users
+  console.log(usersArr)
   let email = this.state.email.toLowerCase()
   let userExists = usersArr.filter(user => user.email === email) //returns number of same email already in db
   let userId;
@@ -432,7 +433,6 @@ updateUser = () => {
       })
     }).then(response =>response.json())
     .then(user => {
-      debugger
       this.setState({
         user: user
       }, this.saveStats(user), this.notify())
@@ -499,6 +499,7 @@ saveStats = (user) => {
       })
     }).then(response => response.json())
     .then(json => {
+      console.log(json)
       this.setState({
         stats: json,
         loading: false

@@ -114,7 +114,7 @@ class BmrCalorieResults extends React.Component {
           <h2 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>START TODAY<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
         </div> }
 
-        {this.props.landingPageShown === false ?
+        {this.props.landingPageShown === "hello" ?
         <Fade bottom>
           <div style={{width: "100%", margin: "0 auto"}}>
             <LandingPage goal={this.props.goal} motivationToGetFit={this.props.motivationToGetFit}/>

@@ -65,7 +65,7 @@ class SignUpForm extends React.Component {
             onClick={(e) => {this.getEvent(); this.props.saveUser(e); this.props.activateConfetti(); this.props.scrollToTop()}}
             >SUBMIT!</Button> :
             <Button size="large" id="button-get-email" type='submit'
-            onClick={(e) => {this.props.notify(); this.getEvent(); this.props.saveUser(e); this.props.activateConfetti(); this.props.scrollToTop()}}>SUBMIT!</Button>}
+            onClick={(e) => {this.getEvent(); this.props.saveUser(e); this.props.activateConfetti(); this.props.scrollToTop()}}>SUBMIT!</Button>}
         </div><br/>
       </React.Fragment>
     )
