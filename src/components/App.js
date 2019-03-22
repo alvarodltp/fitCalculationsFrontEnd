@@ -19,7 +19,8 @@ class App extends React.Component {
     super()
     this.state={
       stepNumber: 0,
-      mobileDevice: false
+      mobileDevice: false,
+      users: null
     }
   }
 
@@ -28,6 +29,17 @@ componentDidMount() {
   this.initGA()
   this.logPageView()
   this.isMobileDevice()
+  this.getAllUsers()
+}
+
+getAllUsers = () => {
+  fetch("https:fitcalculations-api.herokuapp.com/users")
+  .then(response => response.json())
+  .then(json => {
+    this.setState({
+      users: json
+    })
+  })
 }
 
 isMobileDevice = () => {
@@ -73,7 +85,7 @@ scrollToTop = () => {
         <NavBar />
         <Route exact path="/" render={props => <Homepage /> } />
         <Route exact path="/services" render={props => <ServicesContainer /> } />
-        <Route exact path="/testing-fit" render={props => <CalculationsContainer {...props} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/testing-fit" render={props => <CalculationsContainer {...props} users={this.state.users} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
         <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />

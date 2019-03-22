@@ -42,7 +42,7 @@ class Invite extends React.Component {
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        email: this.state.email
+        email: this.state.email.toLowerCase()
         })
       }).then(response => response.json())
       .then(json => {
