@@ -13,6 +13,7 @@ import MacrosBreakdownForm from './MacrosBreakdownForm'
 import Confetti from 'react-dom-confetti';
 import ThankYouBcm from './ThankYouBcm'
 import Invite from './Invite'
+import LandingPage from './LandingPage'
 
 class App extends React.Component {
   constructor(){
@@ -89,6 +90,7 @@ scrollToTop = () => {
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
         <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
+        <Route exact path="/unleash-your-fitness-potential" render={props => <LandingPage /> } />
       </div>
     )
   }

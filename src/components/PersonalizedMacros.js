@@ -2,6 +2,7 @@ import React from 'react'
 import { Icon, Card, Image, Button, Divider } from 'semantic-ui-react'
 import { css } from '@emotion/core';
 import { BeatLoader } from 'react-spinners';
+import Fade from 'react-reveal/Slide';
 
 const override = css`
     display: block;
@@ -25,6 +26,7 @@ class PersonalizedMacros extends React.Component {
                 <p id="body-type-points"><Icon style={{color: "#2761f1"}} name='angle right ' size="small" />It will determine the type of exercise and nutrition you need to get to your goal as fast and safe as possible.</p>
                 <p id="body-type-points"><Icon style={{color: "#2761f1"}} name='angle right' size="small" />If you think you are in between 2 body types, select the broader one.</p>
             </Card><br/>
+          <Fade left>
           <div style={{marginBottom: "50px"}}>
             <Card style={{width: "250px"}} onClick={(e) => {this.props.calculateMacros(e); this.props.addOneToStep()}} id="image-card">
               <Image src={'../Ectomorph.jpg'} />
@@ -48,6 +50,7 @@ class PersonalizedMacros extends React.Component {
               </Card.Content>
             </Card>
           </div>
+          </Fade>
         </div>
       </React.Fragment>
     )
