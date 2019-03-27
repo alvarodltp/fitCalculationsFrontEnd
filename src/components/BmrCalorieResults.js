@@ -14,6 +14,7 @@ import MacroPercentageChart from './MacroPercentageChart'
 import MacrosPieChart from './MacrosPieChart'
 import LandingPage from './LandingPage'
 import ExerciseTable from './ExerciseTable'
+import { Link } from "react-router-dom"
 
 class BmrCalorieResults extends React.Component {
 
@@ -106,10 +107,12 @@ class BmrCalorieResults extends React.Component {
           </div>
         </Fade> : null }
 
+        <Link to="/unleash-your-fitness-potential" target="_blank">
+          <div onClick={this.props.showLandingPage} id="results-card-drop">
+            <h2 style={{fontSize:"30px", fontStyle: "italic"}}>START TODAY<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="arrow right" size="tiny"/></h2>
+          </div>
+        </Link><br/>
 
-        <div onClick={this.props.showLandingPage} id="results-card-drop-active">
-          <h2 style={{fontSize:"30px", fontStyle: "italic"}}>START YOUR TRANSFORMATION TODAY<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
-        </div>
 
       </React.Fragment>
     )

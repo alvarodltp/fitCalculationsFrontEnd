@@ -14,14 +14,16 @@ import Confetti from 'react-dom-confetti';
 import ThankYouBcm from './ThankYouBcm'
 import Invite from './Invite'
 import LandingPage from './LandingPage'
+import CountDown from './CountDown'
 
 class App extends React.Component {
   constructor(){
     super()
     this.state={
       stepNumber: 0,
-      mobileDevice: false,
-      users: null
+      mobileDevice: null,
+      users: null,
+      showResultsPage: false
     }
   }
 
@@ -80,23 +82,30 @@ scrollToTop = () => {
 //   window.scrollTo(0,9999);
 // }
 
+showResultsPage = () => {
+  this.setState({
+    showResultsPage: true
+  })
+}
+
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <NavBar mobileDevice={this.state.mobileDevice}/>
         <Route exact path="/" render={props => <Homepage /> } />
         <Route exact path="/services" render={props => <ServicesContainer /> } />
-        <Route exact path="/testeando" render={props => <CalculationsContainer {...props} users={this.state.users} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/testeando" render={props => <CalculationsContainer {...props} showResultsPage={this.showResultsPage} showResults={this.state.showResultsPage} users={this.state.users} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
         <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
         <Route exact path="/unleash-your-fitness-potential" render={props => <LandingPage /> } />
+        {this.state.stepNumber === 0 || this.state.showResultsPage === true ? <Footer /> : null }
       </div>
     )
   }
 }
 
 // <NavBar /><br/><br/><br/><br/>
-  // {this.state.stepNumber === 0 || this.state.stepNumber === 5 ? <Footer /> : null }
+
 
 export default App;

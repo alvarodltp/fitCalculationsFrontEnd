@@ -17,12 +17,16 @@ p {
 }
 
 ul {
-  list-style-image: url(/check.png);
+  list-style-image: url(/check-pink.png);
   font-size: 16px;
 }
 
 h4 {
   font-size: 17px;
+}
+
+span {
+  font-size: 20px;
 }
 
 #navbar {
@@ -260,14 +264,18 @@ h4 {
 }
 
 #logo{
-  color: white;
-  font-family: 'Lato';
-  margin-top: 5px;
-  font-size: 25px;
+  margin-top: 8px;
   margin-left: 10px;
   float: left;
-  margin-top: 9px;
-  font-style: italic;
+  width: 20%
+}
+
+#logo-mobile {
+  align-content: center;
+  text-align: center;
+  margin-left: 8px;
+  margin-top: 15px;
+  width: 50%
 }
 
 #nutrition-package-header{
@@ -891,5 +899,5 @@ box-shadow: none;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 290px
+  height: 300px
 }

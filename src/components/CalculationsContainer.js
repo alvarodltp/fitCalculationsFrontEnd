@@ -82,16 +82,9 @@ class CalculationsContainer extends React.Component {
       exerciseShown: false,
       landingPageShown: false,
       maxHeartRate: 0,
-      showForm: false,
-      showResultsPage: false
+      showForm: false
     }
   }
-
-  // showForm = () => {
-  //   this.setState({
-  //     showForm: true
-  //   })
-  // }
 
   showCalories = () => {
     this.setState({
@@ -400,7 +393,6 @@ saveUser = () => {
       })
     }).then(response => response.json())
     .then(user => {
-      console.log(user)
       this.setState({
         user: user
       }, this.saveStats(user), this.notify())
@@ -435,7 +427,7 @@ updateUser = () => {
     .then(user => {
       this.setState({
         user: user
-      }, this.saveStats(user), this.notify())
+      }, this.saveStats(user), this.notify(), swal("Success!", "Your results are ready!", "success"))
     })
   }
 
@@ -503,7 +495,7 @@ saveStats = (user) => {
       this.setState({
         stats: json,
         loading: false
-      }, this.showResultsPage())
+      }, this.props.showResultsPage())
     })
 }
 
@@ -663,12 +655,6 @@ hideForm = () => {
   })
 }
 
-showResultsPage = () =>{
-  this.setState({
-    showResultsPage: true
-  })
-}
-
   render(){
     const config = {
       angle: 90,
@@ -694,10 +680,10 @@ showResultsPage = () =>{
         {this.props.stepNumber === 2 ? <DietType getDietType={this.getDietType} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
         {this.props.stepNumber === 3 ? <Motivation getMotivationToGetFit={this.getMotivationToGetFit} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
         <ToastContainer autoClose={false} draggable={true}/>
-        {this.state.showResultsPage === true ? <BmrCalorieResults loading={this.state.loading} maxHeartRate={this.state.maxHeartRate} age={this.state.age} showLandingPage={this.showLandingPage} landingPageShown={this.state.landingPageShown} showExercise={this.showExercise} exerciseShown={this.state.exerciseShown} showMacros={this.showMacros} macrosShown={this.state.macrosShown} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats} showCardio={this.showCardio} cardioShown={this.state.cardioShown} showDiet={this.showDiet} dietShown={this.state.dietShown} showCalories={this.showCalories} caloriesShown={this.state.caloriesShown} safeCalories={this.state.safeCalories} dietType={this.state.dietType} motivationToGetFit={this.state.motivationToGetFit} user={this.state.user} displayCalories={this.state.displayCalories} displayCaloriesInfo={this.displayCaloriesInfo} displayDiet={this.state.displayDiet} displayDietInfo={this.displayDietInfo} cardInfo={this.state.cardInfo} goal={this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} proteinPercentage={this.state.proteinPercentage} carbPercentage={this.state.carbPercentage} fatPercentage={this.state.fatPercentage} /> : null }
+        {this.props.showResults === true ? <BmrCalorieResults loading={this.state.loading} maxHeartRate={this.state.maxHeartRate} age={this.state.age} showLandingPage={this.showLandingPage} landingPageShown={this.state.landingPageShown} showExercise={this.showExercise} exerciseShown={this.state.exerciseShown} showMacros={this.showMacros} macrosShown={this.state.macrosShown} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats} showCardio={this.showCardio} cardioShown={this.state.cardioShown} showDiet={this.showDiet} dietShown={this.state.dietShown} showCalories={this.showCalories} caloriesShown={this.state.caloriesShown} safeCalories={this.state.safeCalories} dietType={this.state.dietType} motivationToGetFit={this.state.motivationToGetFit} user={this.state.user} displayCalories={this.state.displayCalories} displayCaloriesInfo={this.displayCaloriesInfo} displayDiet={this.state.displayDiet} displayDietInfo={this.displayDietInfo} cardInfo={this.state.cardInfo} goal={this.state.goal} height={this.state.height} bmr={this.state.bmr} caloriesForGoal={this.state.caloriesForGoal} caloriesToMaintain={this.state.caloriesToMaintain} proteinPercentage={this.state.proteinPercentage} carbPercentage={this.state.carbPercentage} fatPercentage={this.state.fatPercentage} /> : null }
         {this.props.stepNumber === 1 ? <PersonalizedMacros user={this.state.user} substractOneFromStep={this.props.substractOneFromStep} scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
         {this.props.stepNumber === 10 ? <MacrosBreakdownCard cardInfo={this.state.cardInfo} displayCardInfo={this.displayCardInfo} getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
-        {this.props.stepNumber === 4 && this.state.showResultsPage === false ? <SignUpForm saveUser={this.saveUser} safeCalories={this.state.safeCalories} notify={this.notify} getName={this.getName} getEmail={this.getEmail} validateEmail={this.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} showResultsPage={this.showResultsPage} scrollToTop={this.props.scrollToTop} /> : null}
+        {this.props.stepNumber === 4 && this.props.showResults === false ? <SignUpForm saveUser={this.saveUser} safeCalories={this.state.safeCalories} notify={this.notify} getName={this.getName} getEmail={this.getEmail} validateEmail={this.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} scrollToTop={this.props.scrollToTop} /> : null}
         {this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }
       </React.Fragment>
     )

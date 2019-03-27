@@ -5,14 +5,22 @@ import 'react-vertical-timeline-component/style.min.css';
 import ReactCompareImage from 'react-compare-image';
 import { FaCheck } from "react-icons/fa";
 import WeightChart from './WeightChart'
+import CountDown from './CountDown'
 
 class LandingPage extends React.Component {
   render(){
     return(
       <React.Fragment>
-      <div style={{width: "80%", margin: "0 auto", marginTop: "40px"}}>
+      <div style={{width: "100%", backgroundColor: "red", height: "30px"}}>
+        <div style={{paddingTop: "4px"}}>
+          <h4 style={{color: "white"}}>LIMITED TIME PRE-ORDER 82% SALE</h4>
+        </div>
+      </div>
+
+      <div style={{width: "80%", margin: "0 auto", marginTop: "30px"}}>
         <h1 style={{fontSize:"36px"}}>You're One Step From Getting In The Best Shape Of Your Life</h1>
         <h2 style={{color: "blue", fontStyle: "italic"}}>INTRODUCING THE STEP-BY-STEP GUIDE TO BUILD YOUR BEST BODY EVER.</h2>
+
         <h2>Just a few questions for you:</h2>
       </div>
         <ul style={{width: "100%", marginBottom: "10px"}}>
@@ -31,29 +39,29 @@ class LandingPage extends React.Component {
                   <Image style={{ height: "400px", margin: "0 auto", marginBottom: "10px"}} src={'../e-book-white-side.png'} />
                 </Grid.Column>
                 <Grid.Column width={9}>
-                  <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>This Is For You If...</h4>
+                  <h4 style={{marginBottom: "25px", fontWeight: "bold", marginTop: "30px"}}>This Guide Is For You If...</h4>
                   <ul>
-                    <li style={{fontSize: "18px", textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
-                      You are busy and don't have time for useless information
+                    <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
+                      Diets have failed you
                     </li>
-                    <li style={{fontSize: "18px", textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
-                      You want straight to the point instructions on how to get to your goal
+                    <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
+                      You want straight to the point and proven to work instructions on how to get to your goal
                     </li>
-                    <li style={{fontSize: "18px", textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
+                    <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
                       You want results ASAP without compromising your health
                     </li>
-                    <li style={{fontSize: "18px", textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
+                    <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
                       You want to be part of a supportive community
                     </li>
-                    <li style={{fontSize: "18px", textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
-                      You are commited to work hard so you can play hard
+                    <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
+                      You are commited to work hard to see amazing results
                     </li>
                   </ul>
               </Grid.Column>
               </Grid.Row>
             </Grid>
           </div>
-        </div>
+        </div><br/>
 
         <div style={{width: "100%"}}>
           <h1 style={{fontSize:"36px"}}>What's Included</h1><br/>
@@ -61,7 +69,7 @@ class LandingPage extends React.Component {
             <Grid stackable columns={2}>
               <Grid.Row>
                 <Grid.Column style={{marginBottom: "40px"}} width={7}>
-                  <Image src={'../exclusive-recipes.jpg'} />
+                  <Image src={'../detailed-results'} />
                 </Grid.Column>
                 <Grid.Column width={9}>
                   <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>Detailed Results</h4>
@@ -89,32 +97,10 @@ class LandingPage extends React.Component {
                   <h4 style={{textAlign: "left", marginBottom: "25px"}}>Easy To Follow Action Plan</h4>
                   <p style={{textAlign: "left", marginBottom: "25px"}}>Super simple, yet ridiculously comprehensive program to follow based on your fat loss or muscle building goals.</p>
                   <ul>
-                    <li style={{paddingBottom: "5px"}}>A guide to prepare for your new lifestyle</li>
+                    <li style={{paddingBottom: "5px"}}>A step by step guide on how to implement your results</li>
                     <li style={{paddingBottom: "5px"}}>Refeed and carb cycling strategies to make continuous progress</li>
                     <li style={{paddingBottom: "5px"}}>Meal plan examples with different calorie levels that have been proven to work</li>
                     <li style={{paddingBottom: "5px"}}>A grocery shopping list with macro friendly foods</li>
-                  </ul>
-              </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          </div>
-        </div>
-
-        <div style={{width: "100%"}}>
-          <div id="landing-main-benefits">
-            <Grid stackable columns={2}>
-              <Grid.Row>
-                <Grid.Column style={{marginBottom: "40px"}} width={7}>
-                  <Image src={'../exclusive-recipes.jpg'} />
-                </Grid.Column>
-                <Grid.Column width={9}>
-                  <h4 style={{textAlign: "left", marginBottom: "25px"}}>Incredible Recipes</h4>
-                  <p style={{textAlign: "left", marginBottom: "25px"}}>This is not a low calorie, restrictive diet. You’ll be eating the foods you love without going hungry.</p>
-                  <ul>
-                    <li style={{paddingBottom: "5px"}}>50 quick and easy delicious recipes</li>
-                    <li style={{paddingBottom: "5px"}}>Nutrition information listed for every single one of them</li>
-                    <li style={{paddingBottom: "5px"}}>Includes burgers, pancakes, and other favorites</li>
-                    <li style={{paddingBottom: "5px"}}>Included for free for a limited time!</li>
                   </ul>
               </Grid.Column>
               </Grid.Row>
@@ -142,9 +128,26 @@ class LandingPage extends React.Component {
               </Grid.Row>
             </Grid>
           </div>
-        </div>
+        </div><br/><br/>
 
-        <Button style={{width: "60%", background: '#2761f1', color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "30px"}} content='Start Your Transformation Today' size="huge" icon='angle double right' labelPosition='right' />
+        <div style={{width: "100%", backgroundColor: "#2761f1"}}>
+          <div style={{marginBottom: "50px"}} id="landing-main-benefits">
+            <Grid stackable columns={2}>
+              <Grid.Row style={{padding: "0"}}>
+                <Grid.Column width={6}>
+                  <Image style={{background: "white"}} src={'../alvaro.png'} circular/>
+                </Grid.Column>
+                <Grid.Column width={10}>
+                  <div id="text-next-image">
+                    <p style={{textAlign: "center", fontSize: "18px", marginTop: "20px", marginBottom: "25px", color: "white"}}>"This is not your traditional, super low-calorie, deprivation diet. This is a guide that will educate you in fat loss, nutrition, macronutrients, so you can eat more food than you ever thought possible, spend less time in the gym, and get results that will stay with your for a lifetime."</p>
+                    <p style={{textAlign: "center", fontSize: "18px", marginBottom: "25px", color: "white"}}>Alvaro, Fit Calculations</p>
+                  </div>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </div>
+        </div><br/>
+
 
         <div id="how-it-works">
         <h1 style={{fontSize:"36px"}}>How It Works</h1><br/>
@@ -196,70 +199,95 @@ class LandingPage extends React.Component {
           </VerticalTimeline>
         </div><br/><br/>
 
-
-        <div style={{width: "100%", backgroundColor: "#F6F6F6"}}>
-          <div style={{marginBottom: "50px"}} id="landing-main-benefits">
+        <div style={{width: "100%"}}>
+          <h1 style={{fontSize:"36px"}}>And For A Limited Time...</h1><br/>
+          <div id="landing-main-benefits">
             <Grid stackable columns={2}>
-              <Grid.Row style={{padding: "0"}}>
-                <Grid.Column width={7}>
-                  <Image style={{background: "white"}} src={'../joe.jpg'}/>
+              <Grid.Row>
+                <Grid.Column style={{marginBottom: "40px"}} width={7}>
+                  <Image src={'../fish-taco.jpg'} />
                 </Grid.Column>
                 <Grid.Column width={9}>
-                <div id="text-next-image">
-                  <p style={{textAlign: "center", fontSize: "18px", marginTop: "20px", marginBottom: "25px"}}>"This is not a traditional, low calorie, deprivation diet. It’s an education in fat loss, nutrition and macronutrients, where you eat more food than you ever thought possible and spend less time in the gym."</p>
-                  <p style={{textAlign: "center", fontSize: "18px", marginBottom: "25px"}}>Alvaro, Fit Calculations</p>
-                </div>
+                  <h4 style={{textAlign: "left", marginBottom: "25px"}}>50 Incredible Recipes<h4 style={{color: "red"}}>$̶2̶0̶.̶0̶0̶</h4>FREE</h4>
+                  <p style={{textAlign: "left", marginBottom: "25px"}}>This is not a low calorie, restrictive diet. You’ll be eating the foods you love without going hungry.</p>
+                  <ul>
+                    <li style={{paddingBottom: "5px"}}>50 quick and easy delicious recipes</li>
+                    <li style={{paddingBottom: "5px"}}>Nutrition information listed for every single one of them</li>
+                    <li style={{paddingBottom: "5px"}}>Includes burgers, pancakes, and other favorites</li>
+                    <li style={{paddingBottom: "5px"}}>Included for free for a limited time!</li>
+                  </ul>
+              </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </div>
+        </div>
+
+        <div style={{width: "100%"}}>
+          <div id="landing-main-benefits">
+            <Grid stackable columns={2}>
+              <Grid.Row>
+                <Grid.Column style={{marginBottom: "40px"}} width={7}>
+                  <Image src={'../detailed-results'} />
                 </Grid.Column>
+                <Grid.Column width={9}>
+                  <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>Lifestyle Tips And Tricks<h4 style={{color: "red"}}>$̶9̶.̶9̶9̶</h4>FREE</h4>
+                  <p style={{textAlign: "left", marginBottom: "25px"}}></p>
+                  <ul>
+                    <li style={{paddingBottom: "5px"}}>Sleep</li>
+                    <li style={{paddingBottom: "5px"}}>Work</li>
+                    <li style={{paddingBottom: "5px"}}>Managing Stress</li>
+                    <li style={{paddingBottom: "5px"}}>Social Life</li>
+                  </ul>
+              </Grid.Column>
               </Grid.Row>
             </Grid>
           </div>
         </div><br/>
 
-
-            <div>
-              <h1 style={{fontSize:"36px"}}>For A Limited Time</h1><br/>
-              <Image style={{width: "50%", margin: "0 auto", marginBottom: "20px"}} src={'../5book.png'} />
-              <Icon name="check" />
-            </div><br/>
-            <Button style={{width: "60%", background: '#2761f1', color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "30px"}} content='Start Your Transformation Today' size="huge" icon='angle double right' labelPosition='right' />
-
-
-
-            <div style={{width: "100%", backgroundColor: "#F6F6F6"}}>
-              <div style={{marginBottom: "50px"}} id="landing-main-benefits">
-                <h1 style={{fontSize:"36px", paddingTop: "50px"}}>Get Unlimited Support</h1><br/>
-                <Grid style={{paddingBottom: "50px"}} stackable columns={2}>
-                  <Grid.Row>
-                    <Grid.Column width={5}>
-                      <Image style={{background: "white"}} src={'../Alvaro.png'} circular/>
-                    </Grid.Column>
-                    <Grid.Column width={11}>
-                      <p style={{textAlign: "left"}}>Hi there!</p>
-                      <p style={{textAlign: "left"}}>I am Alvaro, the founder of Fit Calculations. I have been training busy professionals for over 8 years and I know first hand what it takes to lose weight, gain muscle and get in top notch shape.</p>
-                      <p style={{textAlign: "left"}}>This program is like nothing you have ever seen. If you are ready to commit, you are about to get in the best shape of your life.</p>
-                    </Grid.Column>
-                  </Grid.Row>
-                </Grid>
-              </div>
-            </div>
-
-          <div style={{width: "100%"}}>
-            <h1 style={{fontSize:"36px", paddingTop: "50px"}}>100% No-Risk Money Back Guarantee</h1>
-            <div id="landing-main-benefits">
-              <Grid style={{paddingBottom: "50px"}} stackable columns={2}>
-                <Grid.Row>
-                  <Grid.Column style={{marginBottom: "40px"}} width={5}>
-                    <Image src={'../moneyback.png'} circular/>
-                  </Grid.Column>
-                  <Grid.Column width={11}>
-                    <p style={{textAlign: "left"}}>We are confident your personalized program will give you the results you want. However, if you haven't got closer to your goals, I will refund 100% of the cost.</p>
-                    <p style={{textAlign: "left"}}>All you need to do is provide your 30 day food log to verify the program was followed as it was designed and created specifically for you.</p>
-                    <Button style={{background: '#2761f1', color: "white", margin: "0 auto",  marginTop: "20px"}} content='BUY NOW' size="huge" icon='angle double right' labelPosition='right' />
+        <div style={{width: "100%", backgroundColor: "#F6F6F6", paddingTop: "20px"}}>
+          <div style={{marginBottom: "50px", width: "60%"}} id="landing-main-benefits">
+          <h1 style={{fontSize: "40px"}}>Ready To Transform Your Body In 2019?</h1>
+            <CountDown/><br/>
+            <Grid style={{paddingBottom: "50px"}} stackable columns={2}>
+              <Grid.Row>
+                <Grid.Column style={{marginBottom: "40px"}} width={8}>
+                  <ul>
+                    <li style={{paddingBottom: "5px"}}>Detailed Personalized Results ($60 Value)</li>
+                    <li style={{paddingBottom: "5px"}}>Personalized Easy To Follow Action Plan ($80 Value)</li>
+                    <li style={{paddingBottom: "5px"}}>Online Support (Priceless)</li>
+                    <li style={{paddingBottom: "5px"}}>50 Incredible Recipes ($20.00 Value)</li>
+                    <li style={{paddingBottom: "5px"}}>Lifestyle Tips And Tricks Guide ($9.99 Value)</li>
+                  </ul>
                 </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </div>
+                <Grid.Column style={{marginBottom: "40px", textAlign: "center"}} width={8}>
+                  <h1 style={{fontSize: "40px", color: "red"}}>$̶1̶6̶9̶.̶9̶9̶</h1>
+                  <h1 style={{fontSize: "40px", color: "green"}}>Now Only $29.99</h1>
+                <Button style={{background: '#2761f1', color: "white", margin: "0 auto",  marginTop: "20px"}} content='YES, I WANT TO TRANSFORM' size="large" icon='angle double right' labelPosition='right' />
+              </Grid.Column>
+              </Grid.Row>
+            </Grid>
           </div>
+          <p>*All plans will be ready and delivered on April, 23rd 2019</p>
+        </div>
+
+
+        <div style={{width: "100%"}}>
+          <h1 style={{fontSize:"36px", paddingTop: "50px"}}>100% No-Risk Money Back Guarantee</h1><br/>
+          <div id="landing-main-benefits">
+            <Grid style={{paddingBottom: "50px"}} stackable columns={2}>
+              <Grid.Row>
+                <Grid.Column style={{marginBottom: "40px"}} width={5}>
+                  <Image style={{width: "60%", margin: "0 auto"}} src={'../moneyback.png'} circular/>
+                </Grid.Column>
+                <Grid.Column width={11}>
+                  <p style={{textAlign: "left"}}>We are confident your personalized program will give you the results you want. However, if you haven't got closer to your goals, I will refund 100% of the cost.</p>
+                  <p style={{textAlign: "left"}}>All you need to do is provide your 30 day food log to verify the program was followed as it was designed and created specifically for you.</p>
+                  <Button style={{background: '#2761f1', color: "white", margin: "0 auto",  marginTop: "20px"}} content='GET 80% OFF NOW' size="large" icon='angle double right' labelPosition='right' />
+              </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </div>
+        </div>
       </React.Fragment>
     )
   }
@@ -318,3 +346,21 @@ export default LandingPage
 //   </Grid>
 // </div><br/>
 // <Button style={{width: "60%", background: '#2761f1', color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "30px"}} content='Start Your Transformation Today' size="huge" icon='angle double right' labelPosition='right' />
+
+// <div style={{width: "100%", backgroundColor: "#F6F6F6"}}>
+//   <div style={{marginBottom: "50px"}} id="landing-main-benefits">
+//     <h1 style={{fontSize:"36px", paddingTop: "50px"}}>Get Unlimited Support</h1><br/>
+//     <Grid style={{paddingBottom: "50px"}} stackable columns={2}>
+//       <Grid.Row>
+//         <Grid.Column width={5}>
+//           <Image style={{background: "white"}} src={'../Alvaro.png'} circular/>
+//         </Grid.Column>
+//         <Grid.Column width={11}>
+//           <p style={{textAlign: "left"}}>Hi there!</p>
+//           <p style={{textAlign: "left"}}>I am Alvaro, the founder of Fit Calculations. I have been training busy professionals for over 8 years and I know first hand what it takes to lose weight, gain muscle and get in top notch shape.</p>
+//           <p style={{textAlign: "left"}}>This program is like nothing you have ever seen. If you are ready to commit, you are about to get in the best shape of your life.</p>
+//         </Grid.Column>
+//       </Grid.Row>
+//     </Grid>
+//   </div>
+// </div>
