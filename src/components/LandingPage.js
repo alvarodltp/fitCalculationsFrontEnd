@@ -6,29 +6,65 @@ import ReactCompareImage from 'react-compare-image';
 import { FaCheck } from "react-icons/fa";
 import WeightChart from './WeightChart'
 import CountDown from './CountDown'
+import Fade from 'react-reveal/Fade';
 
 class LandingPage extends React.Component {
+  constructor(){
+    super()
+    this.state={
+      showFaq1: false,
+      showFaq2: false,
+      showFaq3: false,
+      showFaq4: false
+    }
+  }
+
+  showFaq1 = () => {
+    this.setState({
+      showFaq1: !this.state.showFaq1
+    })
+  }
+
+  showFaq2 = () => {
+    this.setState({
+      showFaq2: !this.state.showFaq2
+    })
+  }
+
+  showFaq3 = () => {
+    this.setState({
+      showFaq3: !this.state.showFaq3
+    })
+  }
+
+  showFaq4 = () => {
+    this.setState({
+      showFaq4: !this.state.showFaq4
+    })
+  }
+
+
   render(){
     return(
       <React.Fragment>
       <div style={{width: "100%", backgroundColor: "red", height: "30px"}}>
         <div style={{paddingTop: "4px"}}>
-          <h4 style={{color: "white"}}>LIMITED TIME PRE-ORDER 82% SALE</h4>
+          <h4 style={{color: "white"}}>82% OFF LIMITED TIME PRE-ORDER SALE</h4>
         </div>
       </div>
 
       <div style={{width: "80%", margin: "0 auto", marginTop: "30px"}}>
-        <h1 style={{fontSize:"36px"}}>You're One Step From Getting In The Best Shape Of Your Life</h1>
+        <h1 style={{fontSize:"36px"}}>You Are One Step From Getting In The Best Shape Of Your Life</h1>
         <h2 style={{color: "blue", fontStyle: "italic"}}>INTRODUCING THE STEP-BY-STEP GUIDE TO BUILD YOUR BEST BODY EVER.</h2>
 
         <h2>Just a few questions for you:</h2>
       </div>
         <ul style={{width: "100%", marginBottom: "10px"}}>
+          <li style={{textAlign: "left", width:"70%", margin: "0 auto"}}>Are you interested in a guide that will teach you the tricks that let you eat the foods you love while still making progress towards your goal?</li><br/>
           <li style={{textAlign: "left", width:"70%", margin: "0 auto"}}>Are you ready to learn the fitness industry secrets that models use to keep a perfect physique year round?</li><br/>
-          <li style={{textAlign: "left", width:"70%", margin: "0 auto"}}>Are you interested in a program that will teach you the tricks that let you eat the foods you love while still making progress towards your goal?</li><br/>
-          <li style={{textAlign: "left", width:"70%", margin: "0 auto"}}>Are you ready to sidestep the internet's hollow tactics and finally learn tested strategies to accomplish your goal without having to deal with restricting diets?</li><br/>
+          <li style={{textAlign: "left", width:"70%", margin: "0 auto"}}>Are you ready to stop guessing and finally learn tested strategies to accomplish your goal without having to deal with restricting diets?</li><br/>
         </ul>
-        <p style={{width: "80%", margin:"0 auto", marginBottom: "0px"}}>If you are, then I’m excited to announce THE GUIDE THAT WILL CHANGE YOUR LIFE.</p>
+        <p style={{width: "80%", margin:"0 auto", marginBottom: "0px"}}>If you are, then I’m excited to announce THE GUIDE THAT WILL CHANGE YOUR BODY AND LIFE.</p>
 
 
         <div style={{width: "100%"}}>
@@ -45,16 +81,22 @@ class LandingPage extends React.Component {
                       Diets have failed you
                     </li>
                     <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
-                      You want straight to the point and proven to work instructions on how to get to your goal
+                      Exercising is just not cutting it
                     </li>
                     <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
-                      You want results ASAP without compromising your health
+                      You want straight to the point and proven to work system to get to your goal
                     </li>
                     <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
-                      You want to be part of a supportive community
+                      You want fast sustainable results
                     </li>
                     <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
-                      You are commited to work hard to see amazing results
+                      You want to gain your confidence and energy back
+                    </li>
+                    <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
+                      You want to be able to perform better at work
+                    </li>
+                    <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
+                      You want to look and feel amazing
                     </li>
                   </ul>
               </Grid.Column>
@@ -63,13 +105,14 @@ class LandingPage extends React.Component {
           </div>
         </div><br/>
 
+
         <div style={{width: "100%"}}>
           <h1 style={{fontSize:"36px"}}>What's Included</h1><br/>
           <div id="landing-main-benefits">
             <Grid stackable columns={2}>
               <Grid.Row>
                 <Grid.Column style={{marginBottom: "40px"}} width={7}>
-                  <Image src={'../detailed-results'} />
+                  <Image src={'../iphone-blue.png'} />
                 </Grid.Column>
                 <Grid.Column width={9}>
                   <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>Detailed Results</h4>
@@ -99,7 +142,7 @@ class LandingPage extends React.Component {
                   <ul>
                     <li style={{paddingBottom: "5px"}}>A step by step guide on how to implement your results</li>
                     <li style={{paddingBottom: "5px"}}>Refeed and carb cycling strategies to make continuous progress</li>
-                    <li style={{paddingBottom: "5px"}}>Meal plan examples with different calorie levels that have been proven to work</li>
+                    <li style={{paddingBottom: "5px"}}>Meal guide examples with different calorie levels that have been proven to work</li>
                     <li style={{paddingBottom: "5px"}}>A grocery shopping list with macro friendly foods</li>
                   </ul>
               </Grid.Column>
@@ -135,11 +178,11 @@ class LandingPage extends React.Component {
             <Grid stackable columns={2}>
               <Grid.Row style={{padding: "0"}}>
                 <Grid.Column width={6}>
-                  <Image style={{background: "white"}} src={'../alvaro.png'} circular/>
+                  <Image style={{background: "white"}} src={'../alvaro.png'}/>
                 </Grid.Column>
                 <Grid.Column width={10}>
                   <div id="text-next-image">
-                    <p style={{textAlign: "center", fontSize: "18px", marginTop: "20px", marginBottom: "25px", color: "white"}}>"This is not your traditional, super low-calorie, deprivation diet. This is a guide that will educate you in fat loss, nutrition, macronutrients, so you can eat more food than you ever thought possible, spend less time in the gym, and get results that will stay with your for a lifetime."</p>
+                    <p style={{textAlign: "center", fontSize: "18px", marginTop: "20px", marginBottom: "25px", color: "white"}}>"This is not your traditional, super low-calorie, deprivation diet. This is a personalized guide that will educate you in fat loss, nutrition, macronutrients, so you can eat more food than you ever thought possible, spend less time in the gym, and get results that will stay with your for a lifetime."</p>
                     <p style={{textAlign: "center", fontSize: "18px", marginBottom: "25px", color: "white"}}>Alvaro, Fit Calculations</p>
                   </div>
                 </Grid.Column>
@@ -171,7 +214,7 @@ class LandingPage extends React.Component {
               <Image style={{margin: "0 auto"}} src={null} />
               <h4>We Check Your Numbers</h4>
               <p style={{fontSize: "16px", textAlign: "left"}}>
-                After we get your order, your information and numbers are reviewed to ensure everything looks perfect and your plan will set you up for success.
+                After we get your order, your information and numbers are reviewed to ensure everything looks perfect and your guide will set you up for success.
               </p>
             </VerticalTimelineElement>
             <VerticalTimelineElement
@@ -180,9 +223,9 @@ class LandingPage extends React.Component {
               icon={<FaCheck />}
             >
               <Image style={{margin: "0 auto"}} src={null} />
-              <h4>We Implement A Plan And Strategy</h4>
+              <h4>We Implement A guide And Strategy</h4>
               <p style={{fontSize: "16px", textAlign: "left"}}>
-                We include over 20 data points such as your BMR, BMI, macronutrient breakdown percetange, and other useful information we will use to make your plan perfect.
+                We include over 20 data points such as your BMR, BMI, macronutrient breakdown percetange, and other useful information we will use to make your guide perfect.
               </p>
             </VerticalTimelineElement>
 
@@ -191,9 +234,9 @@ class LandingPage extends React.Component {
               icon={<FaCheck />}
             >
               <Image style={{margin: "0 auto"}} src={null} />
-              <h4>We Send Your Plan</h4>
+              <h4>We Send Your guide</h4>
               <p style={{fontSize: "16px", textAlign: "left"}}>
-                We will send you the plan within 2 business days of purchase.
+                We will send you the guide within 2 business days of purchase.
               </p>
             </VerticalTimelineElement>
           </VerticalTimeline>
@@ -231,7 +274,7 @@ class LandingPage extends React.Component {
                 </Grid.Column>
                 <Grid.Column width={9}>
                   <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>Lifestyle Tips And Tricks<h4 style={{color: "red"}}>$̶9̶.̶9̶9̶</h4>FREE</h4>
-                  <p style={{textAlign: "left", marginBottom: "25px"}}></p>
+                  <p style={{textAlign: "left", marginBottom: "25px"}}>Learn good habits that will accelerate your progress.</p>
                   <ul>
                     <li style={{paddingBottom: "5px"}}>Sleep</li>
                     <li style={{paddingBottom: "5px"}}>Work</li>
@@ -245,29 +288,29 @@ class LandingPage extends React.Component {
         </div><br/>
 
         <div style={{width: "100%", backgroundColor: "#F6F6F6", paddingTop: "20px"}}>
-          <div style={{marginBottom: "50px", width: "60%"}} id="landing-main-benefits">
+          <div style={{marginBottom: "50px", width: "70%"}} id="landing-main-benefits">
           <h1 style={{fontSize: "40px"}}>Ready To Transform Your Body In 2019?</h1>
             <CountDown/><br/>
             <Grid style={{paddingBottom: "50px"}} stackable columns={2}>
               <Grid.Row>
-                <Grid.Column style={{marginBottom: "40px"}} width={8}>
+                <Grid.Column width={8}>
                   <ul>
                     <li style={{paddingBottom: "5px"}}>Detailed Personalized Results ($60 Value)</li>
                     <li style={{paddingBottom: "5px"}}>Personalized Easy To Follow Action Plan ($80 Value)</li>
-                    <li style={{paddingBottom: "5px"}}>Online Support (Priceless)</li>
                     <li style={{paddingBottom: "5px"}}>50 Incredible Recipes ($20.00 Value)</li>
                     <li style={{paddingBottom: "5px"}}>Lifestyle Tips And Tricks Guide ($9.99 Value)</li>
+                    <li style={{paddingBottom: "5px"}}>Online Support (Priceless)</li>
                   </ul>
                 </Grid.Column>
-                <Grid.Column style={{marginBottom: "40px", textAlign: "center"}} width={8}>
+                <Grid.Column style={{textAlign: "center"}} width={8}>
                   <h1 style={{fontSize: "40px", color: "red"}}>$̶1̶6̶9̶.̶9̶9̶</h1>
                   <h1 style={{fontSize: "40px", color: "green"}}>Now Only $29.99</h1>
-                <Button style={{background: '#2761f1', color: "white", margin: "0 auto",  marginTop: "20px"}} content='YES, I WANT TO TRANSFORM' size="large" icon='angle double right' labelPosition='right' />
+                <Button id="cta-button" content='YES, I WANT TO TRANSFORM' size="large" icon='angle double right' labelPosition='right' />
               </Grid.Column>
               </Grid.Row>
             </Grid>
           </div>
-          <p>*All plans will be ready and delivered on April, 23rd 2019</p>
+          <p>*All guides will be ready and delivered on April, 23rd 2019</p>
         </div>
 
 
@@ -282,12 +325,72 @@ class LandingPage extends React.Component {
                 <Grid.Column width={11}>
                   <p style={{textAlign: "left"}}>We are confident your personalized program will give you the results you want. However, if you haven't got closer to your goals, I will refund 100% of the cost.</p>
                   <p style={{textAlign: "left"}}>All you need to do is provide your 30 day food log to verify the program was followed as it was designed and created specifically for you.</p>
-                  <Button style={{background: '#2761f1', color: "white", margin: "0 auto",  marginTop: "20px"}} content='GET 80% OFF NOW' size="large" icon='angle double right' labelPosition='right' />
+                  <Button id="cta-button" content='GET 82% OFF NOW' size="large" icon='angle double right' labelPosition='right' />
               </Grid.Column>
               </Grid.Row>
             </Grid>
           </div>
         </div>
+
+        <div style={{width: "100%", backgroundColor: "#F6F6F6", paddingTop: "50px"}}>
+          <h1 style={{fontSize:"36px"}}>Frequently Asked Questions</h1>
+          <p>If you dont see your question here, feel free to chat with us.</p><br/>
+          <div style={{margin: "0 auto", width: "80%"}}>
+            <Grid stackable columns={2}>
+              <Grid.Row>
+                <Grid.Column style={{textAlign: "center"}} width={8}>
+                  <Card style={{background: "transparent"}}>
+                    <h4 onClick={this.showFaq1} id="title-faq"><Icon id="icon-faq" name="plus" size="tiny"/> When will I first hear from you?</h4>
+                    {this.state.showFaq1 === true ?
+                    <Fade top >
+                      <p style={{textAlign:"left"}}>From the moment you purchase your guide, you will receive an email from me. All pre-ordered guides will be delivered on 04/23/2019.</p>
+                    </Fade> : null}
+                  </Card>
+                </Grid.Column>
+                <Grid.Column style={{textAlign: "center"}} width={8}>
+                  <Card style={{background: "transparent"}}>
+                    <h4 onClick={this.showFaq2} id="title-faq"><Icon id="icon-faq" name="plus" size="tiny"/> How does the support work?</h4>
+                    {this.state.showFaq2 === true ?
+                    <Fade top >
+                      <p style={{textAlign: "left"}}>You have questions, we have an answers. You will be invited to join our private members only Facebook group. Here, you will be able to ask any questions, share tips, and interact with the Fit Calculations community.</p>
+                    </Fade> : null }
+                  </Card>
+              </Grid.Column>
+              </Grid.Row>
+            </Grid>
+
+            <Grid stackable columns={2}>
+              <Grid.Row>
+                <Grid.Column style={{textAlign: "center", marginBottom: "60px"}} width={8}>
+                  <Card style={{background: "transparent"}}>
+                    <h4 onClick={this.showFaq3} id="title-faq"><Icon id="icon-faq" name="plus" size="tiny"/> Is the guide really custom to me?</h4>
+                    {this.state.showFaq3 === true ?
+                    <Fade top >
+                      <p style={{textAlign: "left"}}>Absolutely. Every guide is custom to each person. We will use your calculation results to make sure the guide is perfect for you. If you succeed, we succeed. There isn't a one fits all guide when it comes to getting fit.</p>
+                    </Fade> : null }
+                  </Card>
+                </Grid.Column>
+                <Grid.Column style={{textAlign: "center", marginBottom: "60px"}} width={8}>
+                  <Card style={{background: "transparent", marginBottom: "30px"}}>
+                    <h4 onClick={this.showFaq4} id="title-faq"><Icon id="icon-faq" name="plus" size="tiny"/> Do I need access to a gym?</h4>
+                  {this.state.showFaq4 === true ?
+                  <Fade top>
+                    <p style={{textAlign: "left"}}>No, this is not a workout guide. However, we will provide cardio recommendations based on your goal to lose weight or gain muscle. You can perform this activities anywhere you want.</p>
+                  </Fade> : null }
+                  </Card>
+              </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </div>
+        </div>
+
+        <div style={{marginBottom: "0px", width: "100%", backgroundColor: "#e80aaa"}}>
+          <div style={{paddingBottom: "30px"}}>
+            <h1 style={{fontSize:"36px", paddingTop: "20px", color: "white", fontStyle: "italic"}}>Are You Ready?</h1>
+            <Button id="cta-button" content='GET 82% OFF NOW' size="large" icon='angle double right' labelPosition='right' />
+          </div>
+        </div>
+
       </React.Fragment>
     )
   }

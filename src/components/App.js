@@ -15,6 +15,7 @@ import ThankYouBcm from './ThankYouBcm'
 import Invite from './Invite'
 import LandingPage from './LandingPage'
 import CountDown from './CountDown'
+import NavBarMobile from './NavBarMobile'
 
 class App extends React.Component {
   constructor(){
@@ -91,7 +92,7 @@ showResultsPage = () => {
   render() {
     return (
       <div className="App">
-        <NavBar mobileDevice={this.state.mobileDevice}/>
+        {this.state.mobileDevice === true ? <NavBarMobile/> : <NavBar/> }
         <Route exact path="/" render={props => <Homepage /> } />
         <Route exact path="/services" render={props => <ServicesContainer /> } />
         <Route exact path="/testeando" render={props => <CalculationsContainer {...props} showResultsPage={this.showResultsPage} showResults={this.state.showResultsPage} users={this.state.users} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />

@@ -13,7 +13,7 @@ class CountDown extends React.Component {
         return <Completionist />;
       } else {
         // Render a countdown
-        return <h2 style={{fontSize: "30px", color: "red"}}> 82% Sale Ends In {hours} H {minutes} Min {seconds} Sec</h2>;
+        return <h2 style={{fontSize: "30px", color: "red"}}> 82% Sale Ends In {hours} h {minutes} min {seconds} sec</h2>;
       }
     };
 

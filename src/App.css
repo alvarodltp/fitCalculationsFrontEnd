@@ -271,11 +271,11 @@ span {
 }
 
 #logo-mobile {
+  margin: 0 auto;
   align-content: center;
   text-align: center;
-  margin-left: 8px;
-  margin-top: 15px;
-  width: 50%
+  margin-top: 10px;
+  width: 60%
 }
 
 #nutrition-package-header{
@@ -900,4 +900,27 @@ box-shadow: none;
   justify-content: center;
   flex-direction: column;
   height: 300px
+}
+
+#cta-button {
+  background: #2761f1;
+  color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 25px;
+  transition: background-color .5s ease;
+}
+
+#cta-button:hover {
+  background-color: blue;
+}
+
+#title-faq {
+  margin: 0 auto;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#icon-faq:hover {
+  color: #e80aaa;
 }
