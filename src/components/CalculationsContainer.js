@@ -144,7 +144,7 @@ class CalculationsContainer extends React.Component {
       macrosShown: false,
       dietShown: false,
       exerciseShown: false
-    })
+    }, this.updateIntercom())
   }
 
   activateConfetti = () => {
@@ -653,6 +653,10 @@ hideForm = () => {
   this.setState({
     showForm: false
   })
+}
+
+updateIntercom = () => {
+  window.Intercom("update");
 }
 
   render(){

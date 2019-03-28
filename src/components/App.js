@@ -34,6 +34,7 @@ componentDidMount() {
   this.logPageView()
   this.isMobileDevice()
   this.getAllUsers()
+  this.initializeIntercom()
 }
 
 getAllUsers = () => {
@@ -86,6 +87,12 @@ scrollToTop = () => {
 showResultsPage = () => {
   this.setState({
     showResultsPage: true
+  })
+}
+
+initializeIntercom = () => {
+    window.Intercom("boot", {
+    app_id: "miq7epik"
   })
 }
 
