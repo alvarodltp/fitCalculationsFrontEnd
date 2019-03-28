@@ -24,7 +24,7 @@ class App extends React.Component {
       stepNumber: 0,
       mobileDevice: null,
       users: null,
-      showResultsPage: false
+      showResults: false
     }
   }
 
@@ -41,6 +41,7 @@ getAllUsers = () => {
   fetch("https:fitcalculations-api.herokuapp.com/users")
   .then(response => response.json())
   .then(json => {
+    console.log(json)
     this.setState({
       users: json
     })
@@ -86,7 +87,7 @@ scrollToTop = () => {
 
 showResultsPage = () => {
   this.setState({
-    showResultsPage: true
+    showResults: true
   })
 }
 
@@ -102,7 +103,7 @@ initializeIntercom = () => {
         {this.state.mobileDevice === true ? <NavBarMobile/> : <NavBar/> }
         <Route exact path="/" render={props => <Homepage /> } />
         <Route exact path="/services" render={props => <ServicesContainer /> } />
-        <Route exact path="/testeando" render={props => <CalculationsContainer {...props} showResultsPage={this.showResultsPage} showResults={this.state.showResultsPage} users={this.state.users} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/testeando" render={props => <CalculationsContainer {...props} showResultsPage={this.showResultsPage} showResults={this.state.showResults} users={this.state.users} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
         <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />

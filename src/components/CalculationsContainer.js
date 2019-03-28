@@ -404,7 +404,6 @@ saveUser = () => {
 
 updateUser = () => {
   let usersArr = this.props.users
-  console.log(usersArr)
   let email = this.state.email.toLowerCase()
   let userExists = usersArr.filter(user => user.email === email) //returns number of same email already in db
   let userId;

@@ -4,7 +4,7 @@ import { Header, Image, Table, Popup, Button } from 'semantic-ui-react'
 class ExerciseTable extends React.Component {
   render() {
     return(
-      <Table style={{width: "100%"}} color={'#2761f1'} basic='very' collapsing>
+      <Table style={{width: "100%"}} basic='very' collapsing>
         <Table.Body>
           <Table.Row>
             <Table.Cell>
