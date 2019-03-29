@@ -148,7 +148,7 @@ class CalculationsContainer extends React.Component {
   }
 
   activateConfetti = () => {
-    if(this.state.emailValid === true) {
+    if(this.state.emailValid === true && this.state.checked === true) {
       this.setState({
         confetti: true
       })
@@ -397,7 +397,7 @@ saveUser = () => {
       debugger
       this.setState({
         user: user
-      }, this.saveStats(user), this.notify())
+      }, this.saveStats(user), this.notify(), swal("Success!", "Your results are ready!", "success"))
     })
   } else if(this.state.emailValid === true && this.state.checked === true && userExists.length > 0) {
     this.updateUser()
