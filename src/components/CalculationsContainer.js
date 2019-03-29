@@ -82,8 +82,23 @@ class CalculationsContainer extends React.Component {
       exerciseShown: false,
       landingPageShown: false,
       maxHeartRate: 0,
-      showForm: false
+      showForm: false,
+      users: null
     }
+  }
+
+  componentDidMount() {
+    this.getAllUsers()
+  }
+
+  getAllUsers = () => {
+    fetch("https:fitcalculations-api.herokuapp.com/users")
+    .then(response => response.json())
+    .then(json => {
+      this.setState({
+        users: json
+      })
+    })
   }
 
   showCalories = () => {
@@ -376,9 +391,8 @@ calculateMacros = (e) => {
 }
 
 saveUser = () => {
-  let usersArr = this.props.users
   let email = this.state.email.toLowerCase()
-  let userExists = usersArr.filter(user => user.email === email)
+  let userExists = this.state.users.filter(user => user.email === email)
 
   if(this.state.emailValid === true && this.state.checked === true && userExists.length === 0){
   fetch("https://fitcalculations-api.herokuapp.com/users", {
@@ -407,11 +421,9 @@ saveUser = () => {
 }
 
 updateUser = () => {
-  let usersArr = this.props.users
   let email = this.state.email.toLowerCase()
-  let userExists = usersArr.filter(user => user.email === email) //returns number of same email already in db
-  let userId;
-  userExists.length > 0 ? userId = userExists[0].id : userId = null
+  let userExists = this.state.users.filter(user => user.email === email) //returns number of same email already in db
+  let userId = userExists[0].id
 
   fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
       method: "PATCH",
@@ -428,7 +440,6 @@ updateUser = () => {
       })
     }).then(response =>response.json())
     .then(user => {
-
       this.setState({
         user: user
       }, this.saveStats(user), this.notify(), swal("Success!", "Your results are ready!", "success"))
@@ -496,7 +507,6 @@ saveStats = (user) => {
       })
     }).then(response => response.json())
     .then(json => {
-      console.log(json)
       this.setState({
         stats: json,
         loading: false
