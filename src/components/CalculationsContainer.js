@@ -379,7 +379,7 @@ saveUser = () => {
   let usersArr = this.props.users
   let email = this.state.email.toLowerCase()
   let userExists = usersArr.filter(user => user.email === email)
-  debugger
+
   if(this.state.emailValid === true && this.state.checked === true && userExists.length === 0){
   fetch("https://fitcalculations-api.herokuapp.com/users", {
     method: 'POST',
@@ -394,7 +394,7 @@ saveUser = () => {
       })
     }).then(response => response.json())
     .then(user => {
-      debugger
+
       this.setState({
         user: user
       }, this.saveStats(user), this.notify(), swal("Success!", "Your results are ready!", "success"))
@@ -412,7 +412,7 @@ updateUser = () => {
   let userExists = usersArr.filter(user => user.email === email) //returns number of same email already in db
   let userId;
   userExists.length > 0 ? userId = userExists[0].id : userId = null
-  debugger
+
   fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
       method: "PATCH",
       headers: {
@@ -428,7 +428,7 @@ updateUser = () => {
       })
     }).then(response =>response.json())
     .then(user => {
-      debugger
+
       this.setState({
         user: user
       }, this.saveStats(user), this.notify(), swal("Success!", "Your results are ready!", "success"))
@@ -462,7 +462,7 @@ updateUser = () => {
 // }
 
 saveStats = (user) => {
-  debugger
+
   let today = new Date()
   // let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
   fetch("https://fitcalculations-api.herokuapp.com/stats", {
