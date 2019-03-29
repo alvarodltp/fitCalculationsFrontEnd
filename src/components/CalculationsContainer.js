@@ -379,7 +379,12 @@ calculateMacros = (e) => {
 }
 
 getAllUsers = () => {
-  fetch("https:fitcalculations-api.herokuapp.com/users")
+  fetch("https:fitcalculations-api.herokuapp.com/users", {
+    headers : {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+     }
+  })
   .then(response => response.json())
   .then(json => {
     let email = this.state.email
