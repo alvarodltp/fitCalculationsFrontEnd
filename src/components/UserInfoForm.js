@@ -62,10 +62,10 @@ class UserInfoForm extends React.Component {
               <Checkbox style={{marginRight: "70px"}} checked={this.props.gender === 'Female'} onChange={(e) => {this.props.enableButton(e); this.props.getGender(e)}} label="Female" value="Female" />
               <Checkbox checked={this.props.gender === 'Male'} onChange={(e) => {this.props.enableButton(e); this.props.getGender(e)}} label="Male" value="Male" /><br/><br/>
               {this.props.mobileDevice === false ?
-              <Button size="large" disabled={this.props.buttonDisabled} id="button" style={{width: "100%"}} onClick={() => {this.props.hideForm(); this.props.calculateBmr(this.state.value); this.props.addOneToStep(); this.props.calculateCalories(); this.props.scrollToTop()}} type="submit">
+              <Button size="large" disabled={this.props.buttonDisabled} id="button" style={{width: "100%"}} onClick={() => {this.props.hideForm(); this.props.calculateBmr(this.state.value); this.props.addOneToStep(); this.props.calculateCalories()}} type="submit">
                 STEP 2 - SELECT BODY TYPE <Icon name="right arrow" />
               </Button> :
-              <Button size="small" disabled={this.props.buttonDisabled} id="button-mobile" style={{width: "100%"}} onClick={() => {this.props.hideForm(); this.props.calculateBmr(this.state.value); this.props.addOneToStep(); this.props.calculateCalories(); this.props.scrollToTop()}} type="submit">
+              <Button size="small" disabled={this.props.buttonDisabled} id="button-mobile" style={{width: "100%"}} onClick={() => {this.props.hideForm(); this.props.calculateBmr(this.state.value); this.props.addOneToStep(); this.props.calculateCalories()}} type="submit">
                 STEP 2 - SELECT BODY TYPE <Icon name="right arrow" />
               </Button> }
             </Form>

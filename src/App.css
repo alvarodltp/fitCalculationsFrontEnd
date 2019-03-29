@@ -862,6 +862,21 @@ box-shadow: none;
   border-radius: 15px !important;
 }
 
+#take-action-card {
+  color: white;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 80%;
+  background: #2761f1;
+  height: 40px;
+  border-radius: 15px !important;
+  transition: background 0.4s;
+}
+
+#take-action-card:hover {
+  background:  #e80aaa;
+}
+
 #start-today-card {
   color: black;
   margin: 0 auto;
