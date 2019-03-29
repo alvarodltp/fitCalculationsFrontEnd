@@ -23,7 +23,7 @@ class PersonalizedMacros extends React.Component {
           </div>
             <Card id="body-type-points-card">
                 <p id="body-type-points"><Icon style={{color: "#2761f1"}} name='angle right' size="small" />Your body type will add more accuracy to your macronutrients.</p>
-                <p id="body-type-points"><Icon style={{color: "#2761f1"}} name='angle right ' size="small" />It will determine the type of exercise and nutrition you need to get to your goal as fast and safe as possible.</p>
+                <p id="body-type-points"><Icon style={{color: "#2761f1"}} name='angle right' size="small" />It will determine the type of exercise and nutrition you need to get to your goal as fast and safe as possible.</p>
                 <p id="body-type-points"><Icon style={{color: "#2761f1"}} name='angle right' size="small" />If you think you are in between 2 body types, select the broader one.</p>
             </Card><br/>
           <Fade left>
