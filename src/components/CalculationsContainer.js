@@ -95,6 +95,7 @@ class CalculationsContainer extends React.Component {
     fetch("https:fitcalculations-api.herokuapp.com/users")
     .then(response => response.json())
     .then(json => {
+      console.log(json)
       this.setState({
         users: json
       })
@@ -393,7 +394,6 @@ calculateMacros = (e) => {
 saveUser = () => {
   let email = this.state.email.toLowerCase()
   let userExists = this.state.users.filter(user => user.email === email)
-
   if(this.state.emailValid === true && this.state.checked === true && userExists.length === 0){
   fetch("https://fitcalculations-api.herokuapp.com/users", {
     method: 'POST',
@@ -408,7 +408,6 @@ saveUser = () => {
       })
     }).then(response => response.json())
     .then(user => {
-
       this.setState({
         user: user
       }, this.saveStats(user), this.notify(), swal("Success!", "Your results are ready!", "success"))
