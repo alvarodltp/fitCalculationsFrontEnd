@@ -380,6 +380,7 @@ calculateMacros = (e) => {
 
 getAllUsers = () => {
   fetch("https:fitcalculations-api.herokuapp.com/users", {
+    method: 'GET',
     headers : {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
