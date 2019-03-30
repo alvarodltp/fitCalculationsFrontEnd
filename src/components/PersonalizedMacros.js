@@ -4,12 +4,6 @@ import { css } from '@emotion/core';
 import { BeatLoader } from 'react-spinners';
 import Fade from 'react-reveal/Slide';
 
-const override = css`
-    display: block;
-    margin: 0 auto;
-    border-color: red;
-`;
-
 class PersonalizedMacros extends React.Component {
 
   render(){
@@ -60,20 +54,3 @@ class PersonalizedMacros extends React.Component {
 }
 
 export default PersonalizedMacros
-
-// {this.props.user === null ?
-// <div>
-//   <div style={{marginBottom: "40px", marginTop: "30px"}} className='sweet-loading'>
-//     <BeatLoader
-//       css={override}
-//       sizeUnit={"px"}
-//       size={15}
-//       color={this.props.gender === "Female" ? '#e80aaa' : '#2761f1'}
-//       loading={this.props.loading}
-//     />
-//   </div>
-//   <p style={{fontStyle: "italic", fontSize: "12px"}}>
-//     Calculating Calories/<br/>
-//     Loading Body Types
-//   </p><br/>
-// </div> :
