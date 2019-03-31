@@ -1,6 +1,7 @@
 import React from 'react'
 import {Image, Icon, Card, Button, Input, Checkbox, Form, Divider} from 'semantic-ui-react'
 import ReactGA from 'react-ga';
+import Loading from './Loading';
 
 class SignUpForm extends React.Component {
 
@@ -63,10 +64,10 @@ class SignUpForm extends React.Component {
           {this.props.message != null ? <p style={{fontSize: "12px", color: "red"}}>{this.props.message}</p> : null}
             {this.props.safeCalories === true ?
             <Button size="large" id="button-get-email" type='submit'
-            onClick={() => {this.getEvent(); this.props.getAllUsers(); this.props.activateConfetti(); this.props.scrollToTop(); this.props.requiredFieldsMessage()}}
+            onClick={() => {this.getEvent(); this.props.getAllUsers(); this.props.activateConfetti(); this.props.scrollToTop(); this.props.requiredFieldsMessage(); this.props.setLoadingToTrue()}}
             >SUBMIT!</Button> :
             <Button size="large" id="button-get-email" type='submit'
-            onClick={() => {this.getEvent(); this.props.getAllUsers(); this.props.activateConfetti(); this.props.scrollToTop(); this.props.requiredFieldsMessage()}}>SUBMIT!</Button>}
+            onClick={() => {this.getEvent(); this.props.getAllUsers(); this.props.activateConfetti(); this.props.scrollToTop(); this.props.requiredFieldsMessage(); this.props.setLoadingToTrue()}}>SUBMIT!</Button>}
         </div><br/>
       </React.Fragment>
     )

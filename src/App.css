@@ -941,16 +941,7 @@ box-shadow: none;
 }
 
 #loading {
-  position:relative;
-  height: 100%;
-  width:100%;
-}
-
-#loading.sweet-loading {
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  margin:auto;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20%
 }

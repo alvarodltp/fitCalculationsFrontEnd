@@ -23,7 +23,8 @@ class App extends React.Component {
     this.state={
       stepNumber: 0,
       mobileDevice: null,
-      showResults: false
+      showResults: false,
+      loading: true
     }
   }
 
@@ -74,7 +75,8 @@ scrollToTop = () => {
 
 showResultsPage = () => {
   this.setState({
-    showResults: true
+    showResults: true,
+    loading: false
   })
 }
 
@@ -90,7 +92,7 @@ initializeIntercom = () => {
         {this.state.mobileDevice === true ? <NavBarMobile/> : <NavBar/> }
         <Route exact path="/" render={props => <Homepage /> } />
         <Route exact path="/services" render={props => <ServicesContainer /> } />
-        <Route exact path="/testeando" render={props => <CalculationsContainer {...props} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/testeando" render={props => <CalculationsContainer {...props} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
         <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
