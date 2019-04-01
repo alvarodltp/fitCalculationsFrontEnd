@@ -64,10 +64,10 @@ class SignUpForm extends React.Component {
           {this.props.message != null ? <p style={{fontSize: "12px", color: "red"}}>{this.props.message}</p> : null}
             {this.props.safeCalories === true ?
             <Button size="large" id="button-get-email" type='submit'
-            onClick={() => {this.getEvent(); this.props.getAllUsers(); this.props.activateConfetti(); this.props.scrollToTop(); this.props.requiredFieldsMessage(); this.props.setLoadingToTrue()}}
+            onClick={() => {this.getEvent(); this.props.scrollToTop(); this.props.requiredFieldsMessage()}}
             >SUBMIT!</Button> :
             <Button size="large" id="button-get-email" type='submit'
-            onClick={() => {this.getEvent(); this.props.getAllUsers(); this.props.activateConfetti(); this.props.scrollToTop(); this.props.requiredFieldsMessage(); this.props.setLoadingToTrue()}}>SUBMIT!</Button>}
+            onClick={() => {this.getEvent(); this.props.scrollToTop(); this.props.requiredFieldsMessage()}}>SUBMIT!</Button>}
         </div><br/>
       </React.Fragment>
     )

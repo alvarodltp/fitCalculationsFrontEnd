@@ -89,11 +89,6 @@ class CalculationsContainer extends React.Component {
     }
   }
 
-  setLoadingToTrue = () => {
-    this.setState({
-      loading: true
-    })
-  }
 
   showCalories = () => {
     this.setState({
@@ -313,11 +308,11 @@ class CalculationsContainer extends React.Component {
     caloriesForGoal = caloriesToMaintain - 500
   } else if (goal === "Lose Weight/Get Lean" && weightToManage === "Accelerated"){
     caloriesForGoal = caloriesToMaintain - 1000
-  } else if (goal === "Gain Muscle/Get Lean" && weightToManage === "Slow"){
+  } else if (goal === "Gain Muscle" && weightToManage === "Slow"){
     caloriesForGoal = caloriesToMaintain + 250
-  } else if (goal === "Gain Muscle/Get Lean" && weightToManage === "Steady"){
+  } else if (goal === "Gain Muscle" && weightToManage === "Steady"){
     caloriesForGoal = caloriesToMaintain + 500
-  } else if (goal === "Gain Muscle/Get Lean" && weightToManage === "Accelerated"){
+  } else if (goal === "Gain Muscle" && weightToManage === "Accelerated"){
     caloriesForGoal = caloriesToMaintain + 1000
   } else {
     caloriesForGoal = caloriesToMaintain
@@ -408,13 +403,19 @@ saveOrUpdateUser = (userExists) => {
 }
 
 requiredFieldsMessage = () => {
-  {this.state.emailValid === "" || this.state.emailValid === false || this.state.name === "" || this.state.checked === false ?
+  if(this.state.emailValid === "" || this.state.emailValid === false || this.state.name === "" || this.state.checked === false) {
+    this.setState({
+      message: "Please enter your name, email, and check the box to proceed."
+    })
+  } else {
+    this.setLoadingToTrue()
+  }
+}
+
+setLoadingToTrue = () => {
   this.setState({
-    message: "Please enter your name, email, and check the box to proceed."
-  }) :
-  this.setState({
-    message: null
-  }) }
+    loading: true
+  }, this.getAllUsers())
 }
 
 saveUser = () => {

@@ -17,7 +17,7 @@ class PersonalizedMacros extends React.Component {
           </div>
             <Card id="body-type-points-card">
               <ul>
-                <li style={{textAlign: "left"}}>Your body type will add more accuracy to your macronutrients.</li>
+                <li style={{textAlign: "left"}}>Your body type will add more accuracy to your macronutrient needs.</li>
                 <li style={{textAlign: "left"}}>It will determine the type of exercise and nutrition you need to get to your goal as fast and safe as possible.</li>
                 <li style={{textAlign: "left"}}>If you think you are in between 2 body types, select the broader one.</li>
               </ul>
