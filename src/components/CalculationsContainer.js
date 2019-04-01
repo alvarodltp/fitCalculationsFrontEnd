@@ -307,17 +307,17 @@ class CalculationsContainer extends React.Component {
   let caloriesToMaintain;
   bmr != "" && activityLevel != null ? caloriesToMaintain = Math.round(bmr * activityLevel["value"]) : caloriesToMaintain = null
   let caloriesForGoal;
-  if(goal === "Lose Weight" && weightToManage === "Slow"){
+  if(goal === "Lose Weight/Get Lean" && weightToManage === "Slow"){
     caloriesForGoal = caloriesToMaintain - 250
-  } else if (goal === "Lose Weight" && weightToManage === "Steady"){
+  } else if (goal === "Lose Weight/Get Lean" && weightToManage === "Steady"){
     caloriesForGoal = caloriesToMaintain - 500
-  } else if (goal === "Lose Weight" && weightToManage === "Accelerated"){
+  } else if (goal === "Lose Weight/Get Lean" && weightToManage === "Accelerated"){
     caloriesForGoal = caloriesToMaintain - 1000
-  } else if (goal === "Gain Muscle" && weightToManage === "Slow"){
+  } else if (goal === "Gain Muscle/Get Lean" && weightToManage === "Slow"){
     caloriesForGoal = caloriesToMaintain + 250
-  } else if (goal === "Gain Muscle" && weightToManage === "Steady"){
+  } else if (goal === "Gain Muscle/Get Lean" && weightToManage === "Steady"){
     caloriesForGoal = caloriesToMaintain + 500
-  } else if (goal === "Gain Muscle" && weightToManage === "Accelerated"){
+  } else if (goal === "Gain Muscle/Get Lean" && weightToManage === "Accelerated"){
     caloriesForGoal = caloriesToMaintain + 1000
   } else {
     caloriesForGoal = caloriesToMaintain

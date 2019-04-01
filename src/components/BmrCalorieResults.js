@@ -15,6 +15,7 @@ import MacrosPieChart from './MacrosPieChart'
 import LandingPage from './LandingPage'
 import ExerciseTable from './ExerciseTable'
 import { Link } from "react-router-dom"
+import { Popup } from 'semantic-ui-react'
 
 class BmrCalorieResults extends React.Component {
 
@@ -34,16 +35,19 @@ class BmrCalorieResults extends React.Component {
 
         {this.props.caloriesShown === true ?
         <div id="results-card-drop-active" onClick={this.props.showCalories} >
-          <h1 style={{fontSize:"30px", fontStyle: "italic"}}>CALORIES<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus"/></h1>
+          <h1 style={{fontSize:"30px", fontStyle: "italic"}}>BMR AND CALORIES<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus"/></h1>
         </div> :
         <div id="results-card-drop" onClick={this.props.showCalories} >
-          <h1 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>CALORIES<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus"/></h1>
+          <h1 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>BMR AND CALORIES<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus"/></h1>
         </div> }
 
           {this.props.caloriesShown === true ?
           <Fade top >
             <div style={{width: "80%", margin: "0 auto", marginTop:"10px"}}>
               <p style={{textAlign: "left", fontSize: "18px"}}>Based on your information, you need {this.props.caloriesForGoal} daily calories in order to {this.props.goal.toLowerCase()}. {this.props.user["name"].charAt(0).toUpperCase() + this.props.user["name"].slice(1)}, less calories doesn't mean better. This is the number you need to get to your goal in a steady and healthy way.</p>
+              <p style={{textAlign: "left", fontSize: "18px"}}>BMR (Basal Metabolic Rate)<Popup trigger={<Button id="more-info-Button-calories" content='This is a warm-up zone for many, and great for people just starting an exercise program.' icon='info circle' />} /></p>
+              <p style={{textAlign: "left", fontSize: "18px"}}>Calories To Maintain<Popup trigger={<Button id="more-info-Button-calories" content='This is a warm-up zone for many, and great for people just starting an exercise program.' icon='info circle' />} /></p>
+              <p style={{textAlign: "left", fontSize: "18px"}}>Goal Calories<Popup trigger={<Button id="more-info-Button-calories" content='This is a warm-up zone for many, and great for people just starting an exercise program.' icon='info circle' />} /></p>
             </div>
             <div style={{width: "80%", margin: "0 auto"}}>
               <CaloriesBarChart caloriesForGoal={this.props.caloriesForGoal} caloriesToMaintain={this.props.caloriesToMaintain} bmr={this.props.bmr}/>
@@ -90,10 +94,10 @@ class BmrCalorieResults extends React.Component {
 
         {this.props.exerciseShown === true ?
         <div onClick={this.props.showExercise} id="results-card-drop-active">
-          <h2 style={{fontSize:"30px", fontStyle: "italic"}}>EXERCISE<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+          <h2 style={{fontSize:"30px", fontStyle: "italic"}}>CARDIO<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
         </div> :
         <div onClick={this.props.showExercise} id="results-card-drop">
-          <h2 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>EXERCISE<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+          <h2 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>CARDIO<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
         </div> }
 
         {this.props.exerciseShown === true ?
@@ -108,7 +112,7 @@ class BmrCalorieResults extends React.Component {
 
         <Link to="/unleash-your-fitness-potential" target="_blank">
           <div id="take-action-card" onClick={this.props.showLandingPage} style={{marginBottom: "80px"}}>
-            <h2 style={{fontSize:"30px", fontStyle: "italic"}}>READY TO TAKE ACTION?<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="arrow right" size="tiny"/></h2>
+            <h2 style={{fontSize:"30px", fontStyle: "italic"}}>START TODAY<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="arrow right" size="tiny"/></h2>
           </div>
         </Link><br/>
 

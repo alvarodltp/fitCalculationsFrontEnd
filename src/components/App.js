@@ -16,6 +16,7 @@ import Invite from './Invite'
 import LandingPage from './LandingPage'
 import CountDown from './CountDown'
 import NavBarMobile from './NavBarMobile'
+import ThankYouAfterPurchase from './ThankYouAfterPurchase'
 
 class App extends React.Component {
   constructor(){
@@ -97,6 +98,7 @@ initializeIntercom = () => {
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
         <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
         <Route exact path="/unleash-your-fitness-potential" render={props => <LandingPage /> } />
+        <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
         {this.state.stepNumber === 0 || this.state.showResultsPage === true ? <Footer /> : null }
       </div>
     )

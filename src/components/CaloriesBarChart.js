@@ -1,6 +1,5 @@
 import React from 'react';
-import {Bar} from 'react-chartjs-2';
-import { Popup } from 'semantic-ui-react'
+import {Line} from 'react-chartjs-2';
 
 class CaloriesBarChart extends React.Component {
   render() {
@@ -11,15 +10,31 @@ class CaloriesBarChart extends React.Component {
         'Goal Calories'
       ],
       datasets: [{
-        label: 'Bmr and Calories Results',
+        label: 'BMR and Calories',
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: ['#2761f1'],
+        borderColor: ['#2761f1'],
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: ['#e80aaa','#e80aaa','#e80aaa'],
+        pointBackgroundColor: '#fff',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: ['#e80aaa','#e80aaa','#e80aaa'],
+        pointHoverBorderColor: ['#e80aaa','#e80aaa','#e80aaa'],
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
         data: [this.props.bmr, this.props.caloriesToMaintain, this.props.caloriesForGoal],
-        backgroundColor: ['#2761f1','#e80aaa','#D3D3D3'],
-        hoverBackgroundColor: ['#2761f1','#e80aaa','#D3D3D3']
+        hoverBackgroundColor: ['#e80aaa','#e80aaa','#e80aaa']
       }]
-    }
+  }
 
     return (
-      <Bar
+      <Line
          data={data}
          width={300}
          height={300}
