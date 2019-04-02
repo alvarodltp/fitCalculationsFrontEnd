@@ -14,8 +14,8 @@ class Loading extends React.Component {
           />
         </div>
         <p style={{fontStyle: "italic", fontSize: "10px"}}>
-          Hang in tight, {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}.<br/>
-          We are getting your results ready. 💪
+          Hang tight, {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}.<br/>
+          Getting your personalized results ready 💪
         </p>
       </div>
     )

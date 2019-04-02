@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, Icon, Divider, Reveal, Image } from 'semantic-ui-react'
+import { Card, Button, Icon, Divider, Reveal, Image, Grid } from 'semantic-ui-react'
 import ShareButtons from './ShareButtons'
 import {
   BrowserView,
@@ -27,7 +27,7 @@ class BmrCalorieResults extends React.Component {
       </Divider>
         {this.props.motivationToGetFit === "Health Reasons" ?
         <div id="intro-results">
-          <p style={{textAlign: "left", fontSize: "18px"}}>{this.props.user["name"].charAt(0).toUpperCase() + this.props.user["name"].slice(1)}, that's awesome you want to {this.props.goal.toLowerCase()} and most importantly, that you want to improve your {this.props.motivationToGetFit.slice(0, 6).toLowerCase()}! It really isn't rocket science and you are closer to your goals than what you think. You have super powerful information available to you now, and it is up to you to take action to get the body and get the body and health you deserve. Read your results fully and let us know if you have any questions!</p>
+          <p style={{textAlign: "left", fontSize: "18px"}}>{this.props.user["name"].charAt(0).toUpperCase() + this.props.user["name"].slice(1)}, that's awesome you want to {this.props.goal.toLowerCase()} and most importantly, that you want to improve your {this.props.motivationToGetFit.slice(0, 6).toLowerCase()}! It really isn't rocket science and you are closer to your goals than what you think. You have super powerful information available to you now, and it is up to you to take action to get the body and health you deserve. Read your results fully and let us know if you have any questions!</p>
         </div> :
         <div id="intro-results">
           <p style={{textAlign: "left", fontSize: "18px"}}>{this.props.user["name"].charAt(0).toUpperCase() + this.props.user["name"].slice(1)}, that's awesome you have a {this.props.motivationToGetFit.toLowerCase()} coming up and that you want to look amazing for it. It isn't rocket science to {this.props.goal.toLowerCase()} and get the body you want. It's simple, follow your results and you will be amazed at the progress you will make. Don't hesitate to chat with us if you have any questions.</p>
@@ -35,20 +35,34 @@ class BmrCalorieResults extends React.Component {
 
         {this.props.caloriesShown === true ?
         <div id="results-card-drop-active" onClick={this.props.showCalories} >
-          <h1 style={{fontSize:"30px", fontStyle: "italic"}}>BMR AND CALORIES<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus"/></h1>
+          <h1 style={{fontSize:"30px", fontStyle: "italic"}}>CALORIES<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus"/></h1>
         </div> :
         <div id="results-card-drop" onClick={this.props.showCalories} >
-          <h1 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>BMR AND CALORIES<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus"/></h1>
+          <h1 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>CALORIES<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus"/></h1>
         </div> }
 
           {this.props.caloriesShown === true ?
           <Fade top >
             <div style={{width: "80%", margin: "0 auto", marginTop:"10px"}}>
-              <p style={{textAlign: "left", fontSize: "18px"}}>Based on your information, you need {this.props.caloriesForGoal} daily calories in order to {this.props.goal.toLowerCase()}. {this.props.user["name"].charAt(0).toUpperCase() + this.props.user["name"].slice(1)}, less calories doesn't mean better. This is the number you need to get to your goal in a steady and healthy way.</p>
-              <p style={{textAlign: "left", fontSize: "18px"}}>BMR (Basal Metabolic Rate)<Popup trigger={<Button id="more-info-Button-calories" content='This is a warm-up zone for many, and great for people just starting an exercise program.' icon='info circle' />} /></p>
-              <p style={{textAlign: "left", fontSize: "18px"}}>Calories To Maintain<Popup trigger={<Button id="more-info-Button-calories" content='This is a warm-up zone for many, and great for people just starting an exercise program.' icon='info circle' />} /></p>
-              <p style={{textAlign: "left", fontSize: "18px"}}>Goal Calories<Popup trigger={<Button id="more-info-Button-calories" content='This is a warm-up zone for many, and great for people just starting an exercise program.' icon='info circle' />} /></p>
+              <p style={{textAlign: "left", fontSize: "18px"}}>Based on the information you provided, we have determined you need {this.props.caloriesForGoal} daily calories in order to {this.props.goal.toLowerCase()}. {this.props.user["name"].charAt(0).toUpperCase() + this.props.user["name"].slice(1)}, most people assume their numbers are high but remember, less calories doesn't mean faster results. Stick to your numbers and you will reach your goal in a steady and healthy way.</p>
+
+              <Grid style={{margin: "0 auto"}} stackable columns={3}>
+                <Grid.Row>
+                  <Grid.Column width={5.3}>
+                    <p style={{textAlign: "center", fontSize: "18px"}}>BMR (Basal Metabolic Rate)<Popup trigger={<Button id="more-info-Button-calories" icon='info circle' />} content='Your Basal Metabolic Rate is the number of calories your body needs to perform basic life-sustaining functions such as breathing, processing nutrients, circulation, and cell production. This is the base number used to determine your maintnance calories and goal calories.'/></p>
+                  </Grid.Column>
+                  <Grid.Column width={5.3}>
+                    <p style={{textAlign: "center", fontSize: "18px"}}>Maintnance Calories<Popup trigger={<Button id="more-info-Button-calories" icon='info circle' />} content='This is the number of calories you need in order to keep the same weight. If you consume this number of calories, your body will not change.'/></p>
+                  </Grid.Column>
+                  <Grid.Column width={5.3}>
+                    <p style={{textAlign: "center", fontSize: "18px"}}>Goal Calories<Popup trigger={<Button id="more-info-Button-calories" icon='info circle' />} content='This is your goal calorie number. Based on the number of pounds you want to lose or gain, we use your maintnance calories to either substract or add a specific amount of calories based on your goal.' /></p>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
             </div>
+
+
+
             <div style={{width: "80%", margin: "0 auto"}}>
               <CaloriesBarChart caloriesForGoal={this.props.caloriesForGoal} caloriesToMaintain={this.props.caloriesToMaintain} bmr={this.props.bmr}/>
             </div>
@@ -65,7 +79,7 @@ class BmrCalorieResults extends React.Component {
         {this.props.dietShown === true ?
         <Fade top >
           <div style={{width: "80%", margin: "0 auto", marginTop:"10px"}}>
-            <p style={{textAlign: "left", fontSize: "18px"}}>Having a {this.props.dietType.toLowerCase()} diet is great as long as you are getting a balanced amount of nutrients your body needs to perform at its best. Here is our advice, don't focus too much on calories and instead make sure you are hitting your macros consistently. By hitting your macros we mean getting very close to the daily grams of protein, carbohydrates, and fats your body needs.
+            <p style={{textAlign: "left", fontSize: "18px"}}>Having a {this.props.dietType.toLowerCase()} diet is great as long as you are getting a balanced amount of nutrients your body needs to perform at its best.
             Based on your {this.props.bodyType} body type, we have split your macronutrients percentage as follows for optimal results.</p>
           </div>
           <div style={{width: "70%", margin: "0 auto"}}>
@@ -84,7 +98,8 @@ class BmrCalorieResults extends React.Component {
         {this.props.macrosShown === true ?
         <Fade top >
           <div style={{width: "80%", margin: "0 auto", marginTop:"10px"}} >
-            <p style={{textAlign: "left", fontSize: "18px"}}>Macros are the basic building blocks of food - protein, carbs, and fats. These make up the calories we calculated based on your needs and goal. These are the most imporant part of your success so follow your macro split is as follows: </p>
+            <p style={{textAlign: "left", fontSize: "18px"}}>Macros are the basic building blocks of food - protein, carbs, and fats. These make up the calories we calculated based on your needs and goal.
+             Here is our advice, don't focus too much on calories and instead make sure you are hitting your macros consistently. By hitting your macros we mean getting very close to the daily grams of protein, carbohydrates, and fats your body needs.</p>
           </div>
           <div style={{width: "70%", margin: "0 auto"}}>
             <MacrosPieChart protein={this.props.protein} carbs={this.props.carbs} fats={this.props.fats}/>

@@ -26,7 +26,7 @@ class ExerciseTable extends React.Component {
                 </Header.Content>
               </Header>
             </Table.Cell>
-            <Table.Cell>{Math.round(this.props.maxHeartRate * 0.50)} - {Math.round(this.props.maxHeartRate * 0.60)} <Popup trigger={<Button id="more-info-Button" icon='info circle' />} content='This is a warm-up zone for many, and great for people just starting an exercise program.' /></Table.Cell>
+            <Table.Cell>{Math.round(this.props.maxHeartRate * 0.50)} - {Math.round(this.props.maxHeartRate * 0.60)} <Popup trigger={<Button id="more-info-Button" icon='info circle' />} content='This is your warm-up zone, and great if you are just starting an exercise program.' /></Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell>
@@ -37,7 +37,7 @@ class ExerciseTable extends React.Component {
                 </Header.Content>
               </Header>
             </Table.Cell>
-            <Table.Cell>{Math.round(this.props.maxHeartRate * 0.60)} - {Math.round(this.props.maxHeartRate * 0.70)} <Popup trigger={<Button id="more-info-Button" icon='info circle' />} content='This is a fat burning zone. Your body fuels itself with 85% fat, 5% protein, and 10% carbohydrate.' /></Table.Cell>
+            <Table.Cell>{Math.round(this.props.maxHeartRate * 0.60)} - {Math.round(this.props.maxHeartRate * 0.70)} <Popup trigger={<Button id="more-info-Button" icon='info circle' />} content='This is your fat burning zone. Your body fuels itself with 85% fat, 5% protein, and 10% carbohydrate.' /></Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell>
@@ -48,7 +48,7 @@ class ExerciseTable extends React.Component {
                 </Header.Content>
               </Header>
             </Table.Cell>
-            <Table.Cell>{Math.round(this.props.maxHeartRate * 0.70)} - {Math.round(this.props.maxHeartRate * 0.80)} <Popup trigger={<Button id="more-info-Button" icon='info circle' />} content='The aerobic heart rate zone is the zone to aim for when training for endurance. In the aerobic zone, you burn 50% of your calories from fat, 50% from carbohydrate, and less than 1% from protein. ' /></Table.Cell>
+            <Table.Cell>{Math.round(this.props.maxHeartRate * 0.70)} - {Math.round(this.props.maxHeartRate * 0.80)} <Popup trigger={<Button id="more-info-Button" icon='info circle' />} content='The aerobic heart rate zone is your zone to aim for when training for endurance. In the aerobic zone, you burn 50% of your calories from fat, 50% from carbohydrate, and less than 1% from protein. ' /></Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell>

@@ -87,13 +87,10 @@ class LandingPage extends React.Component {
                       You want straight to the point and proven to work system to get to your goal
                     </li>
                     <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
-                      You want fast sustainable results
+                      You want fast and sustainable results
                     </li>
                     <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
                       You want to gain your confidence and energy back
-                    </li>
-                    <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
-                      You want to be able to perform better at work
                     </li>
                     <li style={{textAlign: "left", paddingLeft: "10px", paddingBottom: "10px"}}>
                       You want to look and feel amazing
@@ -112,16 +109,16 @@ class LandingPage extends React.Component {
             <Grid stackable columns={2}>
               <Grid.Row>
                 <Grid.Column style={{marginBottom: "40px"}} width={7}>
-                  <Image src={'../iphone-blue.png'} />
+                  <Image src={'../your-results.png'} />
                 </Grid.Column>
                 <Grid.Column width={9}>
-                  <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>Detailed Results</h4>
-                  <p style={{textAlign: "left", marginBottom: "25px"}}>Understand your results explained in an easy to digest way.</p>
+                  <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>Detailed Results Guide</h4>
+                  <p style={{textAlign: "left", marginBottom: "25px"}}>All the results you got from the calculation and much more explained in an easy to digest way.</p>
                   <ul>
                     <li style={{paddingBottom: "5px"}}>Your calories and macronutrients needs</li>
                     <li style={{paddingBottom: "5px"}}>Your BMR and BMI analysis</li>
                     <li style={{paddingBottom: "5px"}}>Your body type and gender</li>
-                    <li style={{paddingBottom: "5px"}}>Your THR(Target Heart Rate) Zones</li>
+                    <li style={{paddingBottom: "5px"}}>Your THR(Target Heart Rate) zones and more</li>
                   </ul>
               </Grid.Column>
               </Grid.Row>
@@ -138,7 +135,7 @@ class LandingPage extends React.Component {
                 </Grid.Column>
                 <Grid.Column width={9}>
                   <h4 style={{textAlign: "left", marginBottom: "25px"}}>Easy To Follow Action Plan</h4>
-                  <p style={{textAlign: "left", marginBottom: "25px"}}>Super simple, yet ridiculously comprehensive program to follow based on your fat loss or muscle building goals.</p>
+                  <p style={{textAlign: "left", marginBottom: "25px"}}>Super simple, yet ridiculously comprehensive system to follow based on your fat loss or muscle building goals.</p>
                   <ul>
                     <li style={{paddingBottom: "5px"}}>A step by step guide on how to implement your results</li>
                     <li style={{paddingBottom: "5px"}}>Refeed and carb cycling strategies to make continuous progress</li>
@@ -201,7 +198,7 @@ class LandingPage extends React.Component {
               icon={<FaCheck />}
             >
               <Image style={{margin: "0 auto"}} src={null} />
-              <h4>You Invest In Yourself</h4>
+              <h4>Invest In Yourself</h4>
               <p style={{fontSize: "16px", textAlign: "left"}}>
                 Our coaches have your numbers ready to start working on a personalized strategy exclusively for you as soon as you make a purchase.
               </p>
@@ -225,7 +222,7 @@ class LandingPage extends React.Component {
               <Image style={{margin: "0 auto"}} src={null} />
               <h4>We Implement A guide And Strategy</h4>
               <p style={{fontSize: "16px", textAlign: "left"}}>
-                We include over 20 data points such as your BMR, BMI, macronutrient breakdown percetange, and other useful information we will use to make your guide perfect.
+                We include over 15 data points such as your BMR, BMI, macronutrient breakdown percetange, and other useful information we will use to make your guide perfect.
               </p>
             </VerticalTimelineElement>
 
@@ -234,7 +231,7 @@ class LandingPage extends React.Component {
               icon={<FaCheck />}
             >
               <Image style={{margin: "0 auto"}} src={null} />
-              <h4>We Send Your guide</h4>
+              <h4>We Send Your Guide</h4>
               <p style={{fontSize: "16px", textAlign: "left"}}>
                 We will send you the guide within 2 business days of purchase.
               </p>
@@ -257,7 +254,7 @@ class LandingPage extends React.Component {
                     <li style={{paddingBottom: "5px"}}>50 quick and easy delicious recipes</li>
                     <li style={{paddingBottom: "5px"}}>Nutrition information listed for every single one of them</li>
                     <li style={{paddingBottom: "5px"}}>Includes burgers, pancakes, and other favorites</li>
-                    <li style={{paddingBottom: "5px"}}>Included for free for a limited time!</li>
+                    <li style={{paddingBottom: "5px"}}>Included for FREE for a limited time!</li>
                   </ul>
               </Grid.Column>
               </Grid.Row>
@@ -273,7 +270,7 @@ class LandingPage extends React.Component {
                   <Image src={'../detailed-results'} />
                 </Grid.Column>
                 <Grid.Column width={9}>
-                  <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>Lifestyle Tips And Tricks<h4 style={{color: "red"}}>$̶9̶.̶9̶9̶</h4>FREE</h4>
+                  <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>Lifestyle Tips<h4 style={{color: "red"}}>$̶9̶.̶9̶9̶</h4>FREE</h4>
                   <p style={{textAlign: "left", marginBottom: "25px"}}>Learn good habits that will accelerate your progress.</p>
                   <ul>
                     <li style={{paddingBottom: "5px"}}>Sleep</li>
@@ -294,17 +291,20 @@ class LandingPage extends React.Component {
             <Grid style={{paddingBottom: "50px"}} stackable columns={2}>
               <Grid.Row>
                 <Grid.Column width={8}>
+                  <Image src={'../books-3.png'} />
                   <ul>
                     <li style={{paddingBottom: "5px"}}>Detailed Personalized Results ($60 Value)</li>
-                    <li style={{paddingBottom: "5px"}}>Personalized Easy To Follow Action Plan ($80 Value)</li>
+                    <li style={{paddingBottom: "5px"}}>Personalized Easy To Follow Strategy ($80 Value)</li>
                     <li style={{paddingBottom: "5px"}}>50 Incredible Recipes ($20.00 Value)</li>
-                    <li style={{paddingBottom: "5px"}}>Lifestyle Tips And Tricks Guide ($9.99 Value)</li>
+                    <li style={{paddingBottom: "5px"}}>Lifestyle Tips($9.99 Value)</li>
                     <li style={{paddingBottom: "5px"}}>Online Support (Priceless)</li>
+                    <li style={{paddingBottom: "5px"}}>Refeed And Carb Cycling Strategy</li>
+                    <li style={{paddingBottom: "5px"}}>Macro Friendly Food List</li>
                   </ul>
                 </Grid.Column>
                 <Grid.Column style={{textAlign: "center"}} width={8}>
                   <h1 style={{fontSize: "40px", color: "red"}}>$̶1̶6̶9̶.̶9̶9̶</h1>
-                  <h1 style={{fontSize: "40px", color: "green"}}>Now Only $29.99*</h1>
+                  <h1 style={{fontSize: "40px", color: "green"}}>Only $29.99*</h1>
                   <a target="_self" href="https://fitcalculations.samcart.com/products/f-ck-diets">
                     <Button id="cta-button" content='YES, I WANT TO TRANSFORM' size="large" icon='angle double right' labelPosition='right' />
                   </a>

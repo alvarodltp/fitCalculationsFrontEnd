@@ -346,9 +346,10 @@ calculateMacros = (e) => {
   let carbPercentage;
   let fatPercentage;
   if(bodyType === "Ectomorph"){
-    protein = Math.round(this.state.caloriesForGoal * .30 / 4)
-    carbs = Math.round(this.state.caloriesForGoal * .50 / 4)
+    protein = Math.round(this.state.caloriesForGoal * .25 / 4)
+    carbs = Math.round(this.state.caloriesForGoal * .55 / 4)
     fats = Math.round(this.state.caloriesForGoal * .20 / 9)
+    console.log(protein)
     proteinPercentage = 25
     carbPercentage = 55
     fatPercentage = 20
@@ -356,6 +357,7 @@ calculateMacros = (e) => {
     protein = Math.round(this.state.caloriesForGoal * .30 / 4)
     carbs = Math.round(this.state.caloriesForGoal * .40 / 4)
     fats = Math.round(this.state.caloriesForGoal * .30 / 9)
+    console.log(protein)
     proteinPercentage = 30
     carbPercentage = 40
     fatPercentage = 30
@@ -363,6 +365,7 @@ calculateMacros = (e) => {
     protein = Math.round(this.state.caloriesForGoal * .35 / 4)
     carbs = Math.round(this.state.caloriesForGoal * .25 / 4)
     fats = Math.round(this.state.caloriesForGoal * .40 / 9)
+    console.log(protein)
     proteinPercentage = 35
     carbPercentage = 25
     fatPercentage = 40
