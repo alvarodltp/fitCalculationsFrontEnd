@@ -26,7 +26,7 @@ class CaloriesBarChart extends React.Component {
         pointHoverBackgroundColor: ['#e80aaa','#e80aaa','#e80aaa'],
         pointHoverBorderColor: ['#e80aaa','#e80aaa','#e80aaa'],
         pointHoverBorderWidth: 2,
-        pointRadius: 1,
+        pointRadius: 3,
         pointHitRadius: 10,
         data: [this.props.bmr, this.props.caloriesToMaintain, this.props.caloriesForGoal],
         hoverBackgroundColor: ['#e80aaa','#e80aaa','#e80aaa']
