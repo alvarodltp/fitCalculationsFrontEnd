@@ -7,6 +7,7 @@ import { FaCheck } from "react-icons/fa";
 import WeightChart from './WeightChart'
 import CountDown from './CountDown'
 import Fade from 'react-reveal/Fade';
+import ReactGA from 'react-ga';
 
 class LandingPage extends React.Component {
   constructor(){
@@ -17,6 +18,27 @@ class LandingPage extends React.Component {
       showFaq3: false,
       showFaq4: false
     }
+  }
+
+  getEvent1 = () => {
+    ReactGA.event({
+    category: 'Click',
+    action: 'Call To Action On Timer'
+    })
+  }
+
+  getEvent2 = () => {
+    ReactGA.event({
+    category: 'Click',
+    action: 'Call To Action On Money Back'
+    })
+  }
+
+  getEvent3 = () => {
+    ReactGA.event({
+    category: 'Click',
+    action: 'Call To Action On Bottom'
+    })
   }
 
   showFaq1 = () => {
@@ -306,7 +328,7 @@ class LandingPage extends React.Component {
                   <h1 style={{fontSize: "40px", color: "red"}}>$̶1̶6̶9̶.̶9̶9̶</h1>
                   <h1 style={{fontSize: "40px", color: "green"}}>Only $29.99*</h1>
                   <a target="_self" href="https://fitcalculations.samcart.com/products/f-ck-diets">
-                    <Button id="cta-button" content='YES, I WANT TO TRANSFORM' size="large" icon='angle double right' labelPosition='right' />
+                    <Button onClick={this.getEvent1} id="cta-button" content='YES, I WANT TO TRANSFORM' size="large" icon='angle double right' labelPosition='right' />
                   </a>
 
               </Grid.Column>
@@ -329,7 +351,7 @@ class LandingPage extends React.Component {
                   <p style={{textAlign: "left"}}>We are confident your personalized program will give you the results you want. However, if you haven't got closer to your goals, I will refund 100% of the cost.</p>
                   <p style={{textAlign: "left"}}>All you need to do is provide your 30 day food log to verify the program was followed as it was designed and created specifically for you.</p>
                   <a target="_self" href="https://fitcalculations.samcart.com/products/f-ck-diets">
-                    <Button id="cta-button" content='GET 82% OFF NOW' size="large" icon='angle double right' labelPosition='right' />
+                    <Button onClick={this.getEvent2} id="cta-button" content='GET 82% OFF NOW' size="large" icon='angle double right' labelPosition='right' />
                   </a>
               </Grid.Column>
               </Grid.Row>
@@ -393,7 +415,7 @@ class LandingPage extends React.Component {
           <div style={{paddingBottom: "30px"}}>
             <h1 style={{fontSize:"36px", paddingTop: "20px", color: "white", fontStyle: "italic"}}>Are You Ready?</h1>
             <a target="_self" href="https://fitcalculations.samcart.com/products/f-ck-diets">
-              <Button id="cta-button" content='GET 82% OFF NOW' size="large" icon='angle double right' labelPosition='right' />
+              <Button onClick={this.getEvent3} id="cta-button" content='GET 82% OFF NOW' size="large" icon='angle double right' labelPosition='right' />
             </a>
           </div>
         </div>
