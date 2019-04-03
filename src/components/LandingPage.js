@@ -20,6 +20,20 @@ class LandingPage extends React.Component {
     }
   }
 
+  componentDidMount(){
+    this.initGA()
+    this.logPageView()
+  }
+
+  initGA = () => {
+    ReactGA.initialize('UA-131459392-1');
+  }
+
+  logPageView = () => {
+    ReactGA.set({ page: window.location.pathname })
+    ReactGA.pageview(window.location.pathname);
+  }
+
   getEvent1 = () => {
     ReactGA.event({
     category: 'Click',
