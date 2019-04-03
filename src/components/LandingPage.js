@@ -174,7 +174,7 @@ class LandingPage extends React.Component {
                   <p style={{textAlign: "left", marginBottom: "25px"}}>Super simple, yet ridiculously comprehensive system to follow based on your fat loss or muscle building goals.</p>
                   <ul>
                     <li style={{paddingBottom: "5px"}}>A step by step guide on how to implement your results</li>
-                    <li style={{paddingBottom: "5px"}}>Refeed and carb cycling strategies to make continuous progress</li>
+                    <li style={{paddingBottom: "5px"}}>Refeed and carb cycling strategies to make continuous progress and avoid plateus</li>
                     <li style={{paddingBottom: "5px"}}>Meal guide examples with different calorie levels that have been proven to work</li>
                     <li style={{paddingBottom: "5px"}}>A grocery shopping list with macro friendly foods</li>
                   </ul>
@@ -189,7 +189,7 @@ class LandingPage extends React.Component {
             <Grid stackable columns={2}>
               <Grid.Row>
                 <Grid.Column style={{marginBottom: "40px"}} width={7}>
-                  <Image src={'../exclusive-recipes.jpg'} />
+                  <Image src={'../online-support.png'} />
                 </Grid.Column>
                 <Grid.Column width={9}>
                   <h4 style={{textAlign: "left", marginBottom: "25px"}}>Online Support</h4>

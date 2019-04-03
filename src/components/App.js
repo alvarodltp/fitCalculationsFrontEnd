@@ -17,6 +17,9 @@ import LandingPage from './LandingPage'
 import CountDown from './CountDown'
 import NavBarMobile from './NavBarMobile'
 import ThankYouAfterPurchase from './ThankYouAfterPurchase'
+import ReactPixel from 'react-facebook-pixel';
+
+
 
 class App extends React.Component {
   constructor(){
@@ -29,13 +32,14 @@ class App extends React.Component {
     }
   }
 
-
 componentDidMount() {
   this.initGA()
   this.logPageView()
   this.isMobileDevice()
   this.initializeIntercom()
+  ReactPixel.init('433459070732534')
 }
+
 
 isMobileDevice = () => {
   this.setState({
@@ -88,6 +92,9 @@ initializeIntercom = () => {
 }
 
   render() {
+
+    const ReactPixel =  require('react-facebook-pixel');
+    
     return (
       <div className="App">
         {this.state.mobileDevice === true ? <NavBarMobile/> : <NavBar/> }

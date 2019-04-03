@@ -52,7 +52,7 @@ class SignUpForm extends React.Component {
             <Divider style={{margin: "0 auto", fontSize: "30px", marginTop: "35px", width: "80%"}} horizontal>
               Your Results Are Ready
             </Divider>
-            <p>To get your results and a full report on your fitness potential, just let us know where to send it.</p>
+            <p>To get your results and a 7 day guide to fit, just let us know where to send it.</p>
           </div>
           <div id="sign-up-form-card">
             <Input id="sign-up-input" fluid onChange={this.props.getName} size='huge' maxLength="255" placeholder='Name' /><br/>

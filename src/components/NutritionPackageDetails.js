@@ -63,6 +63,12 @@ class NutritionPackageDetails extends React.Component {
       </div>
       <div>
         <Card id="image-card">
+          <Image id="img-motivation" src={'../calendar.png'} />
+          <Card.Content>
+            <h4>You are working out but not seeing results</h4>
+          </Card.Content>
+        </Card>
+        <Card id="image-card">
           <Image id="img-motivation" src={'../food-you-love.png'} />
           <Card.Content>
             <h4>You are tired of following diets that don't work</h4>
@@ -72,12 +78,6 @@ class NutritionPackageDetails extends React.Component {
           <Image id="img-motivation" src={'../burger.png'} />
           <Card.Content>
             <h4>You are tired of restricting yourself from foods you love</h4>
-          </Card.Content>
-        </Card>
-        <Card id="image-card">
-          <Image id="img-motivation" src={'../calendar.png'} />
-          <Card.Content>
-            <h4>You are working out but not seeing results</h4>
           </Card.Content>
         </Card>
         <Card id="image-card">

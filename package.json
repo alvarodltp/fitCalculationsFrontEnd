@@ -21,6 +21,7 @@
     "react-device-detect": "^1.6.1",
     "react-dom": "^16.7.0",
     "react-dom-confetti": "0.0.10",
+    "react-facebook-pixel": "^0.1.2",
     "react-ga": "^2.5.6",
     "react-icons": "^3.5.0",
     "react-reveal": "^1.2.2",

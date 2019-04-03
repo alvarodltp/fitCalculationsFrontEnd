@@ -46,7 +46,7 @@ class UserInfoForm extends React.Component {
                 { this.props.goal !== "" ?
                 <Grid.Row>
                   <Grid.Column width={16}>
-                    <Form.Select onChange={(e) => {this.props.getWeightToLose(e); this.props.enableButton(e)}} name='weightPerWeek' label={this.props.goal === 'Lose Weight' ? 'Weight To Lose' : 'Weight To Gain'} options={weightPerWeek} placeholder="Weight To Lose Per Week..." />
+                    <Form.Select onChange={(e) => {this.props.getWeightToLose(e); this.props.enableButton(e)}} name='weightPerWeek' label={this.props.goal === 'Lose Weight/Get Lean' ? 'Weight To Lose' : 'Weight To Gain'} options={weightPerWeek} placeholder="Weight To Lose Per Week..." />
                   </Grid.Column>
                 </Grid.Row> : null }
                 <Grid.Row>
