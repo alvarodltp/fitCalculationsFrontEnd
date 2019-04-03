@@ -10,7 +10,7 @@ class CaloriesBarChart extends React.Component {
         'Goal Calories'
       ],
       datasets: [{
-        label: 'BMR and Calories',
+        label: 'Calories',
         fill: false,
         lineTension: 0.1,
         backgroundColor: ['#2761f1'],

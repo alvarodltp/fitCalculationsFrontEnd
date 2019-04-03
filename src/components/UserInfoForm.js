@@ -54,7 +54,7 @@ class UserInfoForm extends React.Component {
                     <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} onInput={(e)=>{e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0,2)}} name='age' type='number' label="Age" placeholder='Age...' />
                   </Grid.Column>
                   <Grid.Column width={8}>
-                    <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} onInput={(e)=>{e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0,5)}} name='weightLb' type='number' label='Weight (Pounds)' placeholder='Weight...' />
+                    <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} onInput={(e)=>{e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0,3)}} name='weightLb' type='number' label='Weight (Pounds)' placeholder='Weight...' />
                   </Grid.Column>
                 </Grid.Row>
               </Grid><br/>

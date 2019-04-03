@@ -131,7 +131,7 @@ class LandingPage extends React.Component {
             <Grid stackable columns={2}>
               <Grid.Row>
                 <Grid.Column style={{marginBottom: "40px"}} width={7}>
-                  <Image src={'../exclusive-recipes.jpg'} />
+                  <Image src={'../strategy.png'} />
                 </Grid.Column>
                 <Grid.Column width={9}>
                   <h4 style={{textAlign: "left", marginBottom: "25px"}}>Easy To Follow Action Plan</h4>
