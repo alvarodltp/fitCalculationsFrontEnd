@@ -52,10 +52,10 @@ class BmrCalorieResults extends React.Component {
                     <p style={{textAlign: "center", fontSize: "18px"}}>BMR (Basal Metabolic Rate)<Popup trigger={<Button id="more-info-Button-calories" icon='info circle' />} content='Your Basal Metabolic Rate is the number of calories your body needs to perform basic life-sustaining functions such as breathing, processing nutrients, circulation, and cell production. This is the base number used to determine your maintnance calories and goal calories.'/></p>
                   </Grid.Column>
                   <Grid.Column width={5.3}>
-                    <p style={{textAlign: "center", fontSize: "18px"}}>Maintnance Calories<Popup trigger={<Button id="more-info-Button-calories" icon='info circle' />} content='This is the number of calories you need in order to keep the same weight. If you consume this number of calories, your body will not change.'/></p>
+                    <p style={{textAlign: "center", fontSize: "18px"}}>Maintenance Calories<Popup trigger={<Button id="more-info-Button-calories" icon='info circle' />} content='This is the number of calories you need in order to keep the same weight. If you consume this number of calories, your body will not change.'/></p>
                   </Grid.Column>
                   <Grid.Column width={5.3}>
-                    <p style={{textAlign: "center", fontSize: "18px"}}>Goal Calories<Popup trigger={<Button id="more-info-Button-calories" icon='info circle' />} content='This is your goal calorie number. Based on the number of pounds you want to lose or gain, we use your maintnance calories to either substract or add a specific amount of calories based on your goal.' /></p>
+                    <p style={{textAlign: "center", fontSize: "18px"}}>Goal Calories<Popup trigger={<Button id="more-info-Button-calories" icon='info circle' />} content='This is your goal calorie number. Based on the number of pounds you want to lose or gain, we use your maintenance calories to either substract or add a specific amount of calories based on your goal.' /></p>
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
