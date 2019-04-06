@@ -19,7 +19,7 @@ class CountDown extends React.Component {
 
     return(
       <Countdown
-        date={'Sun, 7 Apr 2019 00:00:00'}
+        date={'Sun, 8 Apr 2019 00:00:00'}
         intervalDelay={0}
         daysInHours={true}
         zeroPadTime={2}

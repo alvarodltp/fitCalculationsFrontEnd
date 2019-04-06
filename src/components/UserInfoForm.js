@@ -29,24 +29,24 @@ class UserInfoForm extends React.Component {
               <Grid stackable columns={2}>
                 <Grid.Row>
                   <Grid.Column width={8}>
-                    <Form.Select style={{width: "100%"}} onChange={(e) => {this.props.getFeet(e); this.props.enableButton(e)}} options={feetOptions} name='heightFeet' label='Height (Feet)' placeholder='Feet...' />
+                    <Form.Select style={{width: "100%"}} onChange={(e) => {this.props.getFeet(e); this.props.enableButton(e)}} value={this.props.feet} options={feetOptions} name='heightFeet' label='Height (Feet)' placeholder='Feet...' />
                   </Grid.Column>
                   <Grid.Column width={8}>
-                    <Form.Select style={{width: "100%"}} onChange={(e) => {this.props.getInches(e); this.props.enableButton(e)}} options={inchesOptions} name='heightInches' label='Height (Inches)' placeholder='Inches...' />
+                    <Form.Select style={{width: "100%"}} onChange={(e) => {this.props.getInches(e); this.props.enableButton(e)}} value={this.props.inches} options={inchesOptions} name='heightInches' label='Height (Inches)' placeholder='Inches...' />
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column width={8}>
-                    <Form.Select onChange={(e) => {this.props.getActivityLevel(e); this.props.enableButton(e)}} name='activityLevel' label="Activity Level" options={activityOptions} placeholder="Activity Level..." />
+                    <Form.Select onChange={(e) => {this.props.getActivityLevel(e); this.props.enableButton(e)}} text={this.props.activityLevelText} options={activityOptions} name='activityLevel' label="Activity Level" placeholder="Activity Level..." />
                   </Grid.Column>
                   <Grid.Column width={8}>
-                    <Form.Select onChange={(e) => {this.props.getGoal(e); this.props.enableButton(e)}} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." />
+                    <Form.Select onChange={(e) => {this.props.getGoal(e); this.props.enableButton(e)}} text={this.props.goal} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." />
                   </Grid.Column>
                 </Grid.Row>
                 { this.props.goal !== "" ?
                 <Grid.Row>
                   <Grid.Column width={16}>
-                    <Form.Select onChange={(e) => {this.props.getWeightToLose(e); this.props.enableButton(e)}} name='weightPerWeek' label={this.props.goal === 'Lose Weight/Get Lean' ? 'Weight To Lose' : 'Weight To Gain'} options={weightPerWeek} placeholder="Weight To Lose Per Week..." />
+                    <Form.Select onChange={(e) => {this.props.getWeightToLose(e); this.props.enableButton(e)}} text={this.props.weightToManage} name='weightPerWeek' label={this.props.goal === 'Lose Weight/Get Lean' ? 'Weight To Lose' : 'Weight To Gain'} options={weightPerWeek} placeholder="Weight To Lose Per Week..." />
                   </Grid.Column>
                 </Grid.Row> : null }
                 <Grid.Row>

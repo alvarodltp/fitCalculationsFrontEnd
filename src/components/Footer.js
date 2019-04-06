@@ -51,7 +51,7 @@ class Footer extends React.Component {
               </Button>
             </Modal.Actions>
           </Modal>
-          <p style={{fontWeight: "bold"}}>2018 Fit Calculations</p>
+          <p style={{fontWeight: "bold"}}>2019 Fit Calculations</p>
 
           <Modal open={this.state.modalOpenDisclaimer} trigger={<p style={{fontWeight: "bold"}} onClick={this.handleOpenDisclaimer}>Disclaimer</p>}>
             <Modal.Header>Disclaimer</Modal.Header>

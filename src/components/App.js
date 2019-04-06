@@ -67,7 +67,6 @@ substractOneFromStep = () => {
   this.setState({
     stepNumber: this.state.stepNumber - 1
   })
-  this.scrollToBottom()
 }
 
 scrollToTop = () => {

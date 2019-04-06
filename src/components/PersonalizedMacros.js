@@ -11,9 +11,11 @@ class PersonalizedMacros extends React.Component {
       <React.Fragment>
       <div>
           <div style={{marginBottom: "40px"}}>
+
             <Divider id="title-body-type" horizontal>
                 SELECT YOUR BODY TYPE
             </Divider>
+
           </div>
             <Card id="body-type-points-card">
               <ul>
@@ -54,3 +56,5 @@ class PersonalizedMacros extends React.Component {
 }
 
 export default PersonalizedMacros
+
+// <p onClick={this.props.substractOneFromStep} style={{textAlign: "left"}}><Icon name="arrow left"/> Back</p>
