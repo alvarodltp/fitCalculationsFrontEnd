@@ -950,3 +950,7 @@ box-shadow: none;
   text-align: center;
   margin-top: 20%
 }
+
+.ui.dropdown>.default.text {
+  color: black
+}

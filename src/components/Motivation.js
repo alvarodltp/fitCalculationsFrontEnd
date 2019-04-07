@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image, Card, Icon, Divider} from 'semantic-ui-react'
+import {Image, Card, Icon, Divider, Popup} from 'semantic-ui-react'
 import Slide from 'react-reveal/Slide';
 
 class Motivation extends React.Component {
@@ -9,7 +9,7 @@ class Motivation extends React.Component {
       <Slide left>
         <div id="img-container-motivation">
           <Divider id="title-body-type" horizontal>
-              SELECT YOUR MOTIVATION
+            <Popup trigger={<Icon style={{margin: "0 auto"}} size="large" name="arrow left" onClick={this.props.substractOneFromStep} style={{textAlign: "left"}} />} content='Back' /> SELECT YOUR MOTIVATION
           </Divider>
           <Card onClick={(e) => {this.props.getMotivationToGetFit(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
             <Image id="img-diet-type" src={'../athletic_event.png'} />
