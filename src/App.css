@@ -92,7 +92,7 @@ span {
   box-shadow: none;
 }
 
-#bmr-results {
+/* #bmr-results {
   width: 80%;
   margin: 0 auto;
   margin-top: 15px;
@@ -100,9 +100,7 @@ span {
   border-radius: 15px !important;
   box-shadow: none;
   background: #F6F6F6;
-  /* border-style: solid;
-  border-color: #2761f1; */
-}
+} */
 
 #calories-result {
   width: 80%;
@@ -322,7 +320,7 @@ span {
 #macros-breakdown-form {
   width: 80%;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 #sign-up-form-card {

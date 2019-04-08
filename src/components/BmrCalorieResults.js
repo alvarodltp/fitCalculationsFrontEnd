@@ -14,6 +14,7 @@ import MacroPercentageChart from './MacroPercentageChart'
 import MacrosPieChart from './MacrosPieChart'
 import LandingPage from './LandingPage'
 import ExerciseTable from './ExerciseTable'
+import MacrosBreakdownForm from './MacrosBreakdownForm'
 import { Link } from "react-router-dom"
 import { Popup } from 'semantic-ui-react'
 
@@ -124,6 +125,28 @@ class BmrCalorieResults extends React.Component {
             <ExerciseTable age={this.props.age} maxHeartRate={this.props.maxHeartRate}/>
           </div>
         </Fade> : null }
+
+
+        {this.props.macroCalculatorShown === true ?
+        <div onClick={this.props.showMacroCalculator} id="results-card-drop-active">
+          <h2 style={{fontSize:"30px", fontStyle: "italic"}}>DAILY SPLIT<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+        </div> :
+        <div onClick={this.props.showMacroCalculator} id="results-card-drop">
+          <h2 style={{fontSize:"30px", fontStyle: "italic", fontWeight: "lighter"}}>DAILY SPLIT<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="plus" size="tiny"/></h2>
+        </div> }
+
+        {this.props.macroCalculatorShown === true ?
+        <Fade top>
+          <div style={{width: "80%", margin: "0 auto", marginTop:"10px", marginBottom: "20px"}} >
+            <p style={{textAlign: "left", fontSize: "18px"}}>The amount of macronutrients and calories you consume on each meal can vary drastically. However, if you follow your numbers, and by the end of the day you have successfully hit your numbers, you will see results. This calculator splits your calories and macros evenly just to give you an idea of the nutrition values each meal should have based on the selected number of meals you want to eat per day.</p>
+          </div>
+          <div style={{width: "80%", margin: "0 auto"}}>
+            <MacrosBreakdownForm caloriesForGoal={this.props.caloriesForGoal} protein={this.props.protein} carbs={this.props.carbs} fats={this.props.fats}/>
+          </div>
+        </Fade> : null }
+
+
+
 
         <Link to="/unleash-your-fitness-potential" target="_blank">
           <div id="take-action-card" onClick={this.props.showLandingPage} style={{marginBottom: "80px"}}>
