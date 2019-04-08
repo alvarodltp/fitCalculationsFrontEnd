@@ -340,7 +340,7 @@ class LandingPage extends React.Component {
                 </Grid.Column>
                 <Grid.Column style={{textAlign: "center"}} width={8}>
                   <h1 style={{fontSize: "40px", color: "red"}}>$̶1̶6̶9̶.̶9̶9̶</h1>
-                  <h1 style={{fontSize: "40px", color: "green"}}>Only $29.99*</h1>
+                  <h1 style={{fontSize: "40px", color: "green"}}>Only $39.99*</h1>
                   <a target="_self" href="https://fitcalculations.samcart.com/products/f-ck-diets">
                     <Button onClick={this.getEvent1} id="cta-button" content='YES, I WANT TO TRANSFORM' size="large" icon='angle double right' labelPosition='right' />
                   </a>
