@@ -85,7 +85,7 @@ class LandingPage extends React.Component {
       <React.Fragment>
       <div style={{width: "100%", backgroundColor: "red", height: "30px"}}>
         <div style={{paddingTop: "4px"}}>
-          <h4 style={{color: "white"}}>82% OFF LIMITED TIME PRE-ORDER SALE</h4>
+          <h4 style={{color: "white"}}>76% OFF LIMITED TIME PRE-ORDER SALE</h4>
         </div>
       </div>
 

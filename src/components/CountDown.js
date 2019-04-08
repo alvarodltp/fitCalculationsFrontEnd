@@ -13,13 +13,13 @@ class CountDown extends React.Component {
         return <Completionist />;
       } else {
         // Render a countdown
-        return <h3 style={{fontSize: "20px", color: "red"}}> 82% Sale Ends In {days} Days {hours} h {minutes} min {seconds} sec</h3>;
+        return <h3 style={{fontSize: "20px", color: "red"}}> 76% OFF Sale Ends In {days} Days {hours} h {minutes} min {seconds} sec</h3>;
       }
     };
 
     return(
       <Countdown
-        date={'Sun, 8 Apr 2019 00:00:00'}
+        date={'Mon, 15 Apr 2019 00:00:00'}
         intervalDelay={0}
         daysInHours={true}
         zeroPadTime={2}
