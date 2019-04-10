@@ -4,28 +4,31 @@ import Fade from 'react-reveal/Slide';
 // import {Form, Input, Select, Label} from 'formsy-semantic-ui-react';
 
 class UserInfoForm extends React.Component {
-  constructor(){
-    super()
-    this.state={
-      value: 'imperial'
-    }
-  }
-
-  handleChange = (e, { value }) => this.setState({ value })
+  // constructor(){
+  //   super()
+  //   this.state={
+  //     value: 'Imperial'
+  //   }
+  // }
+  //
+  // handleChange = (e, { value }) => this.setState({ value })
 
   render(){
-    const genderOptions = [{ text: 'Male', value: 'male' }, { text: 'Female', value: 'female' }]
     const activityOptions = [{key: 'sedentary', text: 'Sedentary (little or no exercise)', value: 1.2}, {key: 'light', text: 'Lightly active (light exercise/sports 1-3 days/week)', value: 1.375}, {key: 'moderate', text: 'Moderately active (moderate exercise/sports 3-5 days/week)', value: 1.55}, {key: 'very active', text: 'Very active (hard exercise/sports 6-7 days a week)', value: 1.725}, {key: 'extra active', text: 'Extra active (very hard exercise/sports & physical job or 2x training)', value: 1.9}]
     const goalOptions = [{key: 'lose weight', text: 'Lose Weight/Get Lean', value: 'lose'}, {key: 'gain', text: 'Gain Muscle', value: 'gain'}]
     const weightPerWeek = [{key: '0.5', text: 'Slow - 0.5 lb. Per Week', value: '0.5'}, {key: '1.5', text: ' Steady - 1 lb. To 1.5 lb. Per Week', value: '1.5'}, {key: '2.0', text: 'Accelerated - 2 lb. Per Week', value: '2.0'}]
     const feetOptions = [{key: 2, text: "2", value: 2}, {key: 3, text: "3", value: 3}, {key: 4, text: "4", value: 4}, {key: 5, text: "5", value: 5}, {key: 6, text: "6", value: 6}, {key: 7, text: "7", value: 7}, {key: 8, text: "8", value: 8}]
     const inchesOptions = [{key: 0, text: "0", value: 0}, {key: 1, text: "1", value: 1}, {key: 2, text: "2", value: 2}, {key: 3, text: "3", value: 3}, {key: 4, text: "4", value: 4}, {key: 5, text: "5", value: 5}, {key: 6, text: "6", value: 6}, {key: 7, text: "7", value: 7}, {key: 8, text: "8", value: 8}, {key: 9, text: "9", value: 9}, {key: 10, text: "10", value: 10}, {key: 11, text: "11", value: 11}]
-
+    const weightPerWeekInKg = [{key: '0.22', text: 'Slow - 0.22 kg. Per Week', value: '0.22'}, {key: '0.68', text: ' Steady - 0.45 kg. To 0.68 kg. Per Week', value: '0.68'}, {key: '0.90', text: 'Accelerated - 0.90 kg. Per Week', value: '0.90'}]
     return(
+      <React.Fragment>
+      {this.props.formType === 'Imperial' ?
       <Fade left>
         <Card id="bmr-form-mobile">
           <Card.Content extra>
             <Form>
+            <Checkbox checked={this.props.formType === "Imperial"} style={{marginRight: "70px"}} onChange={this.props.getFormType} label="Imperial" value="Imperial" />
+            <Checkbox checked={this.props.formType === "Metric"} onChange={this.props.getFormType} label="Metric" value="Metric" /><br/><br/>
               <Grid stackable columns={2}>
                 <Grid.Row>
                   <Grid.Column width={8}>
@@ -46,7 +49,7 @@ class UserInfoForm extends React.Component {
                 { this.props.goal !== "" ?
                 <Grid.Row>
                   <Grid.Column width={16}>
-                    <Form.Select onChange={(e) => {this.props.getWeightToLose(e); this.props.enableButton(e)}} text={this.props.weightToManage} name='weightPerWeek' label={this.props.goal === 'Lose Weight/Get Lean' ? 'Weight To Lose' : 'Weight To Gain'} options={weightPerWeek} placeholder="Weight To Lose Per Week..." />
+                    <Form.Select onChange={(e) => {this.props.getWeightToLose(e); this.props.enableButton(e)}} text={this.props.weightToManage} name='weightPerWeek' label={this.props.goal === 'Lose Weight/Get Lean' ? 'Weight To Lose' : 'Weight To Gain'} options={weightPerWeek} placeholder="Weight To Manage..." />
                   </Grid.Column>
                 </Grid.Row> : null }
                 <Grid.Row>
@@ -54,7 +57,7 @@ class UserInfoForm extends React.Component {
                     <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} value={this.props.age} onInput={(e)=>{e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0,2)}} name='age' type='number' label="Age" placeholder='Age...' />
                   </Grid.Column>
                   <Grid.Column width={8}>
-                    <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} value={this.props.weightLb} onInput={(e)=>{e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0,3)}} name='weightLb' type='number' label='Weight (Pounds)' placeholder='Weight...' />
+                    <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButton(e)}} value={this.props.weightLb} onInput={(e)=>{e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0,3)}} name='weightLb' type='number' label='Weight (Pounds)' placeholder='Weight In Lb...' />
                   </Grid.Column>
                 </Grid.Row>
               </Grid><br/>
@@ -62,16 +65,67 @@ class UserInfoForm extends React.Component {
               <Checkbox style={{marginRight: "70px"}} checked={this.props.gender === 'Female'} onChange={(e) => {this.props.enableButton(e); this.props.getGender(e)}} label="Female" value="Female" />
               <Checkbox checked={this.props.gender === 'Male'} onChange={(e) => {this.props.enableButton(e); this.props.getGender(e)}} label="Male" value="Male" /><br/><br/>
               {this.props.mobileDevice === false ?
-              <Button size="large" disabled={this.props.buttonDisabled} id="button" style={{width: "100%"}} onClick={() => {this.props.hideForm(); this.props.calculateBmr(this.state.value); this.props.addOneToStep(); this.props.calculateCalories()}} type="submit">
+              <Button size="large" disabled={this.props.buttonDisabled} id="button" style={{width: "100%"}} onClick={() => {this.props.hideForm(); this.props.calculateBmr(this.props.value); this.props.addOneToStep(); this.props.calculateCalories()}} type="submit">
                 STEP 2 - SELECT BODY TYPE <Icon name="right arrow" />
               </Button> :
-              <Button size="small" disabled={this.props.buttonDisabled} id="button-mobile" style={{width: "100%"}} onClick={() => {this.props.hideForm(); this.props.calculateBmr(this.state.value); this.props.addOneToStep(); this.props.calculateCalories()}} type="submit">
+              <Button size="small" disabled={this.props.buttonDisabled} id="button-mobile" style={{width: "100%"}} onClick={() => {this.props.hideForm(); this.props.calculateBmr(this.props.value); this.props.addOneToStep(); this.props.calculateCalories()}} type="submit">
                 STEP 2 - SELECT BODY TYPE <Icon name="right arrow" />
               </Button> }
             </Form>
           </Card.Content>
         </Card>
-      </Fade>
+      </Fade> :
+
+      <Fade left>
+        <Card id="bmr-form-mobile">
+          <Card.Content extra>
+            <Form>
+            <Checkbox style={{marginRight: "70px"}} onChange={this.props.getFormType} checked={this.props.formType === 'Imperial'} label="Imperial" value="Imperial" />
+            <Checkbox checked={this.props.formType === 'Metric'} onChange={this.props.getFormType} label="Metric" value="Metric" /><br/><br/>
+              <Grid stackable columns={2}>
+                <Grid.Row>
+                  <Grid.Column width={16}>
+                    <Form.Input style={{width: "100%"}} onChange={(e) => {this.props.handleChange(e); this.props.enableButtonMetricForm(e)}} onInput={(e)=>{e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0,3)}} value={this.props.heightCm} type='number' name='heightCm' label='Height (Centimeters)' placeholder='Cm...' />
+                  </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                  <Grid.Column width={8}>
+                    <Form.Select onChange={(e) => {this.props.getActivityLevel(e); this.props.enableButtonMetricForm(e)}} text={this.props.activityLevelText} options={activityOptions} name='activityLevel' label="Activity Level" placeholder="Activity Level..." />
+                  </Grid.Column>
+                  <Grid.Column width={8}>
+                    <Form.Select onChange={(e) => {this.props.getGoal(e); this.props.enableButtonMetricForm(e)}} text={this.props.goal} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." />
+                  </Grid.Column>
+                </Grid.Row>
+                { this.props.goal !== "" ?
+                <Grid.Row>
+                  <Grid.Column width={16}>
+                    <Form.Select onChange={(e) => {this.props.getWeightToLose(e); this.props.enableButtonMetricForm(e)}} text={this.props.weightToManage} name='weightPerWeek' label={this.props.goal === 'Lose Weight/Get Lean' ? 'Weight To Lose' : 'Weight To Gain'} options={weightPerWeekInKg} placeholder="Weight To Manage..." />
+                  </Grid.Column>
+                </Grid.Row> : null }
+                <Grid.Row>
+                  <Grid.Column width={8}>
+                    <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButtonMetricForm(e)}} value={this.props.age} onInput={(e)=>{e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0,2)}} name='age' type='number' label="Age" placeholder='Age...' />
+                  </Grid.Column>
+                  <Grid.Column width={8}>
+                    <Form.Input onChange={(e) => {this.props.handleChange(e); this.props.enableButtonMetricForm(e)}} value={this.props.weightKg} onInput={(e)=>{e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0,3)}} name='weightKg' type='number' label='Weight (Kilos)' placeholder='Weight In Kg...' />
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid><br/>
+
+              <Checkbox style={{marginRight: "70px"}} checked={this.props.gender === 'Female'} onChange={(e) => {this.props.enableButtonMetricForm(e); this.props.getGender(e)}} label="Female" value="Female" />
+              <Checkbox checked={this.props.gender === 'Male'} onChange={(e) => {this.props.enableButtonMetricForm(e); this.props.getGender(e)}} label="Male" value="Male" /><br/><br/>
+              {this.props.mobileDevice === false ?
+              <Button size="large" disabled={this.props.buttonDisabled} id="button" style={{width: "100%"}} onClick={() => {this.props.hideForm(); this.props.calculateBmr(); this.props.addOneToStep(); this.props.calculateCalories()}} type="submit">
+                STEP 2 - SELECT BODY TYPE <Icon name="right arrow" />
+              </Button> :
+              <Button size="small" disabled={this.props.buttonDisabled} id="button-mobile" style={{width: "100%"}} onClick={() => {this.props.hideForm(); this.props.calculateBmr(); this.props.addOneToStep(); this.props.calculateCalories()}} type="submit">
+                STEP 2 - SELECT BODY TYPE <Icon name="right arrow" />
+              </Button> }
+            </Form>
+          </Card.Content>
+        </Card>
+      </Fade> }
+      </React.Fragment>
 
 
     )
@@ -103,16 +157,5 @@ export default UserInfoForm
 //   </Card.Content>
 // </Card>
 
-// <Form>
-//   <Form.Field>
-//     <Radio
-//       label='Imperial (Feet/Inches/Pounds)'
-//       name='radioGroup'
-//       value='imperial'
-//       checked={this.state.value === 'imperial'}
-//       onChange={(e, value) => {this.handleChange(e, value); this.props.resetForm()}}
-//     />
-//   </Form.Field><br/>
-// </Form>
 
 // <Form.Select onChange={(e) => {this.props.getGender(e); this.props.enableButton(e)}} required={true} name='gender' label='Gender' options={genderOptions} placeholder='Gender...' />

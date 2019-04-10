@@ -1,7 +1,5 @@
 import React from 'react'
-import { Icon, Card, Image, Button, Divider, Popup } from 'semantic-ui-react'
-import { css } from '@emotion/core';
-import { BeatLoader } from 'react-spinners';
+import { Icon, Card, Image, Divider, Popup } from 'semantic-ui-react'
 import Fade from 'react-reveal/Slide';
 
 class PersonalizedMacros extends React.Component {
@@ -11,7 +9,6 @@ class PersonalizedMacros extends React.Component {
       <React.Fragment>
       <div>
           <div style={{marginBottom: "40px"}}>
-
             <Divider id="title-body-type" horizontal>
               <Popup trigger={<Icon style={{margin: "0 auto"}} size="large" name="arrow left" onClick={() => {this.props.substractOneFromStep(); this.props.setFormToTrue()}} style={{textAlign: "left"}} />} content='Back' /> SELECT YOUR BODY TYPE
             </Divider>

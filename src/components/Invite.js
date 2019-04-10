@@ -1,13 +1,5 @@
 import React from 'react'
-import {Input, Button, Card, Divider, Image} from 'semantic-ui-react'
-import Confetti from 'react-dom-confetti';
-import ThankYouBcm from './ThankYouBcm'
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile
-} from "react-device-detect";
+import {Input, Button, Card, Image} from 'semantic-ui-react'
 
 class Invite extends React.Component {
   constructor(){

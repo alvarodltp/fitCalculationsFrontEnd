@@ -1,5 +1,4 @@
 import React from 'react'
-import { FacebookShareCount, LinkedinShareCount, PinterestShareCount } from 'react-share';
 import {
   FacebookShareButton,
   LinkedinShareButton,

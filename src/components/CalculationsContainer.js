@@ -1,14 +1,8 @@
 import React from 'react'
-import Steps from './Steps'
 import UserInfoForm from './UserInfoForm'
 import BmrCalorieResults from './BmrCalorieResults'
 import PersonalizedMacros from './PersonalizedMacros'
-import MacrosPieChart from './MacrosPieChart'
-import { Button } from 'semantic-ui-react'
-import ProgressRatio from './Progress'
 import NutritionPackageDetails from './NutritionPackageDetails'
-import NutritionPackageHeader from './NutritionPackageHeader'
-import {Icon, Image, Card} from 'semantic-ui-react'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import SignUpForm from './SignUpForm'
 import MacrosBreakdownCard from './MacrosBreakdownCard'
@@ -16,17 +10,16 @@ import DietType from './DietType'
 import Motivation from './Motivation'
 import Confetti from 'react-dom-confetti';
 import swal from 'sweetalert'
-import LandingPage from './LandingPage'
 import Stepper from 'react-stepper-horizontal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Fade from 'react-reveal/Fade';
 import Loading from './Loading'
 
 class CalculationsContainer extends React.Component {
   constructor(){
     super()
     this.state={
+      formType: "Imperial",
       name: "",
       email: "",
       gender: "",
@@ -91,6 +84,11 @@ class CalculationsContainer extends React.Component {
     }
   }
 
+  getFormType = (e) => {
+    this.setState({
+      formType: e.target.innerText
+    })
+  }
 
   showCalories = () => {
     this.setState({
@@ -170,7 +168,7 @@ class CalculationsContainer extends React.Component {
   }
 
   activateConfetti = () => {
-    if(this.state.emailValid === true && this.state.checked === true && this.state.name != "") {
+    if(this.state.emailValid === true && this.state.checked === true && this.state.name !== "") {
       this.setState({
         confetti: true
       })
@@ -190,9 +188,17 @@ class CalculationsContainer extends React.Component {
   handleClose = () => this.setState({ modalOpen: false })
 
   enableButton = (e) => {
-    if(this.state.weightToLose != "" && this.state.gender != "" && this.state.age != "" && this.state.weightLb != "" && this.state.feet != "" && this.state.inches != "" && this.state.activityLevel != null && this.state.goal != ""){
+    if(this.state.weightToManage !== "" && this.state.gender !== "" && this.state.age !== "" && this.state.weightLb !== "" && this.state.feet !== "" && this.state.inches !== "" && this.state.activityLevel !== null && this.state.goal !== ""){
       this.setState({
         buttonDisabled: false
+      })
+    }
+  }
+
+  enableButtonMetricForm = (e) => {
+    if(this.state.weightToManage !== "" && this.state.gender !== "" && this.state.age !== "" && this.state.weightKg !== "" && this.state.heightCm !== "" && this.state.activityLevel !== null && this.state.goal !== "") {
+    this.setState({
+      buttonDisabled: false
       })
     }
   }
@@ -268,7 +274,6 @@ class CalculationsContainer extends React.Component {
 
   getActivityLevel = (e) => {
     let activityLevel = e.target.innerText
-    console.log(activityLevel)
     let activityLevelValue;
     if(activityLevel === "Sedentary (little or no exercise)") {
       activityLevelValue = 1.2
@@ -287,7 +292,8 @@ class CalculationsContainer extends React.Component {
     })
   }
 
-  calculateBmr = (formType) => {
+  calculateBmr = () => {
+    let formType = this.state.formType
     let weight;
     let height;
     let weightInKg = (this.state.weightLb/2.2046).toFixed(2)
@@ -295,17 +301,23 @@ class CalculationsContainer extends React.Component {
     let heightInInches = this.state.inches * 2.54
     let heightInCm = heightInFeet + heightInInches
     let heightInm2 = heightInCm / 100
-    let bmi = (weightInKg/(heightInm2 * heightInm2)).toFixed(2)
-    formType === "metric" ? weight = this.state.weightKg : weight = this.state.weightLb
-    formType === "metric" ? height = this.state.heightCm : height = heightInCm/2.54
+    let heightInm2FromState = this.state.heightCm / 100
+    let bmi;
+    formType === "Imperial" ? bmi = (weightInKg/(heightInm2 * heightInm2)).toFixed(2) : bmi = (this.state.weightKg/(heightInm2FromState * heightInm2FromState)).toFixed(2)
+    formType === "Metric" ? weight = this.state.weightKg : weight = this.state.weightLb
+    formType === "Metric" ? height = this.state.heightCm : height = heightInCm/2.54
     let age = this.state.age
     let bmr;
-    if(this.state.gender === "Male") {
+    if(this.state.gender === "Male" && formType === 'Imperial') {
       // bmr = Math.round(66.5 + 13.75 * weight + 5.003 * height - 6.755 * age) #harris
       bmr = Math.round(10 * weightInKg + 6.25 * heightInCm - 5 * age + 5)
-    } else if (this.state.gender === "Female") {
+    } else if (this.state.gender === "Female" && formType === 'Imperial') {
       // bmr = Math.round(655.1 + 9.563 * weight + 1.850 * height - 4.676 * age) #harris
       bmr = Math.round(10 * weightInKg + 6.25 * heightInCm - 5 * age - 161)
+    } else if (this.state.gender === "Male" && formType === 'Metric') {
+      bmr = Math.round(10 * this.state.weightKg + 6.25 * this.state.heightCm - 5 * age + 5)
+    } else if (this.state.gender === "Female" && formType === 'Metric'){
+      bmr = Math.round(10 * this.state.weightKg + 6.25 * this.state.heightCm - 5 * age - 161)
     }
     this.setState({
       bmr: bmr,
@@ -319,7 +331,7 @@ class CalculationsContainer extends React.Component {
   let goal = this.state.goal
   let weightToManage = this.state.weightToManage.split(' ')[0]
   let caloriesToMaintain;
-  bmr != "" && activityLevel != null ? caloriesToMaintain = Math.round(bmr * activityLevel["value"]) : caloriesToMaintain = null
+  bmr !== "" && activityLevel !== null ? caloriesToMaintain = Math.round(bmr * activityLevel["value"]) : caloriesToMaintain = null
   let caloriesForGoal;
   if(goal === "Lose Weight/Get Lean" && weightToManage === "Slow"){
     caloriesForGoal = caloriesToMaintain - 250
@@ -415,9 +427,9 @@ getAllUsers = () => {
 }
 
 saveOrUpdateUser = (userExists) => {
-  if(this.state.emailValid === true && this.state.name != "" && this.state.checked === true && userExists.length != 0){
+  if(this.state.emailValid === true && this.state.name !== "" && this.state.checked === true && userExists.length !== 0){
     this.updateUser(userExists)
-  } else if (this.state.emailValid === true && this.state.name != "" && this.state.checked === true && userExists.length === 0){
+  } else if (this.state.emailValid === true && this.state.name !== "" && this.state.checked === true && userExists.length === 0){
     this.saveUser()
   } else {
 
@@ -538,8 +550,11 @@ saveStats = (user) => {
       weight_in_lb: this.state.weightLb,
       height_in_feet: this.state.feet,
       height_in_inches: this.state.inches,
+      weight_in_kg: this.state.weightKg,
+      height_in_cm: this.state.heightCm,
       diet_type: this.state.dietType,
-      reason_to_get_fit: this.state.motivationToGetFit
+      reason_to_get_fit: this.state.motivationToGetFit,
+      measurement_system: this.state.formType
       })
     }).then(response => response.json())
     .then(json => {
@@ -737,7 +752,7 @@ setFormToTrue = () => {
         <Confetti id="confetti" active={this.state.confetti} config={config}/>
         {this.props.stepNumber === 0 && this.state.showNutritionPackageDetails === true ? <NutritionPackageDetails displayForm={this.displayForm} showForm={this.state.showForm} mobileDevice={this.props.mobileDevice} getGenderOnButton={this.getGenderOnButton} showBcmForm={this.showBcmForm}/> : null }
         {this.state.showForm === true || this.props.stepNumber === 1 || this.props.stepNumber === 2 || this.props.stepNumber === 3 || this.props.stepNumber === 4 ? <Stepper completeColor={"#2761f1"} activeColor={"#e80aaa"} steps={ [{title: 'Info'}, {title: 'Body'}, {title: 'Diet'}, {title: 'Motivation'}, {title: 'Results'}] } activeStep={ this.props.stepNumber } /> : null }
-        {this.state.showForm === true ? <UserInfoForm age={this.state.age} weightLb={this.state.weightLb} feet={this.state.feet} inches={this.state.inches} goal={this.state.goal} activityLevelText={this.state.activityLevelText} weightToManage={this.state.weightToManage} hideForm={this.hideForm} mobileDevice={this.props.mobileDevice} getWeightToLose={this.getWeightToLose} gender={this.state.gender} getGenderOnButton={this.getGenderOnButton} scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm}
+        {this.state.showForm === true ? <UserInfoForm enableButtonMetricForm={this.enableButtonMetricForm} getFormType={this.getFormType} formType={this.state.formType} getCm={this.getCm} heightCm={this.state.heightCm} age={this.state.age} weightLb={this.state.weightLb} weightKg={this.state.weightKg} feet={this.state.feet} inches={this.state.inches} goal={this.state.goal} activityLevelText={this.state.activityLevelText} weightToManage={this.state.weightToManage} hideForm={this.hideForm} mobileDevice={this.props.mobileDevice} getWeightToLose={this.getWeightToLose} gender={this.state.gender} getGenderOnButton={this.getGenderOnButton} scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm}
         handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} goal={this.state.goal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories} /> : null }
         {this.props.stepNumber === 2 ? <DietType substractOneFromStep={this.props.substractOneFromStep} getDietType={this.getDietType} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
         {this.props.stepNumber === 3 ? <Motivation substractOneFromStep={this.props.substractOneFromStep} getMotivationToGetFit={this.getMotivationToGetFit} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}

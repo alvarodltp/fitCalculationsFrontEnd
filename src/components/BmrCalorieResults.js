@@ -1,18 +1,10 @@
 import React from 'react'
-import { Card, Button, Icon, Divider, Reveal, Image, Grid } from 'semantic-ui-react'
+import { Button, Icon, Divider, Grid } from 'semantic-ui-react'
 import ShareButtons from './ShareButtons'
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile
-} from "react-device-detect";
-import ShareButtonsMobile from './ShareButtons'
 import Fade from 'react-reveal/Fade';
 import CaloriesBarChart from './CaloriesBarChart'
 import MacroPercentageChart from './MacroPercentageChart'
 import MacrosPieChart from './MacrosPieChart'
-import LandingPage from './LandingPage'
 import ExerciseTable from './ExerciseTable'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import { Link } from "react-router-dom"
@@ -49,13 +41,13 @@ class BmrCalorieResults extends React.Component {
 
               <Grid style={{margin: "0 auto"}} stackable columns={3}>
                 <Grid.Row>
-                  <Grid.Column width={5.3}>
+                  <Grid.Column width={5}>
                     <p style={{textAlign: "center", fontSize: "18px"}}>BMR (Basal Metabolic Rate)<Popup trigger={<Button id="more-info-Button-calories" icon='info circle' />} content='Your Basal Metabolic Rate is the number of calories your body needs to perform basic life-sustaining functions such as breathing, processing nutrients, circulation, and cell production. This is the base number used to determine your maintnance calories and goal calories.'/></p>
                   </Grid.Column>
-                  <Grid.Column width={5.3}>
+                  <Grid.Column width={6}>
                     <p style={{textAlign: "center", fontSize: "18px"}}>Maintenance Calories<Popup trigger={<Button id="more-info-Button-calories" icon='info circle' />} content='This is the number of calories you need in order to keep the same weight. If you consume this number of calories, your body will not change.'/></p>
                   </Grid.Column>
-                  <Grid.Column width={5.3}>
+                  <Grid.Column width={5}>
                     <p style={{textAlign: "center", fontSize: "18px"}}>Goal Calories<Popup trigger={<Button id="more-info-Button-calories" icon='info circle' />} content='This is your goal calorie number. Based on the number of pounds you want to lose or gain, we use your maintenance calories to either substract or add a specific amount of calories based on your goal.' /></p>
                   </Grid.Column>
                 </Grid.Row>

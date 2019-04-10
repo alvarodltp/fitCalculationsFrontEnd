@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, Icon, Grid } from 'semantic-ui-react'
+import { Icon, Grid } from 'semantic-ui-react'
 import {Doughnut} from 'react-chartjs-2';
 
 class MacrosBreakdownResults extends React.Component {
