@@ -36,7 +36,7 @@ componentDidMount() {
   this.initGA()
   this.logPageView()
   this.isMobileDevice()
-  this.initializeIntercom()
+  // this.initializeIntercom()
   ReactPixel.init('433459070732534')
 }
 
@@ -84,11 +84,11 @@ showResultsPage = () => {
   })
 }
 
-initializeIntercom = () => {
-    window.Intercom("boot", {
-    app_id: "miq7epik"
-  })
-}
+// initializeIntercom = () => {
+//     window.Intercom("boot", {
+//     app_id: "miq7epik"
+//   })
+// }
 
   render() {
 
