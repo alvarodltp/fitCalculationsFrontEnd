@@ -137,9 +137,6 @@ class BmrCalorieResults extends React.Component {
           </div>
         </Fade> : null }
 
-
-
-
         <Link to="/unleash-your-fitness-potential" target="_blank">
           <div id="take-action-card" onClick={this.props.showLandingPage} style={{marginBottom: "80px"}}>
             <h2 style={{fontSize:"30px", fontStyle: "italic"}}>START TODAY<Icon style={{fontSize: "20px", float: "right", paddingTop:"10px", marginRight: "10px"}} name="arrow right" size="tiny"/></h2>
