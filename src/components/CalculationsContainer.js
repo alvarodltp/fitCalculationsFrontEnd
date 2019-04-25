@@ -273,6 +273,7 @@ class CalculationsContainer extends React.Component {
 
 
   getActivityLevel = (e) => {
+    debugger
     let activityLevel = e.target.innerText
     let activityLevelValue;
     if(activityLevel === "Sedentary (little or no exercise)") {

@@ -40,7 +40,7 @@ class UserInfoForm extends React.Component {
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column width={8}>
-                    <Form.Select onChange={(e) => {this.props.getActivityLevel(e); this.props.enableButton(e)}} text={this.props.activityLevelText} options={activityOptions} name='activityLevel' label="Activity Level" placeholder="Activity Level..." />
+                    <Form.Select onChange={(e) => {this.props.getActivityLevel(e); this.props.enableButton(e)}} text={this.props.activityLevelText} options={activityOptions} value={this.props.value} selection name='activityLevel' label="Activity Level" placeholder="Activity Level..." />
                   </Grid.Column>
                   <Grid.Column width={8}>
                     <Form.Select onChange={(e) => {this.props.getGoal(e); this.props.enableButton(e)}} text={this.props.goal} name='goal' label='Goal' options={goalOptions} placeholder="Goal..." />
