@@ -341,7 +341,7 @@ class LandingPage extends React.Component {
                 <Grid.Column style={{textAlign: "center"}} width={8}>
                   <h1 style={{fontSize: "40px", color: "red"}}>$̶1̶6̶9̶.̶9̶9̶</h1>
                   <h1 style={{fontSize: "40px", color: "green"}}>Only $69.99*</h1>
-                  <a target="_self" href="https://fitcalculations.samcart.com/products/f-ck-diets">
+                  <a target="_self" href="https://sowl.co/zAjVY">
                     <Button onClick={this.getEvent1} id="cta-button" content='YES, I WANT TO TRANSFORM' size="large" icon='angle double right' labelPosition='right' />
                   </a>
 
@@ -364,7 +364,7 @@ class LandingPage extends React.Component {
                 <Grid.Column width={11}>
                   <p style={{textAlign: "left"}}>We are confident your personalized program will give you the results you want. However, if you haven't got closer to your goals, I will refund 100% of the cost.</p>
                   <p style={{textAlign: "left"}}>All you need to do is provide your 30 day food log to verify the program was followed as it was designed and created specifically for you.</p>
-                  <a target="_self" href="https://fitcalculations.samcart.com/products/f-ck-diets">
+                  <a target="_self" href="https://sowl.co/zAjVY">
                     <Button onClick={this.getEvent2} id="cta-button" content='GET $100 OFF NOW' size="large" icon='angle double right' labelPosition='right' />
                   </a>
               </Grid.Column>
@@ -428,7 +428,7 @@ class LandingPage extends React.Component {
         <div style={{marginBottom: "0px", width: "100%", backgroundColor: "#e80aaa"}}>
           <div style={{paddingBottom: "30px"}}>
             <h1 style={{fontSize:"36px", paddingTop: "20px", color: "white", fontStyle: "italic"}}>Are You Ready?</h1>
-            <a target="_self" href="https://fitcalculations.samcart.com/products/f-ck-diets">
+            <a target="_self" href="https://sowl.co/zAjVY">
               <Button onClick={this.getEvent3} id="cta-button" content='GET $100 OFF NOW' size="large" icon='angle double right' labelPosition='right' />
             </a>
           </div>
