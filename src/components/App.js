@@ -1,34 +1,35 @@
 import ReactGA from 'react-ga';
-import React from 'react';
+import React, { Component } from 'react';
 import '../App.css';
 import NavBar from './NavBar'
 import AppIntro from './AppIntro'
 import CalculationsContainer from './CalculationsContainer'
 import Footer from './Footer'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import NutritionPackageHeader from './NutritionPackageHeader'
 import Homepage from './Homepage'
-import ServicesContainer from './ServicesContainer'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import Confetti from 'react-dom-confetti';
 import ThankYouBcm from './ThankYouBcm'
 import Invite from './Invite'
 import LandingPage from './LandingPage'
 import CountDown from './CountDown'
-import NavBarMobile from './NavBarMobile'
 import ThankYouAfterPurchase from './ThankYouAfterPurchase'
 import ReactPixel from 'react-facebook-pixel';
 import FoodListContainer from './FoodListContainer'
+import Profile from './Profile'
+import Auth from "../Auth/Auth"
 
 
 class App extends React.Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state={
       stepNumber: 0,
       mobileDevice: null,
       showResults: false,
-      loading: true
+      loading: true,
+      auth: new Auth(this.props.history)
     }
   }
 
@@ -95,16 +96,17 @@ showResultsPage = () => {
 
     return (
       <div className="App">
-        {this.state.mobileDevice === true ? <NavBarMobile/> : <NavBar/> }
+        <NavBar />
+        <Route exact path="/asdad" render={props => <Auth {...props}/> } />
         <Route exact path="/testeando" render={props => <Homepage /> } />
-        <Route exact path="/services" render={props => <ServicesContainer /> } />
-        <Route exact path="/" render={props => <CalculationsContainer {...props} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/" render={props => <CalculationsContainer {...props} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
         <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
         <Route exact path="/unleash-your-fitness-potential" render={props => <LandingPage /> } />
         <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
         <Route exact path="/food-list" render={props => <FoodListContainer/> } />
+        <Route path="/profile" render={props => <Profile {...props} auth={this.state.auth} /> } />
         {this.state.stepNumber === 0 || this.state.showResultsPage === true ? <Footer /> : null }
       </div>
     )
