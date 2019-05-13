@@ -594,7 +594,7 @@ getNumber = (e) => {
 }
 
 calculateBreakdown = () => {
-  if(this.state.numberOfMeals != "") {
+  if(this.state.numberOfMeals !== "") {
     this.setState({
       caloriesBreakdown: Math.round(this.state.caloriesForGoal/this.state.numberOfMeals),
       proteinBreakdown: Math.round(this.state.protein/this.state.numberOfMeals),

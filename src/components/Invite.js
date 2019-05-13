@@ -17,13 +17,13 @@ class Invite extends React.Component {
     })
   }
 
-  validateEmail = (e) => {
-    let email = e.target.value
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    this.setState({
-      emailValid: re.test(email)
-    })
-  }
+  // validateEmail = (e) => {
+  //   let email = e.target.value
+  //   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //   this.setState({
+  //     emailValid: re.test(email)
+  //   })
+  // }
 
   saveUser = () => {
     if(this.state.emailValid === true) {

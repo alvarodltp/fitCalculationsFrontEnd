@@ -2,24 +2,19 @@ import ReactGA from 'react-ga';
 import React, { Component } from 'react';
 import '../App.css';
 import NavBar from './NavBar'
-import AppIntro from './AppIntro'
 import CalculationsContainer from './CalculationsContainer'
 import Footer from './Footer'
 import { Route } from 'react-router-dom'
-import NutritionPackageHeader from './NutritionPackageHeader'
 import Homepage from './Homepage'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
-import Confetti from 'react-dom-confetti';
 import ThankYouBcm from './ThankYouBcm'
 import Invite from './Invite'
 import LandingPage from './LandingPage'
-import CountDown from './CountDown'
 import ThankYouAfterPurchase from './ThankYouAfterPurchase'
 import ReactPixel from 'react-facebook-pixel';
 import FoodListContainer from './FoodListContainer'
 import Profile from './Profile'
 import Auth from "../Auth/Auth"
-
 
 class App extends React.Component {
   constructor(props){
