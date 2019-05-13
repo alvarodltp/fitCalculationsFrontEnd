@@ -1,6 +1,7 @@
 import React from 'react'
 import FoodListForm from './FoodListForm'
 import FoodList from './FoodList'
+import FoodListTitle from './FoodListCard'
 import FoodListCard from './FoodListCard'
 
 const foodTypes = [
@@ -16,12 +17,23 @@ class FoodListContainer extends React.Component {
     this.state={
       foodTypes: null,
       foodsChecked: [],
-      usersHaveFoodlist: null,
       userEmail: "",
       user: null,
-      userFoodLists: null
+      usersWithLists: null
     }
   }
+
+  componentDidMount(){
+    fetch("https://fitcalculations-api.herokuapp.com/users")
+    .then(response => response.json())
+    .then(json => {
+      let usersWithLists = json.filter(user => user["food_lists"].length > 0)
+      this.setState({
+        usersWithList: usersWithLists
+      })
+    })
+  }
+
 
   handleChange = (e) => {
     let foodTypes = this.state.foodTypes
@@ -40,25 +52,19 @@ class FoodListContainer extends React.Component {
     })
   }
 
-  getAllUsersWithLists = () => {
-    if(this.state.emailValid === true){
-      fetch("https://fitcalculations-api.herokuapp.com/users")
-      .then(response => response.json())
-      .then(json => {
-        let userExists = json.filter(user => user.email === this.state.userEmail)
-        let userFoodLists = userExists[0].food_lists
-        this.setState({
-          user: userExists,
-          userFoodLists: userFoodLists
-        })
-      }).then(() => this.createUser(this.state.user))
-    } else {
+  checkIfUserExists = () => {
+    let userEmail = this.state.userEmail
+    let usersWithLists = this.state.usersWithList
+    let filteredUser = usersWithLists.filter(user => user.email === userEmail)[0] //either an object or undefined
+    debugger
+    this.setState({
+      user: filteredUser
+    }, this.createUser(filteredUser, userEmail))
 
-    }
   }
 
-  createUser = () => {
-    if(this.state.user === null){
+  createUser = (user, email) => {
+    if(user === []){
       fetch("https://fitcalculations-api.herokuapp.com/users", {
         method: 'POST',
         headers: {
@@ -66,9 +72,7 @@ class FoodListContainer extends React.Component {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          name: "",
-          email: this.state.userEmail.toLowerCase(),
-          gender: ""
+          email: email.toLowerCase()
           })
         }).then(response => response.json())
         .then(user => {
@@ -97,7 +101,6 @@ class FoodListContainer extends React.Component {
       .then(json => {
         console.log(json)
         this.setState({
-          foodList: json,
           foodTypes: foodTypes
         })
       })
@@ -126,9 +129,9 @@ class FoodListContainer extends React.Component {
   render() {
     return(
       <React.Fragment>
-        {this.state.user === null ? <FoodListForm getAllUsersWithLists={this.getAllUsersWithLists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
+        {this.state.user === null ? <FoodListForm checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
         {this.state.foodTypes !== null ? <FoodList backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-        {this.state.userFoodLists !== null && this.state.foodTypes === null ? <FoodListCard createFoodList={this.createFoodList} userFoodLists={this.state.userFoodLists}/> : null }
+        {this.state.user !== null && this.state.foodTypes === null ? <FoodListCard user={this.state.user} createFoodList={this.createFoodList}/> : null }
       </React.Fragment>
     )
   }

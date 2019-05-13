@@ -10,7 +10,7 @@ const FoodListForm = (props) => {
         <div style={{width: "50%", margin: "0 auto"}}>
           <Form>
             <Form.Input onChange={props.getUserEmail} name='email' label='Enter your email to create list or retrieve provious old ones' placeholder='Email...' />
-            <Button onClick={props.getAllUsersWithLists} size="small" id="button-mobile" style={{width: "100%"}} type="submit">
+            <Button onClick={props.checkIfUserExists} size="small" id="button-mobile" style={{width: "100%"}} type="submit">
                SUBMIT
             </Button>
           </Form>
