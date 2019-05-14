@@ -1,10 +1,11 @@
 import React from 'react'
 import { Card, Image, Button, Divider } from 'semantic-ui-react'
+import ExistingFoodLists from './ExistingFoodLists'
 
 const FoodListCard = (props) => {
   return(
     <React.Fragment>
-      {props.user !== null ?
+      {props.user !== undefined ?
       <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
           Your Saved Lists
       </Divider> :
@@ -24,26 +25,10 @@ const FoodListCard = (props) => {
          </Button>
        </Card.Content>
      </Card>
+     
+     {props.user !== undefined ?
+     <ExistingFoodLists foodList={props.foodList} removeFoodList={props.removeFoodList} user={props.user}/> : null }
 
-     {props.user.food_lists.map(list =>
-      <Card>
-       <Card.Content>
-         <Card.Header>Grocery Shopping List</Card.Header>
-         <Card.Description>
-          {list.date}
-         </Card.Description>
-       </Card.Content>
-       <Card.Content extra>
-         <div className='ui two buttons'>
-           <Button basic color='green'>
-             Open
-           </Button>
-           <Button basic color='red'>
-             Delete
-           </Button>
-         </div>
-       </Card.Content>
-     </Card> )}
     </React.Fragment>
   )
 }

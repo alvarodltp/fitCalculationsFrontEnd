@@ -5,11 +5,11 @@ const FoodList = (props) => {
   return(
     <React.Fragment>
       <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
-          Create New Food List
+          Create New List
       </Divider>
       <div>
         {props.foodTypes.map(food =>
-          <Checkbox checked={food.isChecked} onChange={props.handleChange} style={{width: "80%", margin: "0 auto", marginBottom: "10px"}} label={food.value} />
+          <Checkbox checked={food.isChecked} onChange={(e, food) => {props.handleChange(e, food)}} style={{width: "80%", margin: "0 auto", marginBottom: "10px"}} label={food.value} />
         )}
       </div><br/>
       <div>
