@@ -9,12 +9,12 @@ const FoodList = (props) => {
       </Divider>
       <div>
         {props.foodTypes.map(food =>
-          <Checkbox checked={food.isChecked} onChange={(e, food) => {props.handleChange(e, food)}} style={{width: "80%", margin: "0 auto", marginBottom: "10px"}} label={food.value} />
+          <Checkbox id={food.id} checked={food.isChecked} onChange={(e, food) => {props.handleChange(e, food)}} style={{width: "80%", margin: "0 auto", marginBottom: "10px"}} label={food.value} />
         )}
       </div><br/>
       <div>
         <Button id="button-mobile" onClick={props.backToSavedLists}>Go Back To Saved Lists</Button>
-        <Button id="button-mobile" onClick={props.getAllFoodsChecked}>Save This List</Button>
+        <Button id="button-mobile" onClick={props.createFoodList}>Save This List</Button>
       </div>
     </React.Fragment>
   )

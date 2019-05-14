@@ -5,10 +5,10 @@ import ExistingFoodLists from './ExistingFoodLists'
 const FoodListCard = (props) => {
   return(
     <React.Fragment>
-      {props.user !== undefined ?
-      <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
-          Your Saved Lists
-      </Divider> :
+      {props.user.email !== "" ?
+        <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
+            Your Saved Lists
+        </Divider> :
       <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
           Create Your First List
       </Divider> }
@@ -20,12 +20,12 @@ const FoodListCard = (props) => {
          </Card.Description>
        </Card.Content>
        <Card.Content extra>
-         <Button onClick={props.createFoodList} basic color='green'>
+         <Button onClick={props.setFoodTypes} basic color='green'>
            Create New
          </Button>
        </Card.Content>
      </Card>
-     
+
      {props.user !== undefined ?
      <ExistingFoodLists foodList={props.foodList} removeFoodList={props.removeFoodList} user={props.user}/> : null }
 

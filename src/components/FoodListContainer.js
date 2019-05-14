@@ -20,7 +20,9 @@ class FoodListContainer extends React.Component {
       userEmail: "",
       user: null,
       usersWithLists: null,
-      foodList: null
+      foodList: null,
+      loading: true,
+      newList: []
     }
   }
 
@@ -34,9 +36,9 @@ class FoodListContainer extends React.Component {
     .then(response => response.json())
     .then(json => {
       let usersWithLists = json.filter(user => user["food_lists"].length > 0)
-      console.log(usersWithLists)
       this.setState({
-        usersWithList: usersWithLists
+        usersWithList: usersWithLists,
+        loading: false
       })
     })
   }
@@ -44,17 +46,11 @@ class FoodListContainer extends React.Component {
   handleChange = (e, foodObj) => {
     let foodTypes = this.state.foodTypes
     foodTypes.forEach(food => {
-       if (food.value === e.target.innerText)
+       if (food.value === e.target.parentElement.innerText)
         food.isChecked = !food.isChecked
     })
-    this.setState({foodTypes: foodTypes})
-  }
-
-  getAllFoodsChecked = () => {
-    let selectedFoods = this.state.foodTypes.filter(food => food.isChecked === true)
-    console.log(selectedFoods)
     this.setState({
-      foodsChecked: selectedFoods
+      foodTypes: foodTypes
     })
   }
 
@@ -62,11 +58,13 @@ class FoodListContainer extends React.Component {
     let userEmail = this.state.userEmail
     let usersWithLists = this.state.usersWithList
     let filteredUser = usersWithLists.filter(user => user.email === userEmail)[0] //either an object or undefined
+    let userFoodLists;
+    filteredUser !== undefined ? userFoodLists = filteredUser.food_lists : userFoodLists = null
+
     this.setState({
       user: filteredUser,
-      foodList: filteredUser.food_lists
+      foodList: userFoodLists
     }, this.createUser(filteredUser, userEmail))
-
   }
 
   createUser = (user, email) => {
@@ -83,7 +81,8 @@ class FoodListContainer extends React.Component {
         }).then(response => response.json())
         .then(user => {
           this.setState({
-            user: user
+            user: user,
+            foodTypes: foodTypes
           })
         })
     } else {
@@ -106,10 +105,47 @@ class FoodListContainer extends React.Component {
       }).then(response => response.json())
       .then(json => {
         this.setState({
-          foodList: [...this.state.foodList, json],
-          foodTypes: foodTypes
+          foodList: [...this.state.foodList, json]
+        }, this.getAllFoodsChecked()) //this need to happen after an actual food list is created
+      })
+  }
+
+  getAllFoodsChecked = () => {
+    let foodListId = this.state.foodList.pop().id //gets last food list id
+    let selectedFoods = this.state.foodTypes.filter(food => food.isChecked === true) //selected food objects in arr
+    debugger
+    this.setState({
+      foodsChecked: selectedFoods
+    })
+
+    for(var i = 0; i < selectedFoods.length; i++){
+    var current = selectedFoods[i];
+    debugger
+    fetch("https://fitcalculations-api.herokuapp.com/foods", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: current.value,
+        category: current.category,
+        food_list_id: foodListId
         })
       })
+      .then(response => response.json())
+      .then(json => {
+        this.setState({
+          foodList: [...this.state.foodList, json]
+        })
+      })
+    } //end of loop
+  }
+
+  setFoodTypes = () => {
+    this.setState({
+      foodTypes: foodTypes
+    })
   }
 
   getUserEmail = (e) => {
@@ -159,8 +195,8 @@ saveFoods = () => {
     return(
       <React.Fragment>
         {this.state.user === null ? <FoodListForm checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-        {this.state.foodTypes !== null ? <FoodList backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-        {this.state.foodList !== null && this.state.foodTypes === null ? <FoodListCard foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} createFoodList={this.createFoodList}/> : null }
+        {this.state.foodTypes !== null ? <FoodList createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
+        {this.state.foodList !== null && this.state.foodTypes === null ? <FoodListCard setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
       </React.Fragment>
     )
   }
