@@ -23,7 +23,8 @@ class FoodListContainer extends React.Component {
       foodList: [],
       loading: true,
       newList: [],
-      foodListName: ""
+      foodListName: "",
+      foodsForSelectedList: null
     }
   }
 
@@ -43,7 +44,6 @@ class FoodListContainer extends React.Component {
     .then(response => response.json())
     .then(json => {
       let usersWithLists = json.filter(user => user["food_lists"].length > 0)
-      console.log(usersWithLists)
       this.setState({
         usersWithList: usersWithLists,
         loading: false
@@ -108,7 +108,6 @@ class FoodListContainer extends React.Component {
     let foodList;
     this.state.foodList === null ? foodList = new Array(0) : foodList = this.state.foodList
     let userId = this.state.user.id
-    debugger
     fetch("https://fitcalculations-api.herokuapp.com/food_lists", {
       method: 'POST',
       headers: {
@@ -121,17 +120,14 @@ class FoodListContainer extends React.Component {
         })
       }).then(response => response.json())
       .then(json => {
-        console.log(json)
         this.setState({
-          foodList: [...foodList, json],
-          foodTypes: null
-        }) //this need to happen after an actual food list is created
-      }, () => this.getAllFoodsChecked(), this.unCheckAllFoods())
+          foodList: [...foodList, json]
+        })
+      }, this.getAllFoodsChecked(), this.unCheckAllFoods())//this needs to happen after an actual food list is created
   }
 
   getAllFoodsChecked = () => {
     let selectedFoods = this.state.foodTypes.filter(food => food.isChecked === true)
-    console.log(selectedFoods)
     this.setState({
       foodsChecked: selectedFoods
     }, () => this.saveFoods(selectedFoods))
@@ -141,7 +137,6 @@ class FoodListContainer extends React.Component {
     let foodList = this.state.foodList
     let foodListId;
     foodList.length > 1 ? foodListId=this.state.foodList.sort((a, b) => a - b).pop().id : foodListId=foodList[0].id //gets last food list id
-    debugger
     for(var i = 0; i < selectedFoods.length; i++){
     var current = selectedFoods[i];
     fetch("https://fitcalculations-api.herokuapp.com/foods", {
@@ -164,6 +159,17 @@ class FoodListContainer extends React.Component {
         })
       })
     } //end of loop
+  }
+
+  openSavedList = (e, listId) => {
+    fetch("https://fitcalculations-api.herokuapp.com/foods")
+   .then(response => response.json())
+   .then(json => {
+     let foodsForSelectedList = json.filter(foods => foods.food_list_id === listId)
+     this.setState({
+       foodsForSelectedList: foodsForSelectedList
+     })
+   })
   }
 
   setFoodTypes = () => {
@@ -216,7 +222,7 @@ class FoodListContainer extends React.Component {
       <React.Fragment>
         {this.state.user === null ? <FoodListForm checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
         {this.state.foodTypes !== null ? <FoodList getName={this.getName} createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-        {this.state.user !== null && this.state.foodTypes === null ? <FoodListCard foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
+        {this.state.user !== null && this.state.foodTypes === null ? <FoodListCard openSavedList={this.openSavedList} foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
       </React.Fragment>
     )
   }

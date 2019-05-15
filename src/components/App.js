@@ -102,7 +102,7 @@ showResultsPage = () => {
         <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
         <Route exact path="/food-list" render={props => <FoodListContainer {...props}/> } />
         <Route path="/profile" render={props => <Profile {...props} auth={this.state.auth} /> } />
-        {this.state.stepNumber === 0 || this.state.showResultsPage === true ? <Footer /> : null }
+        {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
       </div>
     )
   }
