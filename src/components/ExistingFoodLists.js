@@ -10,7 +10,7 @@ const ExistingFoodLists = (props) => {
       {props.foodList.map(list =>
        <Card>
         <Card.Content>
-          <Card.Header>Grocery Shopping List</Card.Header>
+          <Card.Header>Grocery List</Card.Header>
           <Card.Description>
            {list.date}
           </Card.Description>

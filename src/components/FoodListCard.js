@@ -5,13 +5,9 @@ import ExistingFoodLists from './ExistingFoodLists'
 const FoodListCard = (props) => {
   return(
     <React.Fragment>
-      {props.user.email !== "" ?
-        <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
-            Your Saved Lists
-        </Divider> :
       <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
-          Create Your First List
-      </Divider> }
+          Your Lists
+      </Divider>
 
       <Card>
        <Card.Content>

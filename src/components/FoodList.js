@@ -1,5 +1,5 @@
 import React from 'react'
-import { Checkbox, Button, Divider } from 'semantic-ui-react'
+import { Checkbox, Button, Divider, Input } from 'semantic-ui-react'
 
 const FoodList = (props) => {
   return(
