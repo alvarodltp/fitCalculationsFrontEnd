@@ -4,16 +4,18 @@ import { Divider, Button, Form } from 'semantic-ui-react'
 const FoodListForm = (props) => {
     return(
       <React.Fragment>
-        <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
-            Approved Food List
-        </Divider>
-        <div style={{width: "50%", margin: "0 auto"}}>
-          <Form>
-            <Form.Input onChange={props.getUserEmail} name='email' label='Enter your email to create list or retrieve previous old ones' placeholder='Email...' />
-            <Button onClick={props.checkIfUserExists} size="small" id="button-mobile" style={{width: "100%"}} type="submit">
-               SUBMIT
-            </Button>
-          </Form>
+        <div id="background-food">
+          <div id="food-form">
+            <h1 style={{fontSize: "60px"}}>APPROVED SHOPPING LIST</h1>
+            <div style={{width: "70%", margin: "0 auto"}}>
+              <Form>
+                <Form.Input onChange={props.getUserEmail} name='email' label='Enter your email to create a new list or retrieve previous.' placeholder='Email...' />
+                <Button onClick={props.checkIfUserExists} size="small" id="button-mobile" style={{width: "100%"}} type="submit">
+                   SUBMIT
+                </Button>
+              </Form>
+            </div>
+          </div>
         </div>
       </React.Fragment>
   )

@@ -4,12 +4,16 @@ import FoodList from './FoodList'
 import FoodListTitle from './FoodListCard'
 import FoodListCard from './FoodListCard'
 import SavedFoodList from './SavedFoodList'
+import swal from 'sweetalert'
 
 const foodTypes = [
-  {id: 1, value: "Chicken", category: "protein", isChecked: false},
-  {id: 2, value: "Sweet Potato", category: "carbs", isChecked: false},
-  {id: 3, value: "Olive Oil", category: "fats", isChecked: false},
-  {id: 4, value: "Green Peppers", category: "veggies", isChecked: false}
+  {id: 1, value: "Lean Beef", category: "Meat And Poultry", isChecked: false}, {id: 2, value: "Salmon", category: "Seafood", isChecked: false},
+  {id: 3, value: "Egg Whites", category: "Eggs", isChecked: false}, {id: 4, value: "Brown Rice", category: "Grains And Pasta", isChecked: false},
+  {id: 5, value: "Black Beans", category: "Beans And Legumes", isChecked: false}, {id: 6, value: "Asparagus", category: "Veggies", isChecked: false},
+  {id: 7, value: "Arugula", category: "Leafy Greens", isChecked: false}, {id: 8, value: "Wheat Pasta", category: "Grains And Pasta", isChecked: false},
+  {id: 9, value: "Apples", category: "Fruit", isChecked: false}, {id: 10, value: "Almonds", category: "Nuts And Seeds", isChecked: false},
+  {id: 11, value: "Almond Butter", category: "Nut Butters", isChecked: false}, {id: 12, value: "Olive Oil", category: "Good Fats", isChecked: false},
+  {id: 13, value: "Green Peppers", category: "Beverages", isChecked: false}, {id: 14, value: "Mustard", category: "Other", isChecked: false}
 ]
 
 class FoodListContainer extends React.Component {
@@ -17,6 +21,7 @@ class FoodListContainer extends React.Component {
     super()
     this.state={
       foodTypes: null,
+      filteredFoodTypes: foodTypes,
       foodsChecked: [],
       userEmail: "",
       user: null,
@@ -26,8 +31,7 @@ class FoodListContainer extends React.Component {
       newList: [],
       foodListName: "",
       foodsForSelectedList: null,
-      lastFoodListAddedId: "",
-      foodsSavedForList: []
+      lastFoodListAddedId: ""
     }
   }
 
@@ -139,7 +143,6 @@ class FoodListContainer extends React.Component {
 
   getAllFoodsChecked = (lastFoodListAddedId) => {
     let selectedFoods = this.state.foodTypes.filter(food => food.isChecked === true)
-    debugger
     this.setState({
       foodsChecked: selectedFoods
     }, () => this.saveFoods(lastFoodListAddedId, selectedFoods))
@@ -148,7 +151,6 @@ class FoodListContainer extends React.Component {
   saveFoods = (foodListId, selectedFoods) => {
     // let id;
     // this.state.foodList.length > 1 ? id=this.state.foodList.sort((a, b) => a - b).pop().id : id=this.state.foodList[0].id //gets last food list id
-    debugger
     for(var i = 0; i < selectedFoods.length; i++){
     var current = selectedFoods[i];
     fetch("https://fitcalculations-api.herokuapp.com/foods", {
@@ -165,12 +167,9 @@ class FoodListContainer extends React.Component {
       })
       .then(response => response.json())
       .then(json => {
-        console.log(json)
-        this.setState({
-          foodsSavedForList: [...this.state.foodsSavedForList, json]
-        })
       })
-    }//end of loop
+    } //end of loop
+    swal("Success!", "Your list has been saved!", "success")
   }
 
   getAllFoodsForSelectedList = (e, listId) => {
@@ -235,13 +234,22 @@ clearSelectedFoods = () => {
   })
 }
 
+handleDropdownClick = (e) => {
+  let foods;
+  e.target.innerText === "All" ? foods = foodTypes : foods = this.state.foodTypes.filter(food => food.category === e.target.innerText)
+  this.setState({
+    filteredFoodTypes: foods,
+    foodTypes: foodTypes
+  })
+}
+
   render() {
     return(
       <React.Fragment>
-        {this.state.user === null ? <FoodListForm checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-        {this.state.foodTypes !== null ? <FoodList getName={this.getName} createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-        {this.state.user !== null && this.state.foodTypes === null && this.state.foodsForSelectedList === null ? <FoodListCard getAllFoodsForSelectedList={this.getAllFoodsForSelectedList} foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
-        {this.state.foodsForSelectedList !== null ? <SavedFoodList handleChangeOnSavedList={this.handleChangeOnSavedList} clearSelectedFoods={this.clearSelectedFoods} foodsForSelectedList={this.state.foodsForSelectedList} backToSavedLists={this.backToSavedLists} handleChange={this.handleChange}/> : null}
+          {this.state.user === null ? <FoodListForm checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
+          {this.state.foodTypes !== null ? <FoodList filteredFoodTypes={this.state.filteredFoodTypes} handleDropdownClick={this.handleDropdownClick} getName={this.getName} createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
+          {this.state.user !== null && this.state.foodTypes === null && this.state.foodsForSelectedList === null ? <FoodListCard getAllFoodsForSelectedList={this.getAllFoodsForSelectedList} foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
+          {this.state.foodsForSelectedList !== null ? <SavedFoodList handleChangeOnSavedList={this.handleChangeOnSavedList} clearSelectedFoods={this.clearSelectedFoods} foodsForSelectedList={this.state.foodsForSelectedList} backToSavedLists={this.backToSavedLists} handleChange={this.handleChange}/> : null}
       </React.Fragment>
     )
   }

@@ -199,11 +199,9 @@ span {
 #footer {
   height: 55px;
   background: #2761f1;
-  position: static;
   color: gray;
   border-radius: 0px !important;
   box-shadow: none;
-  margin-top: 0px;
 }
 
 #button {
@@ -951,4 +949,15 @@ box-shadow: none;
 
 .ui.dropdown>.default.text {
   color: black
+}
+
+#food-form {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+}
+
+#background-food {
+  height: 84vh;
 }
