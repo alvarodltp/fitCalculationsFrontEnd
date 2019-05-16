@@ -4,8 +4,6 @@ import { Card, Button } from 'semantic-ui-react'
 const ExistingFoodLists = (props) => {
   return(
     <React.Fragment>
-    {props.foodList === null ?
-    <h1>You don't have any food lists yet</h1> :
     <div>
       {props.foodList.map(list =>
        <Card>
@@ -26,7 +24,7 @@ const ExistingFoodLists = (props) => {
           </div>
         </Card.Content>
       </Card> )}
-    </div> }
+    </div>
 
     </React.Fragment>
   )

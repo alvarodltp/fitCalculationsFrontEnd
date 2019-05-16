@@ -22,17 +22,18 @@ const FoodList = (props) => {
 
   return(
     <React.Fragment>
-      <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
+      <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px", marginBottom: "40px"}} horizontal>
         Create New List
       </Divider>
-      <Select style={{marginBottom: "10px"}} onChange={(e, data) => {props.handleDropdownClick(e, data)}} options={options} placeholder='Filter By Food Category' />
-      {props.filteredFoodTypes.map(food =>
       <div>
-        <Checkbox id={food.id} checked={food.isChecked} onChange={(e, food) => {props.handleChange(e, food)}} style={{width: "80%", margin: "0 auto", marginBottom: "10px"}} label={food.value} />
-      </div> )} <br/>
-      <Button id="button-mobile" onClick={props.backToSavedLists}>Go Back To Saved Lists</Button>
-      <Button id="button-mobile" onClick={props.createFoodList}>Save This List</Button>
-
+        <Select style={{marginBottom: "40px", width: "60%"}} onChange={(e, data) => {props.handleDropdownClick(e, data)}} options={options} placeholder='Filter By Food Category' />
+        {props.filteredFoodTypes.map(food =>
+        <div>
+          <Checkbox id={food.id} checked={food.isChecked} onChange={(e, food) => {props.handleChange(e, food)}} style={{width: "80%", margin: "0 auto", marginBottom: "10px"}} label={food.value} />
+        </div> )} <br/>
+        <Button id="button-mobile" onClick={props.backToSavedLists}>Go Back To Saved Lists</Button>
+        <Button id="button-mobile" onClick={props.createFoodList}>Save This List</Button>
+      </div>
     </React.Fragment>
   )
 }
