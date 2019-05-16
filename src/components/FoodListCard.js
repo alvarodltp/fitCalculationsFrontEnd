@@ -23,7 +23,7 @@ const FoodListCard = (props) => {
      </Card>
 
      {props.user !== undefined ?
-     <ExistingFoodLists openSavedList={props.openSavedList} foodList={props.foodList} removeFoodList={props.removeFoodList} user={props.user}/> : null }
+     <ExistingFoodLists getAllFoodsForSelectedList={props.getAllFoodsForSelectedList} foodList={props.foodList} removeFoodList={props.removeFoodList} user={props.user}/> : null }
 
     </React.Fragment>
   )

@@ -17,7 +17,7 @@ const ExistingFoodLists = (props) => {
         </Card.Content>
         <Card.Content extra>
           <div className='ui two buttons'>
-            <Button onClick={(e) => props.openSavedList(e, list.id)} basic color='green'>
+            <Button onClick={(e) => {props.getAllFoodsForSelectedList(e, list.id)}} basic color='green'>
               Open
             </Button>
             <Button onClick={(e) => {props.removeFoodList(e, list.id)}} basic color='red'>
