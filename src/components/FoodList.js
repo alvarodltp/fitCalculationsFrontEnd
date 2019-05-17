@@ -23,7 +23,7 @@ const FoodList = (props) => {
   return(
     <React.Fragment>
       <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "50px", marginBottom: "50px"}} horizontal>
-        Create New List
+        Create A New List
       </Divider>
       <div>
         <Select style={{marginBottom: "40px", width: "60%"}} onChange={(e, data) => {props.handleDropdownClick(e, data)}} options={options} placeholder='Filter By Food Category' />
