@@ -4,7 +4,7 @@ import { Checkbox, Button, Divider, Input } from 'semantic-ui-react'
 const SavedFoodList = (props) => {
   return(
     <React.Fragment>
-      <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
+      <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "50px", marginBottom: "50px"}} horizontal>
         Your List
       </Divider>
       {props.foodsForSelectedList.map(food =>

@@ -43,10 +43,10 @@ class NutritionPackageDetails extends React.Component {
       <React.Fragment>
       <div id="header-main-landing">
       <Bounce left>
-        <h1 style={{paddingTop: "45px", fontSize: "40px", color: "white", fontStyle: "italic"}} >UNLEASH YOUR FITNESS POTENTIAL</h1>
+        <h1 style={{paddingTop: "45px", fontSize: "40px", color: "white", fontStyle: "italic"}} >CALCULATE YOUR MACROS TODAY</h1>
       </Bounce>
         <Divider style={{fontSize: "18px", marginTop: "40px", color: "white"}} horizontal>
-           START YOUR TRANSFORMATION NOW
+           GET YOUR RESULTS NOW
         </Divider>
         {this.props.mobileDevice === false ?
         <div>

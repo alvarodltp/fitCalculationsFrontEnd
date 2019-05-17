@@ -22,7 +22,7 @@ const FoodList = (props) => {
 
   return(
     <React.Fragment>
-      <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px", marginBottom: "40px"}} horizontal>
+      <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "50px", marginBottom: "50px"}} horizontal>
         Create New List
       </Divider>
       <div>

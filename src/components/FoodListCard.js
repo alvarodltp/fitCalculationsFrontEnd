@@ -5,7 +5,7 @@ import ExistingFoodLists from './ExistingFoodLists'
 const FoodListCard = (props) => {
   return(
     <React.Fragment>
-      <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>
+      <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "50px"}} horizontal>
           Your Lists
       </Divider>
 

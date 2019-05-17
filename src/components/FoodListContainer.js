@@ -19,7 +19,7 @@ const foodTypes = [
   {id: 19, value: "Salmon", category: "Seafood", isChecked: false}, {id: 20, value: "Mahi Mahi", category: "Seafood", isChecked: false},
   {id: 21, value: "Scallops", category: "Seafood", isChecked: false}, {id: 22, value: "Sardines", category: "Seafood", isChecked: false},
   {id: 23, value: "Shrimp", category: "Seafood", isChecked: false}, {id: 24, value: "Trout", category: "Seafood", isChecked: false},
-  {id: 25, value: "Sea Bass", category: "Seafood", isChecked: false}, {id: 26, value: "Brown Rice", category: "Eggs", isChecked: false},
+  {id: 25, value: "Sea Bass", category: "Seafood", isChecked: false},
   {id: 27, value: "Egg Whites", category: "Eggs", isChecked: false}, {id: 28, value: "Whole Eggs", category: "Eggs", isChecked: false},
   {id: 29, value: "Brown Rice", category: "Grains And Pasta", isChecked: false}, {id: 30, value: "Couscous", category: "Grains And Pasta", isChecked: false},
   {id: 31, value: "Ezikiel Sprouted Grain Bread", category: "Grains And Pasta", isChecked: false}, {id: 32, value: "Steel Cut Oats", category: "Grains And Pasta", isChecked: false},
@@ -100,6 +100,7 @@ class FoodListContainer extends React.Component {
 
   componentDidMount(){
     this.getUsersWithLists()
+    this.props.setFoodListStepNumber()
   }
 
   getName = (e) => {

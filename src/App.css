@@ -34,7 +34,7 @@ span {
   overflow: auto;
   background: #2761f1;
   /* background: linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%); */
-  position: static;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 9999;
@@ -958,6 +958,17 @@ box-shadow: none;
  transform: translate(-50%, -50%);
 }
 
+#loading-foodlist-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 #background-food {
   height: 84vh;
+}
+
+.ui.selection.dropdown .menu {
+  max-height: 300px;
 }

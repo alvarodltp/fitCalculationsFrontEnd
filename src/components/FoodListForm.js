@@ -5,7 +5,7 @@ import { BeatLoader } from 'react-spinners';
 const FoodListForm = (props) => {
     return(
       <React.Fragment>
-      
+
       {props.loading === false ?
         <div id="background-food">
           <div id="food-form">
@@ -21,7 +21,7 @@ const FoodListForm = (props) => {
           </div>
         </div> :
 
-        <div id="loading">
+        <div id="loading-foodlist-form">
           <div className='sweet-loading'>
             <BeatLoader
               sizeUnit={"px"}
