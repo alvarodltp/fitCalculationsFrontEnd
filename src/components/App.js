@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import NavBar from './NavBar'
 import NavBarMobile from './NavBarMobile'
+import {Sidebar, Segment, Menu} from 'semantic-ui-react'
 import CalculationsContainer from './CalculationsContainer'
 import Footer from './Footer'
 import { Route } from 'react-router-dom'
@@ -16,6 +17,7 @@ import ReactPixel from 'react-facebook-pixel';
 import FoodListContainer from './FoodListContainer'
 import Profile from './Profile'
 import Auth from "../Auth/Auth"
+import Home from './Home'
 
 class App extends React.Component {
   constructor(props){
@@ -28,6 +30,8 @@ class App extends React.Component {
       auth: new Auth(this.props.history)
     }
   }
+
+
 
 componentDidMount() {
   this.initGA()
@@ -100,7 +104,8 @@ showResultsPage = () => {
 
     return (
       <div className="App">
-        {this.state.mobileDevice === true ? <NavBarMobile/> : <NavBar/> }
+        {this.state.mobileDevice === true ? <NavBarMobile /> : <NavBar/> }
+        <Route exact path="/home" render={props => <Home {...props}/> } />
         <Route exact path="/asdad" render={props => <Auth {...props}/> } />
         <Route exact path="/testeando" render={props => <Homepage /> } />
         <Route exact path="/" render={props => <CalculationsContainer {...props} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
