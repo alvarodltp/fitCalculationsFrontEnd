@@ -31,7 +31,7 @@ const FoodList = (props) => {
         <div>
           <Checkbox id={food.id} checked={food.isChecked} onChange={(e, food) => {props.handleChange(e, food)}} style={{width: "80%", margin: "0 auto", marginBottom: "10px"}} label={food.value} />
         </div> )} <br/>
-        <Button id="button-mobile" onClick={props.backToSavedLists}>Go Back To Saved Lists</Button>
+        <Button disabled={props.disabled} id="button-mobile" onClick={props.backToSavedLists}>Go Back To Saved Lists</Button>
         <Button id="button-mobile" onClick={props.createFoodList}>Save This List</Button>
         {props.maxListLimit !== "" ? <p style={{color: "red", fontSize: "12px", marginBottom:"50px"}}>{props.maxListLimit}</p> : null }
       </div>

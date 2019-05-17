@@ -95,7 +95,8 @@ class FoodListContainer extends React.Component {
       foodListName: "",
       foodsForSelectedList: null,
       lastFoodListAddedId: "",
-      maxListLimit: ""
+      maxListLimit: "",
+      disabled: true
     }
   }
 
@@ -162,7 +163,7 @@ class FoodListContainer extends React.Component {
     }, () => this.createUser(filteredUser, userEmail))
   }
 
-  createUser = (user, email) => {
+  createUser = (user, email) => { //need to convert this to create or update user based on if the user already has his/her stats
     if(user === undefined){
       fetch("https://fitcalculations-api.herokuapp.com/users", {
         method: 'POST',
@@ -204,7 +205,8 @@ class FoodListContainer extends React.Component {
         .then(json => {
           let lastFoodListAddedId = json.id
           this.setState({
-            foodList: [...foodList, json]
+            foodList: [...foodList, json],
+            disabled: false
           }, this.getAllFoodsChecked(lastFoodListAddedId), this.unCheckAllFoods())
         })//this needs to happen after an actual food list is created
     } else {
@@ -322,7 +324,7 @@ handleDropdownClick = (e) => {
     return(
       <React.Fragment>
         {this.state.user === null ? <FoodListForm loading={this.state.loading} checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-        {this.state.foodTypes !== null ? <FoodList maxListLimit={this.state.maxListLimit} filteredFoodTypes={this.state.filteredFoodTypes} handleDropdownClick={this.handleDropdownClick} getName={this.getName} createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
+        {this.state.foodTypes !== null ? <FoodList disabled={this.state.disabled} foodList={this.state.foodList} maxListLimit={this.state.maxListLimit} filteredFoodTypes={this.state.filteredFoodTypes} handleDropdownClick={this.handleDropdownClick} getName={this.getName} createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
         {this.state.user !== null && this.state.foodTypes === null && this.state.foodsForSelectedList === null ? <FoodListCard getAllFoodsForSelectedList={this.getAllFoodsForSelectedList} foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
         {this.state.foodsForSelectedList !== null ? <SavedFoodList handleChangeOnSavedList={this.handleChangeOnSavedList} clearSelectedFoods={this.clearSelectedFoods} foodsForSelectedList={this.state.foodsForSelectedList} backToSavedLists={this.backToSavedLists} handleChange={this.handleChange}/> : null}
       </React.Fragment>
