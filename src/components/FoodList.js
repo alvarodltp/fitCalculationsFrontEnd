@@ -33,6 +33,7 @@ const FoodList = (props) => {
         </div> )} <br/>
         <Button id="button-mobile" onClick={props.backToSavedLists}>Go Back To Saved Lists</Button>
         <Button id="button-mobile" onClick={props.createFoodList}>Save This List</Button>
+        {props.maxListLimit !== "" ? <p style={{color: "red", fontSize: "12px", marginBottom:"50px"}}>{props.maxListLimit}</p> : null }
       </div>
     </React.Fragment>
   )

@@ -94,7 +94,8 @@ class FoodListContainer extends React.Component {
       newList: [],
       foodListName: "",
       foodsForSelectedList: null,
-      lastFoodListAddedId: ""
+      lastFoodListAddedId: "",
+      maxListLimit: ""
     }
   }
 
@@ -188,23 +189,30 @@ class FoodListContainer extends React.Component {
     let foodList;
     this.state.foodList === null ? foodList = new Array(0) : foodList = this.state.foodList
     let userId = this.state.user.id
-    fetch("https://fitcalculations-api.herokuapp.com/food_lists", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        date: new Date(),
-        user_id: userId
-        })
-      }).then(response => response.json())
-      .then(json => {
-        let lastFoodListAddedId = json.id
-        this.setState({
-          foodList: [...foodList, json]
-        }, this.getAllFoodsChecked(lastFoodListAddedId), this.unCheckAllFoods())
-      })//this needs to happen after an actual food list is created
+    if(this.state.foodList === null || this.state.foodList.length < 6) {
+      fetch("https://fitcalculations-api.herokuapp.com/food_lists", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          date: new Date(),
+          user_id: userId
+          })
+        }).then(response => response.json())
+        .then(json => {
+          let lastFoodListAddedId = json.id
+          this.setState({
+            foodList: [...foodList, json]
+          }, this.getAllFoodsChecked(lastFoodListAddedId), this.unCheckAllFoods())
+        })//this needs to happen after an actual food list is created
+    } else {
+      this.setState({
+        maxListLimit: "You have reached your limit of 6 lists. Delete a list to create a new one."
+      })
+    }
+
   }
 
   getAllFoodsChecked = (lastFoodListAddedId) => {
@@ -271,7 +279,8 @@ class FoodListContainer extends React.Component {
 
   backToSavedLists = () => {
     this.setState({
-      foodTypes: null
+      foodTypes: null,
+      maxListLimit: ""
     })
   }
 
@@ -312,10 +321,10 @@ handleDropdownClick = (e) => {
   render() {
     return(
       <React.Fragment>
-          {this.state.user === null ? <FoodListForm loading={this.state.loading} checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-          {this.state.foodTypes !== null ? <FoodList filteredFoodTypes={this.state.filteredFoodTypes} handleDropdownClick={this.handleDropdownClick} getName={this.getName} createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-          {this.state.user !== null && this.state.foodTypes === null && this.state.foodsForSelectedList === null ? <FoodListCard getAllFoodsForSelectedList={this.getAllFoodsForSelectedList} foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
-          {this.state.foodsForSelectedList !== null ? <SavedFoodList handleChangeOnSavedList={this.handleChangeOnSavedList} clearSelectedFoods={this.clearSelectedFoods} foodsForSelectedList={this.state.foodsForSelectedList} backToSavedLists={this.backToSavedLists} handleChange={this.handleChange}/> : null}
+        {this.state.user === null ? <FoodListForm loading={this.state.loading} checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
+        {this.state.foodTypes !== null ? <FoodList maxListLimit={this.state.maxListLimit} filteredFoodTypes={this.state.filteredFoodTypes} handleDropdownClick={this.handleDropdownClick} getName={this.getName} createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
+        {this.state.user !== null && this.state.foodTypes === null && this.state.foodsForSelectedList === null ? <FoodListCard getAllFoodsForSelectedList={this.getAllFoodsForSelectedList} foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
+        {this.state.foodsForSelectedList !== null ? <SavedFoodList handleChangeOnSavedList={this.handleChangeOnSavedList} clearSelectedFoods={this.clearSelectedFoods} foodsForSelectedList={this.state.foodsForSelectedList} backToSavedLists={this.backToSavedLists} handleChange={this.handleChange}/> : null}
       </React.Fragment>
     )
   }
