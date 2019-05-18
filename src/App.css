@@ -989,3 +989,13 @@ box-shadow: none;
   width: 40%;
   text-align: left;
 }
+
+#title-online-training {
+  margin: 0 auto;
+  width: 90%;
+  padding-top: 50px;
+  margin-bottom: 40px;
+  font-size: 50px;
+  color: white;
+  font-style: italic;
+}
