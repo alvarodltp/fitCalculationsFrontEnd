@@ -121,8 +121,8 @@ showResultsPage = () => {
         {this.state.mobileDevice === true ? <NavBarMobile /> : <NavBar/> }
         <Route exact path="/training" render={props => <OTraining {...props}/> } />
         <Route exact path="/asdad" render={props => <Auth {...props}/> } />
-        <Route exact path="/testeando" render={props => <Homepage loading={this.state.loading} allStats={this.state.allStats}/> } />
-        <Route exact path="/" render={props => <CalculationsContainer {...props} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/" render={props => <Homepage loading={this.state.loading} allStats={this.state.allStats}/> } />
+        <Route exact path="/calories-and-macros" render={props => <CalculationsContainer {...props} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
         <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
