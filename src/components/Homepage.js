@@ -1,30 +1,47 @@
 import React from 'react'
 import {Form, Button, Grid, Image} from 'semantic-ui-react'
+import Tools from './Tools'
+import { BeatLoader } from 'react-spinners';
 
 class Homepage extends React.Component {
   render(){
     return(
       <div id="home-header">
         <div id="content-home-header">
-          <h1 style={{marginBottom: "40px"}}>Get your portion control guide and a 100+ approved foods...For Free!</h1>
+          <h1 style={{margin: "0 auto", fontSize:"36px", marginBottom: "40px", width: "90%"}}>GET YOUR PORTION CONTROL GUIDE AND A 100+ FOOD LIST...FOR FREE!</h1>
           <Grid stackable columns={2}>
             <Grid.Row >
               <Grid.Column width={7}>
                 <Image style={{margin: "0 auto"}} src='/Alvaro.png' size='medium' circular/>
               </Grid.Column>
-              <Grid.Column width={9}>
+              <Grid.Column width={9}><br/>
                 <p>Hi! My name is Alvaro and I have 10+ years of experience helping people like you get in the best shape possible. I've helped entrepreneurs and busy professionals get and stay in top notch shape and I can do the same for you.</p>
-                <div>
+                <div style={{textAlign:"center"}}>
                   <Form>
                     <Form.Input style={{width: "70%"}} name='email' label='' placeholder='Enter your email...' />
                     <Button size="small" id="button-mobile" style={{width: "70%"}} type="submit">
-                       GET IT NOW
+                       GET YOUR FREE GUIDE
                     </Button>
                   </Form>
                 </div>
               </Grid.Column>
             </Grid.Row>
           </Grid>
+        </div>
+        <div id="second-header-home">
+          <div id="opacity-50-black">
+            <h1 style={{fontSize:"36px", paddingTop: "40px"}}>FIT CALCULATIONS TOOLS</h1>
+            <p style={{margin: "0 auto", width: "80%"}}>We want to empower everyone to be their best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you can get in the best shape of your life, and we want to be part of your journey.</p>
+            {this.props.allStats !== null ? <Tools allStats={this.props.allStats}/> :
+              <div style={{marginTop: "60px"}} className='sweet-loading'>
+                <BeatLoader
+                  sizeUnit={"px"}
+                  size={13}
+                  color={"#2761f1"}
+                  loading={true}
+                />
+              </div> }
+          </div>
         </div>
       </div>
     )

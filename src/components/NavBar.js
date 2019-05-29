@@ -19,6 +19,7 @@ class NavBar extends React.Component {
           <Image  id="logo" src={'../fit-calculations-logo-2'} />
           <Menu style={{float: "left", marginTop: "5px"}} secondary>
             <Menu.Item style={{fontSize: "18px", marginLeft: "100px"}} name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
+            <Menu.Item style={{fontSize: "18px"}} name='About' active={activeItem === 'About'} onClick={this.handleItemClick} />
             <Menu.Item style={{fontSize: "18px"}} name='Tools' active={activeItem === 'Tools'} onClick={this.handleItemClick} />
             <Menu.Item
               style={{fontSize: "18px"}}

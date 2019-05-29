@@ -27,7 +27,9 @@ class App extends React.Component {
       mobileDevice: null,
       showResults: false,
       loading: true,
-      auth: new Auth(this.props.history)
+      auth: new Auth(this.props.history),
+      allStats: null,
+      loading: true
     }
   }
 
@@ -37,8 +39,20 @@ componentDidMount() {
   this.initGA()
   this.logPageView()
   this.isMobileDevice()
+  this.getAllStats()
   // this.initializeIntercom()
   ReactPixel.init('433459070732534')
+}
+
+getAllStats = () => {
+  fetch("https://fitcalculations-api.herokuapp.com/stats")
+  .then(response => response.json())
+  .then(json => {
+    this.setState({
+      allStats: json,
+      loading: false
+    })
+  })
 }
 
 setFoodListStepNumber = () => {
@@ -107,7 +121,7 @@ showResultsPage = () => {
         {this.state.mobileDevice === true ? <NavBarMobile /> : <NavBar/> }
         <Route exact path="/training" render={props => <OTraining {...props}/> } />
         <Route exact path="/asdad" render={props => <Auth {...props}/> } />
-        <Route exact path="/testeando" render={props => <Homepage /> } />
+        <Route exact path="/testeando" render={props => <Homepage loading={this.state.loading} allStats={this.state.allStats}/> } />
         <Route exact path="/" render={props => <CalculationsContainer {...props} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
@@ -116,13 +130,13 @@ showResultsPage = () => {
         <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
         <Route exact path="/food-list" render={props => <FoodListContainer setFoodListStepNumber={this.setFoodListStepNumber} {...props}/> } />
         <Route path="/profile" render={props => <Profile {...props} auth={this.state.auth} /> } />
-        {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
+
       </div>
     )
   }
 }
 
 // <NavBar /><br/><br/><br/><br/>
-
+//   {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
 
 export default App;

@@ -308,6 +308,7 @@ span {
   width: 80%;
   margin: 0 auto;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 #background-image-home {
@@ -1008,4 +1009,26 @@ box-shadow: none;
 
 .ui.form {
   margin: 0 auto;
+}
+
+#second-header-home {
+  width: 100%;
+  height: 700px;
+  background: white;
+}
+
+#opacity-50-black {
+  width: 100%;
+  height: 700px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+#button-mobile:hover {
+  color: white;
+  background: #e80aaa;
+  -webkit-transition: background .4s;
+  -moz-transition: background .4s;
+  -ms-transition: background .4s;
+  -o-transition: background .4s;
+  transition: background .4s;
 }
