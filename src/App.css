@@ -34,6 +34,8 @@ span {
   background: #2761f1;
   width: 100%;
   height: 50px;
+  position: static;
+  overflow: inherit;
 }
 
 #info-card {
@@ -1014,13 +1016,19 @@ box-shadow: none;
 #second-header-home {
   width: 100%;
   height: 700px;
-  background: white;
+  background: #F8F8F8;
 }
 
 #opacity-50-black {
   width: 100%;
   height: 700px;
-  background: rgba(0, 0, 0, 0.1);
+  /* background: rgba(0, 0, 0, 0.1); */
+}
+
+#third-header-home {
+  width: 100%;
+  height: 700px;
+  background: white;
 }
 
 #button-mobile:hover {

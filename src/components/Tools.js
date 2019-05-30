@@ -14,7 +14,7 @@ const Tools = (props) => {
                 <Card id="image-card" style={{margin: "0 auto"}}>
                   <Image src='books-3.png' />
                   <Card.Content>
-                    <Card.Header>Macronutrients and Calories</Card.Header>
+                    <Card.Header>Macronutrients and Calories Calculator</Card.Header>
                     <Card.Description>
                       Calculate your personalized calories and macronutrients and get instant results.
                     </Card.Description>
@@ -33,7 +33,7 @@ const Tools = (props) => {
             <Card id="image-card" style={{margin: "0 auto"}}>
               <Image src='veggies.jpg' />
               <Card.Content>
-                <Card.Header>Grocery Shopping List</Card.Header>
+                <Card.Header>Grocery Shopping List Tool</Card.Header>
                 <Card.Description>
                   Make a grocery list with our health approved foods, save it, and use it when you are ready to shop!
                 </Card.Description>

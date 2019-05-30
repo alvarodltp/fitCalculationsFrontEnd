@@ -1,6 +1,7 @@
 import React from 'react'
 import {Form, Button, Grid, Image} from 'semantic-ui-react'
 import Tools from './Tools'
+import Products from './Products'
 import { BeatLoader } from 'react-spinners';
 
 class Homepage extends React.Component {
@@ -8,7 +9,7 @@ class Homepage extends React.Component {
     return(
       <div id="home-header">
         <div id="content-home-header">
-          <h1 style={{margin: "0 auto", fontSize:"36px", marginBottom: "40px", width: "90%"}}>GET YOUR PORTION CONTROL GUIDE AND A 100+ FOOD LIST...FOR FREE!</h1>
+          <h1 style={{margin: "0 auto", fontSize:"36px", marginBottom: "40px", width: "90%", fontStyle: "italic"}}>GET YOUR PORTION CONTROL GUIDE AND A 100+ FOOD LIST...FOR FREE!</h1>
           <Grid stackable columns={2}>
             <Grid.Row >
               <Grid.Column width={7}>
@@ -28,10 +29,11 @@ class Homepage extends React.Component {
             </Grid.Row>
           </Grid>
         </div>
+
         <div id="second-header-home">
           <div id="opacity-50-black">
-            <h1 style={{fontSize:"36px", paddingTop: "40px"}}>FIT CALCULATIONS TOOLS</h1>
-            <p style={{margin: "0 auto", width: "80%"}}>We want to empower everyone to be their best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you can get in the best shape of your life, and we want to be part of your journey.</p>
+            <h1 style={{fontSize:"36px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>FIT CALCULATIONS TOOLS</h1>
+            <p style={{margin: "0 auto", width: "80%", textAlign: "left"}}>We want to empower everyone to be their best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you can get in the best shape of your life, and we want to be part of your journey.</p>
             {this.props.allStats !== null ? <Tools allStats={this.props.allStats}/> :
               <div style={{marginTop: "60px"}} className='sweet-loading'>
                 <BeatLoader
@@ -43,6 +45,16 @@ class Homepage extends React.Component {
               </div> }
           </div>
         </div>
+
+        <div id="third-header-home">
+          <div id="opacity-50-black">
+            <h1 style={{fontSize:"36px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>UNLEASH YOUR FITNESS POTENTIAL</h1>
+            <p style={{margin: "0 auto", width: "80%", textAlign: "left"}}>Absolutely everything you need to start your journey to get in the best shape of your life starts right here. If you've said "I don't know what to do", "I've tried everything", "My body just doesn't respond", etc...then this guide is for you.</p>
+            <Products allStats={this.props.allStats}/>
+          </div>
+        </div>
+
+
       </div>
     )
   }
