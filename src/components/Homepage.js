@@ -33,7 +33,7 @@ class Homepage extends React.Component {
         <div id="second-header-home">
           <div id="opacity-50-black">
             <h1 style={{fontSize:"36px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>FIT CALCULATIONS TOOLS</h1>
-            <p style={{margin: "0 auto", width: "80%", textAlign: "left"}}>We want to empower everyone to be their best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you can get in the best shape of your life, and we want to be part of your journey.</p>
+            <p style={{margin: "0 auto", width: "80%", textAlign: "left"}}>We want to empower everyone to be their best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you can get amazing results in a matter of weeks, and I want to be part of your journey.</p>
             {this.props.allStats !== null ? <Tools allStats={this.props.allStats}/> :
               <div style={{marginTop: "60px"}} className='sweet-loading'>
                 <BeatLoader
@@ -49,7 +49,7 @@ class Homepage extends React.Component {
         <div id="third-header-home">
           <div id="opacity-50-black">
             <h1 style={{fontSize:"36px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>UNLEASH YOUR FITNESS POTENTIAL</h1>
-            <p style={{margin: "0 auto", width: "80%", textAlign: "left"}}>Absolutely everything you need to start your journey to get in the best shape of your life starts right here. If you've said "I don't know what to do", "I've tried everything", "My body just doesn't respond", etc...then this guide is for you.</p>
+            <p style={{margin: "0 auto", width: "80%", textAlign: "left"}}>This guide has absolutely everything you need to start your journey into getting in the best shape of your life. Follow my guide for 30 days and if you don't see results I will refund all your money back. That is how confident I feel that this guide will change your body and life.</p>
             <Products allStats={this.props.allStats}/>
           </div>
         </div>

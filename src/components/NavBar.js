@@ -21,30 +21,28 @@ class NavBar extends React.Component {
             <Link to="/">
               <Menu.Item style={{fontSize: "18px", marginLeft: "100px"}} name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
             </Link>
-            <Link to="/about">
-              <Menu.Item style={{fontSize: "18px"}} name='About' active={activeItem === 'About'} onClick={this.handleItemClick} />
-            </Link>
-            <Link to="/tools">
-              <Menu.Item style={{fontSize: "18px"}} name='Tools' active={activeItem === 'Tools'} onClick={this.handleItemClick} />
-            </Link>
-            <Link to="/products">
-              <Menu.Item
-                style={{fontSize: "18px"}}
-                name='Products'
-                active={activeItem === 'Products'}
-                onClick={this.handleItemClick}
-              />
-            </Link>
+
             </Menu>
         </div>
-
      </React.Fragment>
-
-
-
 
     )
   }
 }
 
 export default NavBar
+
+// <Link to="/about">
+//   <Menu.Item style={{fontSize: "18px"}} name='About' active={activeItem === 'About'} onClick={this.handleItemClick} />
+// </Link>
+// <Link to="/tools">
+//   <Menu.Item style={{fontSize: "18px"}} name='Tools' active={activeItem === 'Tools'} onClick={this.handleItemClick} />
+// </Link>
+// <Link to="/products">
+//   <Menu.Item
+//     style={{fontSize: "18px"}}
+//     name='Products'
+//     active={activeItem === 'Products'}
+//     onClick={this.handleItemClick}
+//   />
+// </Link>

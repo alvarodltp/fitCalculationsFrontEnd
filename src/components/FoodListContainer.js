@@ -96,7 +96,9 @@ class FoodListContainer extends React.Component {
       foodsForSelectedList: null,
       lastFoodListAddedId: "",
       maxListLimit: "",
-      disabled: true
+      disabled: true,
+      emailValid: "",
+      message: ""
     }
   }
 
@@ -161,6 +163,30 @@ class FoodListContainer extends React.Component {
       user: filteredUser,
       foodList: userFoodLists
     }, () => this.createUser(filteredUser, userEmail))
+  }
+
+  validateEmail = (e) => {
+    let email = e.target.value.replace(/\s*$/,'')
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    this.setState({
+      emailValid: re.test(email)
+    })
+  }
+
+  errorMessage = () => {
+    if(this.state.emailValid === "" || this.state.emailValid === false) {
+      this.setState({
+        message: "Please enter a valid email."
+      })
+    }
+  }
+
+  listOrError = (e) => {
+    if(this.state.emailValid === true){
+      this.checkIfUserExists()
+    } else {
+      this.errorMessage()
+    }
   }
 
   createUser = (user, email) => { //need to convert this to create or update user based on if the user already has his/her stats
@@ -267,8 +293,8 @@ class FoodListContainer extends React.Component {
 
   getUserEmail = (e) => {
     this.setState({
-      userEmail: e.target.value
-    }, this.validateEmail(e))
+      userEmail: e.target.value.toLowerCase()
+    })
   }
 
   validateEmail = (e) => {
@@ -323,7 +349,7 @@ handleDropdownClick = (e) => {
   render() {
     return(
       <React.Fragment>
-        {this.state.user === null ? <FoodListForm loading={this.state.loading} checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
+        {this.state.user === null ? <FoodListForm validateEmail={this.validateEmail} emailValid={this.state.emailValid} message={this.state.message} listOrError={this.listOrError} loading={this.state.loading} checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
         {this.state.foodTypes !== null ? <FoodList disabled={this.state.disabled} foodList={this.state.foodList} maxListLimit={this.state.maxListLimit} filteredFoodTypes={this.state.filteredFoodTypes} handleDropdownClick={this.handleDropdownClick} getName={this.getName} createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
         {this.state.user !== null && this.state.foodTypes === null && this.state.foodsForSelectedList === null ? <FoodListCard getAllFoodsForSelectedList={this.getAllFoodsForSelectedList} foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
         {this.state.foodsForSelectedList !== null ? <SavedFoodList handleChangeOnSavedList={this.handleChangeOnSavedList} clearSelectedFoods={this.clearSelectedFoods} foodsForSelectedList={this.state.foodsForSelectedList} backToSavedLists={this.backToSavedLists} handleChange={this.handleChange}/> : null}

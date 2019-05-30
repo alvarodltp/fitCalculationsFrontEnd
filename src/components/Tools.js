@@ -30,21 +30,23 @@ const Tools = (props) => {
             </Grid.Column>
 
             <Grid.Column>
-            <Card id="image-card" style={{margin: "0 auto"}}>
-              <Image src='veggies.jpg' />
-              <Card.Content>
-                <Card.Header>Grocery Shopping List Tool</Card.Header>
-                <Card.Description>
-                  Make a grocery list with our health approved foods, save it, and use it when you are ready to shop!
-                </Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                <a>
-                  <Icon name='star' />
-                  22 Cal
-                </a>
-              </Card.Content>
-            </Card>
+            <Link to="/food-list">
+              <Card id="image-card" style={{margin: "0 auto"}}>
+                <Image src='veggies.jpg' />
+                <Card.Content>
+                  <Card.Header>Grocery Shopping List Tool</Card.Header>
+                  <Card.Description>
+                    Make a grocery list with our healthy food options, save it, and use it when you are ready to shop!
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <a>
+                    <Icon name='star' />
+                    22 Cal
+                  </a>
+                </Card.Content>
+              </Card>
+            </Link>
             </Grid.Column>
             <Grid.Column>
 

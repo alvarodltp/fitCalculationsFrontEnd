@@ -273,7 +273,6 @@ class CalculationsContainer extends React.Component {
 
 
   getActivityLevel = (e) => {
-    debugger
     let activityLevel = e.target.innerText
     let activityLevelValue;
     if(activityLevel === "Sedentary (little or no exercise)") {
@@ -327,7 +326,6 @@ class CalculationsContainer extends React.Component {
   }
 
   calculateCalories = (bmr) => {
-  console.log(bmr)
   let activityLevel = this.state.activityLevel
   let goal = this.state.goal
   let weightToManage = this.state.weightToManage.split(' ')[0]
