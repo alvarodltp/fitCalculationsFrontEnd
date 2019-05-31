@@ -6,13 +6,13 @@ import {Link} from 'react-router-dom'
 const Tools = (props) => {
   return(
     <React.Fragment>
-      <div style={{margin: "0 auto", width: "80%", marginTop: "40px"}}>
-        <Grid className="ui center aligned grid" stackable columns={3}>
+      <div id="content-home-header">
+        <Grid className="ui center aligned grid" stackable columns={2}>
           <Grid.Row>
-            <Grid.Column>
+            <Grid.Column style={{marginBottom: "40px"}} width={8}>
               <Link to="/calories-and-macros">
                 <Card id="image-card" style={{margin: "0 auto"}}>
-                  <Image src='books-3.png' />
+                  <Image src='iphone-pink.jpg' />
                   <Card.Content>
                     <Card.Header>Macronutrients and Calories Calculator</Card.Header>
                     <Card.Description>
@@ -29,7 +29,7 @@ const Tools = (props) => {
               </Link>
             </Grid.Column>
 
-            <Grid.Column>
+            <Grid.Column width={8}>
             <Link to="/food-list">
               <Card id="image-card" style={{margin: "0 auto"}}>
                 <Image src='veggies.jpg' />
