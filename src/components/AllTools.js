@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 const Tools = (props) => {
   return(
     <React.Fragment>
+      <div style={{margin: "0 auto", width: "80%"}}>
         <Grid className="ui center aligned grid" stackable columns={2}>
           <Grid.Row>
             <Grid.Column width={8}>
@@ -26,10 +27,11 @@ const Tools = (props) => {
               </Card>
             </Link>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column width={8}>
             </Grid.Column>
           </Grid.Row>
         </Grid><br/><br/>
+      </div>
     </React.Fragment>
   )
 }
