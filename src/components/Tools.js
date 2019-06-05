@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, Image, Icon, Grid } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
-
 const Tools = (props) => {
   return(
     <React.Fragment>
@@ -11,7 +10,7 @@ const Tools = (props) => {
           <Grid.Row>
             <Grid.Column style={{marginBottom: "40px"}} width={8}>
               <Link to="/calories-and-macros">
-                <Card id="image-card" style={{margin: "0 auto"}}>
+                <Card onClick={props.scrollToTop} id="image-card" style={{margin: "0 auto"}}>
                   <Image src='iphone-pink.jpg' />
                   <Card.Content>
                     <Card.Header>Macronutrients and Calories Calculator</Card.Header>

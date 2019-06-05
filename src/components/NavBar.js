@@ -18,12 +18,12 @@ class NavBar extends React.Component {
         <div id="navbar">
           <Image  id="logo" src={'../fit-calculations-logo-2'} />
           <Menu style={{float: "left", marginTop: "5px"}} secondary>
-            <Link to="/">
-              <Menu.Item style={{fontSize: "18px", marginLeft: "100px"}} name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
-            </Link>
+          <Link to="/">
+            <Menu.Item style={{fontSize: "18px", marginLeft: "100px"}} name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
+          </Link>
 
-            </Menu>
-        </div>
+          </Menu>
+      </div>
      </React.Fragment>
 
     )

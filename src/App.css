@@ -38,6 +38,25 @@ span {
   overflow: inherit;
 }
 
+.fa-1x {
+font-size: 1.5rem;
+}
+.navbar-toggler.toggler-example {
+cursor: pointer;
+}
+.dark-blue-text {
+color: #0A38F5;
+}
+.dark-pink-text {
+color: #AC003A;
+}
+.dark-amber-text {
+color: #ff6f00;
+}
+.dark-teal-text {
+color: #004d40;
+}
+
 #info-card {
   margin-top: 2%;
   display: inline-block;
@@ -193,6 +212,7 @@ span {
 }
 
 #footer {
+  margin-top: 0px;
   height: 55px;
   background: #2761f1;
   color: gray;
@@ -214,6 +234,9 @@ span {
   background-color: transparent;
   color: black;
   margin-bottom: 20px;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
 }
 
 #button:hover {
@@ -302,9 +325,9 @@ span {
   margin-right: 10px;
 }
 
-/* #home-header {
-  height: 86vh;
-} */
+#home-page {
+  background: white;
+}
 
 #content-home-header {
   width: 80%;
@@ -627,10 +650,14 @@ box-shadow: none;
 #image-card {
   box-shadow: none;
   transition: transform .4s;
+
 }
 
 #image-card:hover {
   transform: scale(1.1);
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
 }
 
 #arrow-results {
@@ -930,6 +957,9 @@ box-shadow: none;
   margin-top: 20px;
   border-radius: 25px;
   transition: background-color .5s ease;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
 }
 
 #cta-button:hover {
@@ -1031,4 +1061,19 @@ box-shadow: none;
   -ms-transition: background .4s;
   -o-transition: background .4s;
   transition: background .4s;
+}
+
+#image-product-home {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+#alvaro-home-image {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+#first-header-home{
 }

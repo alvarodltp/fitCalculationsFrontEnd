@@ -10,7 +10,7 @@ const Products = (props) => {
         <Grid stackable columns={2}>
           <Grid.Row >
             <Grid.Column width={7}>
-              <Image style={{margin: "0 auto"}} src='/books-3.png' size='medium' />
+              <Image id="image-product-home" style={{margin: "0 auto"}} src='/books-3.png' size='medium' />
             </Grid.Column>
             <Grid.Column width={9}><br/>
               <ul style={{marginTop: "0px", marginBottom: "40px"}}>

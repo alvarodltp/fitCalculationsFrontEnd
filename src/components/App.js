@@ -29,7 +29,10 @@ class App extends React.Component {
       loading: true,
       auth: new Auth(this.props.history),
       allStats: null,
-      loading: true
+      loading: true,
+      emailValid: "",
+      message: ""
+
     }
   }
 
@@ -111,6 +114,25 @@ showResultsPage = () => {
 //   })
 // }
 
+validateEmail = (e) => {
+  let email = e.target.value.replace(/\s*$/,'')
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  this.setState({
+    emailValid: re.test(email)
+  })
+}
+
+requiredEmailMessage = () => {
+  if(this.state.emailValid === "" || this.state.emailValid === false) {
+    this.setState({
+      message: "Please enter a valid email address."
+    })
+  } else {
+    this.setState({
+      message: ""
+    })
+  }
+}
 
   render() {
 
@@ -121,8 +143,8 @@ showResultsPage = () => {
         {this.state.mobileDevice === true ? <NavBarMobile /> : <NavBar/> }
         <Route exact path="/training" render={props => <OTraining {...props}/> } />
         <Route exact path="/asdad" render={props => <Auth {...props}/> } />
-        <Route exact path="/" render={props => <Homepage loading={this.state.loading} allStats={this.state.allStats}/> } />
-        <Route exact path="/calories-and-macros" render={props => <CalculationsContainer {...props} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+        <Route exact path="/" render={props => <Homepage scrollToTop={this.scrollToTop} requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } />
+        <Route exact path="/calories-and-macros" render={props => <CalculationsContainer {...props} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
         <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
@@ -130,13 +152,13 @@ showResultsPage = () => {
         <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
         <Route exact path="/food-list" render={props => <FoodListContainer setFoodListStepNumber={this.setFoodListStepNumber} {...props}/> } />
         <Route path="/profile" render={props => <Profile {...props} auth={this.state.auth} /> } />
-
+          {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
       </div>
     )
   }
 }
 
 // <NavBar /><br/><br/><br/><br/>
-//   {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
+
 
 export default App;
