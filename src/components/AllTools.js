@@ -27,10 +27,9 @@ const Tools = (props) => {
             </Link>
             </Grid.Column>
             <Grid.Column>
-
             </Grid.Column>
           </Grid.Row>
-        </Grid>
+        </Grid><br/><br/>
     </React.Fragment>
   )
 }

@@ -16,13 +16,9 @@ class NavBar extends React.Component {
     return(
       <React.Fragment>
         <div id="navbar">
-          <Image  id="logo" src={'../fit-calculations-logo-2'} />
-          <Menu style={{float: "left", marginTop: "5px"}} secondary>
           <Link to="/">
-            <Menu.Item style={{fontSize: "18px", marginLeft: "100px"}} name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
+            <Image  id="logo" src={'../fit-calculations-logo-2'} />
           </Link>
-
-          </Menu>
       </div>
      </React.Fragment>
 
