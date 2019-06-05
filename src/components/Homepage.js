@@ -3,6 +3,7 @@ import {Form, Button, Grid, Image} from 'semantic-ui-react'
 import AllTools from './AllTools'
 import Products from './Products'
 import { BeatLoader } from 'react-spinners';
+import {Link} from 'react-router-dom'
 
 class Homepage extends React.Component {
 
@@ -23,11 +24,9 @@ class Homepage extends React.Component {
                     <Form>
                       <Form.Input onChange={this.props.validateEmail} size="large" style={{width: "70%"}} name='email' label='' placeholder='Enter your email...' />
                       { this.props.message !== "" ? <p style={{fontSize: "12px", color: "red"}}>{this.props.message}</p> : null }
-                      <a target="_self" href="https://drive.google.com/file/d/1-lq43IW3cTCafFvhTm6RrutJvju0J4k6/view?usp=sharing">
                       <Button onClick={this.props.requiredEmailMessage} size="large" id="button-mobile" style={{width: "70%"}} type="submit">
                          GET YOUR FREE GUIDE
                       </Button>
-                      </a>
                     </Form>
                   </div>
                 </Grid.Column>
@@ -36,23 +35,36 @@ class Homepage extends React.Component {
           </div>
         </div>
 
-        <div id="third-header-home">
-        <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Top Rated Tool - Macros And Calories</h1>
-          <p style={{margin: "0 auto", width: "80%", textAlign: "left", marginBottom: "40px"}}>I want to empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and I want to be part of your journey.</p>
-          <Image style={{margin: "0 auto", height: "400px"}} src="/iphone-front.png" />
-          <div style={{margin: "0 auto", width: "50%"}}>
-            <Button size="large" id="button-mobile" style={{width: "100%"}} type="submit">
-               GET MY MACROS NOW
-            </Button>
+          <div id="third-header-home">
+            <Grid stackable columns={2}>
+              <Grid.Row >
+                <Grid.Column width={2}>
+                </Grid.Column>
+                <Grid.Column width={7}>
+                  <h1 style={{margin: "0 auto", width: "80%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Top Rated Tool - Macros And Calories</h1>
+                  <p style={{margin: "0 auto", width: "80%", textAlign: "left", marginBottom: "40px"}}>I want to empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and I want to be part of your journey.</p>
+                  <Link to="/calories-and-macros">
+                    <div style={{margin: "0 auto", width: "50%"}}>
+                      <Button size="large" id="button-mobile" style={{width: "100%"}} type="submit">
+                         GET MY MACROS NOW
+                      </Button>
+                    </div>
+                  </Link>
+                </Grid.Column>
+                <Grid.Column width={5}><br/>
+                  <Image style={{margin: "0 auto", height: "400px"}} src="/iphone-front.png" />
+                </Grid.Column>
+                <Grid.Column width={2}>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
           </div>
-
-         </div>
 
 
         <div id="second-header-home">
           <div>
             <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>All Tools</h1>
-            <p style={{margin: "0 auto", width: "80%", textAlign: "left"}}>I want to empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and I want to be part of your journey.</p>
+            <p style={{margin: "0 auto", width: "80%", textAlign: "left", marginBottom:"40px"}}>I want to empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and I want to be part of your journey.</p>
             {this.props.allStats !== null ? <AllTools scrollToTop={this.props.scrollToTop} allStats={this.props.allStats}/> :
               <div style={{marginTop: "60px"}} className='sweet-loading'>
                 <BeatLoader
