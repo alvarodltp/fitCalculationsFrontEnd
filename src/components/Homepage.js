@@ -23,9 +23,11 @@ class Homepage extends React.Component {
                     <Form>
                       <Form.Input onChange={this.props.validateEmail} size="large" style={{width: "70%"}} name='email' label='' placeholder='Enter your email...' />
                       { this.props.message !== "" ? <p style={{fontSize: "12px", color: "red"}}>{this.props.message}</p> : null }
+                      <a target="_self" href="https://drive.google.com/file/d/1-lq43IW3cTCafFvhTm6RrutJvju0J4k6/view?usp=sharing">
                       <Button onClick={this.props.requiredEmailMessage} size="large" id="button-mobile" style={{width: "70%"}} type="submit">
                          GET YOUR FREE GUIDE
                       </Button>
+                      </a>
                     </Form>
                   </div>
                 </Grid.Column>
@@ -36,7 +38,7 @@ class Homepage extends React.Component {
 
         <div id="second-header-home">
           <div>
-            <h1 style={{fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>Understand Your Nutrition Needs And Transform Your Body</h1>
+            <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Understand Your Nutrition Needs And Transform Your Body</h1>
             <p style={{margin: "0 auto", width: "80%", textAlign: "left"}}>We want to empower everyone to be their best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you can get amazing results in a matter of weeks, and I want to be part of your journey.</p>
             {this.props.allStats !== null ? <Tools scrollToTop={this.props.scrollToTop} allStats={this.props.allStats}/> :
               <div style={{marginTop: "60px"}} className='sweet-loading'>
@@ -52,7 +54,7 @@ class Homepage extends React.Component {
 
         <div id="third-header-home">
           <div>
-            <h1 style={{fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>Unleash Your Fitness Potential</h1>
+            <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Unleash Your Fitness Potential</h1>
             <p style={{margin: "0 auto", width: "80%", textAlign: "left"}}>This guide has absolutely everything you need to start your journey towards getting in the best shape of your life. Follow my guide for 30 days and if you don't see results I will refund all your money back. That is how confident I feel that this guide will change your body and life.</p>
             <Products allStats={this.props.allStats}/>
           </div>
