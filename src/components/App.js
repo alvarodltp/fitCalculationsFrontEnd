@@ -128,6 +128,7 @@ requiredEmailMessage = () => {
       message: "Please enter a valid email address."
     })
   } else {
+    window.location.href = "https://drive.google.com/file/d/1-lq43IW3cTCafFvhTm6RrutJvju0J4k6/view?usp=sharing";
     this.setState({
       message: ""
     })
