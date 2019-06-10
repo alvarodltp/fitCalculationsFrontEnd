@@ -83,12 +83,6 @@ class LandingPage extends React.Component {
   render(){
     return(
       <React.Fragment>
-      // <div style={{width: "100%", backgroundColor: "red", height: "30px"}}>
-      //   <div style={{paddingTop: "4px"}}>
-      //     <h4 style={{color: "white"}}>$120 OFF LIMITED TIME SALE</h4>
-      //   </div>
-      // </div>
-
       <div style={{width: "80%", margin: "0 auto", marginTop: "30px"}}>
         <h1 style={{fontSize:"36px"}}>You Are One Step From Getting In The Best Shape Of Your Life</h1>
         <h2 style={{color: "blue", fontStyle: "italic"}}>INTRODUCING THE STEP-BY-STEP GUIDE TO BUILD YOUR BEST BODY EVER.</h2>
