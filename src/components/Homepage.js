@@ -81,8 +81,8 @@ class Homepage extends React.Component {
           <div style={{marginBottom: "0px", width: "100%", backgroundColor: "#e80aaa"}}>
             <div style={{paddingBottom: "30px"}}>
               <h1 style={{fontSize:"40px", paddingTop: "20px", color: "white", fontStyle: "italic"}}>Ready To Get Fit?</h1>
-              <a target="_self" href="https://fit-calculations.thrivecart.com/fck-diets/">
-                <Button onClick={this.getEvent3} id="cta-button" content='GET MY GUIDE NOW' size="large" icon='angle double right' labelPosition='right' />
+              <a target="_self" href="https://www.fitcalculations.com/unleash-your-fitness-potential">
+                <Button id="cta-button" content='GET MY GUIDE NOW' size="large" icon='angle double right' labelPosition='right' />
               </a>
             </div>
           </div>

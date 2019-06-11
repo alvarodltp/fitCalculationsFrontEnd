@@ -19,11 +19,13 @@ const Products = (props) => {
                 <li>An implementation plan so you can apply your results and get in the best shape of your life.</li>
                 <li>24/7 private facebook group support.</li>
               </ul>
+              <a target="_self" href="https://www.fitcalculations.com/unleash-your-fitness-potential">
               <div style={{textAlign:"center"}}>
                 <Button size="large" id="button-mobile" style={{width: "70%"}} type="submit">
                    YES, I WANT TO GET FIT!
                 </Button>
               </div>
+              </a>
             </Grid.Column>
           </Grid.Row>
         </Grid>
