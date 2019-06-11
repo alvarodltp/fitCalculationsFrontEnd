@@ -27,7 +27,24 @@ const Tools = (props) => {
               </Card>
             </Link>
             </Grid.Column>
-            <Grid.Column width={8}>
+            <Grid.Column style={{marginBottom: "40px"}} width={8}>
+              <Link to="/calories-and-macros">
+                <Card onClick={props.scrollToTop} id="image-card" style={{margin: "0 auto"}}>
+                  <Image src='iphone-pink.jpg' />
+                  <Card.Content>
+                    <Card.Header>Macronutrients and Calories Calculator</Card.Header>
+                    <Card.Description>
+                      Calculate your personalized calories and macronutrients and get instant results.
+                    </Card.Description>
+                  </Card.Content>
+                  <Card.Content extra>
+                      <a>
+                        <Icon name='star' />
+                        Used {props.allStats.length} times
+                      </a>
+                  </Card.Content>
+                </Card>
+              </Link>
             </Grid.Column>
           </Grid.Row>
         </Grid><br/><br/>
@@ -37,23 +54,3 @@ const Tools = (props) => {
 }
 
 export default Tools
-
-// <Grid.Column style={{marginBottom: "40px"}} width={8}>
-//   <Link to="/calories-and-macros">
-//     <Card onClick={props.scrollToTop} id="image-card" style={{margin: "0 auto"}}>
-//       <Image src='iphone-pink.jpg' />
-//       <Card.Content>
-//         <Card.Header>Macronutrients and Calories Calculator</Card.Header>
-//         <Card.Description>
-//           Calculate your personalized calories and macronutrients and get instant results.
-//         </Card.Description>
-//       </Card.Content>
-//       <Card.Content extra>
-//           <a>
-//             <Icon name='star' />
-//             Used {props.allStats.length} times
-//           </a>
-//       </Card.Content>
-//     </Card>
-//   </Link>
-// </Grid.Column>

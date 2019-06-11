@@ -307,7 +307,8 @@ span {
 }
 
 #home-page {
-  background: white;
+  background: #F8F8F8;
+  padding-top: 1px;
 }
 
 #content-home-header {
@@ -1025,16 +1026,16 @@ box-shadow: none;
 }
 
 #second-header-home {
-  background: white;
+  background: #F8F8F8;
 }
 
 #third-header-home {
-  background: #F8F8F8;
+  background: white;
 }
 
 #fourth-header-home {
   width: 100%;
-  background: #F8F8F8;
+  background: white;
 }
 
 #button-mobile:hover {
