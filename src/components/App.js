@@ -14,10 +14,8 @@ import Invite from './Invite'
 import LandingPage from './LandingPage'
 import ThankYouAfterPurchase from './ThankYouAfterPurchase'
 import ReactPixel from 'react-facebook-pixel';
-import FoodListContainer from './FoodListContainer'
-import Profile from './Profile'
+import FoodListContainer from '../Foodlist/FoodListContainer'
 import Auth from "../Auth/Auth"
-import OTraining from './OTraining'
 
 class App extends React.Component {
   constructor(props){
@@ -142,7 +140,6 @@ requiredEmailMessage = () => {
     return (
       <div className="App">
         {this.state.mobileDevice === true ? <NavBarMobile /> : <NavBar/> }
-        <Route exact path="/training" render={props => <OTraining {...props}/> } />
         <Route exact path="/asdad" render={props => <Auth {...props}/> } />
         <Route exact path="/" render={props => <Homepage scrollToTop={this.scrollToTop} requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } />
         <Route exact path="/calories-and-macros" render={props => <CalculationsContainer {...props} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
@@ -152,7 +149,6 @@ requiredEmailMessage = () => {
         <Route exact path="/unleash-your-fitness-potential" render={props => <LandingPage /> } />
         <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
         <Route exact path="/food-list" render={props => <FoodListContainer setFoodListStepNumber={this.setFoodListStepNumber} {...props}/> } />
-        <Route path="/profile" render={props => <Profile {...props} auth={this.state.auth} /> } />
         {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
       </div>
     )

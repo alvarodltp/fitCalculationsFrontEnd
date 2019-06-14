@@ -1,9 +1,8 @@
 import React from 'react'
-import FoodListForm from './FoodListForm'
-import FoodList from './FoodList'
-import FoodListTitle from './FoodListCard'
-import FoodListCard from './FoodListCard'
-import SavedFoodList from './SavedFoodList'
+import FoodListForm from '../Foodlist/FoodListForm'
+import FoodList from '../Foodlist/FoodList'
+import FoodListCard from '../Foodlist/FoodListCard'
+import SavedFoodList from '../Foodlist/SavedFoodList'
 import swal from 'sweetalert'
 
 const foodTypes = [

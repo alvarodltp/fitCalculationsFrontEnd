@@ -1,6 +1,5 @@
 import React from 'react';
 import {Icon, Button, Card, Image, Divider, Header} from 'semantic-ui-react';
-import SimpleSlider from './SimpleSlider'
 import Typing from 'react-typing-animation';
 import Bounce from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
