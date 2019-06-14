@@ -1,15 +1,15 @@
 import React from 'react'
+import Pounds from './Pounds'
+import Feet from './Feet'
+import Inches from './Inches'
 import BmiForm from './BmiForm'
+import { Grid, Segment } from 'semantic-ui-react'
 
 class BmiCalculatorContainer extends React.Component {
   constructor(){
     super()
     this.state={
-      pounds: 60,
-      kg: {min: 25, max: 150 },
-      feet: {min: 3, max: 8 },
-      inches: {min: 1, max: 11},
-      cm: {min: 50, max: 300}
+
     }
   }
 
@@ -20,7 +20,8 @@ class BmiCalculatorContainer extends React.Component {
   render(){
     return(
       <React.Fragment>
-        <BmiForm pounds={this.state.pounds} setPounds={this.setPounds}/>
+        <h1 id="title-bmi">BMI CALCULATOR</h1>
+        <BmiForm/>
       </React.Fragment>
     )
   }

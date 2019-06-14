@@ -1,16 +1,32 @@
 import React from 'react'
-import InputRange from 'react-input-range';
+import Pounds from './Pounds'
+import Feet from './Feet'
+import Inches from './Inches'
+import './BmiCalculator.css'
+import {Button} from 'semantic-ui-react'
 
-const BmiForm = (props) => {
-  return(
-    <InputRange
-      maxValue={50}
-      minValue={300}
-      value={props.pounds}
-      onChange={props.setPounds}
-      draggableTrack={true}/>
+class BmiForm extends React.Component {
+  constructor(){
+    super()
+    this.state={
 
-  )
+    }
+  }
+
+  setPounds = (e) => {
+    debugger
+  }
+
+  render(){
+    return(
+      <div style={{width: "70%", margin: "0 auto"}}>
+        <Pounds setPounds={this.setPounds}/>
+        <Feet />
+        <Inches /><br/>
+        <Button id="button-mobile" style={{width: "100%"}}>Calculate BMI</Button>
+      </div>
+    )
+  }
 }
 
 export default BmiForm
