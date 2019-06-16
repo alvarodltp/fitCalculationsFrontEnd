@@ -6,9 +6,6 @@ const MIN = 0;
 const MAX = 300;
 
 class Pounds extends React.Component {
-  state = {
-    values: [0]
-  };
   render() {
     return (
 
@@ -21,18 +18,18 @@ class Pounds extends React.Component {
       >
         <h4>Pounds</h4><br/>
         <Range
-          values={this.state.values}
+          values={this.props.pounds}
           step={STEP}
           min={MIN}
           max={MAX}
-          onChange={values => this.setState({ values })}
+          onChange={this.props.setPounds}
           renderTrack={({ props, children }) => (
             <div
               onMouseDown={props.onMouseDown}
               onTouchStart={props.onTouchStart}
               style={{
                 ...props.style,
-                height: '36px',
+                height: '40px',
                 display: 'flex',
                 width: '100%'
               }}
@@ -40,11 +37,11 @@ class Pounds extends React.Component {
               <div
                 ref={props.ref}
                 style={{
-                  height: '5px',
+                  height: '2px',
                   width: '100%',
                   borderRadius: '4px',
                   background: getTrackBackground({
-                    values: this.state.values,
+                    values: this.props.pounds,
                     colors: ['#548BF4', '#ccc'],
                     min: MIN,
                     max: MAX
@@ -61,8 +58,8 @@ class Pounds extends React.Component {
               {...props}
               style={{
                 ...props.style,
-                height: '42px',
-                width: '42px',
+                height: '30px',
+                width: '30px',
                 borderRadius: '4px',
                 backgroundColor: '#FFF',
                 display: 'flex',
@@ -84,7 +81,7 @@ class Pounds extends React.Component {
                   backgroundColor: '#548BF4'
                 }}
               >
-                {this.state.values[0].toFixed(1)}
+                {this.props.pounds[0].toFixed(1)}
               </div>
               <div
                 style={{

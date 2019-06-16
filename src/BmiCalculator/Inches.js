@@ -32,7 +32,7 @@ class Inches extends React.Component {
               onTouchStart={props.onTouchStart}
               style={{
                 ...props.style,
-                height: '36px',
+                height: '40px',
                 display: 'flex',
                 width: '100%'
               }}
@@ -40,7 +40,7 @@ class Inches extends React.Component {
               <div
                 ref={props.ref}
                 style={{
-                  height: '5px',
+                  height: '2px',
                   width: '100%',
                   borderRadius: '4px',
                   background: getTrackBackground({
@@ -61,8 +61,8 @@ class Inches extends React.Component {
               {...props}
               style={{
                 ...props.style,
-                height: '42px',
-                width: '42px',
+                height: '30px',
+                width: '30px',
                 borderRadius: '4px',
                 backgroundColor: '#FFF',
                 display: 'flex',

@@ -20,10 +20,10 @@ class BmiForm extends React.Component {
   render(){
     return(
       <div style={{width: "70%", margin: "0 auto"}}>
-        <Pounds setPounds={this.setPounds}/>
+        <Pounds setPounds={this.props.setPounds} pounds={this.props.pounds}/>
         <Feet />
         <Inches /><br/>
-        <Button id="button-mobile" style={{width: "100%"}}>Calculate BMI</Button>
+        <Button id="button-mobile" style={{width: "100%"}}>Calculate BMI</Button><br/><br/><br/><br/><br/><br/>
       </div>
     )
   }
