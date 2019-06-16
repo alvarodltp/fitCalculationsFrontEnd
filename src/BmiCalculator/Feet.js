@@ -6,9 +6,6 @@ const MIN = 0;
 const MAX = 8;
 
 class Feet extends React.Component {
-  state = {
-    values: [0]
-  };
   render() {
     return (
 
@@ -21,11 +18,11 @@ class Feet extends React.Component {
       >
         <h4>Feet</h4><br/>
         <Range
-          values={this.state.values}
+          values={this.props.feet}
           step={STEP}
           min={MIN}
           max={MAX}
-          onChange={values => this.setState({ values })}
+          onChange={this.props.setFeet}
           renderTrack={({ props, children }) => (
             <div
               onMouseDown={props.onMouseDown}
@@ -44,7 +41,7 @@ class Feet extends React.Component {
                   width: '100%',
                   borderRadius: '4px',
                   background: getTrackBackground({
-                    values: this.state.values,
+                    values: this.props.feet,
                     colors: ['#548BF4', '#ccc'],
                     min: MIN,
                     max: MAX
@@ -84,7 +81,7 @@ class Feet extends React.Component {
                   backgroundColor: '#548BF4'
                 }}
               >
-                {this.state.values[0].toFixed(1)}
+                {this.props.feet[0].toFixed(1)}
               </div>
               <div
                 style={{

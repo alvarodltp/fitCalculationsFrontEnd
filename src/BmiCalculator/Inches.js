@@ -21,11 +21,11 @@ class Inches extends React.Component {
       >
         <h4>Inches</h4><br/>
         <Range
-          values={this.state.values}
+          values={this.props.inches}
           step={STEP}
           min={MIN}
           max={MAX}
-          onChange={values => this.setState({ values })}
+          onChange={this.props.setInches}
           renderTrack={({ props, children }) => (
             <div
               onMouseDown={props.onMouseDown}
@@ -44,7 +44,7 @@ class Inches extends React.Component {
                   width: '100%',
                   borderRadius: '4px',
                   background: getTrackBackground({
-                    values: this.state.values,
+                    values: this.props.inches,
                     colors: ['#548BF4', '#ccc'],
                     min: MIN,
                     max: MAX
@@ -84,7 +84,7 @@ class Inches extends React.Component {
                   backgroundColor: '#548BF4'
                 }}
               >
-                {this.state.values[0].toFixed(1)}
+                {this.props.inches[0].toFixed(1)}
               </div>
               <div
                 style={{

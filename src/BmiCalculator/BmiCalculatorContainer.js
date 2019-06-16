@@ -23,16 +23,22 @@ class BmiCalculatorContainer extends React.Component {
     })
   }
 
-  setFeet = () => {
+  setFeet = (e) => {
+    console.log(e)
     this.setState({
       feet: e
     })
   }
 
-  setInches = () => {
+  setInches = (e) => {
+    console.log(e)
     this.setState({
       inches: e
     })
+  }
+
+  calculateBmi = () => {
+    
   }
 
   render(){
@@ -41,7 +47,7 @@ class BmiCalculatorContainer extends React.Component {
         <h1 id="title-bmi">BMI CALCULATOR</h1>
         <Grid style={{width: "100%"}} stackable columns={2}>
           <Grid.Column>
-            <BmiForm setPounds={this.setPounds} pounds={this.state.pounds}/>
+            <BmiForm setPounds={this.setPounds} pounds={this.state.pounds} setFeet={this.setFeet} feet={this.state.feet} setInches={this.setInches} inches={this.state.inches}/>
           </Grid.Column>
           <Grid.Column>
             <BmiTable />
