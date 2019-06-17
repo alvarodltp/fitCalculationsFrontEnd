@@ -3,7 +3,7 @@ import { Range, getTrackBackground } from 'react-range';
 
 const STEP = 0.1;
 const MIN = 0;
-const MAX = 300;
+const MAX = 350;
 
 class Pounds extends React.Component {
   render() {

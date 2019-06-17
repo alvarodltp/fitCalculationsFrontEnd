@@ -14,7 +14,8 @@ class BmiCalculatorContainer extends React.Component {
       feet: [0],
       inches: [0],
       kilos: null,
-      cm: null
+      cm: null,
+      error: ""
     }
   }
 
@@ -39,29 +40,48 @@ class BmiCalculatorContainer extends React.Component {
   }
 
   calculateBmi = () => {
-    let cmFromFeet = (this.state.feet * 30.48).toFixed(2)
-    let cmFromInches = (this.state.inches * 2.54).toFixed(2)
-    let cm = (Number(cmFromFeet) + Number(cmFromInches))
-    let m = (cm/100).toFixed(2)
-    let m2 = m * m
-    let bmi = (this.state.kilos/m2).toFixed(1)
-    console.log(bmi)
-    this.setState({
-      bmi: bmi,
-      cm: cm
-    })
+    if(this.state.pounds[0] > 0 && this.state.feet[0] > 0 && this.state.inches[0] > 0) {
+      let cmFromFeet = (this.state.feet * 30.48).toFixed(2)
+      let cmFromInches = (this.state.inches * 2.54).toFixed(2)
+      let cm = (Number(cmFromFeet) + Number(cmFromInches))
+      let m = (cm/100).toFixed(2)
+      let m2 = m * m
+      let bmi = (this.state.kilos/m2).toFixed(1)
+      this.setState({
+        bmi: bmi,
+        cm: cm,
+        error: ""
+      })
+    } else {
+      this.setState({
+        error: "Values must be greater than 0"
+      })
+    }
   }
 
   render(){
     return(
       <React.Fragment>
         <h1 id="title-bmi">BMI CALCULATOR</h1>
-        <Grid style={{width: "100%"}} stackable columns={2}>
+        <p style={{textAlign: "left", width: "80%", margin: "0 auto", marginBottom: "40px"}}>BMI or Body Mass Index is mostly used by doctors and nurses to
+        help determine if a person has a weight problem. It gives an
+        estimate of total body fat for most people, but it does not work
+        well for individuals who have more muscle than the average
+        person.
+        Even though, it is a good way to have an idea of a person’s weight
+        status, it should not always be the final word.</p>
+        <Grid style={{width: "100%"}} stackable columns={4}>
+        <Grid.Column>
+
+        </Grid.Column>
           <Grid.Column>
-            <BmiForm calculateBmi={this.calculateBmi} setPounds={this.setPounds} pounds={this.state.pounds} setFeet={this.setFeet} feet={this.state.feet} setInches={this.setInches} inches={this.state.inches}/>
+            <BmiForm error={this.state.error} calculateBmi={this.calculateBmi} setPounds={this.setPounds} pounds={this.state.pounds} setFeet={this.setFeet} feet={this.state.feet} setInches={this.setInches} inches={this.state.inches}/>
           </Grid.Column>
           <Grid.Column>
-            <BmiTable />
+            <BmiTable bmi={this.state.bmi}/>
+          </Grid.Column>
+          <Grid.Column>
+
           </Grid.Column>
         </Grid>
 
