@@ -19,7 +19,7 @@ class Homepage extends React.Component {
               <Grid stackable columns={2}>
                 <Grid.Row >
                   <Grid.Column width={7}>
-                    <Image id="alvaro-home-image" style={{margin: "0 auto"}} src='/Alvaro.png' size='medium' circular/>
+                    <Image id="alvaro-home-image" style={{margin: "0 auto"}} src='/books-3.png' size='medium' />
                   </Grid.Column>
                   <Grid.Column width={9}><br/>
                     <p>Hi! My name is Alvaro and I have 10+ years of experience helping people like you reach your body's full potential. I've helped entrepreneurs and busy professionals get and stay in top notch shape and I can do the same for you. Enter your email below to get your FREE guide.</p>

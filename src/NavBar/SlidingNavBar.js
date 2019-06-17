@@ -2,6 +2,7 @@
 import React from 'react'
 import {Image, Icon} from 'semantic-ui-react'
 import { Link } from "react-router-dom"
+import './NavBar.scss'
 
 class SlidingNavBar extends React.Component {
 
@@ -18,13 +19,15 @@ class SlidingNavBar extends React.Component {
             </div>
 
             <ul class="navbar-social">
-              <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             </ul>
 
             <ul class="navbar-menu">
-              <li><a href="#">Home</a></li>
+              <Link to='/'>
+                <li><a href="#">Home</a></li>
+              </Link>
               <li><a href="#">About</a></li>
               <li><a href="#">Tools</a></li>
               <li><a href="#">Products</a></li>

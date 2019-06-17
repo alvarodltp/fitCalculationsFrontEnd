@@ -35,8 +35,7 @@ class Tools extends React.Component {
         {this.state.calculations.map(calculation =>
         <div style={{margin: "0 auto", width: "80%"}}>
           <Grid className="ui center aligned grid" stackable columns={3}>
-            <Grid.Row>
-              <Grid.Column >
+              <Grid.Column>
                 <Link to={calculation.link}>
                   <Card id="image-card" style={{margin: "0 auto"}}>
                     <Image src={calculation.image} />
@@ -55,7 +54,6 @@ class Tools extends React.Component {
                   </Card>
                 </Link>
               </Grid.Column>
-            </Grid.Row>
           </Grid><br/><br/>
         </div>)}
       </React.Fragment>

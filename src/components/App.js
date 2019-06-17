@@ -1,9 +1,9 @@
 import ReactGA from 'react-ga';
 import React, { Component } from 'react';
 import '../App.scss';
-import NavBar from './NavBar'
-import SlidingNavBar from './SlidingNavBar'
-import {Sidebar, Segment, Menu} from 'semantic-ui-react'
+import NavBar from '../NavBar/NavBar'
+import SlidingNavBar from '../NavBar/SlidingNavBar'
+import {Segment, Menu} from 'semantic-ui-react'
 import CalculationsContainer from './CalculationsContainer'
 import Footer from './Footer'
 import { Route } from 'react-router-dom'

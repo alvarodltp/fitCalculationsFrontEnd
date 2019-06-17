@@ -1,6 +1,5 @@
 import React from 'react'
 import {Image, Dropdown, Icon, Menu, Input} from 'semantic-ui-react'
-import ShareButtons from './ShareButtons'
 import { BrowserView } from "react-device-detect";
 import { Link } from "react-router-dom"
 
