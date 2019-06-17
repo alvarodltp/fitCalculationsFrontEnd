@@ -71,16 +71,16 @@ class BmiCalculatorContainer extends React.Component {
         Even though, it is a good way to have an idea of a person’s weight
         status, it should not always be the final word.</p>
         <Grid style={{width: "100%"}} stackable columns={4}>
-        <Grid.Column>
+        <Grid.Column width={2}>
 
         </Grid.Column>
-          <Grid.Column>
+          <Grid.Column width={6}>
             <BmiForm error={this.state.error} calculateBmi={this.calculateBmi} setPounds={this.setPounds} pounds={this.state.pounds} setFeet={this.setFeet} feet={this.state.feet} setInches={this.setInches} inches={this.state.inches}/>
           </Grid.Column>
-          <Grid.Column>
+          <Grid.Column width={6}>
             <BmiTable bmi={this.state.bmi}/>
           </Grid.Column>
-          <Grid.Column>
+          <Grid.Column width={2}>
 
           </Grid.Column>
         </Grid>
