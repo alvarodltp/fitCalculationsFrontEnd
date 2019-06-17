@@ -2,7 +2,7 @@ import ReactGA from 'react-ga';
 import React, { Component } from 'react';
 import '../App.scss';
 import NavBar from './NavBar'
-import NavBarMobile from './NavBarMobile'
+import SlidingNavBar from './SlidingNavBar'
 import {Sidebar, Segment, Menu} from 'semantic-ui-react'
 import CalculationsContainer from './CalculationsContainer'
 import Footer from './Footer'
@@ -138,7 +138,7 @@ requiredEmailMessage = () => {
 
     return (
       <div className="App">
-        <NavBarMobile /> 
+        {this.state.mobileDevice === false ? <SlidingNavBar /> : null }
         <Route exact path="/" render={props => <Homepage scrollToTop={this.scrollToTop} requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } />
         <Route exact path="/calories-and-macros" render={props => <CalculationsContainer {...props} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />

@@ -3,7 +3,7 @@ import React from 'react'
 import {Image, Icon} from 'semantic-ui-react'
 import { Link } from "react-router-dom"
 
-class NavBarMobile extends React.Component {
+class SlidingNavBar extends React.Component {
 
   render(){
     return(
@@ -17,10 +17,18 @@ class NavBarMobile extends React.Component {
               <Image src="/fit-calculations-logo.png"/>
             </div>
 
+            <ul class="navbar-social">
+              <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            </ul>
+
             <ul class="navbar-menu">
               <li><a href="#">Home</a></li>
-              <li><a href="#">Store</a></li>
               <li><a href="#">About</a></li>
+              <li><a href="#">Tools</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">Blog</a></li>
             </ul>
 
           </div>
@@ -30,10 +38,4 @@ class NavBarMobile extends React.Component {
   }
 }
 
-export default NavBarMobile
-
-// <ul class="navbar-social">
-//   <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-//   <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-//   <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-// </ul>
+export default SlidingNavBar

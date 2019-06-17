@@ -1068,8 +1068,8 @@ box-shadow: none;
 
 //navbar starts
 
-$navbar-background: #2761f1;
-$color-primary: #03A9F4;
+$navbar-background: lightgray;
+$color-primary: #e80aaa;
 $navbar-text: #f0f0f0;
 $text-primary: gray;
 
@@ -1378,3 +1378,7 @@ ul {
 }
 
 //navbar ends
+
+.ui.card > .content{
+  margin: 0 auto;
+}
