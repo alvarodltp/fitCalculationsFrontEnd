@@ -49,7 +49,7 @@ class Tools extends React.Component {
                     <Card.Content extra>
                       <a>
                         <Icon name='star' />
-                        22 Cal
+                        
                       </a>
                     </Card.Content>
                   </Card>
