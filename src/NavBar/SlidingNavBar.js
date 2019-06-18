@@ -28,10 +28,7 @@ class SlidingNavBar extends React.Component {
               <Link to='/'>
                 <li><a href="#">Home</a></li>
               </Link>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Tools</a></li>
-              <li><a href="#">Products</a></li>
-              <li><a href="#">Blog</a></li>
+
             </ul>
 
           </div>
@@ -42,3 +39,8 @@ class SlidingNavBar extends React.Component {
 }
 
 export default SlidingNavBar
+
+// <li><a href="#">About</a></li>
+// <li><a href="#">Tools</a></li>
+// <li><a href="#">Products</a></li>
+// <li><a href="#">Blog</a></li>
