@@ -11,22 +11,19 @@ class Tools extends React.Component {
           title: 'Grocery Shopping List Tool',
           description: 'Make a grocery list with our healthy food options, save it, and use it when you are ready to shop!',
           link: "/food-list",
-          image: "grocery.jpg",
-          id: "shopping"
+          image: "grocery.jpg"
         },
         {
           title: 'Macronutrients and Calories Calculator',
           description: 'Calculate your personalized calories and macronutrients and get instant results.',
           link: "/calories-and-macros",
           image: "calories-macros.jpg",
-          id: "macro"
         },
         {
           title: 'BMI Calculator',
           description: 'Calculate your BMI.',
           link: "/bmi-calculator",
-          image: "bmi.jpg",
-          id: "bmi"
+          image: "bmi.jpg"
         }
       ]
     }
@@ -40,7 +37,7 @@ class Tools extends React.Component {
           <Grid className="ui center aligned grid">
               <Grid.Column>
                 <Link to={calculation.link}>
-                  <Card id={calculation.id} style={{margin: "0 auto"}}>
+                  <Card id="image-card">
                     <Image src={calculation.image} />
                     <Card.Content>
                       <Card.Header>{calculation.title}</Card.Header>
@@ -51,7 +48,6 @@ class Tools extends React.Component {
                     <Card.Content extra>
                       <a>
                         <Icon name='star' />
-
                       </a>
                     </Card.Content>
                   </Card>

@@ -150,22 +150,3 @@ class BmrCalorieResults extends React.Component {
 }
 
 export default BmrCalorieResults
-
-
-
-
-// <Card id="landing-main-benefits">
-//     <h1>Congrats {this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1)}, your results are ready! <Icon style={{color: "#7CFC00"}} name='check' /></h1>
-//     <p style={{textAlign: "left", fontSize: "18px"}}>Before you dive in, you can help someone else achive their dream body. Please help spread the word by sharing the calculator with the buttons below. It really helps.</p>
-//     <p style={{textAlign: "left", fontSize: "18px"}}>Enjoy.</p>
-//   <MobileView id="thank-you-page-buttons">
-//     <ShareButtonsMobile/>
-//   </MobileView>
-//   <BrowserView id="thank-you-page-buttons">
-//     <ShareButtons/>
-//   </BrowserView>
-// </Card>
-
-// <h1>Maintenance Calories</h1>
-// <Card.Description>Naturally muscular and athletic with a moderate metabolic rate.</Card.Description>
-// <h1 style={{color: "green"}}>{this.props.caloriesToMaintain}</h1>

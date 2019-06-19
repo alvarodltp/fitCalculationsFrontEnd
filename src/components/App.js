@@ -149,7 +149,6 @@ requiredEmailMessage = () => {
         <Route exact path="/food-list" render={props => <FoodListContainer setFoodListStepNumber={this.setFoodListStepNumber} {...props}/> } />
         <Route exact path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
         <Route exact path="/blog" render={props => <BlogContainer {...props}/> } />
-
       </div>
     )
   }
