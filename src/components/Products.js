@@ -1,7 +1,5 @@
 import React from 'react'
-import { Card, Image, Icon, Grid, Button } from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
-
+import { Image, Grid, Button } from 'semantic-ui-react'
 
 const Products = (props) => {
   return(

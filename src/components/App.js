@@ -16,6 +16,7 @@ import ThankYouAfterPurchase from './ThankYouAfterPurchase'
 import ReactPixel from 'react-facebook-pixel';
 import FoodListContainer from '../Foodlist/FoodListContainer'
 import BmiCalculatorContainer from '../BmiCalculator/BmiCalculatorContainer'
+import BlogContainer from '../Blog/BlogContainer'
 
 class App extends React.Component {
   constructor(props){
@@ -29,7 +30,6 @@ class App extends React.Component {
       loading: true,
       emailValid: "",
       message: ""
-
     }
   }
 
@@ -148,13 +148,14 @@ requiredEmailMessage = () => {
         <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
         <Route exact path="/food-list" render={props => <FoodListContainer setFoodListStepNumber={this.setFoodListStepNumber} {...props}/> } />
         <Route exact path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
-        {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
+        <Route exact path="/blog" render={props => <BlogContainer {...props}/> } />
+
       </div>
     )
   }
 }
 
 // <NavBar /><br/><br/><br/><br/>
-
+// {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
 
 export default App;

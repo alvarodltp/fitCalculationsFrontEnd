@@ -62,29 +62,30 @@ class BmiCalculatorContainer extends React.Component {
   render(){
     return(
       <React.Fragment>
-        <h1 id="title-bmi">BMI CALCULATOR</h1>
-        <p style={{textAlign: "left", width: "80%", margin: "0 auto", marginBottom: "40px"}}>BMI or Body Mass Index is mostly used by doctors and nurses to
-        help determine if a person has a weight problem. It gives an
-        estimate of total body fat for most people, but it does not work
-        well for individuals who have more muscle than the average
-        person.
-        Even though, it is a good way to have an idea of a person’s weight
-        status, it should not always be the final word.</p>
-        <Grid style={{width: "100%"}} stackable columns={4}>
-        <Grid.Column width={2}>
-
-        </Grid.Column>
-          <Grid.Column width={6}>
-            <BmiForm error={this.state.error} calculateBmi={this.calculateBmi} setPounds={this.setPounds} pounds={this.state.pounds} setFeet={this.setFeet} feet={this.state.feet} setInches={this.setInches} inches={this.state.inches}/>
-          </Grid.Column>
-          <Grid.Column width={6}>
-            <BmiTable bmi={this.state.bmi}/>
-          </Grid.Column>
+        <div>
+          <h1 id="title-bmi">BMI CALCULATOR</h1>
+          <p style={{textAlign: "left", width: "80%", margin: "0 auto", marginBottom: "40px"}}>BMI or Body Mass Index is mostly used by doctors and nurses to
+          help determine if a person has a weight problem. It gives an
+          estimate of total body fat for most people, but it does not work
+          well for individuals who have more muscle than the average
+          person.
+          Even though, it is a good way to have an idea of a person’s weight
+          status, it should not always be the final word.</p>
+          <Grid style={{width: "100%"}} stackable columns={4}>
           <Grid.Column width={2}>
 
           </Grid.Column>
-        </Grid>
+            <Grid.Column width={6}>
+              <BmiForm error={this.state.error} calculateBmi={this.calculateBmi} setPounds={this.setPounds} pounds={this.state.pounds} setFeet={this.setFeet} feet={this.state.feet} setInches={this.setInches} inches={this.state.inches}/>
+            </Grid.Column>
+            <Grid.Column width={6}>
+              <BmiTable bmi={this.state.bmi}/>
+            </Grid.Column>
+            <Grid.Column width={2}>
 
+            </Grid.Column>
+          </Grid>
+        </div>
       </React.Fragment>
     )
   }
