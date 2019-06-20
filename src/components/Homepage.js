@@ -17,12 +17,20 @@ class Homepage extends React.Component {
             <h1 style={{margin: "0 auto", fontSize:"55px", paddingTop: "60px", width: "100%", fontStyle: "italic", color: "white", marginBottom: "30px"}}>What Are You Up To?</h1>
             {this.props.mobileDevice === false ?
             <div>
-              <Button value="Female" size="large" id="gender-button">LOSING WEIGHT</Button>
-              <Button value="Male" size="large" id="gender-button">GAINING MUSCLE</Button>
+              <Link to="/calories-and-macros">
+                <Button value="Female" size="large" id="gender-button">LOSING WEIGHT</Button>
+              </Link>
+              <Link to="/calories-and-macros">
+                <Button value="Male" size="large" id="gender-button">GAINING MUSCLE</Button>
+              </Link>
             </div> :
             <div>
-              <Button value="Female" size="small" id="gender-button-mobile">LOSING WEIGHT</Button>
-              <Button value="Male" size="small" id="gender-button-mobile">GAINING MUSCLE</Button>
+              <Link to="/calories-and-macros">
+                <Button value="Female" size="small" id="gender-button-mobile">LOSING WEIGHT</Button>
+              </Link>
+              <Link to="/calories-and-macros">
+                <Button value="Male" size="small" id="gender-button-mobile">GAINING MUSCLE</Button>
+              </Link>
             </div> }
           </div>
 
