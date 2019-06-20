@@ -103,7 +103,6 @@ class FoodListContainer extends React.Component {
 
   componentDidMount(){
     this.getUsersWithLists()
-    this.props.setFoodListStepNumber()
   }
 
   getName = (e) => {

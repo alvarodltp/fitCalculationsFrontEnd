@@ -55,13 +55,6 @@ getAllStats = () => {
   })
 }
 
-setFoodListStepNumber = () => {
-  this.setState({
-    stepNumber: 10
-  })
-}
-
-
 isMobileDevice = () => {
   this.setState({
     mobileDevice: (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
@@ -146,7 +139,7 @@ requiredEmailMessage = () => {
         <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
         <Route exact path="/unleash-your-fitness-potential" render={props => <LandingPage /> } />
         <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
-        <Route exact path="/food-list" render={props => <FoodListContainer setFoodListStepNumber={this.setFoodListStepNumber} {...props}/> } />
+        <Route exact path="/food-list" render={props => <FoodListContainer {...props}/> } />
         <Route exact path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
         <Route exact path="/blog" render={props => <BlogContainer {...props}/> } />
       </div>
