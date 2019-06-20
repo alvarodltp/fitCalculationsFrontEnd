@@ -17,6 +17,7 @@ import ReactPixel from 'react-facebook-pixel';
 import FoodListContainer from '../Foodlist/FoodListContainer'
 import BmiCalculatorContainer from '../BmiCalculator/BmiCalculatorContainer'
 import BlogContainer from '../Blog/BlogContainer'
+import Calculators from './Calculators'
 
 class App extends React.Component {
   constructor(props){
@@ -131,8 +132,8 @@ requiredEmailMessage = () => {
 
     return (
       <div className="App">
-        {this.state.mobileDevice === false ? <SlidingNavBar /> : null }
-        <Route exact path="/" render={props => <Homepage scrollToTop={this.scrollToTop} requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } />
+        {this.state.mobileDevice === false ? <SlidingNavBar scrollToTop={this.scrollToTop}/> : null }
+        <Route exact path="/" render={props => <Homepage mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop} requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } />
         <Route exact path="/calories-and-macros" render={props => <CalculationsContainer {...props} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
         <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
@@ -142,6 +143,7 @@ requiredEmailMessage = () => {
         <Route exact path="/food-list" render={props => <FoodListContainer {...props}/> } />
         <Route exact path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
         <Route exact path="/blog" render={props => <BlogContainer {...props}/> } />
+        <Route exact path="/calculators" render={props => <Calculators {...props}/> } />
       </div>
     )
   }

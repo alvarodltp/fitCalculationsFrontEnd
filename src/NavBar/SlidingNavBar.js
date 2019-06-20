@@ -5,7 +5,6 @@ import { Link } from "react-router-dom"
 import './NavBar.scss'
 
 class SlidingNavBar extends React.Component {
-
   render(){
     return(
       <React.Fragment>
@@ -25,10 +24,12 @@ class SlidingNavBar extends React.Component {
             </ul>
 
             <ul class="navbar-menu">
-              <Link to='/'>
+              <Link onClick={this.props.scrollToTop} to='/'>
                 <li><a href="#">Home</a></li>
               </Link>
-
+              <Link onClick={this.props.scrollToTop} to='/calculators'>
+                <li><a href="#">Calculators</a></li>
+              </Link>
             </ul>
 
           </div>

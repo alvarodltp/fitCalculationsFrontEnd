@@ -13,31 +13,42 @@ class Homepage extends React.Component {
       <React.Fragment>
         <MainHeaderHome />
         <div id="home-page">
-          <div id="first-header-home">
-            <div id="content-home-header">
-              <h1 style={{margin: "0 auto", fontSize:"40px", marginBottom: "40px", width: "90%", fontStyle: "italic"}}>Get your portion control guide and a 100+ healthy food list...FOR FREE!</h1>
-              <Grid stackable columns={2}>
-                <Grid.Row >
-                  <Grid.Column width={7}>
-                    <Image id="alvaro-home-image" style={{margin: "0 auto"}} src='/books-3.png' size='medium' />
-                  </Grid.Column>
-                  <Grid.Column width={9}><br/>
-                    <p>Hi! My name is Alvaro and I have 10+ years of experience helping people like you reach your body's full potential. I've helped entrepreneurs and busy professionals get and stay in top notch shape and I can do the same for you. Enter your email below to get your FREE guide.</p>
-                    <div style={{textAlign:"center"}}>
-                      <Form>
-                        <Form.Input onChange={this.props.validateEmail} size="large" style={{width: "70%"}} name='email' label='' placeholder='Enter your email...' />
-                        { this.props.message !== "" ? <p style={{fontSize: "12px", color: "red"}}>{this.props.message}</p> : null }
-                        <a target="_self" href="https://drive.google.com/file/d/1-lq43IW3cTCafFvhTm6RrutJvju0J4k6/view?usp=sharing">
-                        <Button onClick={this.props.requiredEmailMessage} size="large" id="button-mobile" style={{width: "70%"}} type="submit">
-                           GET YOUR FREE GUIDE
-                        </Button>
-                        </a>
-                      </Form>
-                    </div>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </div>
+          <div id="home-header-section">
+            <h1 style={{margin: "0 auto", fontSize:"55px", paddingTop: "60px", width: "100%", fontStyle: "italic", color: "white", marginBottom: "30px"}}>What Are You Up To?</h1>
+            {this.props.mobileDevice === false ?
+            <div>
+              <Button value="Female" size="large" id="gender-button">LOSING WEIGHT</Button>
+              <Button value="Male" size="large" id="gender-button">GAINING MUSCLE</Button>
+            </div> :
+            <div>
+              <Button value="Female" size="small" id="gender-button-mobile">LOSING WEIGHT</Button>
+              <Button value="Male" size="small" id="gender-button-mobile">GAINING MUSCLE</Button>
+            </div> }
+          </div>
+
+          <div id="free-guide-section">
+            <h1 style={{margin: "0 auto", fontSize:"40px", marginBottom: "40px", width: "90%", fontStyle: "italic"}}>Get your portion control guide and a 100+ healthy food list...FOR FREE!</h1>
+            <Grid stackable columns={2}>
+              <Grid.Row >
+                <Grid.Column width={7}>
+                  <Image id="alvaro-home-image" style={{margin: "0 auto"}} src='/books-3.png' size='medium' />
+                </Grid.Column>
+                <Grid.Column width={9}><br/>
+                  <p>Hi! My name is Alvaro and I have 10+ years of experience helping people like you reach your body's full potential. I've helped entrepreneurs and busy professionals get and stay in top notch shape and I can do the same for you. Enter your email below to get your FREE guide.</p>
+                  <div style={{textAlign:"center"}}>
+                    <Form>
+                      <Form.Input onChange={this.props.validateEmail} size="large" style={{width: "70%"}} name='email' label='' placeholder='Enter your email...' />
+                      { this.props.message !== "" ? <p style={{fontSize: "12px", color: "red"}}>{this.props.message}</p> : null }
+                      <a target="_self" href="https://drive.google.com/file/d/1-lq43IW3cTCafFvhTm6RrutJvju0J4k6/view?usp=sharing">
+                      <Button onClick={this.props.requiredEmailMessage} size="large" id="button-mobile" style={{width: "70%"}} type="submit">
+                         GET YOUR FREE GUIDE
+                      </Button>
+                      </a>
+                    </Form>
+                  </div>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
           </div>
 
           <div id="third-header-home">
@@ -50,7 +61,6 @@ class Homepage extends React.Component {
                 </Button>
               </div><br/>
             </Link>
-
            </div>
 
 
