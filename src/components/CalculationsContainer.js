@@ -493,32 +493,6 @@ updateUser = (userExists) => {
     })
   }
 
-//
-// updateUser = (bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage) => {
-//   let userId = this.state.user["id"]
-//   fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json",
-//         'Accept': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         user: {
-//           gender: this.state.gender,
-//           age: this.state.age,
-//           activity_level: this.state.activityLevelText,
-//           goal: this.state.goal,
-//           body_type: bodyType,
-//           weight_in_lb: this.state.weightLb,
-//           height_in_feet: this.state.feet,
-//           height_in_inches: this.state.inches
-//         }
-//       })
-//     }).then(response =>response.json())
-//     .then(response => {
-//     }, this.updateStats(bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage))
-// }
-
 saveStats = (user) => {
   let today = new Date()
   // let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
@@ -563,27 +537,6 @@ saveStats = (user) => {
     })
 }
 
-// updateStats = (bodyType, protein, carbs, fats, proteinPercentage, carbPercentage, fatPercentage) => {
-//   let statsId = this.state.stats["id"]
-//   fetch(`https://fitcalculations-api.herokuapp.com/stats/${statsId}`, {
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json",
-//         'Accept': 'application/json'
-//       },
-//       body: JSON.stringify({
-//           protein_grams: protein,
-//           carb_grams: carbs,
-//           fat_grams: fats,
-//           protein_percentage: proteinPercentage,
-//           carb_percentage: carbPercentage,
-//           fat_percentage: fatPercentage
-//       })
-//     }).then(response => response.json())
-//     .then(response => {
-//     })
-// }
-
 getNumber = (e) => {
   this.setState({
     numberOfMeals: e.target.innerText[0]
@@ -602,48 +555,6 @@ calculateBreakdown = () => {
 
   }
 }
-
-// addDietTypeAndMotivationToUser = () => {
-//   let userId = this.state.user["id"]
-//   fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json",
-//         'Accept': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         user: {
-//
-//         }
-//       })
-//     }).then(response =>response.json())
-//     .then(response => {
-//       console.log(response)
-//     })
-// }
-//
-// saveEmailToUser = () => {
-//   let userId = this.state.user["id"]
-//   if(this.state.emailValid === true && this.state.checked === true) {
-//   fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json",
-//         'Accept': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         name: this.state.name.replace(/^\w/, c => c.toUpperCase()),
-//         email: this.state.email.toLowerCase()
-//       })
-//     }).then(response => response.json())
-//     .then(this.props.addOneToStep())
-//       swal("Success!", "Your results are ready!", "success")
-//       this.setState({
-//         loadingResults: false
-//       }, this.calculateMaxHeartRate())
-//   } else {
-//   }
-// }
 
 checkCheckbox = (e) => {
   this.setState({
@@ -739,7 +650,6 @@ setFormToTrue = () => {
     return(
       <React.Fragment>
         <Confetti id="confetti" active={this.state.confetti} config={config}/>
-
         {this.props.stepNumber === 0 && this.state.showNutritionPackageDetails === true ? <NutritionPackageDetails displayForm={this.displayForm} showForm={this.state.showForm} mobileDevice={this.props.mobileDevice} getGenderOnButton={this.getGenderOnButton} showBcmForm={this.showBcmForm}/> : null }
         {this.state.showForm === true || this.props.stepNumber === 1 || this.props.stepNumber === 2 || this.props.stepNumber === 3 || this.props.stepNumber === 4 ? <Stepper completeColor={"#2761f1"} activeColor={"#e80aaa"} steps={ [{title: 'Info'}, {title: 'Body'}, {title: 'Diet'}, {title: 'Motivation'}, {title: 'Results'}] } activeStep={ this.props.stepNumber } /> : null }
         {this.state.showForm === true ? <UserInfoForm enableButtonMetricForm={this.enableButtonMetricForm} getFormType={this.getFormType} formType={this.state.formType} getCm={this.getCm} heightCm={this.state.heightCm} age={this.state.age} weightLb={this.state.weightLb} weightKg={this.state.weightKg} feet={this.state.feet} inches={this.state.inches} goal={this.state.goal} activityLevelText={this.state.activityLevelText} weightToManage={this.state.weightToManage} hideForm={this.hideForm} mobileDevice={this.props.mobileDevice} getWeightToLose={this.getWeightToLose} gender={this.state.gender} getGenderOnButton={this.getGenderOnButton} scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm}
@@ -759,11 +669,3 @@ setFormToTrue = () => {
 }
 
 export default CalculationsContainer
-
-// <p onClick={this.props.auth.login}>Login</p>
-// {this.props.stepNumber === 0 || this.props.stepNumber === 1 || this.props.stepNumber === 2 || this.props.stepNumber === 3 || this.props.stepNumber === 4 ? <ProgressRatio stepNumber={this.props.stepNumber}/> : null }
-
-// {this.props.stepNumber === 5 ?
-// <div id="congratulations-bcm-header">
-//   <h1>YOUR RESULTS</h1>
-// </div> : null }

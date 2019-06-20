@@ -1,6 +1,7 @@
 import React from 'react'
 import { Divider, Button, Form } from 'semantic-ui-react'
 import { BeatLoader } from 'react-spinners';
+import Slide from 'react-reveal/Slide';
 
 class FoodListForm extends React.Component {
   render(){
@@ -9,7 +10,10 @@ class FoodListForm extends React.Component {
       {this.props.loading === false ?
         <div id="background-food">
           <div id="food-form">
+          <Slide left>
             <h1 style={{fontSize: "60px", fontStyle: "italic"}}>HEALTHY SHOPPING LIST</h1>
+          </Slide>
+          <Slide right>
             <div style={{width: "70%", margin: "0 auto"}}>
               <Form>
                 <Form.Input onChange={(e) => {this.props.getUserEmail(e); this.props.validateEmail(e)}} name='email' label='Enter your email to create a new list or retrieve previous.' placeholder='Email...' />
@@ -19,6 +23,7 @@ class FoodListForm extends React.Component {
                 </Button>
               </Form>
             </div>
+          </Slide>
           </div>
         </div> :
 
