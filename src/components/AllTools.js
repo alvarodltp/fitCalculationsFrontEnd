@@ -29,32 +29,35 @@ class Tools extends React.Component {
     }
   }
 
+  displayTools = () => {
+    return this.state.calculations.map(calculation =>
+      <Grid style={{display: "inline-block"}}>
+        <Grid.Column>
+          <Link to={calculation.link}>
+            <Card onClick={this.props.scrollToTop} id="image">
+              <Image src={calculation.image} />
+              <Card.Content>
+                <Card.Header>{calculation.title}</Card.Header>
+                <Card.Description>
+                  {calculation.description}
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+              </Card.Content>
+            </Card>
+          </Link>
+        </Grid.Column>
+      </Grid>)
+  }
+
   render(){
     return(
       <React.Fragment>
-        {this.state.calculations.map(calculation =>
-        <div style={{margin: "0 auto", width: "80%"}}>
-          <Grid className="ui center aligned grid">
-              <Grid.Column>
-                <Link to={calculation.link}>
-                  <Card id="image-card">
-                    <Image src={calculation.image} />
-                    <Card.Content>
-                      <Card.Header>{calculation.title}</Card.Header>
-                      <Card.Description>
-                        {calculation.description}
-                      </Card.Description>
-                    </Card.Content>
-                    <Card.Content extra>
-                      <a>
-                        <Icon name='star' />
-                      </a>
-                    </Card.Content>
-                  </Card>
-                </Link>
-              </Grid.Column>
-          </Grid><br/><br/>
-        </div>)}
+        <div>
+          {this.displayTools()}
+        </div>
+        <div style={{clear: "both"}}>
+        </div>
       </React.Fragment>
     )
   }

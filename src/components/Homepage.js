@@ -60,31 +60,33 @@ class Homepage extends React.Component {
           </div>
 
           <div id="third-header-home">
-          <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Top Rated Tool - Macros And Calories</h1>
-            <Image style={{margin: "0 auto", height: "400px"}} src="/iphone-front.png" />
-            <Link to="/calories-and-macros">
-              <div style={{margin: "0 auto", width: "50%"}}>
-                <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">
-                   GET MY MACROS NOW
-                </Button>
-              </div><br/>
-            </Link>
-           </div>
+            <Grid style={{width: "101%"}} stackable columns={2}>
+              <Grid.Row style={{paddingTop: "0"}}>
+                <Grid.Column style={{backgroundColor: "#2761f1", height: "500px"}} width={8}>
+                  <Image className="vertical-center" style={{margin: "0 auto", height: "400px"}} src="/iphone-front.png" />
+                </Grid.Column>
+
+                <Grid.Column style={{margin: "0 auto", backgroundColor: "#f0f0f0", height: "500px", textAlign: "center"}} width={8}>
+                  <div className="vertical-center" style={{width: "90%"}}>
+                    <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", fontStyle: "italic", marginBottom:"20px"}}>Recommened Calculation - Macros And Calories</h1>
+                    <p style={{margin: "0 auto"}}>Get personalized nutrition information and more base on your goals.</p><br/>
+                    <Link to="/calories-and-macros">
+                      <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">
+                         GET MY MACROS NOW
+                      </Button>
+                    </Link>
+                  </div>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </div>
 
 
           <div id="second-header-home">
             <div>
               <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>All Tools</h1>
               <p style={{margin: "0 auto", width: "80%", textAlign: "left", marginBottom: "40px"}}>I want to empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and I want to be part of your journey.</p>
-              {this.props.allStats !== null ? <AllTools scrollToTop={this.props.scrollToTop} allStats={this.props.allStats}/> :
-                <div style={{marginTop: "60px"}} className='sweet-loading'>
-                  <BeatLoader
-                    sizeUnit={"px"}
-                    size={13}
-                    color={"#2761f1"}
-                    loading={true}
-                  />
-                </div> }
+              <AllTools scrollToTop={this.props.scrollToTop} allStats={this.props.allStats}/>
             </div>
           </div>
 

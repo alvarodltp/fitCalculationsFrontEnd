@@ -63,6 +63,25 @@ span {
 #image {
   margin: 0 auto;
   margin-top: 10px;
+  margin-bottom: 25px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 400px;
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+  -ms-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+}
+
+#image:hover {
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+  transition: all .5s ease ;
+  transform: scale(1.03);
 }
 
 #steps > p{
@@ -1096,4 +1115,12 @@ box-shadow: none;
 
 .ui.card > .content{
   margin: 0 auto;
+}
+
+.vertical-center {
+ margin: 0;
+ position: absolute;
+ top: 50%;
+ -ms-transform: translateY(-50%);
+ transform: translateY(-50%);
 }
