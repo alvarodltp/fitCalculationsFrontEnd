@@ -14,24 +14,26 @@ class Homepage extends React.Component {
         <MainHeaderHome />
         <div id="home-page">
           <div id="home-header-section">
+
             <h1 style={{margin: "0 auto", fontSize:"55px", paddingTop: "60px", width: "100%", fontStyle: "italic", color: "white", marginBottom: "30px"}}>What Are You Up To?</h1>
-            {this.props.mobileDevice === false ?
-            <div>
-              <Link to="/calories-and-macros">
-                <Button value="Female" size="large" id="gender-button">LOSING WEIGHT</Button>
-              </Link>
-              <Link to="/calories-and-macros">
-                <Button value="Male" size="large" id="gender-button">GAINING MUSCLE</Button>
-              </Link>
-            </div> :
-            <div>
-              <Link to="/calories-and-macros">
-                <Button value="Female" size="small" id="gender-button-mobile">LOSING WEIGHT</Button>
-              </Link>
-              <Link to="/calories-and-macros">
-                <Button value="Male" size="small" id="gender-button-mobile">GAINING MUSCLE</Button>
-              </Link>
-            </div> }
+              {this.props.mobileDevice === false ?
+              <div>
+                <Link to="/calories-and-macros">
+                  <Button value="Female" size="large" id="gender-button">LOSING WEIGHT</Button>
+                </Link>
+                <Link to="/calories-and-macros">
+                  <Button value="Male" size="large" id="gender-button">GAINING MUSCLE</Button>
+                </Link>
+              </div> :
+              <div>
+                <Link to="/calories-and-macros">
+                  <Button value="Female" size="small" id="gender-button-mobile">LOSING WEIGHT</Button>
+                </Link>
+                <Link to="/calories-and-macros">
+                  <Button value="Male" size="small" id="gender-button-mobile">GAINING MUSCLE</Button>
+                </Link>
+              </div> }
+            
           </div>
 
           <div id="free-guide-section">
@@ -67,9 +69,9 @@ class Homepage extends React.Component {
                 </Grid.Column>
 
                 <Grid.Column style={{margin: "0 auto", backgroundColor: "#f0f0f0", height: "500px", textAlign: "center"}} width={8}>
-                  <div className="vertical-center" style={{width: "90%"}}>
-                    <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", fontStyle: "italic", marginBottom:"20px"}}>Recommened Calculation - Macros And Calories</h1>
-                    <p style={{margin: "0 auto"}}>Get personalized nutrition information and more base on your goals.</p><br/>
+                  <div className="vertical-center" style={{width: "90%", textAlign: "left", paddingLeft: "30px"}}>
+                    <h1 style={{ width: "90%", fontSize:"40px", fontStyle: "italic", marginBottom:"20px"}}>Recommened Calculation - Macros And Calories</h1>
+                    <p >Get personalized nutrition information and more base on your goals.</p><br/>
                     <Link to="/calories-and-macros">
                       <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">
                          GET MY MACROS NOW
