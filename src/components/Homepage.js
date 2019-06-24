@@ -5,6 +5,7 @@ import Products from './Products'
 import { BeatLoader } from 'react-spinners';
 import {Link} from 'react-router-dom'
 import MainHeaderHome from './MainHeaderHome';
+import Flip from 'react-reveal/Fade';
 
 class Homepage extends React.Component {
 
@@ -65,13 +66,12 @@ class Homepage extends React.Component {
           <div id="third-header-home">
             <Grid style={{width: "101%"}} stackable columns={2}>
               <Grid.Row style={{paddingTop: "0"}}>
-                <Grid.Column style={{backgroundColor: "#2761f1", height: "500px"}} width={8}>
-                  <Image className="vertical-center" style={{margin: "0 auto", height: "400px"}} src="/iphone-front.png" />
-                </Grid.Column>
-
+                  <Grid.Column style={{backgroundColor: "#2761f1", height: "500px"}} width={8}>
+                    <Image className="vertical-center" style={{margin: "0 auto", height: "400px"}} src="/iphone-front.png" />
+                  </Grid.Column>
                 <Grid.Column style={{margin: "0 auto", backgroundColor: "#f0f0f0", height: "500px", textAlign: "center"}} width={8}>
                   <div className="vertical-center" style={{width: "90%", textAlign: "left", paddingLeft: "30px"}}>
-                    <h1 style={{ width: "90%", fontSize:"40px", fontStyle: "italic", marginBottom:"20px"}}>Recommended Calculation - Macros And Calories</h1>
+                    <h1 style={{ width: "90%", fontSize:"40px", fontStyle: "italic", marginBottom:"20px"}}>Recommended Calculation: Macros And Calories</h1>
                     <p >Get personalized nutrition information and more base on your goals.</p><br/>
                     <Link to="/calories-and-macros">
                       <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">

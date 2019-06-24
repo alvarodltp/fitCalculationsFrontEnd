@@ -85,6 +85,8 @@ class BmiCalculatorContainer extends React.Component {
           </Grid.Row>
         </Grid>
       </div>
+      <div style={{height: "5px", background: "linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%)"}}>
+      </div>
       <div style={{marginTop: "15px"}}>
         <BmiTable style={{margin: "0 auto"}} bmi={this.state.bmi}/>
       </div>
