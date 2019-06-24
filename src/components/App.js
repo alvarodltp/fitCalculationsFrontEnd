@@ -30,7 +30,7 @@ class App extends React.Component {
       loading: true,
       allStats: null,
       loading: true,
-      emailValid: "",
+      emailValid: true,
       message: ""
     }
   }

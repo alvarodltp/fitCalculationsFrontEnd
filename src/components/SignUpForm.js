@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image, Icon, Card, Button, Input, Checkbox, Form, Divider} from 'semantic-ui-react'
+import {Image, Icon, Card, Button, Input, Checkbox, Form, Divider, Grid} from 'semantic-ui-react'
 import ReactGA from 'react-ga';
 import Loading from './Loading';
 
@@ -12,61 +12,30 @@ class SignUpForm extends React.Component {
     })
   }
 
-
-  // sendEmail = () => {
-  //   console.log(this.props.email)
-  //   fetch("https://api.emailjs.com/api/v1.0/email/send", {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Accept': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       service_id: 'default_service',
-  //       template_id: 'fit_calculations_lead_magnet',
-  //       user_id: 'user_fFb7UZUUUS7jEGG8aJVSb',
-  //       template_params: {
-  //        "reply_to": "fitcalculations@gmail.com",
-  //        "from_name": "Fit Calculations",
-  //        "name": this.state.name.replace(/^\w/, c => c.toUpperCase()),
-  //        "to_name": this.state.email,
-  //        "calories": this.props.calories,
-  //        "protein": this.props.protein,
-  //        "carbs": this.props.carbs,
-  //        "fats": this.props.fats,
-  //        "bodyType": this.props.bodyType.toUpperCase(),
-  //        "goal": this.props.goal,
-  //        "bmr": this.props.bmr
-  //      }
-  //    })
-  //   })
-  // }
-
-
   render(){
     return(
       <React.Fragment>
         <div>
           <div id="sign-up-text">
             <h1>AWESOME JOB!</h1>
-            <Divider style={{margin: "0 auto", fontSize: "30px", marginTop: "35px", width: "80%"}} horizontal>
+            <Divider style={{margin: "0 auto", fontSize: "20px", marginTop: "25px", width: "80%"}} horizontal>
               Your Results Are Ready
             </Divider>
             <p>To get your results and a 7 day guide to fit, just let us know where to send it.</p>
           </div>
           <div id="sign-up-form-card">
-            <Input id="sign-up-input" fluid onChange={this.props.getName} size='huge' maxLength="255" placeholder='Name' /><br/>
-            <Input id="sign-up-input" fluid onChange={(e) => {this.props.getEmail(e); this.props.validateEmail(e)}} size='huge' maxLength="255" placeholder='Email Address'/><br/>
+            <Input id="sign-up-input" disabled={true} value={this.props.name} fluid onChange={this.props.getName} size='large' maxLength="255" placeholder='Name' /><br/>
+            <Input id="sign-up-input" disabled={true} value={this.props.email} fluid onChange={(e) => {this.props.getEmail(e); this.props.validateEmail(e)}} size='large' maxLength="255" placeholder='Email Address'/><br/>
           </div>
-          <div style={{width: "70%", margin: "0 auto"}}>
-            <Checkbox onChange={this.props.checkCheckbox} required label='Yes, send me my results and awesome content to stay in shape.' />
-          </div><br/><br/>
+          <div style={{width: "70%", margin: "0 auto", marginBottom: "20px"}}>
+            <Checkbox disabled={true} onChange={this.props.checkCheckbox} checked={this.props.checked} required label='Yes, send me my results and awesome content to stay in shape.' />
+          </div>
           {this.props.message != null ? <p style={{fontSize: "12px", color: "red"}}>{this.props.message}</p> : null}
             {this.props.safeCalories === true ?
-            <Button size="large" id="button-get-email" type='submit'
+            <Button size="medium" id="button-get-email" type='submit'
             onClick={() => {this.getEvent(); this.props.scrollToTop(); this.props.requiredFieldsMessage()}}
             >SUBMIT!</Button> :
-            <Button size="large" id="button-get-email" type='submit'
+            <Button size="medium" id="button-get-email" type='submit'
             onClick={() => {this.getEvent(); this.props.scrollToTop(); this.props.requiredFieldsMessage()}}>SUBMIT!</Button>}
         </div><br/>
       </React.Fragment>
