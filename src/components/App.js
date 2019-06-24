@@ -144,7 +144,7 @@ requiredEmailMessage = () => {
         <Route exact path="/food-list" render={props => <FoodListContainer {...props}/> } />
         <Route exact path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
         <Route exact path="/blog" render={props => <BlogContainer {...props}/> } />
-        <Route exact path="/calculators" render={props => <Calculators {...props}/> } />
+        <Route exact path="/tools" render={props => <Calculators {...props}/> } />
       </div>
     )
   }

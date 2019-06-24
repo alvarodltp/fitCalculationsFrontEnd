@@ -16,15 +16,25 @@ class TheNav extends React.Component {
       <React.Fragment>
         <div style={{margin: "0 auto", color: "white", minHeight: "60px", background: "red", width: "100%", position: "relative", zIndex: "1", background: "linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%)"}}>
           <Grid stackable style={{textAlign: "center", width: "100%"}} >
-            <Grid.Column>
-              <p className="menu">Home</p>
-            </Grid.Column>
-            <Grid.Column>
-              <p className="menu">About</p>
-            </Grid.Column>
-            <Grid.Column>
-              <p className="menu">Tools</p>
-            </Grid.Column>
+
+              <Grid.Column>
+                <Link style={{color: "white"}} to="/">
+                  <p className="menu">Home</p>
+                </Link>
+              </Grid.Column>
+
+              <Grid.Column>
+                <Link style={{color: "white"}} to="/about">
+                  <p className="menu">About</p>
+                </Link>
+              </Grid.Column>
+
+              <Grid.Column>
+                <Link style={{color: "white"}} to="/tools">
+                  <p className="menu">Tools</p>
+                </Link>
+              </Grid.Column>
+
           </Grid>
         </div>
      </React.Fragment>
