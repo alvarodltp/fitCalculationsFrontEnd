@@ -584,14 +584,14 @@ box-shadow: none;
 }
 
 #header-main-landing {
-  margin-bottom: 60px;
+  margin: 0 auto;
+  color: white;
   width: 100%;
   height: 350px;
-  background: #2761f1;
-  /* background: url(/cool-background.png) no-repeat;
-  background-size: cover; */
-  box-shadow: none;
-  color: white;
+  background: linear-gradient(
+                     rgba(20,20,20, .3),
+                     rgba(20,20,20, .3)),
+                     url(/iphone-blue.png);
 }
 
 #header-thankyou-bcm h1 {

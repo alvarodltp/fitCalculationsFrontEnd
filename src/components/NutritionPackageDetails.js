@@ -42,11 +42,8 @@ class NutritionPackageDetails extends React.Component {
       <React.Fragment>
       <div id="header-main-landing">
       <Bounce left>
-        <h1 style={{paddingTop: "45px", fontSize: "40px", color: "white", fontStyle: "italic"}} >CALCULATE YOUR MACROS TODAY</h1>
+        <h1 style={{margin: "0 auto", fontSize:"55px", paddingTop: "60px", width: "100%", fontStyle: "italic", color: "white", marginBottom: "30px"}}>Calculate Your Macros</h1>
       </Bounce>
-        <Divider style={{fontSize: "18px", marginTop: "40px", color: "white"}} horizontal>
-           GET YOUR RESULTS NOW
-        </Divider>
         {this.props.mobileDevice === false ?
         <div>
           <Button onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Female" size="large" id="gender-button">I'M A WOMAN</Button>
@@ -57,8 +54,12 @@ class NutritionPackageDetails extends React.Component {
           <Button onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Male" size="small" id="gender-button-mobile">I'M A MAN</Button>
         </div> }
       </div>
-      <div id="nutrition-package-intro">
-          <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
+
+      <div style={{height: "5px", background: "linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%)"}}>
+      </div>
+
+      <div style={{marginTop: "70px"}}>
+        <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
       </div>
       <div>
         <Card id="image-card">
@@ -136,7 +137,6 @@ class NutritionPackageDetails extends React.Component {
             <Image src={'../iphone-macros.png'} />
           </Fade> : null }
         </div>
-
       </React.Fragment>
     );
   }
