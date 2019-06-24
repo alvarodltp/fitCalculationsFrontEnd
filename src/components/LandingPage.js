@@ -83,7 +83,7 @@ class LandingPage extends React.Component {
   render(){
     return(
       <React.Fragment>
-      <div style={{width: "80%", margin: "0 auto", marginTop: "30px"}}>
+      <div style={{width: "80%", margin: "0 auto", marginTop: "50px"}}>
         <h1 style={{fontSize:"36px"}}>You Are One Step From Getting In The Best Shape Of Your Life</h1>
         <h2 style={{color: "blue", fontStyle: "italic"}}>INTRODUCING THE STEP-BY-STEP GUIDE TO BUILD YOUR BEST BODY EVER.</h2>
 
@@ -343,7 +343,6 @@ class LandingPage extends React.Component {
               </Grid.Row>
             </Grid>
           </div>
-          <p style={{fontSize: "12px"}}>*All guides will be ready and delivered on April, 26th 2019</p>
         </div>
 
 

@@ -19,19 +19,19 @@ class TheNav extends React.Component {
 
               <Grid.Column>
                 <Link style={{color: "white"}} to="/">
-                  <p className="menu">Home</p>
-                </Link>
-              </Grid.Column>
-
-              <Grid.Column>
-                <Link style={{color: "white"}} to="/about">
-                  <p className="menu">About</p>
+                  <p className="menu-nav">Home</p>
                 </Link>
               </Grid.Column>
 
               <Grid.Column>
                 <Link style={{color: "white"}} to="/tools">
-                  <p className="menu">Tools</p>
+                  <p className="menu-nav">Tools</p>
+                </Link>
+              </Grid.Column>
+
+              <Grid.Column>
+                <Link style={{color: "white"}} to="/unleash-your-fitness-potential">
+                  <p className="menu-nav">Program</p>
                 </Link>
               </Grid.Column>
 
