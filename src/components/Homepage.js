@@ -49,14 +49,14 @@ class Homepage extends React.Component {
                   <p>Hi! My name is Alvaro and I have 10+ years of experience helping people like you reach your body's full potential. I've helped entrepreneurs and busy professionals get and stay in top notch shape and I can do the same for you. Enter your email below to get your FREE guide.</p>
                   <div style={{textAlign:"center"}}>
                     <Form>
-                      <Form.Input onChange={this.props.validateEmail} size="large" style={{width: "70%"}} name='email' label='' placeholder='Enter your email...' />
+
                       { this.props.message !== "" ? <p style={{fontSize: "12px", color: "red"}}>{this.props.message}</p> : null }
                       <a target="_self" href="https://drive.google.com/file/d/1-lq43IW3cTCafFvhTm6RrutJvju0J4k6/view?usp=sharing">
                       <Button onClick={this.props.requiredEmailMessage} size="large" id="button-mobile" style={{width: "70%"}} type="submit">
                          GET YOUR FREE GUIDE
                       </Button>
                       </a>
-                    </Form>
+                    </Form><br/><br/>
                   </div>
                 </Grid.Column>
               </Grid.Row>
@@ -117,3 +117,5 @@ class Homepage extends React.Component {
 }
 
 export default Homepage
+
+  // <Form.Input onChange={this.props.validateEmail} size="large" style={{width: "70%"}} name='email' label='' placeholder='Enter your email...' />
