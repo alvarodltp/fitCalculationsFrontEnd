@@ -18,6 +18,7 @@ import FoodListContainer from '../Foodlist/FoodListContainer'
 import BmiCalculatorContainer from '../BmiCalculator/BmiCalculatorContainer'
 import BlogContainer from '../Blog/BlogContainer'
 import Calculators from './Calculators'
+import TheNav from './TheNav'
 
 class App extends React.Component {
   constructor(props){
@@ -132,7 +133,7 @@ requiredEmailMessage = () => {
 
     return (
       <div className="App">
-        {this.state.mobileDevice === false ? <SlidingNavBar scrollToTop={this.scrollToTop}/> : null }
+        <TheNav />
         <Route exact path="/" render={props => <Homepage mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop} requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } />
         <Route exact path="/calories-and-macros" render={props => <CalculationsContainer {...props} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
         <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
@@ -153,3 +154,5 @@ requiredEmailMessage = () => {
 // {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
 
 export default App;
+
+// {this.state.mobileDevice === false ? <SlidingNavBar scrollToTop={this.scrollToTop}/> : null }

@@ -327,7 +327,6 @@ span {
 
 #home-page {
   background: #F8F8F8;
-  padding-top: 1px;
 }
 
 #home-header-section {
@@ -1126,4 +1125,16 @@ box-shadow: none;
  top: 50%;
  -ms-transform: translateY(-50%);
  transform: translateY(-50%);
+}
+
+.menu {
+  padding-top: 10px;
+}
+
+.menu:hover {
+  color: white;
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-color: white;
+  cursor: pointer;
 }
