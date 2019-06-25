@@ -2,6 +2,7 @@ import React from 'react'
 import * as contentful from 'contentful'
 import BlogItem from './BlogItem'
 import PageHeader from './PageHeader'
+import AllBlogs from './AllBlogs'
 
 class Blog extends React.Component {
   constructor(){
@@ -24,7 +25,6 @@ class Blog extends React.Component {
 
   setPosts = response => {
     let postsObj = response.items.map(blog => blog.fields).map(post => post.content).map(item => item.content)
-    debugger
     this.setState({
       posts: response.items
     })
@@ -33,9 +33,12 @@ class Blog extends React.Component {
   render(){
     return(
       <React.Fragment>
-        <div>
+      <div id="blog-header">
+        <h1 style={{fontSize:"55px", width: "100%", fontStyle: "italic", color: "white", paddingTop: "130px"}}>Blog</h1>
+      </div>
+      <div>
         { this.state.posts.map(({fields}, i) =>
-        <BlogItem key={i} {...fields} />
+        <AllBlogs key={i} {...fields} />
         )}
        </div>
      </React.Fragment>
