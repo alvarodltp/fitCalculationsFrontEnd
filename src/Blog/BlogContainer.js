@@ -1,6 +1,7 @@
 import React from 'react'
 import * as contentful from 'contentful'
 import BlogItem from './BlogItem'
+import PageHeader from './PageHeader'
 
 class Blog extends React.Component {
   constructor(){
@@ -31,9 +32,13 @@ class Blog extends React.Component {
 
   render(){
     return(
-      <div>
-      { this.state.posts.map(({fields}, i) => <BlogItem key={i} {...fields} /> )}
-     </div>
+      <React.Fragment>
+        <div>
+        { this.state.posts.map(({fields}, i) =>
+        <BlogItem key={i} {...fields} />
+        )}
+       </div>
+     </React.Fragment>
     )
   }
 }
