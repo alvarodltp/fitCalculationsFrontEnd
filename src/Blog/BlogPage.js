@@ -16,9 +16,9 @@ class BlogPage extends React.Component {
           <Image style={{margin: "0 auto"}} circular size="tiny" src={this.props.authorImage.fields.file.url}/><br/>
           <p>by {this.props.author}</p>
         </div>
-        <div style={{margin: "0 auto", width: "50%", marginTop: "40px"}}>
+        <div style={{margin: "0 auto", width: "50%", marginTop: "40px", textAlign: "left"}}>
           {this.props["content"].content.map(paragraphs => paragraphs.content.map(eachPar =>
-          <p style={{textAlign: "left"}}>{eachPar.value}</p>
+          <Markdown source={eachPar.value }/>
           ))}
         </div>
       </React.Fragment>
