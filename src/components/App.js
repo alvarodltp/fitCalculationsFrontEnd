@@ -19,6 +19,8 @@ import BmiCalculatorContainer from '../BmiCalculator/BmiCalculatorContainer'
 import BlogContainer from '../Blog/BlogContainer'
 import Calculators from './Calculators'
 import TheNav from './TheNav'
+import * as contentful from 'contentful'
+import BlogPage from '../Blog/BlogPage'
 
 class App extends React.Component {
   constructor(props){
@@ -31,7 +33,8 @@ class App extends React.Component {
       allStats: null,
       loading: true,
       emailValid: true,
-      message: ""
+      message: "",
+      posts: []
     }
   }
 
@@ -42,8 +45,23 @@ componentDidMount() {
   this.logPageView()
   this.isMobileDevice()
   this.getAllStats()
+  this.fetchPosts().then(this.setPosts);
   // this.initializeIntercom()
   ReactPixel.init('433459070732534')
+}
+
+client = contentful.createClient({
+  space: '3pn0fc4ta32y',
+  accessToken: 'O7n9vC7nnluKegqPfYuD78Cbt3a0sEHXznkuK_HRdl8'
+})
+
+fetchPosts = () => this.client.getEntries()
+
+setPosts = response => {
+  let postsObj = response.items.map(blog => blog.fields).map(post => post.content).map(item => item.content)
+  this.setState({
+    posts: response.items
+  })
 }
 
 getAllStats = () => {
@@ -143,7 +161,10 @@ requiredEmailMessage = () => {
         <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
         <Route exact path="/food-list" render={props => <FoodListContainer {...props}/> } />
         <Route exact path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
-        <Route exact path="/blog" render={props => <BlogContainer {...props}/> } />
+        <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } />
+        { this.state.posts.map(({fields}, i) =>
+        <Route exact path= "/first-blog" render={props => <BlogPage {...props} {...fields} key={i} posts={this.state.posts}/> } />
+        )}
         <Route exact path="/tools" render={props => <Calculators {...props}/> } />
       </div>
     )

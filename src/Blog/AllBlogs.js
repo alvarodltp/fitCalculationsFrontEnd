@@ -3,11 +3,11 @@ import BlogItem from './BlogItem'
 
 class AllBlogs extends React.Component {
   render(){
-    console.log(this.props)
+    console.log()
     return(
-      <div>
-        <BlogItem props={this.props}/>
-      </div>
+      <React.Fragment>
+        <BlogItem fields={this.props.fields}/>
+      </React.Fragment>
     )
   }
 }
