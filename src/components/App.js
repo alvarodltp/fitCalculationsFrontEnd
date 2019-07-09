@@ -34,20 +34,21 @@ class App extends React.Component {
       loading: true,
       emailValid: true,
       message: "",
-      posts: []
+      posts: [],
+      allFields: null
     }
   }
 
 
 
 componentDidMount() {
-  this.initGA()
-  this.logPageView()
-  this.isMobileDevice()
-  this.getAllStats()
-  this.fetchPosts().then(this.setPosts);
+  this.initGA();
+  this.logPageView();
+  this.isMobileDevice();
+  this.getAllStats();
+  this.fetchPosts().then(this.setPosts)
   // this.initializeIntercom()
-  ReactPixel.init('433459070732534')
+  ReactPixel.init('433459070732534');
 }
 
 client = contentful.createClient({
@@ -61,7 +62,7 @@ setPosts = response => {
   let postsObj = response.items.map(blog => blog.fields).map(post => post.content).map(item => item.content)
   this.setState({
     posts: response.items
-  })
+  });
 }
 
 getAllStats = () => {
@@ -71,14 +72,14 @@ getAllStats = () => {
     this.setState({
       allStats: json,
       loading: false
-    })
-  })
+    });
+  });
 }
 
 isMobileDevice = () => {
   this.setState({
     mobileDevice: (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
-  })
+  });
 }
 
 
@@ -94,13 +95,13 @@ logPageView = () => {
 addOneToStep = () => {
   this.setState({
     stepNumber: this.state.stepNumber + 1
-  })
+  });
 }
 
 substractOneFromStep = () => {
   this.setState({
     stepNumber: this.state.stepNumber - 1
-  })
+  });
 }
 
 scrollToTop = () => {
@@ -115,7 +116,7 @@ showResultsPage = () => {
   this.setState({
     showResults: true,
     loading: false
-  })
+  });
 }
 
 // initializeIntercom = () => {
@@ -129,7 +130,7 @@ validateEmail = (e) => {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   this.setState({
     emailValid: re.test(email)
-  })
+  });
 }
 
 requiredEmailMessage = () => {
@@ -144,6 +145,13 @@ requiredEmailMessage = () => {
     })
   }
 }
+
+// getAllFields = () => {
+//   let allFields = this.props.posts.map(({fields}, i) => (fields))
+//   this.setState({
+//     allFields: allFields
+//   });
+// }
 
   render() {
 
@@ -161,10 +169,8 @@ requiredEmailMessage = () => {
         <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
         <Route exact path="/food-list" render={props => <FoodListContainer {...props}/> } />
         <Route exact path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
-        <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } />
-        { this.state.posts.map(({fields}, i) =>
-        <Route exact path= "/first-blog" render={props => <BlogPage {...props} {...fields} key={i} posts={this.state.posts}/> } />
-        )}
+        {this.state.posts != [] ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } /> : null}
+        {this.state.posts != [] ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
         <Route exact path="/tools" render={props => <Calculators {...props}/> } />
       </div>
     )

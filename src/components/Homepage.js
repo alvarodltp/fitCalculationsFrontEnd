@@ -6,6 +6,7 @@ import { BeatLoader } from 'react-spinners';
 import {Link} from 'react-router-dom'
 import MainHeaderHome from './MainHeaderHome';
 import Flip from 'react-reveal/Fade';
+import Slide from 'react-reveal/Slide';
 
 class Homepage extends React.Component {
 
@@ -35,8 +36,10 @@ class Homepage extends React.Component {
               </div> }
           </div>
 
-          <div style={{height: "5px", background: "linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%)"}}>
-          </div>
+          <Slide left>
+            <div style={{height: "5px", background: "linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%)"}}>
+            </div>
+          </Slide>
 
           <div id="free-guide-section">
             <h1 style={{margin: "0 auto", fontSize:"40px", marginBottom: "40px", width: "90%", fontStyle: "italic"}}>Get your portion control guide and a 100+ healthy food list...FOR FREE!</h1>

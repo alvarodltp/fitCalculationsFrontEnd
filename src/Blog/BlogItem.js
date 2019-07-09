@@ -6,11 +6,13 @@ class BlogItem extends React.Component {
   render(){
     return(
       <React.Fragment>
+        <Link to={`/blog/${this.props.path}`}>
           <Card
-            header={this.props.fields.title}
-            meta={this.props.fields.author}
-            description={this.props.fields.description}
+            header={this.props.title}
+            meta={this.props.author}
+            description={this.props.description}
           />
+        </Link>
       </React.Fragment>
     )
   }
