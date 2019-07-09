@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom'
 import MainHeaderHome from './MainHeaderHome';
 import Flip from 'react-reveal/Fade';
 import Slide from 'react-reveal/Slide';
+import BlogItem from '../Blog/BlogItem'
 
 class Homepage extends React.Component {
 
@@ -94,6 +95,11 @@ class Homepage extends React.Component {
               <p style={{margin: "0 auto", width: "80%", textAlign: "left", marginBottom: "40px"}}>I want to empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and I want to be part of your journey.</p>
               <AllTools scrollToTop={this.props.scrollToTop} allStats={this.props.allStats}/>
             </div>
+          </div>
+
+          <div className="blog-section-home">
+            <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"10px", color: "white"}}>Latest Posts</h1>
+            { this.props.posts.slice(0, 3).map(({fields}, i) => <BlogItem key={i} {...fields}/> )}
           </div>
 
           <div id="fourth-header-home">
