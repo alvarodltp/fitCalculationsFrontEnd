@@ -22,17 +22,15 @@ const BlogPage = (props) => {
           <p style={{fontStyle: "italic"}}>{post.fields.description}</p>
         </div>
 
+        <div style={{marginTop: "40px", textAlign: "left", paddingLeft: "100px", paddingBottom: "60px"}}>
+          <Image style={{float:"left", display: "inline", marginRight: "20px"}} circular size='tiny' src={post.fields.authorImage.fields.file.url}/><br/>
+          <p style={{float:"left", display: "inline"}}>by {post.fields.author}</p>
+        </div>
+
         {post.fields.content.content.map(paragraphs => paragraphs.content.map(eachPar =>
         <div style={{paddingLeft: "100px", width: "70%", marginTop: "40px", textAlign: "left"}}>
           <Markdown source={eachPar.value}/>
         </div> ))}
-
-        <div style={{marginTop: "40px", textAlign: "left", paddingLeft: "100px"}}>
-          <h2>About The Author</h2>
-          <Divider style={{width: "70%"}}/>
-          <Image circular size="tiny" src={post.fields.authorImage.fields.file.url}/><br/>
-          <h2>{post.fields.author}</h2>
-        </div>
       </div>
     </React.Fragment>
   )
