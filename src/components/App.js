@@ -170,6 +170,7 @@ requiredEmailMessage = () => {
         {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } /> : null}
         {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
         <Route exact path="/tools" render={props => <Calculators {...props}/> } />
+        {this.state.stepNumber === 2 || this.state.stepNumber === 3 || this.state.stepNumber === 4 ? null  : <Footer /> }
       </div>
     )
   }

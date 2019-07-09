@@ -15,7 +15,7 @@ class SignUpForm extends React.Component {
   render(){
     return(
       <React.Fragment>
-        <div>
+        <div style={{marginBottom: "40px"}}>
           <div id="sign-up-text">
             <h1>AWESOME JOB!</h1>
             <Divider style={{margin: "0 auto", fontSize: "20px", marginTop: "25px", width: "80%"}} horizontal>
@@ -37,7 +37,7 @@ class SignUpForm extends React.Component {
             >SUBMIT!</Button> :
             <Button size="medium" id="button-get-email" type='submit'
             onClick={() => {this.getEvent(); this.props.scrollToTop(); this.props.requiredFieldsMessage()}}>SUBMIT!</Button>}
-        </div><br/>
+        </div>
       </React.Fragment>
     )
   }
