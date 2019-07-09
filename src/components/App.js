@@ -34,7 +34,7 @@ class App extends React.Component {
       loading: true,
       emailValid: true,
       message: "",
-      posts: [],
+      posts: null,
       allFields: null
     }
   }
@@ -154,9 +154,7 @@ requiredEmailMessage = () => {
 // }
 
   render() {
-
     const ReactPixel =  require('react-facebook-pixel');
-
     return (
       <div className="App">
         <TheNav />
@@ -169,8 +167,8 @@ requiredEmailMessage = () => {
         <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
         <Route exact path="/food-list" render={props => <FoodListContainer {...props}/> } />
         <Route exact path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
-        {this.state.posts != [] ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } /> : null}
-        {this.state.posts != [] ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
+        {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } /> : null}
+        {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
         <Route exact path="/tools" render={props => <Calculators {...props}/> } />
       </div>
     )
