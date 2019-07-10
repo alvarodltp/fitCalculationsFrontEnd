@@ -6,7 +6,7 @@ import SlidingNavBar from '../NavBar/SlidingNavBar'
 import {Segment, Menu} from 'semantic-ui-react'
 import CalculationsContainer from './CalculationsContainer'
 import Footer from './Footer'
-import { Route } from 'react-router-dom'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import Homepage from './Homepage'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import ThankYouBcm from './ThankYouBcm'
@@ -21,6 +21,9 @@ import Calculators from './Calculators'
 import TheNav from './TheNav'
 import * as contentful from 'contentful'
 import BlogPage from '../Blog/BlogPage'
+import AllPrograms from '../Programs/AllPrograms'
+import NotFound from './NotFound'
+
 
 class App extends React.Component {
   constructor(props){
@@ -157,21 +160,26 @@ requiredEmailMessage = () => {
     const ReactPixel =  require('react-facebook-pixel');
     return (
       <div className="App">
-        <TheNav />
-        {this.state.posts != null ? <Route exact path="/" render={props => <Homepage  posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop} requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
-        <Route exact path="/calories-and-macros" render={props => <CalculationsContainer {...props} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
-        <Route exact path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
-        <Route exact path="/thank-you" render={props => <ThankYouBcm /> } />
-        <Route exact path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
-        <Route exact path="/unleash-your-fitness-potential" render={props => <LandingPage /> } />
-        <Route exact path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
-        <Route exact path="/food-list" render={props => <FoodListContainer {...props}/> } />
-        <Route exact path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
-        {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } /> : null}
-        {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
-        <Route exact path="/tools" render={props => <Calculators {...props}/> } />
-        {this.state.stepNumber === 2 || this.state.stepNumber === 3 || this.state.stepNumber === 4 ? null  : <Footer /> }
+          <TheNav />
+          <Switch>
+            {this.state.posts != null ? <Route exact path="/" render={props => <Homepage  posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop} requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
+            <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+            <Route path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
+            <Route path="/thank-you" render={props => <ThankYouBcm /> } />
+            <Route path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
+            <Route path="/unleash-your-fitness-potential" render={props => <LandingPage /> } />
+            <Route path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
+            <Route path="/food-list" render={props => <FoodListContainer {...props}/> } />
+            <Route path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
+            {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } /> : null}
+            {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
+            <Route exact path="/tools" render={props => <Calculators {...props}/> } />
+            <Route exact path="/programs" render={props => <AllPrograms {...props} /> } />
+            <Route path="*" component={NotFound} />
+            {this.state.stepNumber === 2 || this.state.stepNumber === 3 || this.state.stepNumber === 4 ? null  : <Footer /> }
+          </Switch>
       </div>
+
     )
   }
 }

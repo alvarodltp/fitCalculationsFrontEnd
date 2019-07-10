@@ -29,7 +29,7 @@ displayBlogs = () => {
 
   render(){
     return(
-      <div style={{display: "inline-block", marginBottom: "40px"}}>
+      <div style={{display: "inline-block", marginBottom: "30px"}}>
         {this.displayBlogs()}
       </div>
     )
