@@ -14,13 +14,15 @@ class AllProgramsContainer extends React.Component {
               name: '30 Days Core',
               description: 'Work your core and abs like never before.',
               price: "$29.99",
-              image: "detailed-results"
+              image: "detailed-results",
+              link: "30-days-core"
             },
             {
               name: 'F#ck Diets',
               description: 'Work your core and abs like never before.',
               price: "$29.99",
-              image: "detailed-results"
+              image: "detailed-results",
+              link: "no-diets"
             }
           ]
         }

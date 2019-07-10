@@ -167,7 +167,7 @@ requiredEmailMessage = () => {
             <Route path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
             <Route path="/thank-you" render={props => <ThankYouBcm /> } />
             <Route path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
-            <Route path="/unleash-your-fitness-potential" render={props => <LandingPage /> } />
+            <Route path="/no-diets" render={props => <LandingPage /> } />
             <Route path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
             <Route path="/food-list" render={props => <FoodListContainer {...props}/> } />
             <Route path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
