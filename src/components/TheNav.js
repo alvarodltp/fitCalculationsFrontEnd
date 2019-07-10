@@ -30,8 +30,8 @@ class TheNav extends React.Component {
               </Grid.Column>
 
               <Grid.Column>
-                <Link style={{color: "white"}} to="/unleash-your-fitness-potential">
-                  <p className="menu-nav">Program</p>
+                <Link style={{color: "white"}} to="/programs">
+                  <p className="menu-nav">Programs</p>
                 </Link>
               </Grid.Column>
 

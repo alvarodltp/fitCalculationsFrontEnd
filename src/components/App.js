@@ -21,7 +21,7 @@ import Calculators from './Calculators'
 import TheNav from './TheNav'
 import * as contentful from 'contentful'
 import BlogPage from '../Blog/BlogPage'
-import AllPrograms from '../Programs/AllPrograms'
+import AllProgramsContainer from '../Programs/AllProgramsContainer'
 import NotFound from './NotFound'
 
 
@@ -174,7 +174,7 @@ requiredEmailMessage = () => {
             {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } /> : null}
             {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
             <Route exact path="/tools" render={props => <Calculators {...props}/> } />
-            <Route exact path="/programs" render={props => <AllPrograms {...props} /> } />
+            <Route exact path="/programs" render={props => <AllProgramsContainer {...props} scrollToTop={this.scrollToTop}/> } />
             <Route path="*" component={NotFound} />
             {this.state.stepNumber === 2 || this.state.stepNumber === 3 || this.state.stepNumber === 4 ? null  : <Footer /> }
           </Switch>
