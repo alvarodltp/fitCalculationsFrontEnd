@@ -35,6 +35,12 @@ class TheNav extends React.Component {
                 </Link>
               </Grid.Column>
 
+              <Grid.Column>
+                <Link style={{color: "white"}} to="/blog">
+                  <p className="menu-nav">Blog</p>
+                </Link>
+              </Grid.Column>
+
           </Grid>
         </div>
      </React.Fragment>
