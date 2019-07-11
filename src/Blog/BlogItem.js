@@ -8,7 +8,7 @@ displayBlogs = () => {
   return <Grid>
     <Grid.Column>
       <Link to={`/blog/${this.props.path}`}>
-        <Card onClick={this.props.scrollToTop} style={{height: "200px"}} id="image">
+        <Card onClick={this.props.scrollToTop} style={{height: "200px", width: "500px"}} id="image">
           <Image src={this.props.header.fields.file.url}/>
           <Card.Content style={{margin: "0 auto", width: "100%", background: "white"}}>
             <Card.Header style={{color: "black"}}>{this.props.title}</Card.Header>
@@ -25,7 +25,6 @@ displayBlogs = () => {
     </Grid.Column>
   </Grid>
 }
-
 
   render(){
     return(

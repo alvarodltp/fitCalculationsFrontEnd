@@ -37,6 +37,13 @@ class AllProgramsContainer extends React.Component {
               price: "$29.99",
               image: "cardio.jpg",
               link: "https://fit-calculations.thrivecart.com/30-day-fat-blasting-cardio/"
+            },
+            {
+              name: '1-on-1 Online Training',
+              description: 'Get a real trainer and work together in every step of the way.',
+              price: "$250.00/month",
+              image: "online-training.png",
+              link: "https://fit-calculations.thrivecart.com/1-on-1-online-training/"
             }
           ]
         }

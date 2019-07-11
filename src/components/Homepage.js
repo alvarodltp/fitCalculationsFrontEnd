@@ -99,7 +99,7 @@ class Homepage extends React.Component {
 
           <div className="blog-section-home">
             <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"10px", color: "white"}}>Latest Posts</h1>
-            { this.props.posts.slice(0, 3).map(({fields}, i) => <BlogItem key={i} {...fields}/> )}
+            { this.props.posts.slice(0, 2).map(({fields}, i) => <BlogItem key={i} {...fields}/> )}
             <div>
               <Link to="/blog">
                 <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">
