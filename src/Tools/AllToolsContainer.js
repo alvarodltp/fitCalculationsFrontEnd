@@ -1,15 +1,15 @@
 import React from 'react'
 import { Card, Button } from 'semantic-ui-react'
 import AllTools from './AllTools'
+import Header from '../components/Header'
 
-const Calculators = (props) => {
+const AllToolsContainer = (props) => {
   return(
     <React.Fragment>
-      <div>
-      </div><br/><br/><br/>
+      <Header title={"Tools"} background={"heart-rate.png"}/>
       <AllTools />
     </React.Fragment>
   )
 }
 
-export default Calculators
+export default AllToolsContainer

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Form, Button, Grid, Image, Statistic} from 'semantic-ui-react'
-import AllTools from './AllTools'
+import AllTools from '../Tools/AllTools'
 import Products from './Products'
 import { BeatLoader } from 'react-spinners';
 import {Link} from 'react-router-dom'

@@ -17,7 +17,7 @@ import ReactPixel from 'react-facebook-pixel';
 import FoodListContainer from '../Foodlist/FoodListContainer'
 import BmiCalculatorContainer from '../BmiCalculator/BmiCalculatorContainer'
 import BlogContainer from '../Blog/BlogContainer'
-import Calculators from './Calculators'
+import AllToolsContainer from '../Tools/AllToolsContainer'
 import TheNav from './TheNav'
 import * as contentful from 'contentful'
 import BlogPage from '../Blog/BlogPage'
@@ -173,7 +173,7 @@ requiredEmailMessage = () => {
             <Route path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
             {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } /> : null}
             {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
-            <Route exact path="/tools" render={props => <Calculators {...props}/> } />
+            <Route exact path="/tools" render={props => <AllToolsContainer {...props}/> } />
             <Route exact path="/programs" render={props => <AllProgramsContainer {...props} scrollToTop={this.scrollToTop}/> } />
             <Route path="*" component={NotFound} />
             {this.state.stepNumber === 2 || this.state.stepNumber === 3 || this.state.stepNumber === 4 ? null  : <Footer /> }
