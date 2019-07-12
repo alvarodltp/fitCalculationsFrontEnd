@@ -45,35 +45,40 @@ class App extends React.Component {
               description: 'Work your core and abs like never before in this 30 day abs program!',
               price: "$29.99",
               image: "abs1.jpg",
-              link: "https://fit-calculations.thrivecart.com/30-days-abs/"
+              link: "https://fit-calculations.thrivecart.com/30-days-abs/",
+              tags: ["Cardio", "Abs"]
             },
             {
               name: 'F#ck Diets',
               description: 'Get a complete report on your nutrition needs, and start seeing results with our easy to follow guide!',
               price: "$49.99",
               image: "diet-booklet.png",
-              link: "no-diets"
+              link: "no-diets",
+              tags: ["General", "Nutrition"]
             },
             {
               name: 'Personalized Nutrition Plan',
               description: 'A professionally made plan based on your goals and preferences!',
               price: "$80.00",
               image: "fish-taco.jpg",
-              link: "https://fit-calculations.thrivecart.com/personalized-nutrition-plan/"
+              link: "https://fit-calculations.thrivecart.com/personalized-nutrition-plan/",
+              tags: ["Nutrition"]
             },
             {
               name: 'Fat Blasting Cardio Program',
               description: 'Burn more fat than you ever thought possible in only 30 days!',
               price: "$29.99",
               image: "cardio.jpg",
-              link: "https://fit-calculations.thrivecart.com/30-day-fat-blasting-cardio/"
+              link: "https://fit-calculations.thrivecart.com/30-day-fat-blasting-cardio/",
+              tags: ["Cardio", "Lose Fat"]
             },
             {
               name: '1-on-1 Online Training',
               description: 'Get a real trainer and work together in every step of the way.',
               price: "$250.00/month",
               image: "online-training.png",
-              link: "https://fit-calculations.thrivecart.com/1-on-1-online-training/"
+              link: "https://fit-calculations.thrivecart.com/1-on-1-online-training/",
+              tags: ["Training", "Lose Fat", "Gain Muscle"]
             }
           ]
     }
