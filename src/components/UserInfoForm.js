@@ -4,14 +4,6 @@ import Fade from 'react-reveal/Slide';
 // import {Form, Input, Select, Label} from 'formsy-semantic-ui-react';
 
 class UserInfoForm extends React.Component {
-  // constructor(){
-  //   super()
-  //   this.state={
-  //     value: 'Imperial'
-  //   }
-  // }
-  //
-  // handleChange = (e, { value }) => this.setState({ value })
 
   render(){
     const activityOptions = [{key: 'sedentary', text: 'Sedentary (little or no exercise)', value: 1.2}, {key: 'light', text: 'Lightly active (light exercise/sports 1-3 days/week)', value: 1.375}, {key: 'moderate', text: 'Moderately active (moderate exercise/sports 3-5 days/week)', value: 1.55}, {key: 'very active', text: 'Very active (hard exercise/sports 6-7 days a week)', value: 1.725}, {key: 'extra active', text: 'Extra active (very hard exercise/sports & physical job or 2x training)', value: 1.9}]

@@ -12,6 +12,92 @@ html, body {
   overscroll-behavior: contain;
 }
 
+/* Mobile */
+@media only screen and (max-width: 500px) {
+  .home-header-title {
+    margin: 0 auto;
+    width: 80%;
+    font-size: 50px;
+    color: white;
+    padding-top: 100px;
+  }
+  .home-header-title h1 {
+    font-size: 40px;
+    color: white;
+    width: 100%;
+  }
+  .home-header-title span {
+    display: none;
+  }
+  .home-header-button {
+    margin: 0 auto;
+    position: absolute;
+    top: 85%;
+    left:50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 501px) and (max-width: 960px) {
+  .home-header-title {
+    margin: 0 auto;
+    width: 80%;
+    font-size: 40px;
+    color: white;
+    padding-top: 100px;
+  }
+  .home-header-title h1 {
+    font-size: 40px;
+    color: white;
+    width: 100%;
+  }
+  .home-header-title span {
+    color: white;
+    background-color: #2761f1;
+    font-size: 16px;
+  }
+  .home-header-button {
+    margin: 0 auto;
+    position: absolute;
+    top: 60%;
+    left:50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 961px) {
+  #home-image {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+  .home-header-title {
+    width: 80%;
+    position: absolute;
+    top: 35%;
+    left:50%;
+    transform: translate(-50%, -50%);
+
+  }
+  .home-header-title h1 {
+    font-size: 50px;
+    color: white;
+    width: 100%;
+  }
+  .home-header-title span {
+    color: white;
+    background-color: #2761f1;
+  }
+  .home-header-button {
+    margin: 0 auto;
+    position: absolute;
+    top: 130%;
+    left:50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 p {
   font-size: 16px;
   line-height: 25px
@@ -61,6 +147,7 @@ span {
 }
 
 #image {
+  padding: 0;
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 25px;
@@ -100,7 +187,6 @@ span {
 
 #bmr-form-mobile {
   width: 80%;
-  margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 40px;
   border-radius: 15px !important;
@@ -343,12 +429,6 @@ span {
   left: 0;
 }
 
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
-  #home-image {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
-  }
-}
 
 #blog-header {
   width: 100%;
@@ -1125,24 +1205,6 @@ box-shadow: none;
   -ms-transition: background .4s;
   -o-transition: background .4s;
   transition: background .4s;
-}
-
-// #image-product-home {
-//   -moz-box-shadow:    3px 3px 5px 6px #ccc;
-//   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-//   box-shadow:         3px 3px 5px 6px #ccc;
-// }
-
-#alvaro-home-image {
-  -moz-box-shadow:    3px 3px 5px 6px #ccc;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow:         3px 3px 5px 6px #ccc;
-}
-
-#main-header-home {
-  background-color: red;
-  height: 100%;
-  width: 100%;
 }
 
 .vertical-center {

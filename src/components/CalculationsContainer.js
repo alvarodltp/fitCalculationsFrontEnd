@@ -667,6 +667,3 @@ setFormToTrue = () => {
 }
 
 export default CalculationsContainer
-
-// {this.props.stepNumber === 10 ? <MacrosBreakdownCard cardInfo={this.state.cardInfo} displayCardInfo={this.displayCardInfo} getNumber={this.getNumber} calculateBreakdown={this.calculateBreakdown} caloriesBreakdown={this.state.caloriesBreakdown} proteinBreakdown={this.state.proteinBreakdown} carbsBreakdown={this.state.carbsBreakdown} fatsBreakdown={this.state.fatsBreakdown} /> : null }
-// {this.props.stepNumber === 10 ? <MacrosBreakdownForm /> : null }

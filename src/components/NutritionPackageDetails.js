@@ -42,7 +42,7 @@ class NutritionPackageDetails extends React.Component {
       <React.Fragment>
       <div id="header-main-landing">
       <Bounce left>
-        <h1 style={{margin: "0 auto", fontSize:"55px", paddingTop: "60px", width: "100%", fontStyle: "italic", color: "white", marginBottom: "30px"}}>Calculate Your Macros</h1>
+        <h1 style={{margin: "0 auto", fontSize:"55px", paddingTop: "60px", width: "100%", fontStyle: "italic", color: "white", marginBottom: "30px"}}>Let's Get Started!</h1>
       </Bounce>
         {this.props.mobileDevice === false ?
         <div>
@@ -58,35 +58,7 @@ class NutritionPackageDetails extends React.Component {
       <div style={{height: "5px", background: "linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%)"}}>
       </div>
 
-      <div style={{marginTop: "70px"}}>
-        <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
-      </div>
-      <div>
-        <Card id="image-card">
-          <Image id="img-motivation" src={'../calendar.png'} />
-          <Card.Content>
-            <h4>You are working out but not seeing results</h4>
-          </Card.Content>
-        </Card>
-        <Card id="image-card">
-          <Image id="img-motivation" src={'../food-you-love.png'} />
-          <Card.Content>
-            <h4>You are tired of following diets that don't work</h4>
-          </Card.Content>
-        </Card>
-        <Card id="image-card">
-          <Image id="img-motivation" src={'../burger.png'} />
-          <Card.Content>
-            <h4>You are tired of restricting yourself from foods you love</h4>
-          </Card.Content>
-        </Card>
-        <Card id="image-card">
-          <Image id="img-motivation" src={'../results.png'} />
-          <Card.Content>
-            <h4>You want to gain muscle or lose weight ASAP</h4>
-          </Card.Content>
-        </Card>
-      </div>
+
         <h2 style={{margin: "0 auto", marginBottom: "20px", marginTop: "30px", fontSize: "30px", fontStyle: "italic", width: "80%"}}>LIFE CHANGING INFORMATION IN LESS THAN 60 SECONDS</h2>
         <div>
           <Card id="benefits-bcm">
@@ -144,6 +116,32 @@ class NutritionPackageDetails extends React.Component {
 
 export default NutritionPackageDetails
 
-// <div style={{width: "85%", margin: "0 auto"}}>
-//   <SimpleSlider />
+// <div style={{marginTop: "70px"}}>
+//   <h2 id="section-title">THIS CALCULATION IS FOR YOU IF</h2>
+// </div>
+// <div>
+//   <Card id="image-card">
+//     <Image id="img-motivation" src={'../calendar.png'} />
+//     <Card.Content>
+//       <h4>You are working out but not seeing results</h4>
+//     </Card.Content>
+//   </Card>
+//   <Card id="image-card">
+//     <Image id="img-motivation" src={'../food-you-love.png'} />
+//     <Card.Content>
+//       <h4>You are tired of following diets that don't work</h4>
+//     </Card.Content>
+//   </Card>
+//   <Card id="image-card">
+//     <Image id="img-motivation" src={'../burger.png'} />
+//     <Card.Content>
+//       <h4>You are tired of restricting yourself from foods you love</h4>
+//     </Card.Content>
+//   </Card>
+//   <Card id="image-card">
+//     <Image id="img-motivation" src={'../results.png'} />
+//     <Card.Content>
+//       <h4>You want to gain muscle or lose weight ASAP</h4>
+//     </Card.Content>
+//   </Card>
 // </div>

@@ -16,9 +16,17 @@ class Homepage extends React.Component {
       <React.Fragment>
         <MainHeaderHome />
         <div id="home-page">
-          <div>
-            <Image id="home-image" src="/header-image.png"/>
-            <h1 style={{width: "70%", position: "absolute", top: "50%", left:"50%", transform: "translate(-50%, -50%)", fontSize: "70px", color: "white"}}>All your fitness needs, in one place.</h1>
+
+          <div style={{height: "500px", backgroundImage: "url(/header-image.png)", backgroundSize: "cover"}}>
+            <div className="home-header-title">
+              <h1>YOUR TRANSFORMATION STARTS RIGHT HERE.</h1>
+              <span>Everything you need to crush your health and fitness goals once and for all.</span>
+              <Link to="/calories-and-macros">
+                <Button onClick={this.props.scrollToTop} size="large" className="home-header-button" id="button-mobile" type="submit">
+                   GET MY FREE REPORT
+                </Button>
+              </Link>
+            </div>
           </div>
 
           <Slide left>
@@ -39,13 +47,33 @@ class Homepage extends React.Component {
                     <p>It takes less than 60 seconds.</p><br/>
                     <Link to="/calories-and-macros">
                       <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">
-                         GET MY REPORT
+                         GET MY FREE REPORT
                       </Button>
                     </Link>
                   </div>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
+          </div>
+
+          <div id="second-header-home">
+            <div>
+              <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>All Tools</h1>
+              <p style={{margin: "0 auto", width: "80%", textAlign: "left", marginBottom: "40px"}}>I want to empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and I want to be part of your journey.</p>
+              <AllTools scrollToTop={this.props.scrollToTop} allStats={this.props.allStats}/>
+            </div>
+          </div>
+
+          <div className="blog-section-home">
+            <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"10px", color: "white"}}>Latest Posts</h1>
+            { this.props.posts.slice(0, 2).map(({fields}, i) => <BlogItem key={i} {...fields}/> )}
+            <div>
+              <Link to="/blog">
+                <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">
+                  SEE MORE
+                </Button>
+              </Link>
+            </div><br/>
           </div>
 
           <div id="free-guide-section">
@@ -71,26 +99,6 @@ class Homepage extends React.Component {
                 </Grid.Column>
               </Grid.Row>
             </Grid>
-          </div>
-
-          <div id="second-header-home">
-            <div>
-              <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>All Tools</h1>
-              <p style={{margin: "0 auto", width: "80%", textAlign: "left", marginBottom: "40px"}}>I want to empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and I want to be part of your journey.</p>
-              <AllTools scrollToTop={this.props.scrollToTop} allStats={this.props.allStats}/>
-            </div>
-          </div>
-
-          <div className="blog-section-home">
-            <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"10px", color: "white"}}>Latest Posts</h1>
-            { this.props.posts.slice(0, 2).map(({fields}, i) => <BlogItem key={i} {...fields}/> )}
-            <div>
-              <Link to="/blog">
-                <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">
-                  SEE MORE
-                </Button>
-              </Link>
-            </div><br/>
           </div>
 
           <div id="fourth-header-home">
