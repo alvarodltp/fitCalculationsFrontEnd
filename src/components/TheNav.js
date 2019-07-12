@@ -14,7 +14,7 @@ class TheNav extends React.Component {
 
     return(
       <React.Fragment>
-        <div style={{margin: "0 auto", color: "white", minHeight: "60px", background: "red", width: "100%", position: "relative", zIndex: "1", background: "linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%)"}}>
+        <div style={{margin: "0 auto", color: "white", minHeight: "60px", background: "red", width: "100%", position: "relative", zIndex: "1", background: "#e80aaa"}}>
           <Grid stackable style={{textAlign: "center", width: "100%"}} >
 
               <Grid.Column>
