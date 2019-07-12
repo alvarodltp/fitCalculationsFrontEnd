@@ -7,7 +7,8 @@ import {Link} from 'react-router-dom'
 import MainHeaderHome from './MainHeaderHome';
 import Flip from 'react-reveal/Fade';
 import Slide from 'react-reveal/Slide';
-import BlogItem from '../Blog/BlogItem'
+import BlogItem from '../Blog/BlogItem';
+import Programs from '../Programs/Programs';
 
 class Homepage extends React.Component {
 
@@ -54,6 +55,13 @@ class Homepage extends React.Component {
                 </Grid.Column>
               </Grid.Row>
             </Grid>
+          </div>
+
+          <div id="second-header-home">
+            <div>
+              <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Training & Nutrition</h1>
+              <Programs programs={this.props.programs} scrollToTop={this.props.scrollToTop} />
+            </div>
           </div>
 
           <div id="second-header-home">
