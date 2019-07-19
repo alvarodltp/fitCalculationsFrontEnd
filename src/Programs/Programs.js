@@ -4,15 +4,15 @@ import {Link} from 'react-router-dom'
 import Header from '../components/Header'
 
 const Programs = (props) => {
-    return props.programs.map(program =>
-    <Grid style={{display: "inline-block"}}>
+    return props.programs.map((program, i) =>
+    <Grid key={i} style={{display: "inline-block"}}>
       <Grid.Column>
         {program.link.slice(0,5) !== "https" ?
           <Link to={`/${program.link}`}>
           <Card onClick={props.scrollToTop} id="image">
             <Label style={{background: "#2761f1"}} attached='bottom'>
               {program.tags.map(tag =>
-              <Label as='a' tag>
+              <Label>
                 {tag}
               </Label> )}
             </Label>
@@ -26,11 +26,10 @@ const Programs = (props) => {
           </Card>
         </Link> :
 
-        <a href={program.link}>
-          <Card onClick={props.scrollToTop} id="image">
+          <Card tag="a" href={program.link} key={i} onClick={props.scrollToTop} id="image">
             <Label style={{background: "#2761f1"}} attached='bottom'>
             {program.tags.map(tag =>
-            <Label as='a' tag>
+            <Label>
               {tag}
             </Label> )}
             </Label>
@@ -41,8 +40,7 @@ const Programs = (props) => {
                 {program.description}
               </Card.Description>
             </Card.Content>
-          </Card>
-        </a> }
+          </Card> }
       </Grid.Column>
     </Grid>
   )

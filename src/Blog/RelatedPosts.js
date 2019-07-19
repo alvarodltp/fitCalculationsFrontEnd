@@ -9,7 +9,7 @@ displayRelatedPosts = () => {
   let postsTags = Object.values(this.props.posts).map(post => post.fields.tags)
   let relatedPosts = this.props.posts.filter(post => post.fields.tags === postTags)
 
-  return Object.values(relatedPosts).map(post =>
+  return Object.values(relatedPosts).map((post, i) =>
     <Link to={`/blog/${post.fields.path}`}>
       <Grid>
           <Grid.Column width={5}>

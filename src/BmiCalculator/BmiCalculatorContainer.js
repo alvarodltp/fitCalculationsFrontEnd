@@ -62,32 +62,24 @@ class BmiCalculatorContainer extends React.Component {
   render(){
     return(
       <React.Fragment>
-      <div id="third-header-home">
-        <Grid style={{width: "101%", paddingBottom: "0px"}} stackable columns={2}>
-          <Grid.Row>
-            <Grid.Column style={{backgroundColor: "#f0f0f0", minHeight: "400px", paddingTop: "40px"}} width={8}>
-              <div className="vertical-center">
-                <h1 id="title-bmi">BMI CALCULATOR</h1>
-                <p style={{textAlign: "left", width: "80%", margin: "0 auto", marginBottom: "40px"}}>BMI or Body Mass Index is mostly used by doctors and nurses to
-                help determine if a person has a weight problem. It gives an
-                estimate of total body fat for most people, but it does not work
-                well for individuals who have more muscle than the average
-                person.
-                Even though, it is a good way to have an idea of a person’s weight
-                status, it should not always be the final word.</p>
-              </div>
-            </Grid.Column>
-            <Grid.Column  style={{backgroundColor: "#2761f1", minHeight: "400px"}} width={8}>
-              <div className="vertical-center" style={{width: "90%"}}>
-                <BmiForm style={{margin: "0 auto"}} error={this.state.error} calculateBmi={this.calculateBmi} setPounds={this.setPounds} pounds={this.state.pounds} setFeet={this.setFeet} feet={this.state.feet} setInches={this.setInches} inches={this.state.inches}/>
-              </div>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+      <div>
+        <div>
+          <h1 id="title-bmi">BMI CALCULATOR</h1>
+          <p style={{textAlign: "left", width: "80%", margin: "0 auto", marginBottom: "40px"}}>BMI or Body Mass Index is mostly used by doctors and nurses to
+          help determine if a person has a weight problem. It gives an
+          estimate of total body fat for most people, but it does not work
+          well for individuals who have more muscle than the average
+          person.
+          Even though, it is a good way to have an idea of a person’s weight
+          status, it should not always be the final word.</p>
+        </div>
+        <div style={{margin: "0 auto", width: "90%"}}>
+          <BmiForm style={{margin: "0 auto"}} error={this.state.error} calculateBmi={this.calculateBmi} setPounds={this.setPounds} pounds={this.state.pounds} setFeet={this.setFeet} feet={this.state.feet} setInches={this.setInches} inches={this.state.inches}/>
+        </div>
       </div>
       <div style={{height: "5px", background: "linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%)"}}>
       </div>
-      <div style={{marginTop: "15px"}}>
+      <div className="bmi-table" style={{marginTop: "15px"}}>
         <BmiTable style={{margin: "0 auto"}} bmi={this.state.bmi}/>
       </div>
       </React.Fragment>

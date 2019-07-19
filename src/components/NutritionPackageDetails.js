@@ -14,8 +14,6 @@ class NutritionPackageDetails extends React.Component {
     }
   }
 
-
-
   displayBmrInfo = () => {
     this.setState({
       displayBmrInfo: !this.state.displayBmrInfo
@@ -33,9 +31,6 @@ class NutritionPackageDetails extends React.Component {
       displayCaloriesInfo: !this.state.displayCaloriesInfo
     })
   }
-
-
-
 
   render() {
     return (

@@ -29,8 +29,8 @@ const BlogPost = (props) => {
             <p style={{float:"left", display: "inline", fontStyle: "italic"}}>by {post.fields.author}</p>
           </div>
 
-          {post.fields.content.content.map(paragraphs => paragraphs.content.map(eachPar =>
-          <div style={{paddingLeft: "100px", width: "70%", marginTop: "40px", textAlign: "left"}}>
+          {post.fields.content.content.map((paragraphs, i) => paragraphs.content.map(eachPar =>
+          <div key={i} style={{paddingLeft: "100px", width: "70%", marginTop: "40px", textAlign: "left"}}>
             <Markdown source={eachPar.value}/>
           </div> ))}
         </div>

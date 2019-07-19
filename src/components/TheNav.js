@@ -1,50 +1,45 @@
 import React from 'react'
-import {Grid} from 'semantic-ui-react'
+import {Grid, Icon, Button, Image} from 'semantic-ui-react'
 import { BrowserView } from "react-device-detect";
 import { Link } from "react-router-dom"
 
 class TheNav extends React.Component {
-  state = { activeItem: 'Home' }
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render(){
-
-     const { activeItem } = this.state
-
     return(
       <React.Fragment>
-        <div style={{margin: "0 auto", color: "white", minHeight: "60px", background: "red", width: "100%", position: "relative", zIndex: "1", background: "#e80aaa"}}>
-          <Grid stackable style={{textAlign: "center", width: "100%"}} >
+        <nav>
+          <div>
+            <Image style={{height: "30px"}} src="fit-calculations-logo.png" />
+          </div>
 
-              <Grid.Column>
-                <Link style={{color: "white"}} to="/">
-                  <p className="menu-nav">Home</p>
-                </Link>
-              </Grid.Column>
+          <ul className="nav-links">
+            <Link to="/">
+              <li>Home</li>
+            </Link>
 
-              <Grid.Column>
-                <Link style={{color: "white"}} to="/tools">
-                  <p className="menu-nav">Tools</p>
-                </Link>
-              </Grid.Column>
+            <Link to="/tools">
+              <li>Tools</li>
+            </Link>
 
-              <Grid.Column>
-                <Link style={{color: "white"}} to="/programs">
-                  <p className="menu-nav">Programs</p>
-                </Link>
-              </Grid.Column>
+            <Link to="/programs">
+              <li>Programs</li>
+            </Link>
 
-              <Grid.Column>
-                <Link style={{color: "white"}} to="/blog">
-                  <p className="menu-nav">Blog</p>
-                </Link>
-              </Grid.Column>
+            <Link to="/blog">
+              <li>Blog</li>
+            </Link>
 
-          </Grid>
-        </div>
+            <a href="https://fitcalculations.trainerize.com/app/logon.aspx">
+              <li style={{color: "#e80aaa"}}>Log In</li>
+            </a>
+
+          </ul>
+          <div onClick={this.props.openMenu} className="burger">
+            <Icon name="bars" size="large"/>
+          </div>
+        </nav>
      </React.Fragment>
-
     )
   }
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Card, Button } from 'semantic-ui-react'
 import AllTools from './AllTools'
 import Header from '../components/Header'
 

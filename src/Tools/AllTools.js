@@ -30,8 +30,8 @@ class Tools extends React.Component {
   }
 
   displayTools = () => {
-    return this.state.calculations.map(calculation =>
-      <Grid style={{display: "inline-block"}}>
+    return this.state.calculations.map((calculation, i) =>
+      <Grid key={i} style={{display: "inline-block"}}>
         <Grid.Column>
           <Link to={calculation.link}>
             <Card onClick={this.props.scrollToTop} id="image">
