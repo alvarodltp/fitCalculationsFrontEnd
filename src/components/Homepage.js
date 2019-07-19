@@ -17,6 +17,10 @@ class Homepage extends React.Component {
       <React.Fragment>
         <div>
           <MainHeaderHome scrollToTop={this.props.scrollToTop}/>
+
+          <div style={{height: "5px", background: "linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%)"}}>
+          </div>
+          
           <div id="start-here">
             <div>
               <Image className="startimage" style={{margin: "0 auto", height: "auto"}} src="/iphone-front.png" />
