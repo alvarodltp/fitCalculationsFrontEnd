@@ -53,7 +53,7 @@ class Tools extends React.Component {
   render(){
     return(
       <React.Fragment>
-        <div style={{marginBottom: "40px"}}>
+        <div>
           {this.displayTools()}
         </div>
         <div style={{clear: "both"}}>

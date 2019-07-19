@@ -25,6 +25,7 @@ nav{
   display: flex;
   justify-content: space-around;
   width: 50%;
+  padding: 0;
 }
 
 .nav-links li {
@@ -50,7 +51,7 @@ nav{
   .nav-links {
     position: absolute;
     right: 0px;
-    height: 50vh;
+    height: 40vh;
     top: 5vh;
     background-color: #2761f1;
     display: flex;
@@ -76,6 +77,10 @@ nav{
   #start-here .starttext {
     text-align: center !important;
   }
+  #content .maintitle {
+    font-size: 30px;
+    color: white;
+  }
 }
 
 /* Tablet */
@@ -93,6 +98,10 @@ nav{
     grid-template-areas:
     "image text"
   }
+  #content .maintitle {
+    font-size: 40px;
+    color: white;
+  }
 }
 
 /* Desktop */
@@ -106,6 +115,10 @@ nav{
     background: linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
     grid-template-areas:
     "image text"
+  }
+  #content .maintitle {
+    font-size: 45px;
+    color: white;
   }
 }
 
@@ -879,8 +892,6 @@ box-shadow: none;
   margin-top: 30px;
 }
 
-
-
 #money-back {
   margin: 0 auto;
   line-height: 1.5;
@@ -1241,13 +1252,14 @@ box-shadow: none;
 #content{
   display: grid;
   margin: 0 auto;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 50% 10% 40%;
+  align-items: center;
 }
 
 #content div{
   padding: 30px;
 }
-
-
 
 #start-here div:nth-child(even){
   background: white;

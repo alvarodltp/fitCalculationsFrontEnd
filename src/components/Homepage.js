@@ -18,9 +18,6 @@ class Homepage extends React.Component {
         <div>
           <MainHeaderHome scrollToTop={this.props.scrollToTop}/>
 
-          <div style={{height: "5px", background: "linear-gradient(270deg, rgba(39,97,241,1) 0%, rgba(232,10,170,1) 80%)"}}>
-          </div>
-          
           <div id="start-here">
             <div>
               <Image className="startimage" style={{margin: "0 auto", height: "auto"}} src="/iphone-front.png" />
@@ -38,7 +35,7 @@ class Homepage extends React.Component {
 
           <div id="second-header-home">
             <div>
-              <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>All Tools</h1>
+              <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Tools</h1>
               <p style={{margin: "0 auto", width: "80%", textAlign: "left", marginBottom: "40px"}}>We empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and we want to be part of your journey.</p>
               <AllTools scrollToTop={this.props.scrollToTop} allStats={this.props.allStats}/>
             </div>
