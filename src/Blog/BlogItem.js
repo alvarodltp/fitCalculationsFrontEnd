@@ -6,11 +6,11 @@ class BlogItem extends React.Component {
 
 displayBlogs = () => {
   return <Link to={`/blog/${this.props.path}`}>
-    <Grid style={{margin: "0 auto"}}>
+    <Grid stackable>
         <Grid.Column width={5}>
-          <Image style={{width: "300px", marginRight: "0px"}} src={this.props.header.fields.file.url} />
+          <Image style={{width: "300px", margin: "0 auto"}} src={this.props.header.fields.file.url} />
         </Grid.Column>
-        <Grid.Column style={{marginLeft: "0px"}} width={11}>
+        <Grid.Column width={11}>
           <h1>{this.props.title}</h1>
           <p>{this.props.description}</p>
           <p style={{fontStyle: "italic"}}>By {this.props.author}</p>
