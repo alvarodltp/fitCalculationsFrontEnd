@@ -23,7 +23,7 @@ class Homepage extends React.Component {
               <Image className="startimage" style={{margin: "0 auto", height: "auto"}} src="/iphone-front.png" />
             </div>
             <div className="starttext" style={{textAlign: "left", paddingLeft: "30px"}}>
-              <h1 style={{ width: "90%", fontSize:"40px", marginBottom:"20px", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>Start Here - The 60 Second Quiz</h1>
+              <h1 style={{ width: "90%", fontSize:"40px", marginBottom:"20px", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>Start Here - Take  The 60 Second Quiz</h1>
               <p style={{ width: "90%", marginBottom:"20px"}}>Check where you stand today and get a complete report and recommendations based on your results.</p><br/>
               <Link to="/calories-and-macros">
                 <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">

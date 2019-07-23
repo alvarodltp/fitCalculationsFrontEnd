@@ -1312,3 +1312,34 @@ box-shadow: none;
 .text{
   grid-area: text;
 }
+
+#blog-container {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: 2% 70% 26% 2%;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.post-signup{
+  border-radius: 15px;
+  background: linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.post-quiz {
+  border-radius: 15px;
+  background: linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.blog-about {
+  border-radius: 15px;
+  background: linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
