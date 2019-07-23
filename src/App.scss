@@ -21,6 +21,14 @@ nav{
   width: 100%;
 }
 
+h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+p {
+  font-size: 16px;
+}
+
 .nav-links {
   display: flex;
   justify-content: space-around;
@@ -81,6 +89,11 @@ nav{
     font-size: 30px;
     color: white;
   }
+  #content .maintitle-two{
+    font-size: 50px;
+    color: #e80aaa;
+    font-style: italic;
+  }
 }
 
 /* Tablet */
@@ -99,8 +112,13 @@ nav{
     "image text"
   }
   #content .maintitle {
-    font-size: 40px;
+    font-size: 30px;
     color: white;
+  }
+  #content .maintitle-two{
+    font-size: 50px;
+    color: #e80aaa;
+    font-style: italic;
   }
 }
 
@@ -116,9 +134,18 @@ nav{
     grid-template-areas:
     "image text"
   }
+  #start-here .starttext {
+    border-radius: 10px 0px 0px 10px;
+  }
   #content .maintitle {
-    font-size: 45px;
+    font-size: 35px;
     color: white;
+  }
+
+  #content .maintitle-two{
+    font-size: 60px;
+    color: #e80aaa;
+    font-style: italic;
   }
 }
 
@@ -1252,13 +1279,26 @@ box-shadow: none;
 #content{
   display: grid;
   margin: 0 auto;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 50% 10% 40%;
+  grid-template-columns: 100%;
+  grid-template-rows: 50% 30%;
   align-items: center;
 }
 
-#content div{
-  padding: 30px;
+#content div {
+  padding: 50px;
+}
+
+#content .maintitle-div {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+#content .lose {
+ margin: 0 auto;
+}
+
+#content .gain {
+ margin: 0 auto;
 }
 
 #start-here div:nth-child(even){

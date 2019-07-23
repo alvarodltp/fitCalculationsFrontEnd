@@ -23,33 +23,18 @@ class Homepage extends React.Component {
               <Image className="startimage" style={{margin: "0 auto", height: "auto"}} src="/iphone-front.png" />
             </div>
             <div className="starttext" style={{textAlign: "left", paddingLeft: "30px"}}>
-              <h1 style={{ width: "90%", fontSize:"40px", fontStyle: "italic", marginBottom:"20px", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>Start Here</h1>
-              <h2 style={{ width: "90%", fontSize:"20px", fontStyle: "italic", marginBottom:"20px"}}>Check where you stand today and get a complete report and recommendations based on your results.</h2><br/>
+              <h1 style={{ width: "90%", fontSize:"40px", marginBottom:"20px", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>Start Here - The 60 Second Quiz</h1>
+              <p style={{ width: "90%", marginBottom:"20px"}}>Check where you stand today and get a complete report and recommendations based on your results.</p><br/>
               <Link to="/calories-and-macros">
                 <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">
-                   GET MY FREE REPORT
+                   TAKE THE FREE QUIZ
                 </Button>
               </Link>
             </div>
           </div>
 
-          <div id="second-header-home">
-            <div>
-              <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Tools</h1>
-              <p style={{margin: "0 auto", width: "80%", textAlign: "left", marginBottom: "40px"}}>We empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and we want to be part of your journey.</p>
-              <AllTools scrollToTop={this.props.scrollToTop} allStats={this.props.allStats}/>
-            </div>
-          </div>
-
-          <div id="second-header-home">
-            <div>
-              <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Training & Nutrition</h1>
-              <Programs programs={this.props.programs} scrollToTop={this.props.scrollToTop} />
-            </div>
-          </div>
-
           <div className="blog-section-home">
-            <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"10px", color: "white"}}>Latest Posts</h1>
+            <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"10px", color: "white"}}>Latest Posts</h1>
             { this.props.posts.slice(0, 2).map(({fields}, i) => <BlogItem key={i} {...fields}/> )}
             <div>
               <Link to="/blog">
@@ -61,7 +46,7 @@ class Homepage extends React.Component {
           </div>
 
           <div id="free-guide-section">
-            <h1 style={{margin: "0 auto", fontSize:"40px", marginBottom: "40px", width: "90%", fontStyle: "italic"}}>Get your portion control guide and a 100+ healthy food list...FOR FREE!</h1>
+            <h1 style={{margin: "0 auto", fontSize:"40px", marginBottom: "40px", width: "90%"}}>Get your portion control guide and a 100+ healthy food list...FOR FREE!</h1>
             <Grid stackable columns={2}>
               <Grid.Row >
                 <Grid.Column width={7}>
@@ -71,7 +56,6 @@ class Homepage extends React.Component {
                   <p>You can't get results and make progress if you are not eating the right foods. Eat anything in this list and apply the portion control method so you can start seeing results in no time!</p>
                   <div style={{textAlign:"center"}}>
                     <Form>
-
                       { this.props.message !== "" ? <p style={{fontSize: "12px", color: "red"}}>{this.props.message}</p> : null }
                       <a target="_self" href="https://drive.google.com/file/d/1-lq43IW3cTCafFvhTm6RrutJvju0J4k6/view?usp=sharing">
                       <Button onClick={this.props.requiredEmailMessage} size="large" id="button-mobile" style={{width: "70%"}} type="submit">
@@ -95,6 +79,14 @@ class Homepage extends React.Component {
 
 export default Homepage
 
+// <div id="second-header-home">
+//   <div>
+//     <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Training & Nutrition</h1>
+//     <Programs programs={this.props.programs} scrollToTop={this.props.scrollToTop} />
+//   </div>
+// </div>
+
+
 // <div id="home-page">
   // <div style={{height: "500px", backgroundImage: "url(/header-image.png)", backgroundSize: "cover"}}>
   //   <div className="home-header-title">
@@ -109,3 +101,11 @@ export default Homepage
   // </div>
 
   // <Form.Input onChange={this.props.validateEmail} size="large" style={{width: "70%"}} name='email' label='' placeholder='Enter your email...' />
+
+  // <div id="second-header-home">
+  //   <div>
+  //     <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Tools</h1>
+  //     <p style={{margin: "0 auto", width: "80%", textAlign: "left", marginBottom: "40px"}}>We empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and we want to be part of your journey.</p>
+  //     <AllTools scrollToTop={this.props.scrollToTop} allStats={this.props.allStats}/>
+  //   </div>
+  // </div>

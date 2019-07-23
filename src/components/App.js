@@ -43,41 +43,33 @@ class App extends React.Component {
       opened: false,
       programs: [
         {
-          name: '1-on-1 Online Training',
-          description: 'Get a real trainer and work together in every step of the way.',
-          price: "$250.00/month",
-          image: "online-training.png",
-          link: "https://fit-calculations.thrivecart.com/1-on-1-online-training/",
-          tags: ["Training", "Lose Fat", "Gain Muscle"]
-        },
-        {
-          name: '30 Days Abs',
+          name: '8-Week Lean',
           description: 'Work your core and abs like never before in this 30 day abs program!',
-          price: "$29.99",
+          price: "$67.00",
           image: "abs1.jpg",
           link: "https://fit-calculations.thrivecart.com/30-days-abs/",
           tags: ["Cardio", "Abs"]
         },
         {
-          name: 'F#ck Diets',
+          name: '12-Week Lean',
           description: 'Get a complete report on your nutrition needs, and start seeing results with our easy to follow guide!',
-          price: "$49.99",
+          price: "$67.00",
           image: "diet-booklet.png",
           link: "no-diets",
           tags: ["General", "Nutrition"]
         },
         {
-          name: 'Personalized Nutrition Plan',
+          name: '8-Week Mass',
           description: 'A professionally made plan based on your goals and preferences!',
-          price: "$80.00",
+          price: "$97.00",
           image: "fish-taco.jpg",
           link: "https://fit-calculations.thrivecart.com/personalized-nutrition-plan/",
           tags: ["Nutrition"]
         },
         {
-          name: 'Fat Blasting Cardio Program',
+          name: '12-Week Mass',
           description: 'Burn more fat than you ever thought possible in only 30 days!',
-          price: "$29.99",
+          price: "$97.00",
           image: "cardio.jpg",
           link: "https://fit-calculations.thrivecart.com/30-day-fat-blasting-cardio/",
           tags: ["Cardio", "Lose Fat"]
@@ -210,7 +202,7 @@ requiredEmailMessage = () => {
     const ReactPixel =  require('react-facebook-pixel');
     return (
       <div className="App">
-        <TheNav opened={this.state.opened} openMenu={this.openMenu}/>
+        {this.state.mobileDevice === true ? <Nav /> : <TheNav /> }
         <Switch>
           {this.state.posts != null ? <Route exact path="/" render={props => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop} requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
           <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />

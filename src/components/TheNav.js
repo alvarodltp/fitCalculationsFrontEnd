@@ -21,10 +21,6 @@ const TheNav = (props) => {
              <li>Tools</li>
            </Link>
 
-           <Link to="/programs">
-             <li>Programs</li>
-           </Link>
-
            <Link to="/blog">
              <li>Blog</li>
            </Link>
@@ -34,7 +30,7 @@ const TheNav = (props) => {
            </a>
 
          </ul>
-         <div onClick={props.openMenu} className="burger">
+         <div className="burger">
            <Icon name="bars" size="large"/>
          </div>
        </nav>
