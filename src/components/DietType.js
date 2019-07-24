@@ -13,19 +13,19 @@ class DietType extends React.Component {
         <Divider id="title-body-type" horizontal>
           <Popup trigger={<Icon style={{margin: "0 auto"}} size="large" name="arrow left" onClick={this.props.substractOneFromStep} style={{textAlign: "left"}} />} content='Back' /> SELECT YOUR CURRENT DIET
         </Divider>
-          <Card onClick={(e) => {this.props.getDietType(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
+          <Card onClick={(e) => {this.props.getDietType(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card-diettype">
             <Image id="img-diet-type" src={'../vegan_diet.png'} />
             <Card.Content>
               <Card.Header>Vegan</Card.Header>
             </Card.Content>
           </Card>
-          <Card onClick={(e) => {this.props.getDietType(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
+          <Card onClick={(e) => {this.props.getDietType(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card-diettype">
             <Image id="img-diet-type" src={'../standard_diet.png'} />
             <Card.Content>
               <Card.Header>Standard Western</Card.Header>
             </Card.Content>
           </Card>
-          <Card onClick={(e) => {this.props.getDietType(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card">
+          <Card onClick={(e) => {this.props.getDietType(e); this.props.addOneToStep(); this.props.scrollToTop()}} id="image-card-diettype">
             <Image id="img-diet-type" src={'../vegetarian_diet.png'} />
             <Card.Content>
               <Card.Header>Vegetarian</Card.Header>

@@ -23,19 +23,19 @@ class Homepage extends React.Component {
               <Image className="startimage" style={{margin: "0 auto", height: "auto"}} src="/iphone-front.png" />
             </div>
             <div className="starttext" style={{textAlign: "left", paddingLeft: "30px"}}>
-              <h1 style={{ width: "90%", fontSize:"40px", marginBottom:"20px", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>Start Here - Take  The 60 Second Quiz</h1>
-              <p style={{ width: "90%", marginBottom:"20px"}}>Check where you stand today and get a complete report and recommendations based on your results.</p><br/>
+              <h1 style={{ width: "90%", fontSize:"30px", marginBottom:"20px", textDecoration: "underline", textDecorationColor: "#e80aaa", paddingTop: "10px"}}>Take  The 60 Second Assesment</h1>
+              <p style={{ width: "90%", marginBottom:"20px"}}>This FREE assesment will get you a complete fitness report and recommendations based on your results.</p><br/>
               <Link to="/calories-and-macros">
                 <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">
-                   TAKE THE FREE QUIZ
+                   TAKE THE FREE ASSESMENT
                 </Button>
               </Link>
             </div>
           </div>
 
           <div className="blog-section-home">
-            <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"30px", color: "white"}}>Latest Posts</h1>
-            { this.props.posts.slice(0, 2).map(({fields}, i) => <BlogItem key={i} {...fields}/> )}
+            <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"30px"}}>Latest Posts</h1>
+            { this.props.posts.slice(0, 3).map(({fields}, i) => <BlogItem key={i} {...fields}/> )}
             <div>
               <Link to="/blog">
                 <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">

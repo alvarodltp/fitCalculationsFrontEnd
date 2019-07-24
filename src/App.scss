@@ -915,7 +915,6 @@ box-shadow: none;
 #image-card {
   box-shadow: none;
   transition: transform .4s;
-
 }
 
 #image-card:hover {
@@ -923,6 +922,15 @@ box-shadow: none;
   -moz-box-shadow:    1px 1px 3px 1px #ccc;
   -webkit-box-shadow: 1px 1px 3px 1px #ccc;
   box-shadow:         1px 1px 3px 1px #ccc;
+}
+
+#image-card-diettype{
+  box-shadow: none;
+  transition: transform .4s;
+}
+
+#image-card-diettype:hover{
+  transform: scale(1.02);
 }
 
 .shopping{
@@ -1366,7 +1374,7 @@ box-shadow: none;
 }
 
 .blog-section-home {
-  background: #2761f1;
+  background: #f0f0f0;
 }
 
 #content{
