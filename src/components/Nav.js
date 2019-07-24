@@ -7,32 +7,30 @@ const Nav = (props) => {
 
    return(
      <React.Fragment>
-       <nav>
-         <div>
-           <Image style={{height: "30px"}} src="fit-calculations-logo.png" />
-         </div>
+       <header>
+       <div className="logo-nav">
+        <img className="logo" style={{height: "35px"}} src="fit-calculations-logo.png"/>
+      </div>
+       <input type="checkbox" id="nav-toggle" className="nav-toggle" />
+        <label for="nav-toggle" className="nav-toggle-label">
+          <span></span>
+        </label>
 
-         <ul className="nav-links">
-           <Link to="/">
-             <li>Home</li>
-           </Link>
-
-           <Link to="/tools">
-             <li>Tools</li>
-           </Link>
-
-           <Link to="/blog">
-             <li>Blog</li>
-           </Link>
-
-           <a href="https://fitcalculations.trainerize.com/app/logon.aspx">
-             <li style={{color: "#e80aaa"}}>Log In</li>
-           </a>
-
-         </ul>
-         <input type="checkbox" className="burger" />
-         <Icon name="bars" size="large"/>
-       </nav>
+         <nav>
+          <ul>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/tools">
+            <li>Tools</li>
+          </Link>
+          <Link to="/blog">
+            <li>Blog</li>
+          </Link>
+            <li><a href="https://fitcalculations.trainerize.com/app/logon.aspx" style={{color: "#e80aaa"}}>Login</a></li>
+          </ul>
+         </nav>
+       </header>
     </React.Fragment>
    )
 }
