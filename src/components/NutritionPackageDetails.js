@@ -37,8 +37,8 @@ class NutritionPackageDetails extends React.Component {
       <React.Fragment>
       <div id="header-main-landing">
       <Bounce left>
-        <h1 style={{margin: "0 auto", fontSize:"55px", paddingTop: "60px", width: "100%", fontStyle: "italic", color: "white", marginBottom: "30px"}}>Let's Get Started!</h1>
-        <span style={{margin: "0 auto", fontStyle: "italic", color: "white"}}>I identify as:</span>
+        <h1 style={{margin: "0 auto", fontSize:"55px", paddingTop: "80px", width: "100%", fontStyle: "italic", color: "white", marginBottom: "30px"}}>Let's Get Started!</h1>
+        <span style={{margin: "0 auto", fontStyle: "italic", color: "white"}}>I identify as</span>
       </Bounce>
         {this.props.mobileDevice === false ?
         <div>

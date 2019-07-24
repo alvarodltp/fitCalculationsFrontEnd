@@ -83,9 +83,9 @@ class LandingPage extends React.Component {
   render(){
     return(
       <React.Fragment>
-      <div style={{width: "80%", margin: "0 auto", marginTop: "50px"}}>
+      <div style={{width: "80%", margin: "0 auto", paddingTop: "70px"}}>
         <h1 style={{fontSize:"36px"}}>You Are One Step From Getting In The Best Shape Of Your Life</h1>
-        <h2 style={{color: "blue", fontStyle: "italic"}}>INTRODUCING THE STEP-BY-STEP GUIDE TO BUILD YOUR BEST BODY EVER.</h2>
+        <h2 style={{color: "blue", fontStyle: "italic"}}>INTRODUCING THE STEP-BY-STEP GUIDE TO DROP BODY FAT, GET LEAN, AND FEEL AMAZING.</h2>
 
         <h2>Just a few questions for you:</h2>
       </div>
@@ -94,7 +94,7 @@ class LandingPage extends React.Component {
           <li style={{textAlign: "left", width:"70%", margin: "0 auto"}}>Are you ready to learn the fitness industry secrets that models use to keep a perfect physique year round?</li><br/>
           <li style={{textAlign: "left", width:"70%", margin: "0 auto"}}>Are you ready to stop guessing and finally learn tested strategies to accomplish your goal without having to deal with restricting diets?</li><br/>
         </ul>
-        <p style={{width: "80%", margin:"0 auto", marginBottom: "0px"}}>If you are, then I’m excited to announce THE GUIDE THAT WILL CHANGE YOUR BODY AND LIFE.</p>
+        <p style={{width: "80%", margin:"0 auto", marginBottom: "0px"}}>If you are, then I’m excited to announce THE GUIDE THAT WILL CHANGE YOUR BODY AND HONESTLY, YOUR LIFE TOO.</p>
 
 
         <div style={{width: "100%"}}>
@@ -143,11 +143,11 @@ class LandingPage extends React.Component {
                 </Grid.Column>
                 <Grid.Column width={9}>
                   <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>Detailed Results Guide</h4>
-                  <p style={{textAlign: "left", marginBottom: "25px"}}>All the results you got from the calculation and much more explained in an easy to digest way.</p>
+                  <p style={{textAlign: "left", marginBottom: "25px"}}>After using our assesement tool, you will get valuable information that we'll use to build a guide that will help you get to your goal quickly and safely.</p>
                   <ul>
                     <li style={{paddingBottom: "5px"}}>Your calories and macronutrients needs</li>
                     <li style={{paddingBottom: "5px"}}>Your BMR and BMI analysis</li>
-                    <li style={{paddingBottom: "5px"}}>Your body type and gender</li>
+                    <li style={{paddingBottom: "5px"}}>You body type and gender</li>
                     <li style={{paddingBottom: "5px"}}>Your THR(Target Heart Rate) zones and more</li>
                   </ul>
               </Grid.Column>
@@ -170,7 +170,7 @@ class LandingPage extends React.Component {
                     <li style={{paddingBottom: "5px"}}>A step by step guide on how to implement your results</li>
                     <li style={{paddingBottom: "5px"}}>Refeed and carb cycling strategies to make continuous progress and avoid plateus</li>
                     <li style={{paddingBottom: "5px"}}>Meal guide examples with different calorie levels that have been proven to work</li>
-                    <li style={{paddingBottom: "5px"}}>A grocery shopping list with macro friendly foods</li>
+                    <li style={{paddingBottom: "5px"}}>A grocery shopping list with macro friendly foods and a portion control guide</li>
                   </ul>
               </Grid.Column>
               </Grid.Row>

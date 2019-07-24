@@ -21,8 +21,8 @@ const Nav = (props) => {
           <Link to="/">
             <li>Home</li>
           </Link>
-          <Link to="/tools">
-            <li>Tools</li>
+          <Link to="/calories-and-macros">
+            <li>Start Here</li>
           </Link>
           <Link to="/blog">
             <li>Blog</li>

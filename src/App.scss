@@ -153,7 +153,6 @@ a:hover {
     display: grid;
     margin: 0 auto;
     align-items: center;
-    margin-top: 30px;
   }
   .post-signup{
     margin: 0 auto;
@@ -212,7 +211,6 @@ a:hover {
     margin: 0 auto;
     grid-template-columns: 2% 70% 26% 2%;
     align-items: center;
-    margin-top: 30px;
   }
   .post-signup{
     border-radius: 5px;
@@ -321,7 +319,6 @@ a:hover {
     margin: 0 auto;
     grid-template-columns: 2% 70% 26% 2%;
     align-items: center;
-    margin-top: 30px;
   }
   .post-signup{
     border-radius: 5px;
@@ -1533,4 +1530,8 @@ box-shadow: none;
 .share-container div{
   display: inline;
   margin-right: 5px;
+}
+
+.stepper {
+  padding-top: 50px;
 }
