@@ -200,7 +200,7 @@ class LandingPage extends React.Component {
           </div>
         </div><br/><br/>
 
-        <div style={{width: "100%", backgroundColor: "#2761f1"}}>
+        <div style={{width: "100%", background: "linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1)"}}>
           <div style={{marginBottom: "50px"}} id="landing-main-benefits">
             <Grid stackable columns={2}>
               <Grid.Row style={{padding: "0"}}>
@@ -278,7 +278,7 @@ class LandingPage extends React.Component {
                   <Image src={'../fish-taco.jpg'} />
                 </Grid.Column>
                 <Grid.Column width={9}>
-                  <h4 style={{textAlign: "left", marginBottom: "25px"}}>50 Incredible Recipes<h4 style={{color: "red"}}>$̶2̶0̶.̶0̶0̶</h4>FREE</h4>
+                  <h4 style={{textAlign: "left", marginBottom: "25px"}}>50 Incredible Recipes<h4 style={{color: "red"}}>$̶2̶9̶.̶9̶9̶</h4>FREE</h4>
                   <p style={{textAlign: "left", marginBottom: "25px"}}>This is not a low calorie, restrictive diet. You’ll be eating the foods you love without going hungry.</p>
                   <ul>
                     <li style={{paddingBottom: "5px"}}>50 quick and easy delicious recipes</li>
@@ -300,13 +300,13 @@ class LandingPage extends React.Component {
                   <Image src={'../detailed-results'} />
                 </Grid.Column>
                 <Grid.Column width={9}>
-                  <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>Lifestyle Tips<h4 style={{color: "red"}}>$̶9̶.̶9̶9̶</h4>FREE</h4>
-                  <p style={{textAlign: "left", marginBottom: "25px"}}>Learn good habits that will accelerate your progress.</p>
+                  <h4 style={{textAlign: "left", marginBottom: "25px", fontWeight: "bold"}}>30 Day Cardio Plan<h4 style={{color: "red"}}>$̶1̶9̶.̶9̶9̶</h4>FREE</h4>
+                  <p style={{textAlign: "left", marginBottom: "25px"}}>Do this at home or at the gym for 2x better results.</p>
                   <ul>
-                    <li style={{paddingBottom: "5px"}}>Sleep</li>
-                    <li style={{paddingBottom: "5px"}}>Work</li>
-                    <li style={{paddingBottom: "5px"}}>Managing Stress</li>
-                    <li style={{paddingBottom: "5px"}}>Social Life</li>
+                    <li style={{paddingBottom: "5px"}}>Burn More Fat</li>
+                    <li style={{paddingBottom: "5px"}}>Feel More Energized</li>
+                    <li style={{paddingBottom: "5px"}}>Sleep Better</li>
+                    <li style={{paddingBottom: "5px"}}>Get Better Results</li>
                   </ul>
               </Grid.Column>
               </Grid.Row>
@@ -323,18 +323,17 @@ class LandingPage extends React.Component {
                 <Grid.Column width={8}>
                   <Image src={'../books-3.png'} />
                   <ul>
-                    <li style={{paddingBottom: "5px"}}>Detailed Personalized Results ($60 Value)</li>
-                    <li style={{paddingBottom: "5px"}}>Personalized Easy To Follow Strategy ($80 Value)</li>
-                    <li style={{paddingBottom: "5px"}}>50 Incredible Recipes ($20.00 Value)</li>
-                    <li style={{paddingBottom: "5px"}}>Lifestyle Tips($9.99 Value)</li>
+                    <li style={{paddingBottom: "5px"}}>Detailed Personalized Results ($60.00 Value)</li>
+                    <li style={{paddingBottom: "5px"}}>Personalized Easy To Follow Strategy ($60.00 Value)</li>
+                    <li style={{paddingBottom: "5px"}}>50 Incredible Recipes ($29.99 Value)</li>
+                    <li style={{paddingBottom: "5px"}}>30 Day Cardio Plan($19.99 Value)</li>
                     <li style={{paddingBottom: "5px"}}>Online Support (Priceless)</li>
-                    <li style={{paddingBottom: "5px"}}>Refeed And Carb Cycling Strategy</li>
                     <li style={{paddingBottom: "5px"}}>Macro Friendly Food List</li>
                   </ul>
                 </Grid.Column>
                 <Grid.Column style={{textAlign: "center"}} width={8}>
                   <h1 style={{fontSize: "40px", color: "red"}}>$̶1̶6̶9̶.̶9̶9̶</h1>
-                  <h1 style={{fontSize: "40px", color: "green"}}>Only $49.99*</h1>
+                  <h1 style={{fontSize: "40px", color: "green"}}>Only $97.00</h1>
                   <a target="_self" href="https://fit-calculations.thrivecart.com/fck-diets/">
                     <Button onClick={this.getEvent1} id="cta-button" content='YES, I WANT TO TRANSFORM' size="large" icon='angle double right' labelPosition='right' />
                   </a>
@@ -358,7 +357,7 @@ class LandingPage extends React.Component {
                   <p style={{textAlign: "left"}}>We are confident your personalized program will give you the results you want. However, if you haven't got closer to your goals, I will refund 100% of the cost.</p>
                   <p style={{textAlign: "left"}}>All you need to do is provide your 30 day food log to verify the program was followed as it was designed and created specifically for you.</p>
                   <a target="_self" href="https://fit-calculations.thrivecart.com/fck-diets/">
-                    <Button onClick={this.getEvent2} id="cta-button" content='GET $120 OFF NOW' size="large" icon='angle double right' labelPosition='right' />
+                    <Button onClick={this.getEvent2} id="cta-button" content='GET $72.99 OFF NOW' size="large" icon='angle double right' labelPosition='right' />
                   </a>
               </Grid.Column>
               </Grid.Row>
@@ -373,16 +372,16 @@ class LandingPage extends React.Component {
             <Grid stackable columns={2}>
               <Grid.Row>
                 <Grid.Column style={{textAlign: "center"}} width={8}>
-                  <Card style={{background: "transparent"}}>
+                  <Card style={{background: "transparent", boxShadow: "none"}}>
                     <h4 onClick={this.showFaq1} id="title-faq"><Icon id="icon-faq" name="plus" size="tiny"/> When will I first hear from you?</h4>
                     {this.state.showFaq1 === true ?
                     <Fade top >
-                      <p style={{textAlign:"left"}}>From the moment you purchase your guide, you will receive an email from me. All pre-ordered guides will be delivered on 04/23/2019.</p>
+                      <p style={{textAlign:"left"}}>From the moment you purchase your guide, you will receive an email from me. Your guide will be delivered within 2 business days.</p>
                     </Fade> : null}
                   </Card>
                 </Grid.Column>
                 <Grid.Column style={{textAlign: "center"}} width={8}>
-                  <Card style={{background: "transparent"}}>
+                  <Card style={{background: "transparent", boxShadow: "none"}}>
                     <h4 onClick={this.showFaq2} id="title-faq"><Icon id="icon-faq" name="plus" size="tiny"/> How does the support work?</h4>
                     {this.state.showFaq2 === true ?
                     <Fade top >
@@ -396,7 +395,7 @@ class LandingPage extends React.Component {
             <Grid stackable columns={2}>
               <Grid.Row>
                 <Grid.Column style={{textAlign: "center", marginBottom: "60px"}} width={8}>
-                  <Card style={{background: "transparent"}}>
+                  <Card style={{background: "transparent", boxShadow: "none"}}>
                     <h4 onClick={this.showFaq3} id="title-faq"><Icon id="icon-faq" name="plus" size="tiny"/> Is the guide really custom to me?</h4>
                     {this.state.showFaq3 === true ?
                     <Fade top >
@@ -405,11 +404,11 @@ class LandingPage extends React.Component {
                   </Card>
                 </Grid.Column>
                 <Grid.Column style={{textAlign: "center", marginBottom: "60px"}} width={8}>
-                  <Card style={{background: "transparent", marginBottom: "30px"}}>
+                  <Card style={{background: "transparent", marginBottom: "30px", boxShadow: "none"}}>
                     <h4 onClick={this.showFaq4} id="title-faq"><Icon id="icon-faq" name="plus" size="tiny"/> Do I need access to a gym?</h4>
                   {this.state.showFaq4 === true ?
                   <Fade top>
-                    <p style={{textAlign: "left"}}>No, this is not a workout guide. However, we will provide cardio recommendations based on your goal to lose weight or gain muscle. You can perform this activities anywhere you want.</p>
+                    <p style={{textAlign: "left"}}>It isn't necessary. You can do the cardio sessions either at home, outdoors, or at the gym.</p>
                   </Fade> : null }
                   </Card>
               </Grid.Column>
@@ -433,73 +432,3 @@ class LandingPage extends React.Component {
 }
 
 export default LandingPage
-//
-// <div>
-//   <div id="landing-main-benefits">
-//     <h1 style={{fontSize:"36px"}}>What Clients Say</h1><br/>
-//     <Grid id="transformation-images" stackable columns={3}>
-//       <Grid.Row>
-//         <Grid.Column>
-//         <Card id="testimonial-card">
-//           <Image id="img-diet-type" src={'../Brandt.png'} />
-//           <Card.Content>
-//             <Card.Description>"Our coaches create your personal macro strategy and provide you with super simple." - Steve</Card.Description>
-//           </Card.Content>
-//         </Card>
-//         </Grid.Column>
-//         <Grid.Column>
-//         <Card id="testimonial-card">
-//           <Image id="img-diet-type" src={'../Brandt.png'} />
-//           <Card.Content>
-//             <Card.Description>"Our coaches create your personal macro strategy and provide you with super simple." - Steve</Card.Description>
-//           </Card.Content>
-//         </Card>
-//         </Grid.Column>
-//         <Grid.Column>
-//         <Card id="testimonial-card">
-//           <Image id="img-diet-type" src={'../Brandt.png'} />
-//           <Card.Content>
-//             <Card.Description>"Our coaches create your personal macro strategy and provide you with super simple." - Steve</Card.Description>
-//           </Card.Content>
-//         </Card>
-//         </Grid.Column>
-//       </Grid.Row>
-//     </Grid>
-//   </div>
-// </div><br/>
-
-// <div id="landing-main-benefits">
-//   <h1 style={{fontSize:"36px"}}>They Did It And So Can You</h1><br/>
-//   <Grid id="transformation-images" stackable columns={3}>
-//     <Grid.Row>
-//       <Grid.Column>
-//         <ReactCompareImage leftImage={'../Al.jpg'} rightImage={'../ebook.png'} hover={true} />
-//       </Grid.Column>
-//       <Grid.Column>
-//         <ReactCompareImage leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
-//       </Grid.Column>
-//       <Grid.Column>
-//         <ReactCompareImage leftImage={'../vacation.png'} rightImage={'../ebook.png'} hover={true} />
-//       </Grid.Column>
-//     </Grid.Row>
-//   </Grid>
-// </div><br/>
-// <Button style={{width: "60%", background: '#2761f1', color: "white", margin: "0 auto", marginBottom: "30px", marginTop: "30px"}} content='Start Your Transformation Today' size="huge" icon='angle double right' labelPosition='right' />
-
-// <div style={{width: "100%", backgroundColor: "#F6F6F6"}}>
-//   <div style={{marginBottom: "50px"}} id="landing-main-benefits">
-//     <h1 style={{fontSize:"36px", paddingTop: "50px"}}>Get Unlimited Support</h1><br/>
-//     <Grid style={{paddingBottom: "50px"}} stackable columns={2}>
-//       <Grid.Row>
-//         <Grid.Column width={5}>
-//           <Image style={{background: "white"}} src={'../Alvaro.png'} circular/>
-//         </Grid.Column>
-//         <Grid.Column width={11}>
-//           <p style={{textAlign: "left"}}>Hi there!</p>
-//           <p style={{textAlign: "left"}}>I am Alvaro, the founder of Fit Calculations. I have been training busy professionals for over 8 years and I know first hand what it takes to lose weight, gain muscle and get in top notch shape.</p>
-//           <p style={{textAlign: "left"}}>This program is like nothing you have ever seen. If you are ready to commit, you are about to get in the best shape of your life.</p>
-//         </Grid.Column>
-//       </Grid.Row>
-//     </Grid>
-//   </div>
-// </div>
