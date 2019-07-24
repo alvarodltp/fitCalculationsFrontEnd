@@ -24,6 +24,7 @@ import * as contentful from 'contentful'
 import BlogPage from '../Blog/BlogPage'
 import AllProgramsContainer from '../Programs/AllProgramsContainer'
 import NotFound from './NotFound'
+import Contact from './Contact'
 
 
 class App extends React.Component {
@@ -217,6 +218,7 @@ requiredEmailMessage = () => {
           {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
           <Route exact path="/tools" render={props => <AllToolsContainer {...props}/> } />
           <Route exact path="/programs" render={props => <AllProgramsContainer {...props} programs={this.state.programs} scrollToTop={this.scrollToTop}/> } />
+          <Route exact path="/contact" render={props => <Contact/> } />
           <Route path="*" component={NotFound} />
           {this.state.stepNumber === 2 || this.state.stepNumber === 3 || this.state.stepNumber === 4 ? null  : <Footer /> }
         </Switch>

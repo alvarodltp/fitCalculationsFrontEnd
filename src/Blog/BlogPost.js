@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import * as Markdown from 'react-markdown';
 import Slide from 'react-reveal/Slide';
 import { FaAngleLeft } from "react-icons/fa";
-import RelatedPosts from "./RelatedPosts"
+import RelatedPosts from './RelatedPosts'
 import {
   FacebookIcon,
   TwitterIcon,
@@ -19,12 +19,25 @@ import {
   WhatsappShareButton,
   EmailShareButton
 } from 'react-share';
+import { DiscussionEmbed, CommentCount, CommentEmbed } from 'disqus-react';
 
-const BlogPost = (props) => {
-    let posts = props.props.posts
+
+class BlogPost extends React.Component {
+
+  handleNewComment(comment) {
+   window.console.info(`New comment posted with id ${comment.id} and message: ${comment.text}`);
+  }
+
+  render(){
+    let posts = this.props.props.posts
     let url = window.location.href.split("/").pop()
     let post = Object.values(posts).find(post => post.fields.path === url)
-    debugger
+    const threadConfig = {
+      url: `https://www.fitcalculations.con/blog/${url}`,
+      identifier: post.sys.id,
+      onNewComment: this.handleNewComment
+    };
+
     return(
       <React.Fragment>
         <div>
@@ -71,30 +84,14 @@ const BlogPost = (props) => {
           </div> ))}
         </div>
 
-        <div className="share-container">
-          <FacebookShareButton url={`https://www.fitcalculations.con/blog/${url}`} className="Demo__some-network__share-button">
-            <FacebookIcon size={32} round />
-          </FacebookShareButton>
-          <TwitterShareButton url={`https://www.fitcalculations.con/blog/${url}`} className="Demo__some-network__share-button">
-            <TwitterIcon size={32} round={true} />
-          </TwitterShareButton>
-          <WhatsappShareButton url={`https://www.fitcalculations.con/blog/${url}`} className="Demo__some-network__share-button">
-            <WhatsappIcon size={32} round={true} />
-          </WhatsappShareButton>
-          <LinkedinShareButton url={`https://www.fitcalculations.con/blog/${url}`} className="Demo__some-network__share-button">
-            <LinkedinIcon size={32} round={true} />
-          </LinkedinShareButton>
-          <PinterestShareButton url={`https://www.fitcalculations.con/blog/${url}`} className="Demo__some-network__share-button">
-            <PinterestIcon size={32} round={true} />
-          </PinterestShareButton>
-          <EmailShareButton url={`https://www.fitcalculations.con/blog/${url}`} className="Demo__some-network__share-button">
-            <EmailIcon size={32} round={true} />
-          </EmailShareButton>
+        <div style={{paddingLeft: "100px", textAlign: "left", width: "70%", marginTop: "30px"}}>
+          <DiscussionEmbed shortname={"fitcalculations-com"} config={threadConfig} />
         </div>
-
         <RelatedPosts posts={posts} post={post}/>
       </React.Fragment>
-  )
+    )
+  }
 }
+
 
 export default BlogPost
