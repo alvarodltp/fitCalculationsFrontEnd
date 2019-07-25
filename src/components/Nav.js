@@ -12,7 +12,7 @@ const Nav = (props) => {
         <img className="logo" style={{height: "35px"}} src="fit-calculations-logo.png"/>
       </div>
        <input type="checkbox" id="nav-toggle" className="nav-toggle" />
-        <label for="nav-toggle" className="nav-toggle-label">
+        <label htmlFor="nav-toggle" className="nav-toggle-label">
           <span></span>
         </label>
 

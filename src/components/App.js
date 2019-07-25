@@ -14,6 +14,7 @@ import Invite from './Invite'
 import LandingPage from './LandingPage'
 import ThankYouAfterPurchase from './ThankYouAfterPurchase'
 import ReactPixel from 'react-facebook-pixel';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import FoodListContainer from '../Foodlist/FoodListContainer'
 import BmiCalculatorContainer from '../BmiCalculator/BmiCalculatorContainer'
 import BlogContainer from '../Blog/BlogContainer'
@@ -219,9 +220,10 @@ requiredEmailMessage = () => {
           <Route exact path="/tools" render={props => <AllToolsContainer {...props}/> } />
           <Route exact path="/programs" render={props => <AllProgramsContainer {...props} programs={this.state.programs} scrollToTop={this.scrollToTop}/> } />
           <Route exact path="/contact" render={props => <Contact/> } />
+          <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>
-        <Footer /> 
+        <Footer />
       </div>
 
     )
