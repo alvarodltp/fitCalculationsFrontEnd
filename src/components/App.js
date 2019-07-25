@@ -26,12 +26,29 @@ import BlogPage from '../Blog/BlogPage'
 import AllProgramsContainer from '../Programs/AllProgramsContainer'
 import NotFound from './NotFound'
 import Contact from './Contact'
+import SignUp from '../User/SignUp'
+import UserProfile from '../User/UserProfile'
+
+const requestHelper = url =>
+  fetch(url, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    }
+  }).then(res => {
+    if(res.status === 401){
+      alert("signup failed");
+    } else {
+      return res.json();
+    }
+  });
 
 
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state={
+      user: null,
       stepNumber: 0,
       mobileDevice: null,
       showResults: false,
@@ -80,9 +97,14 @@ class App extends React.Component {
     }
   }
 
-
+  fetchUser = () => {
+    requestHelper("http://localhost:3001/profile").then(json => this.updateUser(json.user));
+  };
 
 componentDidMount() {
+  if (localStorage.getItem("token")) {
+    this.fetchUser();
+  };
   this.initGA();
   this.logPageView();
   this.isMobileDevice();
@@ -91,6 +113,13 @@ componentDidMount() {
   // this.initializeIntercom()
   ReactPixel.init('433459070732534');
 }
+
+updateUser = user => {
+  debugger
+  this.setState({
+    user: user.user
+  })
+};
 
 client = contentful.createClient({
   space: '3pn0fc4ta32y',
@@ -220,6 +249,8 @@ requiredEmailMessage = () => {
           <Route exact path="/tools" render={props => <AllToolsContainer {...props}/> } />
           <Route exact path="/programs" render={props => <AllProgramsContainer {...props} programs={this.state.programs} scrollToTop={this.scrollToTop}/> } />
           <Route exact path="/contact" render={props => <Contact/> } />
+          <Route exact path="/signup" render={props => <SignUp {...props} updateUser={this.updateUser}/> } />
+          {this.state.user != null ? <Route exact path="/profile" render={props => <UserProfile user={this.state.user} /> } /> : null }
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>
