@@ -9,7 +9,7 @@ const Nav = (props) => {
      <React.Fragment>
        <header>
        <div className="logo-nav">
-        <img className="logo" style={{height: "35px"}} src="fit-calculations-logo.png"/>
+        <img className="logo" style={{height: "35px", marginTop: "5px"}} src="fit-calculations-logo.png"/>
       </div>
        <input type="checkbox" id="nav-toggle" className="nav-toggle" />
         <label htmlFor="nav-toggle" className="nav-toggle-label">
