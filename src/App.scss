@@ -300,12 +300,6 @@ a:hover {
     color: #e80aaa;
     font-style: italic;
   }
-  #blog-container {
-    display: grid;
-    margin: 0 auto;
-    grid-template-columns: 2% 70% 26% 2%;
-    align-items: center;
-  }
   .post-signup{
     border-radius: 5px;
     background: linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
@@ -408,12 +402,6 @@ a:hover {
     color: #e80aaa;
     font-style: italic;
   }
-  #blog-container {
-    display: grid;
-    margin: 0 auto;
-    grid-template-columns: 2% 70% 26% 2%;
-    align-items: center;
-  }
   .post-signup{
     border-radius: 5px;
     background: linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
@@ -433,6 +421,11 @@ a:hover {
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 15px;
+  }
+  #blog-container {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 70% 30%;
   }
 }
 

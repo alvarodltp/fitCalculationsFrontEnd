@@ -15,7 +15,7 @@ const BlogSide = (props) => {
         <p>Get notified</p>
         <Input style={{width: "80%"}} placeholder="Name"/><br/><br/>
         <Input style={{width: "80%"}} placeholder="Email"/><br/><br/>
-        <Button>YES, SEND ME FREE ADVICE!</Button>
+        <Button style={{margin: "0 auto"}}>YES, SEND ME FREE ADVICE!</Button>
       </div>
       <div className="post-quiz">
         <h1 style={{margin: "0 auto", width: "90%"}}>Ready To Get Lean, Fit, And Sexy?</h1>

@@ -10,14 +10,10 @@ class BlogContainer extends React.Component {
       <React.Fragment>
       <div id="blog-container">
         <div>
-        </div>
-        <div>
           <AllBlogs posts={this.props.posts} />
         </div>
-        <div>
+        <div style={{margin: "20px"}}>
           <BlogSide />
-        </div>
-        <div>
         </div>
       </div>
      </React.Fragment>
