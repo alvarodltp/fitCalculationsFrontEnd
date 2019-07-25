@@ -11,12 +11,12 @@ displayRelatedPosts = () => {
 
   return Object.values(relatedPosts).map((post, i) =>
     <Link to={`/blog/${post.fields.path}`}>
-      <Grid>
+      <Grid stackable columns={2} className="related-post">
           <Grid.Column width={5}>
-            <Image style={{width: "300px", marginRight: "0px"}} src={post.fields.header.fields.file.url} />
+            <Image className="image-related-post" src={post.fields.header.fields.file.url} />
           </Grid.Column>
           <Grid.Column style={{marginLeft: "0px"}} width={11}>
-            <h1>{post.fields.title}</h1>
+            <h1 className="title-related-post">{post.fields.title}</h1>
             <p>{post.fields.description}</p>
             <p style={{fontStyle: "italic"}}>By {post.fields.author}</p>
           </Grid.Column>

@@ -44,11 +44,11 @@ class BlogPost extends React.Component {
           <div style={{width: "100%", height: "350px", margin: "0 auto", background: `linear-gradient(rgba(20,20,20, .3), rgba(20,20,20, .3)), url(${post.fields.header.fields.file.url})`}}>
           </div>
 
-          <div style={{marginTop: "40px", textAlign: "left", paddingLeft: "100px"}}>
+          <div className="back-to-posts">
             <Link to="/blog">
               <p style={{display: "inline-block", fontSize: "15px"}}><FaAngleLeft style={{margin: "0", fontSize: "10px"}}/>Back To All Posts</p>
             </Link>
-            <h1 style={{fontSize:"45px", width: "100%", fontStyle: "italic", color: "black", width: "70%"}}>{post.fields.title}</h1>
+            <h1 className="blog-post-title">{post.fields.title}</h1>
             <p style={{fontStyle: "italic"}}>{post.fields.description}</p>
           </div>
 
@@ -73,9 +73,9 @@ class BlogPost extends React.Component {
             </EmailShareButton>
           </div>
 
-          <div style={{marginTop: "40px", textAlign: "left", paddingLeft: "100px", paddingBottom: "60px"}}>
+          <div className="post-author">
             <Image style={{float:"left", display: "inline", marginRight: "20px"}} circular size='tiny' src={post.fields.authorImage.fields.file.url}/><br/>
-            <p style={{float:"left", display: "inline", fontStyle: "italic"}}>by {post.fields.author}</p>
+            <p style={{float:"left", display: "inline", fontStyle: "italic", paddingTop: "20px"}}>by {post.fields.author}</p>
           </div>
 
           {post.fields.content.content.map((paragraphs, i) => paragraphs.content.map(eachPar =>
@@ -84,7 +84,7 @@ class BlogPost extends React.Component {
           </div> ))}
         </div>
 
-        <div style={{paddingLeft: "100px", textAlign: "left", width: "70%", marginTop: "30px"}}>
+        <div className="comment-box">
           <DiscussionEmbed shortname={"fitcalculations-com"} config={threadConfig} />
         </div>
         <RelatedPosts posts={posts} post={post}/>
