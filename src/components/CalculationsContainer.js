@@ -451,7 +451,7 @@ setLoadingToTrue = () => {
 }
 
 saveUser = () => {
-  fetch("https://fitcalculations-api.herokuapp.com/users", {
+  fetch("http://localhost:3001/users", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -472,7 +472,7 @@ saveUser = () => {
 
 updateUser = (userExists) => {
   let userId = userExists[0].id
-  fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
+  fetch(`http://localhost:3001/users/${userId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -496,7 +496,7 @@ updateUser = (userExists) => {
 saveStats = (user) => {
   let today = new Date()
   // let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
-  fetch("https://fitcalculations-api.herokuapp.com/stats", {
+  fetch("http://localhost:3001/stats", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -3,7 +3,7 @@ import {Grid, Icon, Button, Image} from 'semantic-ui-react'
 import { BrowserView } from "react-device-detect";
 import { Link } from "react-router-dom"
 
-const Nav = (props) => {
+const Nav = () => {
 
    return(
      <React.Fragment>

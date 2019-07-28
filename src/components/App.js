@@ -28,6 +28,7 @@ import NotFound from './NotFound'
 import Contact from './Contact'
 import SignUp from '../User/SignUp'
 import UserProfile from '../User/UserProfile'
+import UserDasboard from '../User/UserDashboard'
 
 const requestHelper = url =>
   fetch(url, {
@@ -233,7 +234,7 @@ requiredEmailMessage = () => {
     const ReactPixel =  require('react-facebook-pixel');
     return (
       <div className="App">
-        <Nav />
+
         <Switch>
           {this.state.posts != null ? <Route exact path="/" render={props => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop} requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
           <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
@@ -251,19 +252,23 @@ requiredEmailMessage = () => {
           <Route exact path="/contact" render={props => <Contact/> } />
           <Route exact path="/signup" render={props => <SignUp {...props} updateUser={this.updateUser}/> } />
           {this.state.user != null ? <Route exact path="/profile" render={props => <UserProfile user={this.state.user} /> } /> : null }
+          <Route exact path="/user-dashboard" render={props => <UserDasboard {...props} /> } />
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>
-        <Footer />
       </div>
 
     )
   }
 }
 
+
+export default App;
+
+  // <Nav />
+
 // <NavBar /><br/><br/><br/><br/>
 // {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
 
-export default App;
 
 // {this.state.mobileDevice === false ? <SlidingNavBar scrollToTop={this.scrollToTop}/> : null }
