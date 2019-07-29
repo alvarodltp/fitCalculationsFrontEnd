@@ -215,7 +215,7 @@ requiredEmailMessage = () => {
           <Route path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
           <Route path="/food-list" render={props => <FoodListContainer {...props}/> } />
           <Route path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
-          {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } /> : null}
+          {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts} scrollToTop={this.scrollToTop}/> } /> : null}
           {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
           <Route exact path="/tools" render={props => <AllToolsContainer {...props}/> } />
           <Route exact path="/programs" render={props => <AllProgramsContainer {...props} programs={this.state.programs} scrollToTop={this.scrollToTop}/> } />

@@ -8,13 +8,15 @@ const BlogSide = (props) => {
       <div className="blog-about">
         <h2>About</h2>
         <Image src="Alvaro-wall.png" style={{margin: "0 auto", height: "350px"}}/><br/>
-        <p style={{margin: "0 auto", width: "80%"}}>Fit Calculations was created by Alvaro De La Torre. Alvaro is a Personal Trainer based in Washington DC.</p><br/>
+        <p style={{margin: "0 auto", width: "80%"}}>Fit Calculations was created by Alvaro De La Torre. Alvaro is passionate about helping others live a healthier life.</p><br/>
       </div>
 
       <div className="post-quiz">
         <h1 style={{margin: "0 auto", width: "90%"}}>Ready To Get Lean, Fit, And Sexy?</h1>
         <p style={{margin: "0 auto", width: "80%"}}>Take the free assesment and we'll tell you where to start.</p><br/>
-        <Button>START THE ASSESMENT</Button>
+        <Link to='/calories-and-macros'>
+          <Button onClick={props.scrollToTop}>START THE ASSESMENT</Button>
+        </Link>
       </div>
     </div>
   )
