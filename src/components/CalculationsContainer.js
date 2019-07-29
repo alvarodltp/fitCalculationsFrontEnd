@@ -433,7 +433,7 @@ getAllUsers = () => {
 }
 
 saveOrUpdateUser = (userExists) => {
-  debugger
+
   if(this.props.emailValid === true && this.state.name !== "" && this.state.checked === true && userExists.length !== 0){
     this.updateUser(userExists)
   } else if (this.props.emailValid === true && this.state.name !== "" && this.state.checked === true && userExists.length === 0){
@@ -546,7 +546,7 @@ saveStats = (user) => {
         stats: json,
         loading: false
       }, this.props.addOneToStep())
-    })
+  }).then(this.props.history.push('/user-dashboard'))
 }
 
 getNumber = (e) => {
@@ -664,11 +664,10 @@ handleOnSubmit = () => {
     debugger
     this.setState({
       user: res.user
-    }, this.saveStats(res.user), this.notify(), swal("Success!", "Your results are ready!", "success"))
-    }
-  )
-// this.props.history.push('/profile')
+    }, this.props.updateUser(res), this.saveStats(res.user), this.notify(), swal("Success!", "Your results are ready!", "success"))
+  })
 }
+
 
 confirmPassword = (e) => {
   if(e.target.value === this.state.password){

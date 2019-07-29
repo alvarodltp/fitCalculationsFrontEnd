@@ -5,11 +5,11 @@ import DashboardMenu from './DashboardMenu'
 import DashboardContent from './DashboardContent'
 
 
-const UserDasboard = () => {
+const UserDasboard = (props) => {
   return (
     <div id="user-dashboard">
-      <DashboardNav />
-      <DashboardMenu />
+      <DashboardNav user={props.user} logOut={props.logOut}/>
+      <DashboardMenu user={props.user} />
       <DashboardContent />
     </div>
   )

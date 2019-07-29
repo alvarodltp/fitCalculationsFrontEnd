@@ -1,32 +1,35 @@
 import React from 'react'
 import {Image, Dropdown, Icon} from 'semantic-ui-react'
 
-const trigger = (
-  <span>
-    <Icon name='user' /> Hello, Bob
-  </span>
-)
-
-const options = [
-  {
-    key: 'user',
-    text: (
+class DashboardNav extends React.Component {
+  render(){
+    const trigger = (
       <span>
-        Signed in as <strong>Bob Smith</strong>
+        <Icon name='user' /> Hello, {this.props.user.name}
       </span>
-    ),
-    disabled: true,
-  },
-  { key: 'settings', text: 'Settings' },
-  { key: 'sign-out', text: 'Sign Out' },
-]
+    )
 
-const DashboardNav = () => {
-  return (
+    const options = [
+      {
+        key: 'user',
+        text: (
+          <span>
+            Signed in as <strong>{this.props.user.name}</strong>
+          </span>
+        ),
+        disabled: true,
+      },
+      { key: 'settings', text: 'Settings' },
+      { key: 'sign-out', text: 'Sign Out' },
+    ]
+
+    return(
       <div className="dash-nav">
         <Dropdown trigger={trigger} options={options} />
+        <p onClick={this.props.logOut}>Log Out</p>
       </div>
-  )
+    )
+  }
 }
 
 export default DashboardNav

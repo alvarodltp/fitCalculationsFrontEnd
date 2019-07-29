@@ -115,12 +115,20 @@ componentDidMount() {
   ReactPixel.init('433459070732534');
 }
 
-updateUser = user => {
+updateUser = (user) => {
   debugger
   this.setState({
     user: user.user
   })
 };
+
+logOut = () => {
+  localStorage.clear()
+  this.setState({
+    user: null
+  })
+  this.history.push('/')
+}
 
 client = contentful.createClient({
   space: '3pn0fc4ta32y',
@@ -238,7 +246,7 @@ requiredEmailMessage = () => {
         <Switch>
           {this.state.posts != null ? <Route exact path="/" render={props => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop}
           requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
-          <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage}
+          <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} updateUser={this.updateUser} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage}
           showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
           <Route path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
           <Route path="/thank-you" render={props => <ThankYouBcm /> } />
@@ -254,7 +262,7 @@ requiredEmailMessage = () => {
           <Route exact path="/contact" render={props => <Contact/> } />
           <Route exact path="/signup" render={props => <SignUp {...props} updateUser={this.updateUser}/> } />
           {this.state.user != null ? <Route exact path="/profile" render={props => <UserProfile user={this.state.user} /> } /> : null }
-          <Route exact path="/user-dashboard" render={props => <UserDasboard {...props} /> } />
+          <Route exact path="/user-dashboard" render={props => <UserDasboard {...props} logOut={this.logOut} user={this.state.user}/> } />
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>
