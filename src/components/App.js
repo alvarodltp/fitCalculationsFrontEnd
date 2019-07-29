@@ -50,6 +50,7 @@ class App extends React.Component {
     super(props)
     this.state={
       user: null,
+      currentUserStats: null,
       stepNumber: 0,
       mobileDevice: null,
       showResults: false,
@@ -116,7 +117,6 @@ componentDidMount() {
 }
 
 updateUser = (user) => {
-  debugger
   this.setState({
     user: user.user
   })
@@ -177,10 +177,18 @@ logPageView = () => {
   ReactGA.pageview(window.location.pathname);
 }
 
-addOneToStep = () => {
-  this.setState({
-    stepNumber: this.state.stepNumber + 1
-  });
+addOneToStep = (stats) => {
+  debugger
+  if(stats === undefined) {
+    this.setState({
+      stepNumber: this.state.stepNumber + 1
+    })
+  } else {
+    this.setState({
+      stepNumber: this.state.stepNumber + 1,
+      currentUserStats: stats
+    }, () => this.props.history.push('/user-dashboard'))
+  }
 }
 
 substractOneFromStep = () => {
@@ -242,7 +250,6 @@ requiredEmailMessage = () => {
     const ReactPixel =  require('react-facebook-pixel');
     return (
       <div className="App">
-
         <Switch>
           {this.state.posts != null ? <Route exact path="/" render={props => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop}
           requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
@@ -262,7 +269,7 @@ requiredEmailMessage = () => {
           <Route exact path="/contact" render={props => <Contact/> } />
           <Route exact path="/signup" render={props => <SignUp {...props} updateUser={this.updateUser}/> } />
           {this.state.user != null ? <Route exact path="/profile" render={props => <UserProfile user={this.state.user} /> } /> : null }
-          <Route exact path="/user-dashboard" render={props => <UserDasboard {...props} logOut={this.logOut} user={this.state.user}/> } />
+          <Route exact path="/user-dashboard" render={props => <UserDasboard {...props} currentUserStats={this.state.currentUserStats} logOut={this.logOut} user={this.state.user}/> } />
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>

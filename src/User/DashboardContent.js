@@ -1,9 +1,10 @@
 import React from 'react'
 
-const DashboardContent = () => {
+const DashboardContent = (props) => {
+  debugger
   return (
     <div className="dash-content">
-      2
+      {props.currentUserStats.calories_for_goal}
     </div>
   )
 }

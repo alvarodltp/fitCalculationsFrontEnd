@@ -545,8 +545,8 @@ saveStats = (user) => {
       this.setState({
         stats: json,
         loading: false
-      }, this.props.addOneToStep())
-  }).then(this.props.history.push('/user-dashboard'))
+      }, this.props.addOneToStep(json))
+  })
 }
 
 getNumber = (e) => {

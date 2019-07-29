@@ -6,11 +6,12 @@ import DashboardContent from './DashboardContent'
 
 
 const UserDasboard = (props) => {
+  debugger
   return (
     <div id="user-dashboard">
       <DashboardNav user={props.user} logOut={props.logOut}/>
       <DashboardMenu user={props.user} />
-      <DashboardContent />
+      <DashboardContent currentUserStats={props.currentUserStats}/>
     </div>
   )
 }
