@@ -37,6 +37,7 @@ class Signup extends React.Component {
     let userData = {user: {
       name: this.state.name,
       email: this.state.email,
+      gender: this.state.gender,
       password: this.state.password
     }}
     fetch("http://localhost:3001/users", {
@@ -63,6 +64,7 @@ class Signup extends React.Component {
                   <Header as='h2'>Sign Up!</Header>
                   <Form.Input value={this.state.name} id="name" onChange={this.handleChange} fluid name='name' label='Name' placeholder='name' />
                   <Form.Input value={this.state.email} onChange={this.handleChange} fluid name='email' label='Email' placeholder='email' />
+                  <Form.Select value={this.state.gender} onChange={this.handleChange} fluid name='gender' label='Gender' placeholder='gender' />
                   <Form.Input value={this.state.password} onChange={this.handleChange} fluid name='password' label='Password' placeholder='password' /> {this.state.passwordMessage === true ? <Icon name="check" size="small" /> : null }
                   <Form.Input value={this.state.confirmPassword} onChange={(e) => {this.handleChange(e); this.confirmPassword(e)}} fluid name='confirmPassword' label='Confirm Password' placeholder='password' color="green"/> {this.state.passwordMessage === true ? <Icon name="check" size="small" /> : null }
                   </Form.Group>

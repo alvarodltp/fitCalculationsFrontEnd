@@ -20,8 +20,8 @@ class CalculationsContainer extends React.Component {
     super()
     this.state={
       formType: "Imperial",
-      name: "Awesome User",
-      email: "awesomeuser@fitcalculations.com",
+      name: "",
+      email: "",
       gender: "",
       weightKg: "",
       weightLb: "",
@@ -79,7 +79,9 @@ class CalculationsContainer extends React.Component {
       userExists: [],
       message: null,
       loading: "",
-      showNutritionPackageDetails: true
+      showNutritionPackageDetails: true,
+      password: "",
+      passwordMessage: ""
     }
   }
 
@@ -229,6 +231,12 @@ class CalculationsContainer extends React.Component {
   getGender = (e) => {
     this.setState({
       gender: e.target.parentElement.innerText
+    })
+  }
+
+  getPassword = (e) => {
+    this.setState({
+      password: e.target.value
     })
   }
 
@@ -425,10 +433,12 @@ getAllUsers = () => {
 }
 
 saveOrUpdateUser = (userExists) => {
+  debugger
   if(this.props.emailValid === true && this.state.name !== "" && this.state.checked === true && userExists.length !== 0){
     this.updateUser(userExists)
   } else if (this.props.emailValid === true && this.state.name !== "" && this.state.checked === true && userExists.length === 0){
-    this.saveUser()
+    this.handleOnSubmit()
+    //before it was saveOrUpdateUser()
   } else {
 
   }
@@ -460,7 +470,8 @@ saveUser = () => {
     body: JSON.stringify({
       name: this.state.name.replace(/^\w/, c => c.toUpperCase()),
       email: this.state.email.toLowerCase(),
-      gender: this.state.gender
+      gender: this.state.gender,
+      password: this.state.password
       })
     }).then(response => response.json())
     .then(user => {
@@ -480,9 +491,9 @@ updateUser = (userExists) => {
       },
       body: JSON.stringify({
         user: {
-        name: this.state.name.replace(/^\w/, c => c.toUpperCase()),
-        email: this.state.email.toLowerCase(),
-        gender: this.state.gender
+          name: this.state.name.replace(/^\w/, c => c.toUpperCase()),
+          email: this.state.email.toLowerCase(),
+          gender: this.state.gender
         }
       })
     }).then(response =>response.json())
@@ -494,6 +505,7 @@ updateUser = (userExists) => {
   }
 
 saveStats = (user) => {
+  debugger
   let today = new Date()
   // let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
   fetch("http://localhost:3001/stats", {
@@ -632,6 +644,44 @@ setFormToTrue = () => {
   })
 }
 
+//save_user
+handleOnSubmit = () => {
+  let userData = {user: {
+    name: this.state.name.replace(/^\w/, c => c.toUpperCase()),
+    email: this.state.email,
+    password: this.state.password
+  }}
+  fetch("http://localhost:3001/users", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify(userData)
+  })
+  .then(res => res.json())
+  .then(res => {
+    debugger
+    this.setState({
+      user: res.user
+    }, this.saveStats(res.user), this.notify(), swal("Success!", "Your results are ready!", "success"))
+    }
+  )
+// this.props.history.push('/profile')
+}
+
+confirmPassword = (e) => {
+  if(e.target.value === this.state.password){
+    this.setState({
+      passwordMessage: true
+    })
+  } else {
+    this.setState({
+      passwordMessage: false
+    })
+  }
+}
+
   render(){
     const config = {
       angle: 90,
@@ -658,7 +708,7 @@ setFormToTrue = () => {
         {this.props.stepNumber === 3 ? <Motivation substractOneFromStep={this.props.substractOneFromStep} getMotivationToGetFit={this.getMotivationToGetFit} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
         <ToastContainer autoClose={false} draggable={true}/>
         {this.props.stepNumber === 5 ? <BmrCalorieResults bmr={this.state.bmr} caloriesToMaintain={this.state.caloriesToMaintain} caloriesForGoal={this.state.caloriesForGoal} proteinPercentage={this.state.proteinPercentage} carbPercentage={this.state.carbPercentage} fatPercentage={this.state.fatPercentage} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats} showMacroCalculator={this.showMacroCalculator} macroCalculatorShown={this.state.macroCalculatorShown} motivationToGetFit={this.state.motivationToGetFit} dietType={this.state.dietType} goal={this.state.goal} maxHeartRate={this.state.maxHeartRate} age={this.state.age} showLandingPage={this.showLandingPage} landingPageShown={this.state.landingPageShown} showExercise={this.showExercise} exerciseShown={this.state.exerciseShown} showMacros={this.showMacros} macrosShown={this.state.macrosShown} showCardio={this.showCardio} cardioShown={this.state.cardioShown} showDiet={this.showDiet} dietShown={this.state.dietShown} showCalories={this.showCalories} caloriesShown={this.state.caloriesShown} safeCalories={this.state.safeCalories} dietType={this.state.dietType} motivationToGetFit={this.state.motivationToGetFit} user={this.state.user} displayCalories={this.state.displayCalories} displayCaloriesInfo={this.displayCaloriesInfo} displayDiet={this.state.displayDiet} displayDietInfo={this.displayDietInfo} cardInfo={this.state.cardInfo} /> : null }
-        {this.props.stepNumber === 4 && this.state.loading === "" ?  <SignUpForm setLoadingToTrue={this.setLoadingToTrue} requiredFieldsMessage={this.requiredFieldsMessage} message={this.state.message} getAllUsers={this.getAllUsers} safeCalories={this.state.safeCalories} notify={this.notify} getName={this.getName} getEmail={this.getEmail} validateEmail={this.props.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} scrollToTop={this.props.scrollToTop} name={this.state.name} email={this.state.email} checked={this.state.checked}/> : null }
+        {this.props.stepNumber === 4 && this.state.loading === "" ? <SignUpForm passwordMessage={this.state.passwordMessage} confirmPassword={this.confirmPassword} handleOnSubmit={this.handleOnSubmit} getPassword={this.getPassword} setLoadingToTrue={this.setLoadingToTrue} requiredFieldsMessage={this.requiredFieldsMessage} message={this.state.message} getAllUsers={this.getAllUsers} safeCalories={this.state.safeCalories} notify={this.notify} getName={this.getName} getEmail={this.getEmail} validateEmail={this.props.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} scrollToTop={this.props.scrollToTop} name={this.state.name} email={this.state.email} checked={this.state.checked}/> : null }
         {this.props.stepNumber === 1 ? <PersonalizedMacros setFormToTrue={this.setFormToTrue} substractOneFromStep={this.props.substractOneFromStep} user={this.state.user} scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
         {this.state.loading === true ? <Loading loading={this.state.loading} name={this.state.name}/> : null }
       </React.Fragment>
