@@ -825,34 +825,35 @@ span {
   width: 90%;
 }
 
-/* #sign-up-form-card h2{
-  color: white;
-} */
-
-#sign-up-text {
-  margin: 0 auto;
-  margin-top: 25px;
+#sign-up-or-not {
+  display: grid;
+  grid-template-columns: 49% 2% 49%;
 }
 
-#sign-up-text h1 {
+.sign-up-text h1 {
   font-size: 40px;
   font-style: italic;
+
 }
 
-#sign-up-text p{
+.sign-up-text p{
   width: 70%;
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
+.continue-as-guest {
+  align-self: center;
+}
+
+.vertical-line {
+  border-left: solid gray;
+}
+
 .ui.checkbox .box:after, .ui.checkbox label:after {
   color: #e80aaa;
 }
-
-/* #sign-up-div {
-  height: 62vh;
-} */
 
 #button-get-email{
   border: 2px solid;

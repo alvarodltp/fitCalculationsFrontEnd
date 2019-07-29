@@ -20,6 +20,11 @@ const DashboardMenu = () => {
         <IoIosCart />
         <p>Programs</p>
       </div>
+
+      <div style={{margin: "30px"}}>
+        <IoIosCart />
+        <p>Recommendations</p>
+      </div>
     </div>
   )
 }
