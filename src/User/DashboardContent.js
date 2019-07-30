@@ -4,7 +4,7 @@ const DashboardContent = (props) => {
   debugger
   return (
     <div className="dash-content">
-      <p>{props.currentUserStats.activity_level}</p>
+      <p>{props.currentUserStats[0].activity_level}</p>
     </div>
   )
 }

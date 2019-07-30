@@ -154,7 +154,7 @@ logOut = () => {
   this.setState({
     user: null
   })
-  this.history.push('/')
+  this.props.history.push('/')
 }
 
 client = contentful.createClient({
