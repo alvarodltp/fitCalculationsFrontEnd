@@ -27,6 +27,7 @@ import AllProgramsContainer from '../Programs/AllProgramsContainer'
 import NotFound from './NotFound'
 import Contact from './Contact'
 import SignUp from '../User/SignUp'
+import Login from '../User/Login'
 import UserProfile from '../User/UserProfile'
 import UserDasboard from '../User/UserDashboard'
 
@@ -61,7 +62,6 @@ class App extends React.Component {
       message: "",
       posts: null,
       allFields: null,
-      opened: false,
       programs: [
         {
           name: '8-Week Lean',
@@ -100,7 +100,7 @@ class App extends React.Component {
   }
 
   fetchUser = () => {
-    requestHelper("http://localhost:3001/profile").then(json => this.updateUser(json.user));
+    requestHelper("http://localhost:3001/stats").then(json => this.updateUser(json.user));
   };
 
 componentDidMount() {
@@ -116,11 +116,38 @@ componentDidMount() {
   ReactPixel.init('433459070732534');
 }
 
-updateUser = (user) => {
+updateNewUser = (user) => {
   this.setState({
     user: user.user
-  })
+  });
 };
+
+updateUser = (user) => {
+  debugger
+  this.setState({
+    user: user
+  }, this.getUserStats(user))
+}
+
+getUserStats = (user) => {
+  let userId;
+  if(user === undefined){
+    { this.state.user != null ? userId = this.state.user.id : userId = "" }
+  } else {
+    userId = user.id
+  }
+  debugger
+  if(userId != ""){
+    fetch("http://localhost:3001/stats")
+    .then(response => response.json())
+    .then(json => {
+      let currentUserStats = json.filter(stat => stat.user_id === userId)
+      this.setState({
+        currentUserStats: currentUserStats
+      }, () => this.props.history.push('/profile'))
+    })
+  }
+}
 
 logOut = () => {
   localStorage.clear()
@@ -144,21 +171,15 @@ setPosts = response => {
   });
 }
 
-openMenu = () => {
-  this.setState({
-    opened: !this.state.opened
-  });
-}
-
 getAllStats = () => {
-  fetch("https://fitcalculations-api.herokuapp.com/stats")
+  fetch("http://localhost:3001/stats")
   .then(response => response.json())
   .then(json => {
     this.setState({
       allStats: json,
       loading: false
-    });
-  });
+    })
+  })
 }
 
 isMobileDevice = () => {
@@ -178,7 +199,6 @@ logPageView = () => {
 }
 
 addOneToStep = (stats) => {
-  debugger
   if(stats === undefined) {
     this.setState({
       stepNumber: this.state.stepNumber + 1
@@ -187,7 +207,8 @@ addOneToStep = (stats) => {
     this.setState({
       stepNumber: this.state.stepNumber + 1,
       currentUserStats: stats
-    }, () => this.props.history.push('/user-dashboard'))
+    }, () => this.getUserStats())
+    // this.props.history.push('/user-dashboard')
   }
 }
 
@@ -253,7 +274,7 @@ requiredEmailMessage = () => {
         <Switch>
           {this.state.posts != null ? <Route exact path="/" render={props => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop}
           requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
-          <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} updateUser={this.updateUser} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage}
+          <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} updateNewUser={this.updateNewUser} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage}
           showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
           <Route path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
           <Route path="/thank-you" render={props => <ThankYouBcm /> } />
@@ -267,9 +288,9 @@ requiredEmailMessage = () => {
           <Route exact path="/tools" render={props => <AllToolsContainer {...props}/> } />
           <Route exact path="/programs" render={props => <AllProgramsContainer {...props} programs={this.state.programs} scrollToTop={this.scrollToTop}/> } />
           <Route exact path="/contact" render={props => <Contact/> } />
-          <Route exact path="/signup" render={props => <SignUp {...props} updateUser={this.updateUser}/> } />
-          {this.state.user != null ? <Route exact path="/profile" render={props => <UserProfile user={this.state.user} /> } /> : null }
-          <Route exact path="/user-dashboard" render={props => <UserDasboard {...props} currentUserStats={this.state.currentUserStats} logOut={this.logOut} user={this.state.user}/> } />
+          <Route exact path="/signup" render={props => <SignUp {...props} updateNewUser={this.updateNewUser}/> } />
+          <Route exact path='/login' render={props=> <Login {...props} getUserStats={this.getUserStats} updateUser={this.updateUser} />} />
+          {this.state.user != null ? <Route exact path="/profile" render={props => <UserDasboard {...props} currentUserStats={this.state.currentUserStats} logOut={this.logOut} user={this.state.user}/> } /> : null }
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>

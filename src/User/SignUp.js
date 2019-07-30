@@ -49,7 +49,7 @@ class Signup extends React.Component {
       body: JSON.stringify(userData)
     })
     .then(res => res.json())
-    .then(this.props.updateUser)
+    .then(this.props.updateNewUser)
     this.props.history.push('/profile')
   }
 

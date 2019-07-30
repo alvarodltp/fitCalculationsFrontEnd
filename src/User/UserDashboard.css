@@ -11,11 +11,11 @@ span {
 
 
 #user-dashboard div {
-  background-color: orange;
+  border: orange;
 }
 
 #user-dashboard > * {
-  background: blue;
+  background: lightgray;
   padding: 10px;
 }
 

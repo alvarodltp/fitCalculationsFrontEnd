@@ -664,9 +664,11 @@ handleOnSubmit = () => {
     debugger
     this.setState({
       user: res.user
-    }, this.props.updateUser(res), this.saveStats(res.user), this.notify(), swal("Success!", "Your results are ready!", "success"))
+    }, this.props.updateNewUser(res), this.saveStats(res.user), this.notify())
   })
 }
+
+// swal("Success!", "Your results are ready!", "success")
 
 
 confirmPassword = (e) => {
