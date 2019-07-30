@@ -100,11 +100,11 @@ class App extends React.Component {
   }
 
   fetchUser = () => {
-    requestHelper("http://localhost:3001/stats").then(json => this.updateUser(json.user));
+    requestHelper("http://localhost:3001/profile").then(json => this.updateUser(json.user));
   };
 
 componentDidMount() {
-  if (localStorage.getItem("token")) {
+  if(localStorage.getItem("token")) {
     this.fetchUser();
   };
   this.initGA();
@@ -136,12 +136,12 @@ getUserStats = (user) => {
   } else {
     userId = user.id
   }
-  debugger
   if(userId != ""){
     fetch("http://localhost:3001/stats")
     .then(response => response.json())
     .then(json => {
       let currentUserStats = json.filter(stat => stat.user_id === userId)
+      console.log(currentUserStats)
       this.setState({
         currentUserStats: currentUserStats
       }, () => this.props.history.push('/profile'))
@@ -271,6 +271,7 @@ requiredEmailMessage = () => {
     const ReactPixel =  require('react-facebook-pixel');
     return (
       <div className="App">
+        {this.state.user === null ? <Nav /> : null }
         <Switch>
           {this.state.posts != null ? <Route exact path="/" render={props => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop}
           requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
