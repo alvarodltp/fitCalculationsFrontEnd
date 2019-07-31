@@ -10,7 +10,7 @@ const UserDasboard = (props) => {
     <div id="user-dashboard">
       <DashboardNav user={props.user} logOut={props.logOut}/>
       <DashboardMenu user={props.user} />
-      <DashboardContent currentUserStats={props.currentUserStats}/>
+      <DashboardContent user={props.user} currentUserStats={props.currentUserStats}/>
     </div>
   )
 }

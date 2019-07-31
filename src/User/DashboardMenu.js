@@ -1,29 +1,24 @@
 import React from 'react'
 import {Icon} from 'semantic-ui-react'
 import { FaChartPie } from "react-icons/fa";
-import { IoIosCart } from "react-icons/io";
+import { FaLock } from "react-icons/fa";
 
 const DashboardMenu = () => {
   return (
     <div className="dash-menu">
-      <div style={{margin: "30px"}}>
-        <Icon name="user" />
-        <p>Profile</p>
+      <div>
+        <Icon style={{color: "blue"}} name="user" />
+        <p style={{fontSize: "10px"}}>Profile</p>
       </div>
 
-      <div style={{margin: "30px"}}>
-        <FaChartPie />
-        <p>Stats</p>
+      <div>
+        <FaChartPie style={{color: "blue"}}/>
+        <p style={{fontSize: "10px"}}>Stats</p>
       </div>
 
-      <div style={{margin: "30px"}}>
-        <IoIosCart />
-        <p>Programs</p>
-      </div>
-
-      <div style={{margin: "30px"}}>
-        <IoIosCart />
-        <p>Recommendations</p>
+      <div>
+        <FaLock style={{color: "blue"}}/>
+        <p style={{fontSize: "10px"}}>Program</p>
       </div>
     </div>
   )
