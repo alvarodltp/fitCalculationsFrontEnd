@@ -8,9 +8,9 @@ import DashboardContent from './DashboardContent'
 const UserDasboard = (props) => {
   return (
     <div id="user-dashboard">
-      <DashboardNav user={props.user} logOut={props.logOut}/>
-      <DashboardMenu user={props.user} />
-      <DashboardContent user={props.user} currentUserStats={props.currentUserStats}/>
+      <DashboardNav currentUserStats={props.currentUserStats[props.currentUserStats.length - 1]} logOut={props.logOut}/>
+      <DashboardMenu currentUserStats={props.currentUserStats[props.currentUserStats.length - 1]}/>
+      <DashboardContent currentUserStats={props.currentUserStats[props.currentUserStats.length - 1]}/>
     </div>
   )
 }

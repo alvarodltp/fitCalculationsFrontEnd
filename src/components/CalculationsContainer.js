@@ -648,7 +648,8 @@ handleOnSubmit = () => {
   let userData = {user: {
     name: this.state.name.replace(/^\w/, c => c.toUpperCase()),
     email: this.state.email,
-    password: this.state.password
+    password: this.state.password,
+    gender: this.state.gender
   }}
   fetch("http://localhost:3001/users", {
     method: 'POST',

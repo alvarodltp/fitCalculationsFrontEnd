@@ -123,7 +123,6 @@ updateNewUser = (user) => {
 };
 
 updateUser = (user) => {
-  debugger
   this.setState({
     user: user
   }, this.getUserStats(user))
@@ -291,7 +290,7 @@ requiredEmailMessage = () => {
           <Route exact path="/contact" render={props => <Contact/> } />
           <Route exact path="/signup" render={props => <SignUp {...props} updateNewUser={this.updateNewUser}/> } />
           <Route exact path='/login' render={props=> <Login {...props} getUserStats={this.getUserStats} updateUser={this.updateUser} />} />
-          {this.state.user != null ? <Route exact path="/profile" render={props => <UserDasboard {...props} currentUserStats={this.state.currentUserStats} logOut={this.logOut} user={this.state.user}/> } /> : null }
+          {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDasboard {...props} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>

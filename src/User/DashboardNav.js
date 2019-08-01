@@ -1,5 +1,6 @@
 import React from 'react'
 import {Image, Dropdown, Icon} from 'semantic-ui-react'
+import { FaHeart } from "react-icons/fa";
 
 class DashboardNav extends React.Component {
 
@@ -10,7 +11,7 @@ class DashboardNav extends React.Component {
   render(){
     const trigger = (
       <span>
-        <Image avatar /> Welcome, User
+        <FaHeart/> Welcome, {this.props.currentUserStats.user.name}
       </span>
     )
 
@@ -22,7 +23,7 @@ class DashboardNav extends React.Component {
 
     return(
       <div className="dash-nav">
-        <Dropdown style={{float: "right"}} onChange={this.handleClick} trigger={trigger} options={options} pointing='top left' icon={null} />
+        <Dropdown style={{paddingRight: "30px"}} onChange={this.handleClick} trigger={trigger} options={options} pointing='top left' icon={null} />
       </div>
     )
   }

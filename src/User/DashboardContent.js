@@ -1,10 +1,12 @@
 import React from 'react';
 import Calories from './Calories';
+import UserProfile from './UserProfile'
 
 const DashboardContent = (props) => {
+  debugger
   return (
-    <div className="dash-content">
-      <Calories {...props}/>
+    <div className="nested-content">
+      <UserProfile currentUserStats={props.currentUserStats}/>
     </div>
   )
 }

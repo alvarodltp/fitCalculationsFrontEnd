@@ -18,7 +18,7 @@ const DashboardMenu = () => {
 
       <div>
         <FaLock style={{color: "blue"}}/>
-        <p style={{fontSize: "10px"}}>Program</p>
+        <p style={{fontSize: "10px"}}>Programs</p>
       </div>
     </div>
   )
