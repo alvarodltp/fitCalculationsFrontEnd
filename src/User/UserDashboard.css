@@ -4,6 +4,25 @@ span {
   font-size: 14px;
 }
 
+.login-container {
+  display: grid;
+}
+
+.login {
+  padding: 40px;
+  margin: 0 auto;
+  background: linear-gradient(to top, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-inputs .login-input{
+  padding-top: 20px;
+}
+
+.login-buttons {
+  padding: 20px;
+}
 
 #user-dashboard div {
   border: orange;

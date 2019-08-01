@@ -1,9 +1,5 @@
 import React from 'react'
-import { Form } from 'semantic-ui-react'
-import { Button } from 'semantic-ui-react'
-import { Card } from 'semantic-ui-react'
-import { Segment, Divider } from 'semantic-ui-react'
-
+import { Card, Button, Segment, Divider, Input } from 'semantic-ui-react'
 class Login extends React.Component {
 
   constructor(){
@@ -29,14 +25,15 @@ class Login extends React.Component {
   }
 
   signUpForm = () => {
-    this.props.history.push('/signup')
+    this.props.history.push('/calories-and-macros')
   }
 
   handleSubmit = (e) => {
+    debugger
     e.preventDefault();
     let data = JSON.stringify({
-      email: e.target.parentElement.querySelector('input[name="email"]').value,
-      password: e.target.parentElement.querySelector('input[name="password"]').value
+      email: e.target.parentElement.parentElement.parentElement.querySelector('input[name="email"]').value,
+      password: e.target.parentElement.parentElement.parentElement.querySelector('input[name="password"]').value
     });
     fetch("http://localhost:3001/login", {
       method: "POST",
@@ -64,24 +61,22 @@ class Login extends React.Component {
 
   render() {
   return (
-    <div id="login-page" style={{minHeight: "100vh"}}>
-      <Card id="login-card" centered>
-        <Form onSubmit={this.handleOnSubmit}>
-          <Segment padded>
-            <Form.Group id="form-group" widths='equal'>
-              <Form.Input onChange={this.handleChangeEmail} fluid name='email' label='Email' placeholder='email' />
-              <Form.Input onChange={this.handleChangePassword} fluid name='password' label='Password' type="password" placeholder='password' />
-            </Form.Group>
-            <Button id="log-in" onClick={this.handleSubmit} fluid>
+    <div className="login-container" style={{paddingTop: "100px"}}>
+      <div className="login">
+        <h2>Login</h2>
+        <div className="login-inputs">
+          <Input className="login-input" fluid onChange={this.handleChangeEmail} name='email' placeholder='email' />
+          <Input className="login-input" fluid onChange={this.handleChangePassword} name='password' type="password" placeholder='password' />
+        </div>
+        <div className="login-buttons">
+          <Button onClick={this.handleSubmit}>
             Login
-            </Button>
-            <Divider horizontal>Or</Divider>
-            <Button id="sign-up" onClick={this.signUpForm} fluid>
-            Sign Up Now
-            </Button>
-          </Segment>
-        </Form>
-      </Card>
+          </Button>
+          <Button onClick={this.signUpForm}>
+            Create An Account
+          </Button>
+        </div>
+      </div>
     </div>
     )
   }
