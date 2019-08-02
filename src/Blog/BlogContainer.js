@@ -13,7 +13,7 @@ class BlogContainer extends React.Component {
           <AllBlogs scrollToTop={this.props.scrollToTop} posts={this.props.posts} />
         </div>
         <div style={{margin: "20px"}}>
-          <BlogSide />
+          <BlogSide scrollToTop={this.props.scrollToTop}/>
         </div>
       </div>
      </React.Fragment>
