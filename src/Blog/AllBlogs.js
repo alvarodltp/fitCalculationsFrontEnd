@@ -6,7 +6,7 @@ class AllBlogs extends React.Component {
     return(
       <React.Fragment>
         { this.props.posts.map(({fields}, i) =>
-        <BlogItem key={i} {...fields}/> )}
+        <BlogItem scrollToTop={this.props.scrollToTop} key={i} {...fields}/> )}
       </React.Fragment>
     )
   }

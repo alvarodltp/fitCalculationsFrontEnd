@@ -11,13 +11,11 @@ import BlogItem from '../Blog/BlogItem';
 import Programs from '../Programs/Programs';
 
 class Homepage extends React.Component {
-
   render(){
     return(
       <React.Fragment>
         <div>
           <MainHeaderHome scrollToTop={this.props.scrollToTop}/>
-
           <div id="start-here">
             <div>
               <Image className="startimage" style={{margin: "0 auto", height: "auto"}} src="/iphone-front.png" />

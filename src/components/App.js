@@ -29,7 +29,7 @@ import Contact from './Contact'
 import SignUp from '../User/SignUp'
 import Login from '../User/Login'
 import UserProfile from '../User/UserProfile'
-import UserDasboard from '../User/UserDashboard'
+import UserDashboard from '../User/UserDashboard'
 
 const requestHelper = url =>
   fetch(url, {
@@ -269,6 +269,7 @@ requiredEmailMessage = () => {
   render() {
     const ReactPixel =  require('react-facebook-pixel');
     return (
+      <React.Fragment>
       <div className="App">
         {this.state.user === null ? <Nav /> : null }
         <Switch>
@@ -283,30 +284,22 @@ requiredEmailMessage = () => {
           <Route path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
           <Route path="/food-list" render={props => <FoodListContainer {...props}/> } />
           <Route path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
-          {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts}/> } /> : null}
-          {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
+          {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} scrollToTop={this.scrollToTop} posts={this.state.posts }/> } /> : null}
+          {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts} scrollToTop={this.scrollToTop}/> } /> : null}
           <Route exact path="/tools" render={props => <AllToolsContainer {...props}/> } />
           <Route exact path="/programs" render={props => <AllProgramsContainer {...props} programs={this.state.programs} scrollToTop={this.scrollToTop}/> } />
           <Route exact path="/contact" render={props => <Contact/> } />
           <Route exact path="/signup" render={props => <SignUp {...props} updateNewUser={this.updateNewUser}/> } />
           <Route exact path='/login' render={props=> <Login {...props} getUserStats={this.getUserStats} updateUser={this.updateUser} />} />
-          {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDasboard {...props} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }
+          {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDashboard {...props} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>
-
+      </React.Fragment>
     )
   }
 }
 
 
 export default App;
-
-  // <Nav />
-
-// <NavBar /><br/><br/><br/><br/>
-// {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
-
-
-// {this.state.mobileDevice === false ? <SlidingNavBar scrollToTop={this.scrollToTop}/> : null }

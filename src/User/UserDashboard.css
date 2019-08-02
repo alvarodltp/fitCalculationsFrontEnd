@@ -201,5 +201,25 @@ span {
   .dash-menu div {
     margin: 30px;
   }
-
+  .nested-content .user-stats-dash {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(11, minmax(50px, auto));
+  }
+  .weight-chart-title {
+    grid-column: 1/7;
+    grid-row: 1/2;
+  }
+  .weight-chart {
+    grid-column: 1/7;
+    grid-row: 2/7;
+  }
+  .bmi-chart-title {
+    grid-column: 7/13;
+    grid-row: 1/2;
+  }
+  .bmi-chart {
+    grid-column: 7/13;
+    grid-row: 2/7;
+  }
 }

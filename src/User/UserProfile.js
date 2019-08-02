@@ -1,6 +1,4 @@
 import React from 'react'
-import {Image} from 'semantic-ui-react'
-import Calories from './Calories'
 import Macros from './Macros'
 import MacroPercentage from './MacroPercentage'
 
@@ -10,22 +8,22 @@ class UserProfile extends React.Component {
       <React.Fragment>
         <div className="user-profile-dash-calories">
           <div id="card-dashboard-gradient" className="weight-dash">
-            <p style={{color: "black", fontSize: "14px"}}>Weight</p>
+            <p style={{color: "white", fontSize: "14px"}}>Weight</p>
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.weight_in_lb} lb.</h2>
           </div>
 
           <div id="card-dashboard-gradient" className="goal-cal-dash">
-            <p style={{color: "black", fontSize: "14px"}}>Goal Calories</p>
+            <p style={{color: "white", fontSize: "14px"}}>Goal Calories</p>
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.calories_for_goal}</h2>
           </div>
 
           <div id="card-dashboard-gradient" className="bmr-dash">
-            <p style={{color: "black", fontSize: "14px"}}>Bmr</p>
+            <p style={{color: "white", fontSize: "14px"}}>BMR</p>
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.bmr}</h2>
           </div>
 
           <div id="card-dashboard-gradient" className="bmi-dash">
-            <p style={{color: "black", fontSize: "14px"}}>Bmi</p>
+            <p style={{color: "white", fontSize: "14px"}}>BMI</p>
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.bmi}</h2>
           </div>
 

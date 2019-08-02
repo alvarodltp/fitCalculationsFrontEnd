@@ -11,7 +11,7 @@ displayRelatedPosts = () => {
 
   return Object.values(relatedPosts).map((post, i) =>
     <Link to={`/blog/${post.fields.path}`}>
-      <Grid stackable columns={2}>
+      <Grid onClick={this.props.scrollToTop} stackable columns={2}>
           <Grid.Column width={5}>
             <Image className="image-related-post" src={post.fields.header.fields.file.url} />
           </Grid.Column>

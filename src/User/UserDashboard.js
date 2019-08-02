@@ -5,7 +5,7 @@ import DashboardMenu from './DashboardMenu'
 import DashboardContent from './DashboardContent'
 
 
-class UserDasboard extends React.Component {
+class UserDashboard extends React.Component {
   constructor(){
     super()
     this.state={
@@ -24,10 +24,10 @@ class UserDasboard extends React.Component {
       <div id="user-dashboard">
         <DashboardNav currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]} logOut={this.props.logOut}/>
         <DashboardMenu handleMenuClick={this.handleMenuClick} currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]}/>
-        <DashboardContent page={this.state.page} currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]}/>
+        <DashboardContent page={this.state.page} currentUserStats={this.props.currentUserStats}/>
       </div>
     )
   }
 }
 
-export default UserDasboard
+export default UserDashboard
