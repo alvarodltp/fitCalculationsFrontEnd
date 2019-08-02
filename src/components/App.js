@@ -26,12 +26,32 @@ import BlogPage from '../Blog/BlogPage'
 import AllProgramsContainer from '../Programs/AllProgramsContainer'
 import NotFound from './NotFound'
 import Contact from './Contact'
+import SignUp from '../User/SignUp'
+import Login from '../User/Login'
+import UserProfile from '../User/UserProfile'
+import UserDashboard from '../User/UserDashboard'
+
+const requestHelper = url =>
+  fetch(url, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    }
+  }).then(res => {
+    if(res.status === 401){
+      alert("signup failed");
+    } else {
+      return res.json();
+    }
+  });
 
 
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state={
+      user: null,
+      currentUserStats: null,
       stepNumber: 0,
       mobileDevice: null,
       showResults: false,
@@ -42,7 +62,6 @@ class App extends React.Component {
       message: "",
       posts: null,
       allFields: null,
-      opened: false,
       programs: [
         {
           name: '8-Week Lean',
@@ -80,9 +99,14 @@ class App extends React.Component {
     }
   }
 
-
+  fetchUser = () => {
+    requestHelper("https://fitcalculations-api.herokuapp.com/profile").then(json => this.updateUser(json.user));
+  };
 
 componentDidMount() {
+  if(localStorage.getItem("token")) {
+    this.fetchUser();
+  };
   this.initGA();
   this.logPageView();
   this.isMobileDevice();
@@ -90,6 +114,46 @@ componentDidMount() {
   this.fetchPosts().then(this.setPosts)
   // this.initializeIntercom()
   ReactPixel.init('433459070732534');
+}
+
+updateNewUser = (user) => {
+  this.setState({
+    user: user.user
+  });
+};
+
+updateUser = (user) => {
+  this.setState({
+    user: user
+  }, this.getUserStats(user))
+}
+
+getUserStats = (user) => {
+  let userId;
+  if(user === undefined){
+    { this.state.user != null ? userId = this.state.user.id : userId = "" }
+  } else {
+    userId = user.id
+  }
+  if(userId != ""){
+    fetch("https://fitcalculations-api.herokuapp.com/stats")
+    .then(response => response.json())
+    .then(json => {
+      let currentUserStats = json.filter(stat => stat.user_id === userId)
+      console.log(currentUserStats)
+      this.setState({
+        currentUserStats: currentUserStats
+      }, () => this.props.history.push('/profile'))
+    })
+  }
+}
+
+logOut = () => {
+  localStorage.clear()
+  this.setState({
+    user: null
+  })
+  this.props.history.push('/')
 }
 
 client = contentful.createClient({
@@ -106,21 +170,15 @@ setPosts = response => {
   });
 }
 
-openMenu = () => {
-  this.setState({
-    opened: !this.state.opened
-  });
-}
-
 getAllStats = () => {
-  fetch("https://fitcalculations-api.herokuapp.com/stats")
+  fetch("http://localhost:3001/stats")
   .then(response => response.json())
   .then(json => {
     this.setState({
       allStats: json,
       loading: false
-    });
-  });
+    })
+  })
 }
 
 isMobileDevice = () => {
@@ -139,10 +197,18 @@ logPageView = () => {
   ReactGA.pageview(window.location.pathname);
 }
 
-addOneToStep = () => {
-  this.setState({
-    stepNumber: this.state.stepNumber + 1
-  });
+addOneToStep = (stats) => {
+  if(stats === undefined) {
+    this.setState({
+      stepNumber: this.state.stepNumber + 1
+    })
+  } else {
+    this.setState({
+      stepNumber: this.state.stepNumber + 1,
+      currentUserStats: stats
+    }, () => this.getUserStats())
+    // this.props.history.push('/user-dashboard')
+  }
 }
 
 substractOneFromStep = () => {
@@ -203,11 +269,14 @@ requiredEmailMessage = () => {
   render() {
     const ReactPixel =  require('react-facebook-pixel');
     return (
+      <React.Fragment>
       <div className="App">
-        <Nav />
+        {this.state.user === null ? <Nav /> : null }
         <Switch>
-          {this.state.posts != null ? <Route exact path="/" render={props => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop} requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
-          <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage} showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+          {this.state.posts != null ? <Route exact path="/" render={props => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop}
+          requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
+          <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} updateNewUser={this.updateNewUser} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage}
+          showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
           <Route path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
           <Route path="/thank-you" render={props => <ThankYouBcm /> } />
           <Route path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
@@ -215,24 +284,22 @@ requiredEmailMessage = () => {
           <Route path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
           <Route path="/food-list" render={props => <FoodListContainer {...props}/> } />
           <Route path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
-          {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} posts={this.state.posts} scrollToTop={this.scrollToTop}/> } /> : null}
-          {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts}/> } /> : null}
+          {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} scrollToTop={this.scrollToTop} posts={this.state.posts }/> } /> : null}
+          {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts} scrollToTop={this.scrollToTop}/> } /> : null}
           <Route exact path="/tools" render={props => <AllToolsContainer {...props}/> } />
           <Route exact path="/programs" render={props => <AllProgramsContainer {...props} programs={this.state.programs} scrollToTop={this.scrollToTop}/> } />
           <Route exact path="/contact" render={props => <Contact/> } />
+          <Route exact path="/signup" render={props => <SignUp {...props} updateNewUser={this.updateNewUser}/> } />
+          <Route exact path='/login' render={props=> <Login {...props} getUserStats={this.getUserStats} updateUser={this.updateUser} />} />
+          {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDashboard {...props} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>
-        <Footer />
       </div>
-
+      </React.Fragment>
     )
   }
 }
 
-// <NavBar /><br/><br/><br/><br/>
-// {this.state.stepNumber === 0 || this.state.showResults === true ? <Footer /> : null }
 
 export default App;
-
-// {this.state.mobileDevice === false ? <SlidingNavBar scrollToTop={this.scrollToTop}/> : null }

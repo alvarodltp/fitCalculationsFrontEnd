@@ -10,7 +10,7 @@ import RelatedPosts from './RelatedPosts'
 const BlogPage = (props) => {
   return(
     <React.Fragment>
-      <BlogPost props={props} />
+      <BlogPost posts={props.posts} scrollToTop={props.scrollToTop} />
     </React.Fragment>
   )
 }

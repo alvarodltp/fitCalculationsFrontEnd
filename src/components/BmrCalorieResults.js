@@ -13,6 +13,7 @@ import { Popup } from 'semantic-ui-react'
 class BmrCalorieResults extends React.Component {
 
   render(){
+    debugger
     return(
       <React.Fragment>
       <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "40px"}} horizontal>

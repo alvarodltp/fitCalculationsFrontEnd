@@ -3,7 +3,7 @@ import {Grid, Icon, Button, Image} from 'semantic-ui-react'
 import { BrowserView } from "react-device-detect";
 import { Link } from "react-router-dom"
 
-const Nav = (props) => {
+const Nav = () => {
 
    return(
      <React.Fragment>
@@ -30,7 +30,9 @@ const Nav = (props) => {
           <Link to="/blog">
             <li>Blog</li>
           </Link>
-            <li><a href="https://fitcalculations.trainerize.com/app/logon.aspx" style={{color: "#e80aaa"}}>Login</a></li>
+          <Link to="/login">
+            <li style={{color: "#e80aaa"}}>Login</li>
+          </Link>
           </ul>
          </nav>
        </header>

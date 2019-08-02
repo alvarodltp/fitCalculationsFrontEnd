@@ -1,34 +1,224 @@
-#user-dashboard {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(10, minmax(50px, auto));
-  grid-gap: 10px;
-}
 
 span {
   font-size: 14px;
 }
 
+.login-container {
+  display: grid;
+}
+
+.login {
+  padding: 40px;
+  margin: 0 auto;
+  background: linear-gradient(to top, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-inputs .login-input{
+  padding-top: 20px;
+}
+
+.login-buttons {
+  padding: 20px;
+}
 
 #user-dashboard div {
-  background-color: orange;
+  border: orange;
 }
 
 #user-dashboard > * {
-  background: blue;
-  padding: 10px;
+  background: #f0f0f0;
+  padding: 5px;
 }
 
-.dash-nav {
-  grid-column: 1/13;
+#user-dashboard .dash-menu{
+  background: white;
 }
 
-.dash-menu {
-  grid-column: 1/3;
-  grid-row: 2/11;
+#user-dashboard .dash-nav{
+  background: #2761f1;
 }
 
-.dash-content {
-  grid-column: 3/13;
-  grid-row: 2/11;
+#card-dashboard {
+  background: white;
+  border-radius: 0px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
+}
+
+#card-dashboard-blue {
+  background: #2761f1;
+  border-radius: 0px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
+}
+
+#card-dashboard-pink {
+  background: #e80aaa;
+  border-radius: 0px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
+}
+
+#card-dashboard-gradient {
+  background: linear-gradient(0deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
+  border-radius: 0px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
+}
+
+/* Mobile */
+@media only screen and (max-width: 500px) {
+  #user-dashboard {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5px;
+  }
+  .dash-nav {
+    grid-column: 1/13;
+  }
+  .dash-menu {
+    grid-column: 1/13;
+  }
+  .nested-content {
+    grid-column: 1/13;
+  }
+  .dash-menu div {
+    display: inline-block;
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 501px) and (max-width: 960px) {
+  #user-dashboard {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5px;
+  }
+  .dash-nav {
+    grid-column: 1/13;
+  }
+  .dash-menu {
+    grid-column: 1/13;
+  }
+  .nested-content {
+    display: grid;
+    grid-column: 1/13;
+  }
+  .dash-menu div {
+    display: inline-block;
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 961px) {
+  #user-dashboard {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, minmax(50px, auto));
+  }
+  .dash-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    grid-column: 1/13;
+    grid-row: 0/1;
+  }
+  .dash-menu {
+    grid-column: 1/3;
+    grid-row: 2/13;
+  }
+  .nested-content{
+    display: grid;
+    grid-gap: 0px;
+    grid-column: 3/13;
+    grid-row: 2/13;
+    position: relative;
+  }
+  .nested-content .user-profile-dash-calories {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(11, minmax(50px, auto));
+  }
+  .weight-dash {
+    grid-column: 1/4;
+    grid-row: 1/3;
+  }
+  .goal-cal-dash {
+    grid-column: 4/7;
+    grid-row: 1/3;
+  }
+  .bmr-dash {
+    grid-column: 7/10;
+    grid-row: 1/3;
+  }
+  .bmi-dash {
+    grid-column: 10/13;
+    grid-row: 1/3;
+  }
+  .protein-container {
+    grid-column: 4/7;
+    grid-row: 3/5;
+  }
+  .carbs-container {
+    grid-column: 4/7;
+    grid-row: 5/7;
+  }
+  .fats-container {
+    grid-column: 4/7;
+    grid-row: 7/9;
+  }
+  .macros-chart{
+    grid-column: 1/4;
+    grid-row: 3/9;
+  }
+  .macros-perc-chart{
+    grid-column: 7/10;
+    grid-row: 3/9;
+  }
+  .protein-perc-container {
+    grid-column: 10/13;
+    grid-row: 3/5;
+  }
+  .carbs-perc-container {
+    grid-column: 10/13;
+    grid-row: 5/7;
+  }
+  .fats-perc-container {
+    grid-column: 10/13;
+    grid-row: 7/9;
+  }
+  .dash-menu div {
+    margin: 30px;
+  }
+  .nested-content .user-stats-dash {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(11, minmax(50px, auto));
+  }
+  .weight-chart-title {
+    grid-column: 1/7;
+    grid-row: 1/2;
+  }
+  .weight-chart {
+    grid-column: 1/7;
+    grid-row: 2/7;
+  }
+  .bmi-chart-title {
+    grid-column: 7/13;
+    grid-row: 1/2;
+  }
+  .bmi-chart {
+    grid-column: 7/13;
+    grid-row: 2/7;
+  }
 }

@@ -29,7 +29,7 @@ class BlogPost extends React.Component {
   }
 
   render(){
-    let posts = this.props.props.posts
+    let posts = this.props.posts
     let url = window.location.href.split("/").pop()
     let post = Object.values(posts).find(post => post.fields.path === url)
     const threadConfig = {
