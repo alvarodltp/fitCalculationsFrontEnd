@@ -35,7 +35,7 @@ class Login extends React.Component {
       email: e.target.parentElement.parentElement.parentElement.querySelector('input[name="email"]').value,
       password: e.target.parentElement.parentElement.parentElement.querySelector('input[name="password"]').value
     });
-    fetch("http://localhost:3001/login", {
+    fetch("https://fitcalculations-api.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

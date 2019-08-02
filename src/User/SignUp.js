@@ -40,7 +40,7 @@ class Signup extends React.Component {
       gender: this.state.gender,
       password: this.state.password
     }}
-    fetch("http://localhost:3001/users", {
+    fetch("https://fitcalculations-api.herokuapp.com/users", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

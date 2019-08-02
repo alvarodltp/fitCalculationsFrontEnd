@@ -420,7 +420,7 @@ calculateMacros = (e) => {
 }
 
 getAllUsers = () => {
-  fetch("http://localhost:3001/users")
+  fetch("https://fitcalculations-api.herokuapp.com/users")
   .then(response => response.json())
   .then(json => {
     let email = this.state.email
@@ -462,7 +462,7 @@ setLoadingToTrue = () => {
 }
 
 saveUser = () => {
-  fetch("http://localhost:3001/users", {
+  fetch("https://fitcalculations-api.herokuapp.com/users", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -485,7 +485,7 @@ saveUser = () => {
 updateUser = (userExists) => {
   let userId = userExists[0].id
   debugger
-  fetch(`http://localhost:3001/users/${userId}`, {
+  fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -510,7 +510,7 @@ saveStats = (user) => {
   debugger
   let today = new Date()
   // let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
-  fetch("http://localhost:3001/stats", {
+  fetch("https://fitcalculations-api.herokuapp.com/stats", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -654,7 +654,7 @@ handleOnSubmit = () => {
     password: this.state.password,
     gender: this.state.gender
   }}
-  fetch("http://localhost:3001/users", {
+  fetch("https://fitcalculations-api.herokuapp.com/users", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

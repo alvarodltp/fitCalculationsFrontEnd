@@ -100,7 +100,7 @@ class App extends React.Component {
   }
 
   fetchUser = () => {
-    requestHelper("http://localhost:3001/profile").then(json => this.updateUser(json.user));
+    requestHelper("https://fitcalculations-api.herokuapp.com/profile").then(json => this.updateUser(json.user));
   };
 
 componentDidMount() {
@@ -136,7 +136,7 @@ getUserStats = (user) => {
     userId = user.id
   }
   if(userId != ""){
-    fetch("http://localhost:3001/stats")
+    fetch("https://fitcalculations-api.herokuapp.com/stats")
     .then(response => response.json())
     .then(json => {
       let currentUserStats = json.filter(stat => stat.user_id === userId)
