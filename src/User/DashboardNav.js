@@ -16,9 +16,9 @@ class DashboardNav extends React.Component {
     )
 
     const options = [
-      { key: 'user', text: 'Account', icon: 'user' },
-      { key: 'settings', text: 'Settings', icon: 'settings' },
-      { key: 'sign-out', text: 'Sign Out', icon: 'sign out' },
+      // { key: 'user', text: 'Account', icon: 'user' },
+      // { key: 'settings', text: 'Settings', icon: 'settings' },
+      { key: 'sign-out', text: 'Sign Out', icon: 'sign out' }
     ]
 
     return(

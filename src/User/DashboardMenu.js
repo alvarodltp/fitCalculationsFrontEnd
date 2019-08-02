@@ -3,22 +3,22 @@ import {Icon} from 'semantic-ui-react'
 import { FaChartPie } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 
-const DashboardMenu = () => {
+const DashboardMenu = (props) => {
   return (
     <div className="dash-menu">
-      <div>
-        <Icon style={{color: "blue"}} name="user" />
-        <p style={{fontSize: "10px"}}>Profile</p>
+      <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
+        <Icon style={{color: "blue", display: "inline"}} name="user" />
+        <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Profile</p>
       </div>
 
-      <div>
-        <FaChartPie style={{color: "blue"}}/>
-        <p style={{fontSize: "10px"}}>Stats</p>
+      <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
+        <FaChartPie  style={{color: "blue", display: "inline"}}/>
+        <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Stats</p>
       </div>
 
-      <div>
-        <FaLock style={{color: "blue"}}/>
-        <p style={{fontSize: "10px"}}>Programs</p>
+      <div style={{textAlign: "left"}}>
+        <FaLock style={{color: "blue", display: "inline"}}/>
+        <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Programs</p>
       </div>
     </div>
   )

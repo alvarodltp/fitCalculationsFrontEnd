@@ -420,11 +420,12 @@ calculateMacros = (e) => {
 }
 
 getAllUsers = () => {
-  fetch("https://fitcalculations-api.herokuapp.com/users")
+  fetch("http://localhost:3001/users")
   .then(response => response.json())
   .then(json => {
     let email = this.state.email
     let userExists = json.filter(user => user.email === email.toLowerCase())
+    console.log(userExists)
     this.setState({
       users: json,
       userExists: userExists
@@ -433,6 +434,7 @@ getAllUsers = () => {
 }
 
 saveOrUpdateUser = (userExists) => {
+  debugger
   if(this.props.emailValid === true && this.state.name !== "" && this.state.checked === true && userExists.length !== 0){
     this.updateUser(userExists)
   } else if (this.props.emailValid === true && this.state.name !== "" && this.state.checked === true && userExists.length === 0){
@@ -482,6 +484,7 @@ saveUser = () => {
 
 updateUser = (userExists) => {
   let userId = userExists[0].id
+  debugger
   fetch(`http://localhost:3001/users/${userId}`, {
       method: "PATCH",
       headers: {

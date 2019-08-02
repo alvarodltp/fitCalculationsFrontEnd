@@ -34,17 +34,16 @@ class Calories extends React.Component {
   }
 
     return (
-      <div style={{maxHeight: "400px"}}>
-        <h2 style={{marginTop: "1px", textAlign: "left", color: "white"}}>Calories</h2>
-        <Line
-           data={data}
-           width={300}
-           height={200}
-           options={{
-           maintainAspectRatio: false
-           }}
-           />
-      </div>
+
+      <Line
+         data={data}
+         width={100}
+         height={100}
+         options={{
+         maintainAspectRatio: false
+         }}
+         />
+
     )
   }
 }

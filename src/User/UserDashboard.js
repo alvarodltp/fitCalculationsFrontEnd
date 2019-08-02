@@ -5,14 +5,29 @@ import DashboardMenu from './DashboardMenu'
 import DashboardContent from './DashboardContent'
 
 
-const UserDasboard = (props) => {
-  return (
-    <div id="user-dashboard">
-      <DashboardNav currentUserStats={props.currentUserStats[props.currentUserStats.length - 1]} logOut={props.logOut}/>
-      <DashboardMenu currentUserStats={props.currentUserStats[props.currentUserStats.length - 1]}/>
-      <DashboardContent currentUserStats={props.currentUserStats[props.currentUserStats.length - 1]}/>
-    </div>
-  )
+class UserDasboard extends React.Component {
+  constructor(){
+    super()
+    this.state={
+      page: 'Profile'
+    }
+  }
+
+  handleMenuClick = (e) => {
+    this.setState({
+      page: e.target.parentElement.innerText
+    })
+  }
+
+  render(){
+    return(
+      <div id="user-dashboard">
+        <DashboardNav currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]} logOut={this.props.logOut}/>
+        <DashboardMenu handleMenuClick={this.handleMenuClick} currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]}/>
+        <DashboardContent page={this.state.page} currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]}/>
+      </div>
+    )
+  }
 }
 
 export default UserDasboard

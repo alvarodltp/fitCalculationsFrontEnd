@@ -1,71 +1,68 @@
 import React from 'react'
 import {Image} from 'semantic-ui-react'
 import Calories from './Calories'
+import Macros from './Macros'
+import MacroPercentage from './MacroPercentage'
 
 class UserProfile extends React.Component {
-  constructor(){
-    super()
-    this.state={
-
-    }
-  }
-
   render() {
-  debugger
     return (
       <React.Fragment>
-        <div id="card-dashboard">
-          <p style={{position: "relative", width: "0", height: "0", textAlign: "left", color: "white", fontSize: "10px", marginBottom: "0px"}}>Goal</p>
-          <h1 style={{fontSize: "35px", marginTop: "0px", alignItems: "center"}}>{`${this.props.currentUserStats.goal} For ${this.props.currentUserStats.reason_to_get_fit}`}</h1>
-        </div>
-
         <div className="user-profile-dash-calories">
-          <div id="card-dashboard">
-            <p style={{position: "relative", width: "0", height: "0", textAlign: "left", color: "white", fontSize: "10px", marginBottom: "0px"}}>Weight</p>
-            <h1 style={{fontSize: "35px", marginTop: "0px"}}>{this.props.currentUserStats.weight_in_lb} lb.</h1>
+          <div id="card-dashboard-gradient" className="weight-dash">
+            <p style={{color: "black", fontSize: "14px"}}>Weight</p>
+            <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.weight_in_lb} lb.</h2>
           </div>
 
-          <div id="card-dashboard">
-            <p style={{position: "relative", width: "0", height: "0", textAlign: "left", color: "white", fontSize: "10px", marginBottom: "0px"}}>Age</p>
-            <h1 style={{fontSize: "35px", marginTop: "0px", alignItems: "center"}}>{this.props.currentUserStats.age}</h1>
+          <div id="card-dashboard-gradient" className="goal-cal-dash">
+            <p style={{color: "black", fontSize: "14px"}}>Goal Calories</p>
+            <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.calories_for_goal}</h2>
           </div>
 
-          <div id="card-dashboard">
-            <p style={{position: "relative", width: "0", height: "0", textAlign: "left", color: "white", fontSize: "10px", marginBottom: "0px"}}>Bmi</p>
-            <h1 style={{fontSize: "35px", marginTop: "0px", alignItems: "center"}}>{this.props.currentUserStats.bmi}</h1>
+          <div id="card-dashboard-gradient" className="bmr-dash">
+            <p style={{color: "black", fontSize: "14px"}}>Bmr</p>
+            <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.bmr}</h2>
           </div>
 
-          <div id="card-dashboard">
-            <p style={{position: "relative", width: "0", height: "0", textAlign: "left", color: "white", fontSize: "10px", marginBottom: "0px"}}>Height</p>
-            <h1 style={{fontSize: "35px", marginTop: "0px", alignItems: "center"}}>{this.props.currentUserStats.height_in_feet}'{this.props.currentUserStats.height_in_inches}</h1>
+          <div id="card-dashboard-gradient" className="bmi-dash">
+            <p style={{color: "black", fontSize: "14px"}}>Bmi</p>
+            <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.bmi}</h2>
           </div>
 
-          <div id="card-dashboard" className="body-type-dashboard">
-            <p style={{textAlign: "left", color: "white", fontSize: "10px", marginBottom: "0px"}}>{`Body Type - ${this.props.currentUserStats.body_type}`}</p>
-            <Image style={{margin: "0 auto"}} src={`/${this.props.currentUserStats.body_type}.jpg`} />
+          <div id="card-dashboard" className="protein-container">
+            <p style={{color: "black", fontSize: "14px"}}>Protein</p>
+            <h2 style={{fontSize: "20px", color: "#2761f1", marginTop: "0px"}}>{this.props.currentUserStats.protein_grams}g</h2>
+          </div>
+          <div id="card-dashboard" className="carbs-container">
+            <p style={{color: "black", fontSize: "14px"}}>Carbs</p>
+            <h2 style={{fontSize: "20px", color: "#2761f1", marginTop: "0px"}}>{this.props.currentUserStats.carb_grams}g</h2>
+          </div>
+          <div id="card-dashboard" className="fats-container">
+            <p style={{color: "black", fontSize: "14px"}}>Fats</p>
+            <h2 style={{fontSize: "20px", color: "#2761f1", marginTop: "0px"}}>{this.props.currentUserStats.fat_grams}g</h2>
           </div>
 
-          <div id="card-dashboard" className="bmr-dashboard">
-            <p style={{position: "relative", width: "0", height: "0", textAlign: "left", color: "white", fontSize: "10px", marginBottom: "0px"}}>Bmr</p>
-            <h1 style={{fontSize: "35px", marginTop: "0px"}}>{this.props.currentUserStats.bmr}</h1>
+          <div id="card-dashboard" className="macros-chart">
+            <Macros currentUserStats={this.props.currentUserStats}/>
           </div>
 
-          <div id="card-dashboard" className="maintcal-dashboard">
-            <p style={{position: "relative", width: "0", height: "0", textAlign: "left", color: "white", fontSize: "10px", marginBottom: "0px"}}>Maintainance Calories</p>
-            <h1 style={{fontSize: "35px", marginTop: "0px"}}>{this.props.currentUserStats.calories_to_maintain}</h1>
-          </div>
-          <div id="card-dashboard" className="goalcal-dashboard">
-            <p style={{position: "relative", width: "0", height: "0", textAlign: "left", color: "white", fontSize: "10px", marginBottom: "0px"}}>Goal Calories</p>
-            <h1 style={{fontSize: "35px", marginTop: "0px"}}>{this.props.currentUserStats.calories_for_goal}</h1>
+          <div id="card-dashboard" className="macros-perc-chart">
+            <MacroPercentage currentUserStats={this.props.currentUserStats}/>
           </div>
 
-          <div id="card-dashboard" className="calories-container">
-            <Calories currentUserStats={this.props.currentUserStats}/>
+          <div id="card-dashboard" className="protein-perc-container">
+            <p style={{color: "black", fontSize: "14px"}}>Protein %</p>
+            <h2 style={{fontSize: "20px", color: "#2761f1", marginTop: "0px"}}>{this.props.currentUserStats.protein_percentage}%</h2>
           </div>
-
+          <div id="card-dashboard" className="carbs-perc-container">
+            <p style={{color: "black", fontSize: "14px"}}>Carbs %</p>
+            <h2 style={{fontSize: "20px", color: "#2761f1", marginTop: "0px"}}>{this.props.currentUserStats.carb_percentage}%</h2>
+          </div>
+          <div id="card-dashboard" className="fats-perc-container">
+            <p style={{color: "black", fontSize: "14px"}}>Fats %</p>
+            <h2 style={{fontSize: "20px", color: "#2761f1", marginTop: "0px"}}>{this.props.currentUserStats.fat_percentage}%</h2>
+          </div>
         </div>
-
-
 
       </React.Fragment>
     )
@@ -73,3 +70,7 @@ class UserProfile extends React.Component {
 }
 
 export default UserProfile
+
+// <div id="card-dashboard" className="macros-chart">
+//   <Macros currentUserStats={this.props.currentUserStats}/>
+// </div>

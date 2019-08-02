@@ -1,12 +1,13 @@
 import React from 'react';
 import Calories from './Calories';
 import UserProfile from './UserProfile'
+import UserStats from './UserStats'
 
 const DashboardContent = (props) => {
-  debugger
   return (
     <div className="nested-content">
-      <UserProfile currentUserStats={props.currentUserStats}/>
+      { props.page === "Profile" ? <UserProfile currentUserStats={props.currentUserStats}/> : null }
+      { props.page === "Stats" ? <UserStats /> : null }
     </div>
   )
 }
