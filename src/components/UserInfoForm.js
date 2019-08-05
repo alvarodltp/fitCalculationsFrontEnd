@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Card, Button, Checkbox, Icon, Grid } from 'semantic-ui-react'
 import Fade from 'react-reveal/Slide';
+import './UserInfoForm.css'
 // import {Form, Input, Select, Label} from 'formsy-semantic-ui-react';
 
 class UserInfoForm extends React.Component {

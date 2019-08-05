@@ -1,0 +1,29 @@
+/* .ui.selection.dropdown {
+  background: transparent;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom-color: #2761f1;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-width: medium;
+}
+
+.ui.form input[type=number] {
+  background: transparent;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom-color: #2761f1;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-width: medium;
+}
+
+.ui.dropdown>.default.text {
+  color: black
+}
+
+.ui.selection.dropdown .menu {
+  max-height: 300px;
+} */

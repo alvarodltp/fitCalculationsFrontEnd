@@ -1257,27 +1257,6 @@ box-shadow: none;
   font-size: 1.1em;
 }
 
-.ui.selection.dropdown {
-  background: transparent;
-  border-top: 0px;
-  border-right: 0px;
-  border-left: 0px;
-  border-bottom-color: #2761f1;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-bottom-width: medium;
-}
-
-.ui.form input[type=number] {
-  background: transparent;
-  border-top: 0px;
-  border-right: 0px;
-  border-left: 0px;
-  border-bottom-color: #2761f1;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-bottom-width: medium;
-}
 
 #invite-page {
   background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
@@ -1467,10 +1446,6 @@ box-shadow: none;
   margin-top: 20%
 }
 
-.ui.dropdown>.default.text {
-  color: black
-}
-
 #food-form {
  position: absolute;
  top: 50%;
@@ -1487,10 +1462,6 @@ box-shadow: none;
 
 #background-food {
   height: 96vh;
-}
-
-.ui.selection.dropdown .menu {
-  max-height: 300px;
 }
 
 #header-home-landing{

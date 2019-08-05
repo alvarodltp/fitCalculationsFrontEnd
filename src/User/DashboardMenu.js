@@ -1,5 +1,6 @@
 import React from 'react'
-import {Icon} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
+import {Icon, Button}  from 'semantic-ui-react'
 import { FaChartPie } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 
@@ -19,6 +20,9 @@ const DashboardMenu = (props) => {
       <div style={{textAlign: "left"}}>
         <FaLock style={{color: "blue", display: "inline"}}/>
         <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Programs</p>
+      </div>
+      <div onClick={props.handleMenuClick}>
+        <Button style={{color: "white", background: "blue"}}>Start New Calculation</Button>
       </div>
     </div>
   )

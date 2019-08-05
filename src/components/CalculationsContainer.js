@@ -85,6 +85,10 @@ class CalculationsContainer extends React.Component {
     }
   }
 
+  componentDidMount(){
+    this.getAllUsers()
+  }
+
   getFormType = (e) => {
     this.setState({
       formType: e.target.innerText
@@ -247,6 +251,7 @@ class CalculationsContainer extends React.Component {
   }
 
   getWeightToLose = (e) => {
+    debugger
     this.setState({
       weightToManage: e.target.innerText
     })
@@ -425,7 +430,7 @@ getAllUsers = () => {
   .then(json => {
     let email = this.state.email
     let userExists = json.filter(user => user.email === email.toLowerCase())
-    console.log(userExists)
+    // console.log(userExists)
     this.setState({
       users: json,
       userExists: userExists
@@ -434,7 +439,7 @@ getAllUsers = () => {
 }
 
 saveOrUpdateUser = (userExists) => {
-  debugger
+  // debugger
   if(this.props.emailValid === true && this.state.name !== "" && this.state.checked === true && userExists.length !== 0){
     this.updateUser(userExists)
   } else if (this.props.emailValid === true && this.state.name !== "" && this.state.checked === true && userExists.length === 0){
@@ -484,7 +489,6 @@ saveUser = () => {
 
 updateUser = (userExists) => {
   let userId = userExists[0].id
-  debugger
   fetch(`https://fitcalculations-api.herokuapp.com/users/${userId}`, {
       method: "PATCH",
       headers: {
@@ -507,10 +511,11 @@ updateUser = (userExists) => {
   }
 
 saveStats = (user) => {
-  debugger
+  let weightToManage = this.state.weightToManage
   let today = new Date()
+  debugger
   // let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
-  fetch("https://fitcalculations-api.herokuapp.com/stats", {
+  fetch("http://fitcalculations-api.herokuapp.com/stats", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -540,10 +545,12 @@ saveStats = (user) => {
       height_in_cm: this.state.heightCm,
       diet_type: this.state.dietType,
       reason_to_get_fit: this.state.motivationToGetFit,
-      measurement_system: this.state.formType
+      measurement_system: this.state.formType,
+      weight_to_manage: this.state.weightToManage
       })
     }).then(response => response.json())
     .then(json => {
+      debugger
       this.setState({
         stats: json,
         loading: false
@@ -565,8 +572,6 @@ calculateBreakdown = () => {
       carbsBreakdown: Math.round(this.state.carbs/this.state.numberOfMeals),
       fatsBreakdown: Math.round(this.state.fats/this.state.numberOfMeals)
     })
-  } else {
-
   }
 }
 
@@ -606,12 +611,11 @@ notify = () => {
     toast.warn(`Your goal has been modified to allow you to consume a minimum of 1500 calories a day. You will lose around ${approxPoundsToLoseSafely} lb. per week.`, {
       position: toast.POSITION.TOP_CENTER
     })
-  } else if(this.state.gender === "Female" && this.state.safeCalories === false){
+  }
+  if(this.state.gender === "Female" && this.state.safeCalories === false){
     toast.warn(`Your goal has been modified to allow you to consume a minimum of 1200 calories a day. You will lose around ${approxPoundsToLoseSafely} lb. per week.`, {
       position: toast.POSITION.TOP_CENTER
     })
-  } else {
-
   }
 }
 
@@ -678,11 +682,11 @@ confirmPassword = (e) => {
   if(e.target.value === this.state.password){
     this.setState({
       passwordMessage: true
-    })
+    });
   } else {
     this.setState({
       passwordMessage: false
-    })
+    });
   }
 }
 

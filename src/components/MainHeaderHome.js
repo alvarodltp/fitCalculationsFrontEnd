@@ -11,7 +11,7 @@ const MainHeaderHome = (props) => {
       </div>
       <div className="gain">
         <Image style={{background: "white", padding: "30px", margin: "0 auto", opacity: "0.7"}} src="results.png" circular /><br/>
-        <span style={{color: "white", background: "#2761f1", margin: "0 auto"}}>Make You Lean, Strong, And Sexy</span>
+        <span style={{color: "white", background: "#2761f1", margin: "0 auto", fontSize: "18px"}}>We Help You Get Lean, Strong, And Healthy</span>
       </div>
     </div>
   )

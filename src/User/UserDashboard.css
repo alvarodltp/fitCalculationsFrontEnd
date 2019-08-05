@@ -3,6 +3,11 @@ span {
   font-size: 14px;
 }
 
+.new-calculation-container {
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
 .login-container {
   display: grid;
 }

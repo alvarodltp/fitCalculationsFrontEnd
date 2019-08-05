@@ -52,6 +52,7 @@ class App extends React.Component {
     this.state={
       user: null,
       currentUserStats: null,
+      currentUserStatsNewCalc: null,
       stepNumber: 0,
       mobileDevice: null,
       showResults: false,
@@ -129,6 +130,7 @@ updateUser = (user) => {
 }
 
 getUserStats = (user) => {
+  // debugger
   let userId;
   if(user === undefined){
     { this.state.user != null ? userId = this.state.user.id : userId = "" }
@@ -140,9 +142,10 @@ getUserStats = (user) => {
     .then(response => response.json())
     .then(json => {
       let currentUserStats = json.filter(stat => stat.user_id === userId)
-      console.log(currentUserStats)
+      debugger
       this.setState({
-        currentUserStats: currentUserStats
+        currentUserStats: currentUserStats,
+        currentUserStatsNewCalc: currentUserStats
       }, () => this.props.history.push('/profile'))
     })
   }
@@ -207,7 +210,6 @@ addOneToStep = (stats) => {
       stepNumber: this.state.stepNumber + 1,
       currentUserStats: stats
     }, () => this.getUserStats())
-    // this.props.history.push('/user-dashboard')
   }
 }
 
@@ -291,7 +293,7 @@ requiredEmailMessage = () => {
           <Route exact path="/contact" render={props => <Contact/> } />
           <Route exact path="/signup" render={props => <SignUp {...props} updateNewUser={this.updateNewUser}/> } />
           <Route exact path='/login' render={props=> <Login {...props} getUserStats={this.getUserStats} updateUser={this.updateUser} />} />
-          {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDashboard {...props} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }
+          {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDashboard {...props} currentUserStatsNewCalc={this.state.currentUserStatsNewCalc} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>
