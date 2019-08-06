@@ -24,8 +24,6 @@ class SignUpForm extends React.Component {
             <p>Sign up for a FREE account to keep track of your calculations or view your results as a guest.</p>
           </div>
 
-        <div id="sign-up-or-not">
-
           <div id="sign-up-form-card">
             <Form>
              <Form.Group>
@@ -43,13 +41,6 @@ class SignUpForm extends React.Component {
           </Form>
         </div>
 
-        <div className="vertical-line">
-        </div>
-
-        <div className="continue-as-guest">
-          <Button id="button-get-email">Continue As A Guest</Button>
-        </div>
-      </div>
       </div>
     </React.Fragment>
     )

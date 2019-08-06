@@ -67,7 +67,6 @@ class UserDashboard extends React.Component {
     } else if (this.props.currentUserStatsNewCalc.user.gender === "Female" && formType === 'Metric'){
       bmr = Math.round(10 * this.state.weight_in_kg + 6.25 * this.state.heightCm - 5 * age - 161)
     }
-    debugger
     this.setState({
       bmr: bmr,
       bmi: bmi
@@ -242,11 +241,10 @@ saveStats = () => {
       })
     }).then(response => response.json())
     .then(json => {
-      debugger
       this.setState({
         stats: json,
-        loading: false
-      })
+        page: "Profile"
+      }, this.props.getUserStats(stat.user))
   })
 }
 
