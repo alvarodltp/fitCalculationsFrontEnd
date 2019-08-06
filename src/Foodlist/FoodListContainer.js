@@ -97,12 +97,14 @@ class FoodListContainer extends React.Component {
       maxListLimit: "",
       disabled: true,
       emailValid: "",
-      message: ""
+      message: "",
+      createNew: false
     }
   }
 
   componentDidMount(){
-    this.getUsersWithLists()
+    this.setFoodTypes()
+    this.getUserFoodList()
   }
 
   getName = (e) => {
@@ -111,16 +113,26 @@ class FoodListContainer extends React.Component {
     })
   }
 
+  // getUsersWithLists = () => {
+  //   fetch("https://fitcalculations-api.herokuapp.com/users")
+  //   .then(response => response.json())
+  //   .then(json => {
+  //     let usersWithLists = json.filter(user => user["food_lists"].length > 0)
+  //     this.setState({
+  //       usersWithList: usersWithLists,
+  //       loading: false
+  //     })
+  //   })
+  // }
 
-
-  getUsersWithLists = () => {
-    fetch("https://fitcalculations-api.herokuapp.com/users")
+  getUserFoodList = () => {
+    fetch("https://fitcalculations-api.herokuapp.com/food_lists")
     .then(response => response.json())
     .then(json => {
-      let usersWithLists = json.filter(user => user["food_lists"].length > 0)
+      let foodList = json.filter(list => list["user"].id === this.props.currentUserStatsNewCalc.user.id)
+      debugger
       this.setState({
-        usersWithList: usersWithLists,
-        loading: false
+        foodList: foodList
       })
     })
   }
@@ -137,7 +149,7 @@ class FoodListContainer extends React.Component {
   }
 
   handleChangeOnSavedList = (e, foodObj) => {
-    let foodsForSelectedList=this.state.foodsForSelectedList
+    let foodsForSelectedList = this.state.foodsForSelectedList
     foodsForSelectedList.forEach(food => {
        if (food.name === e.target.parentElement.innerText)
         e.target.checked = !e.target.checked
@@ -151,70 +163,70 @@ class FoodListContainer extends React.Component {
     })
   }
 
-  checkIfUserExists = () => {
-    let userEmail = this.state.userEmail
-    let usersWithLists = this.state.usersWithList
-    let filteredUser = usersWithLists.filter(user => user.email === userEmail)[0] //either an object or undefined
-    let userFoodLists;
-    filteredUser !== undefined ? userFoodLists = filteredUser.food_lists : userFoodLists = null
-    this.setState({
-      user: filteredUser,
-      foodList: userFoodLists
-    }, () => this.createUser(filteredUser, userEmail))
-  }
+  // checkIfUserExists = () => {
+  //   let userEmail = this.state.userEmail
+  //   let usersWithLists = this.state.usersWithList
+  //   let filteredUser = usersWithLists.filter(user => user.email === userEmail)[0] //either an object or undefined
+  //   let userFoodLists;
+  //   filteredUser !== undefined ? userFoodLists = filteredUser.food_lists : userFoodLists = null
+  //   this.setState({
+  //     user: filteredUser,
+  //     foodList: userFoodLists
+  //   }, () => this.createUser(filteredUser, userEmail))
+  // }
 
-  validateEmail = (e) => {
-    let email = e.target.value.replace(/\s*$/,'')
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    this.setState({
-      emailValid: re.test(email)
-    })
-  }
+  // validateEmail = (e) => {
+  //   let email = e.target.value.replace(/\s*$/,'')
+  //   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //   this.setState({
+  //     emailValid: re.test(email)
+  //   })
+  // }
+  //
+  // errorMessage = () => {
+  //   if(this.state.emailValid === "" || this.state.emailValid === false) {
+  //     this.setState({
+  //       message: "Please enter a valid email."
+  //     })
+  //   }
+  // }
 
-  errorMessage = () => {
-    if(this.state.emailValid === "" || this.state.emailValid === false) {
-      this.setState({
-        message: "Please enter a valid email."
-      })
-    }
-  }
+  // listOrError = (e) => {
+  //   if(this.state.emailValid === true){
+  //     this.checkIfUserExists()
+  //   } else {
+  //     this.errorMessage()
+  //   }
+  // }
 
-  listOrError = (e) => {
-    if(this.state.emailValid === true){
-      this.checkIfUserExists()
-    } else {
-      this.errorMessage()
-    }
-  }
-
-  createUser = (user, email) => { //need to convert this to create or update user based on if the user already has his/her stats
-    if(user === undefined){
-      fetch("https://fitcalculations-api.herokuapp.com/users", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email.toLowerCase()
-          })
-        }).then(response => response.json())
-        .then(user => {
-          this.setState({
-            user: user,
-            foodTypes: foodTypes
-          })
-        })
-    } else {
-
-    }
-  }
+  // createUser = (user, email) => { //need to convert this to create or update user based on if the user already has his/her stats
+  //   if(user === undefined){
+  //     fetch("https://fitcalculations-api.herokuapp.com/users", {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         'Accept': 'application/json'
+  //       },
+  //       body: JSON.stringify({
+  //         email: email.toLowerCase()
+  //         })
+  //       }).then(response => response.json())
+  //       .then(user => {
+  //         debugger
+  //         this.setState({
+  //           user: user,
+  //           foodTypes: foodTypes
+  //         })
+  //       })
+  //   }
+  // }
 
   createFoodList = () => {
     let foodList;
     this.state.foodList === null ? foodList = new Array(0) : foodList = this.state.foodList
-    let userId = this.state.user.id
-    if(this.state.foodList === null || this.state.foodList.length < 6) {
+    let userId = this.props.currentUserStatsNewCalc.user.id
+    debugger
+    if(this.state.foodList === null || this.state.foodList.length < 9) {
       fetch("https://fitcalculations-api.herokuapp.com/food_lists", {
         method: 'POST',
         headers: {
@@ -227,18 +239,19 @@ class FoodListContainer extends React.Component {
           })
         }).then(response => response.json())
         .then(json => {
+          debugger
           let lastFoodListAddedId = json.id
           this.setState({
             foodList: [...foodList, json],
-            disabled: false
+            disabled: false,
+            createNew: false
           }, this.getAllFoodsChecked(lastFoodListAddedId), this.unCheckAllFoods())
         })//this needs to happen after an actual food list is created
     } else {
       this.setState({
-        maxListLimit: "You have reached your limit of 6 lists. Delete a list to create a new one."
+        maxListLimit: "You have reached your limit of 9 lists. Delete a list to create a new one."
       })
     }
-
   }
 
   getAllFoodsChecked = (lastFoodListAddedId) => {
@@ -267,6 +280,7 @@ class FoodListContainer extends React.Component {
       })
       .then(response => response.json())
       .then(json => {
+        debugger
       })
     } //end of loop
     swal("Success!", "Your list has been saved!", "success")
@@ -289,24 +303,25 @@ class FoodListContainer extends React.Component {
     })
   }
 
-  getUserEmail = (e) => {
-    this.setState({
-      userEmail: e.target.value.toLowerCase()
-    })
-  }
+  // getUserEmail = (e) => {
+  //   this.setState({
+  //     userEmail: e.target.value.toLowerCase()
+  //   })
+  // }
 
-  validateEmail = (e) => {
-    let email = e.target.value.replace(/\s*$/,'')
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    this.setState({
-      emailValid: re.test(email)
-    })
-  }
+  // validateEmail = (e) => {
+  //   let email = e.target.value.replace(/\s*$/,'')
+  //   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //   this.setState({
+  //     emailValid: re.test(email)
+  //   })
+  // }
 
   backToSavedLists = () => {
     this.setState({
       foodTypes: null,
-      maxListLimit: ""
+      maxListLimit: "",
+      createNew: false
     })
   }
 
@@ -344,12 +359,17 @@ handleDropdownClick = (e) => {
   })
 }
 
+createNew = () => {
+  this.setState({
+    createNew: true
+  })
+}
+
   render() {
     return(
       <React.Fragment>
-        {this.state.user === null ? <FoodListForm validateEmail={this.validateEmail} emailValid={this.state.emailValid} message={this.state.message} listOrError={this.listOrError} loading={this.state.loading} checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-        {this.state.foodTypes !== null ? <FoodList disabled={this.state.disabled} foodList={this.state.foodList} maxListLimit={this.state.maxListLimit} filteredFoodTypes={this.state.filteredFoodTypes} handleDropdownClick={this.handleDropdownClick} getName={this.getName} createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-        {this.state.user !== null && this.state.foodTypes === null && this.state.foodsForSelectedList === null ? <FoodListCard getAllFoodsForSelectedList={this.getAllFoodsForSelectedList} foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
+        {this.state.createNew === true ? <FoodList disabled={this.state.disabled} foodList={this.state.foodList} maxListLimit={this.state.maxListLimit} filteredFoodTypes={this.state.filteredFoodTypes} handleDropdownClick={this.handleDropdownClick} getName={this.getName} createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
+        {this.state.foodsForSelectedList === null && this.state.foodList != null && this.state.createNew === false ? <FoodListCard createNew={this.createNew} getAllFoodsForSelectedList={this.getAllFoodsForSelectedList} foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
         {this.state.foodsForSelectedList !== null ? <SavedFoodList handleChangeOnSavedList={this.handleChangeOnSavedList} clearSelectedFoods={this.clearSelectedFoods} foodsForSelectedList={this.state.foodsForSelectedList} backToSavedLists={this.backToSavedLists} handleChange={this.handleChange}/> : null}
       </React.Fragment>
     )
@@ -357,3 +377,5 @@ handleDropdownClick = (e) => {
 }
 
 export default FoodListContainer
+
+// <FoodListForm validateEmail={this.validateEmail} emailValid={this.state.emailValid} message={this.state.message} listOrError={this.listOrError} loading={this.state.loading} checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/>

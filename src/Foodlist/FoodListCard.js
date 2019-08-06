@@ -6,28 +6,12 @@ const FoodListCard = (props) => {
   return(
     <React.Fragment>
       <div>
-          <Divider style={{fontSize: "35px", fontStyle: "italic", marginTop: "50px"}} horizontal>
-              Your Lists
-          </Divider>
-          {props.foodList === null || props.foodList.length < 6 ?
-        <Card>
-          <Card.Content>
-             <Card.Header>Add New Grocery Shopping List</Card.Header>
-             <Card.Description>
-             </Card.Description>
-           </Card.Content>
-           <Card.Content extra>
-             <Button onClick={props.setFoodTypes} basic color='green'>
-               Create New
-             </Button>
-           </Card.Content>
-         </Card> :
-
-         <Message style={{marginTop: "40px"}} color='yellow'>You have reached your limit of 6 lists. Delete a list to create a new one</Message> }
-
-         {props.user !== undefined ?
-         <ExistingFoodLists getAllFoodsForSelectedList={props.getAllFoodsForSelectedList} foodList={props.foodList} removeFoodList={props.removeFoodList} user={props.user}/> : null }
-       </div>
+        <h1 style={{marginTop: "30px"}}>Your Lists</h1>
+        {props.foodList === null || props.foodList.length < 9 ?
+        <Button id="button" style={{margin: "30px"}} onClick={() => {props.setFoodTypes(); props.createNew()}}>Create New</Button> :
+        <Message style={{marginTop: "40px"}} color='yellow'>You have reached your limit of 10 lists. Delete a list to create a new one</Message> }
+        <ExistingFoodLists getAllFoodsForSelectedList={props.getAllFoodsForSelectedList} foodList={props.foodList} removeFoodList={props.removeFoodList} user={props.user}/>
+      </div>
     </React.Fragment>
   )
 }
