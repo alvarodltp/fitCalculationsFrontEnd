@@ -142,10 +142,10 @@ getUserStats = (user) => {
     .then(response => response.json())
     .then(json => {
       let currentUserStats = json.filter(stat => stat.user_id === userId)
-      debugger
+      let lastStat = currentUserStats[currentUserStats.length - 1]
       this.setState({
         currentUserStats: currentUserStats,
-        currentUserStatsNewCalc: currentUserStats
+        currentUserStatsNewCalc: lastStat
       }, () => this.props.history.push('/profile'))
     })
   }
@@ -261,15 +261,25 @@ requiredEmailMessage = () => {
   }
 }
 
-// getAllFields = () => {
-//   let allFields = this.props.posts.map(({fields}, i) => (fields))
-//   this.setState({
-//     allFields: allFields
-//   });
-// }
+handleChange = (e) => {
+  let lastStat = this.state.currentUserStatsNewCalc
+  lastStat[e.target.name] = e.target.value
+  this.setState({
+    currentUserStatsNewCalc: lastStat
+  })
+}
+
+handleChangeDropdown = (value, fieldName) => {
+  let lastStat = this.state.currentUserStatsNewCalc
+  lastStat[fieldName] = value
+  this.setState({
+    currentUserStatsNewCalc: lastStat
+  })
+}
 
   render() {
     const ReactPixel =  require('react-facebook-pixel');
+    // debugger
     return (
       <React.Fragment>
       <div className="App">
@@ -293,7 +303,7 @@ requiredEmailMessage = () => {
           <Route exact path="/contact" render={props => <Contact/> } />
           <Route exact path="/signup" render={props => <SignUp {...props} updateNewUser={this.updateNewUser}/> } />
           <Route exact path='/login' render={props=> <Login {...props} getUserStats={this.getUserStats} updateUser={this.updateUser} />} />
-          {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDashboard {...props} currentUserStatsNewCalc={this.state.currentUserStatsNewCalc} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }
+          {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDashboard {...props} handleChange={this.handleChange} handleChangeDropdown={this.handleChangeDropdown} currentUserStatsNewCalc={this.state.currentUserStatsNewCalc} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>

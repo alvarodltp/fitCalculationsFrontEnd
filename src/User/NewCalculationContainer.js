@@ -11,7 +11,7 @@ class NewCalculationContainer extends React.Component {
 
   message = () => {
     return(
-      toast.info("Values have been pre-populated with your your latest information. Mofify the values as needed.")
+      toast.success("Values have been pre-populated with your your latest stats. You can mofify the values as needed.")
     )
   }
 
