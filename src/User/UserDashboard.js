@@ -206,7 +206,7 @@ saveStats = () => {
   let today = new Date()
   debugger
   // let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
-  fetch("http://fitcalculations-api.herokuapp.com/stats", {
+  fetch("https://fitcalculations-api.herokuapp.com/stats", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
