@@ -39,10 +39,11 @@ class Nav extends React.Component {
            <ul>
            <Link to="/">
              <li>Home</li>
-           </Link>
+           </Link> 
+           {this.props.user === null &&
            <Link to="/calories-and-macros">
              <li>Start Here</li>
-           </Link>
+           </Link> }
            <Link to="/blog">
              <li>Blog</li>
            </Link>
