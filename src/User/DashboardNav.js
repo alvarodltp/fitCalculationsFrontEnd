@@ -6,6 +6,7 @@ class DashboardNav extends React.Component {
 
   handleClick = (e) => {
     if(e.target.innerText === "Sign Out"){this.props.logOut()}
+    if(e.target.innerText === "Dashboard"){this.props.history.push('/profile')}
   }
 
   render(){

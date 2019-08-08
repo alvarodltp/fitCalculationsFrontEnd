@@ -260,7 +260,6 @@ getProgram = (e) => {
     // debugger
     return(
       <div id="user-dashboard">
-        <DashboardNav currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]} logOut={this.props.logOut}/>
         <DashboardMenu handleMenuClick={this.handleMenuClick} currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]}/>
         <DashboardContent programSelected={this.state.programSelected} getProgram={this.getProgram} currentUserStatsNewCalc={this.props.currentUserStatsNewCalc} calculateBmr={this.calculateBmr} handleChange={this.props.handleChange} handleChangeDropdown={this.props.handleChangeDropdown} page={this.state.page} currentUserStats={this.props.currentUserStats}/>
       </div>
@@ -269,3 +268,5 @@ getProgram = (e) => {
 }
 
 export default UserDashboard
+
+// <DashboardNav currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]} logOut={this.props.logOut}/>

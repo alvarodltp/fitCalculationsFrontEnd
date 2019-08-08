@@ -155,7 +155,9 @@ getUserStats = (user) => {
 logOut = () => {
   localStorage.clear()
   this.setState({
-    user: null
+    user: null,
+    currentUserStats: null,
+    currentUserStatsNewCalc: null
   })
   this.props.history.push('/')
 }
@@ -280,12 +282,12 @@ handleChangeDropdown = (value, fieldName) => {
 }
 
   render() {
+    debugger
     const ReactPixel =  require('react-facebook-pixel');
-    // debugger
     return (
       <React.Fragment>
       <div className="App">
-        {this.state.user === null ? <Nav /> : null }
+          <Route render={props => <Nav {...props} currentUserStats={this.state.currentUserStats} user={this.state.user} logOut={this.logOut}/> } />
         <Switch>
           {this.state.posts != null ? <Route exact path="/" render={props => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop}
           requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
