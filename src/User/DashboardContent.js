@@ -4,6 +4,8 @@ import UserProfile from './UserProfile'
 import UserStats from './UserStats'
 import NewCalculationContainer from './NewCalculationContainer'
 import FoodListContainer from '../Foodlist/FoodListContainer'
+import ProgramsContainer from './ProgramsContainer'
+import NoDietsProgram from './NoDietsProgram'
 
 const DashboardContent = (props) => {
   // debugger
@@ -13,6 +15,8 @@ const DashboardContent = (props) => {
       { props.page === "Stats" ? <UserStats currentUserStats={props.currentUserStats} /> : null }
       { props.page === "Start New Calculation" ? <NewCalculationContainer currentUserStatsNewCalc={props.currentUserStatsNewCalc} calculateBmr={props.calculateBmr} handleChangeDropdown={props.handleChangeDropdown} handleChange={props.handleChange} currentUserStats={props.currentUserStats[props.currentUserStats.length - 1]} /> : null }
       { props.page === "Groceries" ? <FoodListContainer currentUserStatsNewCalc={props.currentUserStatsNewCalc}/> : null }
+      { props.page === "Programs" ?  <ProgramsContainer getProgram={props.getProgram} currentUserStatsNewCalc={props.currentUserStatsNewCalc}/> : null }
+      { props.programSelected != "" && props.page === "Program Display" ? <NoDietsProgram currentUserStatsNewCalc={props.currentUserStatsNewCalc}/> : null }
     </div>
   )
 }

@@ -133,10 +133,11 @@ getUserStats = (user) => {
   // debugger
   let userId;
   if(user === undefined){
-    { this.state.user != null ? userId = this.state.user.id : userId = "" }
+     this.state.user != null ? userId = this.state.user.id : userId = ""
   } else {
     userId = user.id
   }
+  debugger
   if(userId != ""){
     fetch("https://fitcalculations-api.herokuapp.com/stats")
     .then(response => response.json())
@@ -272,6 +273,7 @@ handleChange = (e) => {
 handleChangeDropdown = (value, fieldName) => {
   let lastStat = this.state.currentUserStatsNewCalc
   lastStat[fieldName] = value
+  debugger
   this.setState({
     currentUserStatsNewCalc: lastStat
   })

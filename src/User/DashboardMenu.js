@@ -18,7 +18,7 @@ const DashboardMenu = (props) => {
         <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Stats</p>
       </div>
 
-      <div style={{textAlign: "left"}}>
+      <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
         <FaLock style={{color: "blue", display: "inline"}}/>
         <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Programs</p>
       </div>

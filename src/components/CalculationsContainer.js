@@ -177,8 +177,6 @@ class CalculationsContainer extends React.Component {
       this.setState({
         confetti: true
       })
-    } else {
-
     }
   }
 
@@ -298,6 +296,7 @@ class CalculationsContainer extends React.Component {
     } else {
       activityLevelValue = 1.9
     }
+    debugger
     this.setState({
       activityLevel: {name: activityLevel, value: activityLevelValue},
       activityLevelText: activityLevel

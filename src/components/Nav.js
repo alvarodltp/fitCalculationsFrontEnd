@@ -24,9 +24,6 @@ const Nav = () => {
           <Link to="/calories-and-macros">
             <li>Start Here</li>
           </Link>
-          <Link to="/tools">
-            <li>Tools</li>
-          </Link>
           <Link to="/blog">
             <li>Blog</li>
           </Link>
