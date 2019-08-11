@@ -1,12 +1,8 @@
 import ReactGA from 'react-ga';
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.scss';
-import NavBar from '../NavBar/NavBar'
-import SlidingNavBar from '../NavBar/SlidingNavBar'
-import {Segment, Menu} from 'semantic-ui-react'
 import CalculationsContainer from './CalculationsContainer'
-import Footer from './Footer'
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Homepage from './Homepage'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import ThankYouBcm from './ThankYouBcm'
@@ -19,7 +15,6 @@ import FoodListContainer from '../Foodlist/FoodListContainer'
 import BmiCalculatorContainer from '../BmiCalculator/BmiCalculatorContainer'
 import BlogContainer from '../Blog/BlogContainer'
 import AllToolsContainer from '../Tools/AllToolsContainer'
-import TheNav from './TheNav'
 import Nav from './Nav'
 import * as contentful from 'contentful'
 import BlogPage from '../Blog/BlogPage'
@@ -28,7 +23,6 @@ import NotFound from './NotFound'
 import Contact from './Contact'
 import SignUp from '../User/SignUp'
 import Login from '../User/Login'
-import UserProfile from '../User/UserProfile'
 import UserDashboard from '../User/UserDashboard'
 
 const requestHelper = url =>
@@ -144,6 +138,7 @@ getUserStats = (user) => {
     .then(json => {
       let currentUserStats = json.filter(stat => stat.user_id === userId)
       let lastStat = currentUserStats[currentUserStats.length - 1]
+      debugger
       this.setState({
         currentUserStats: currentUserStats,
         currentUserStatsNewCalc: lastStat
@@ -170,7 +165,6 @@ client = contentful.createClient({
 fetchPosts = () => this.client.getEntries()
 
 setPosts = response => {
-  let postsObj = response.items.map(blog => blog.fields).map(post => post.content).map(item => item.content)
   this.setState({
     posts: response.items
   });
@@ -283,28 +277,27 @@ handleChangeDropdown = (value, fieldName) => {
 
   render() {
     debugger
-    const ReactPixel =  require('react-facebook-pixel');
     return (
       <React.Fragment>
       <div className="App">
           <Route render={props => <Nav {...props} currentUserStats={this.state.currentUserStats} user={this.state.user} logOut={this.logOut}/> } />
         <Switch>
-          {this.state.posts != null ? <Route exact path="/" render={props => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop}
+          {this.state.posts != null ? <Route exact path="/" render={() => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop}
           requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
           <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} updateNewUser={this.updateNewUser} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage}
           showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
-          <Route path="/macros-breakdown" render={props => <MacrosBreakdownForm /> } />
-          <Route path="/thank-you" render={props => <ThankYouBcm /> } />
+          <Route path="/macros-breakdown" render={() => <MacrosBreakdownForm /> } />
+          <Route path="/thank-you" render={() => <ThankYouBcm /> } />
           <Route path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
-          <Route path="/no-diets" render={props => <LandingPage /> } />
-          <Route path="/thank-you-purchase-completed" render={props => <ThankYouAfterPurchase /> } />
+          <Route path="/no-diets" render={() => <LandingPage /> } />
+          <Route path="/thank-you-purchase-completed" render={() => <ThankYouAfterPurchase /> } />
           <Route path="/food-list" render={props => <FoodListContainer {...props}/> } />
           <Route path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
           {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} scrollToTop={this.scrollToTop} posts={this.state.posts }/> } /> : null}
           {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts} scrollToTop={this.scrollToTop}/> } /> : null}
           <Route exact path="/tools" render={props => <AllToolsContainer {...props}/> } />
           <Route exact path="/programs" render={props => <AllProgramsContainer {...props} programs={this.state.programs} scrollToTop={this.scrollToTop}/> } />
-          <Route exact path="/contact" render={props => <Contact/> } />
+          <Route exact path="/contact" render={() => <Contact/> } />
           <Route exact path="/signup" render={props => <SignUp {...props} updateNewUser={this.updateNewUser}/> } />
           <Route exact path='/login' render={props=> <Login {...props} getUserStats={this.getUserStats} updateUser={this.updateUser} />} />
           {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDashboard {...props} getUserStats={this.getUserStats} handleChange={this.handleChange} handleChangeDropdown={this.handleChangeDropdown} currentUserStatsNewCalc={this.state.currentUserStatsNewCalc} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }

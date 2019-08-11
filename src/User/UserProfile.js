@@ -8,7 +8,7 @@ class UserProfile extends React.Component {
       <React.Fragment>
         <div className="user-profile-dash-calories">
           <div id="card-dashboard-gradient" className="weight-dash">
-            <p style={{color: "white", fontSize: "14px"}}>Weight</p>
+            <p style={{color: "white", fontSize: "14px"}}>Weight</p>  
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.weight_in_lb} lb.</h2>
           </div>
 

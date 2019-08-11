@@ -75,46 +75,46 @@ class UserDashboard extends React.Component {
   }
 
   calculateCalories = (bmr) => {
-  let activityLevel = this.props.currentUserStatsNewCalc.activity_level
-  let activityLevelValue;
-  if(activityLevel.split(' ')[0] === "Sedentary"){ activityLevelValue = 1.2 }
-  if(activityLevel.split(' ')[0] === "Lightly"){ activityLevelValue = 1.375 }
-  if(activityLevel.split(' ')[0] === "Moderately"){ activityLevelValue = 1.55 }
-  if(activityLevel.split(' ')[0] === "Very"){ activityLevelValue = 1.725 }
-  if(activityLevel.split(' ')[0] === "Extra") { activityLevelValue = 1.9 }
-  let goal = this.props.currentUserStatsNewCalc.goal
-  let weightToManage = this.props.currentUserStatsNewCalc.weight_to_manage.split(' ')[0]
-  let caloriesToMaintain;
-  bmr !== "" && activityLevel !== null ? caloriesToMaintain = Math.round(bmr * activityLevelValue) : caloriesToMaintain = null
-  let caloriesForGoal;
-  if(goal === "Lose Weight/Get Lean" && weightToManage === "Slow"){
-    caloriesForGoal = caloriesToMaintain - 250
-  } else if (goal === "Lose Weight/Get Lean" && weightToManage === "Steady"){
-    caloriesForGoal = caloriesToMaintain - 500
-  } else if (goal === "Lose Weight/Get Lean" && weightToManage === "Accelerated"){
-    caloriesForGoal = caloriesToMaintain - 1000
-  } else if (goal === "Gain Muscle" && weightToManage === "Slow"){
-    caloriesForGoal = caloriesToMaintain + 250
-  } else if (goal === "Gain Muscle" && weightToManage === "Steady"){
-    caloriesForGoal = caloriesToMaintain + 500
-  } else if (goal === "Gain Muscle" && weightToManage === "Accelerated"){
-    caloriesForGoal = caloriesToMaintain + 1000
-  } else {
-    caloriesForGoal = caloriesToMaintain
-  }
-  if(this.props.currentUserStatsNewCalc.user.gender === "Male" && caloriesForGoal < 1500) {
-    this.setState({
-      safeCalories: false,
-      caloriesToMaintain: caloriesToMaintain,
-      caloriesForGoal: 1500
-    }, () => this.getSafePoundsPerWeek(caloriesToMaintain))
-  } else if (this.props.currentUserStatsNewCalc.user.gender === "Female" && caloriesForGoal < 1200) {
+    let activityLevel = this.props.currentUserStatsNewCalc.activity_level
+    let activityLevelValue;
+    if(activityLevel.split(' ')[0] === "Sedentary"){ activityLevelValue = 1.2 }
+    if(activityLevel.split(' ')[0] === "Lightly"){ activityLevelValue = 1.375 }
+    if(activityLevel.split(' ')[0] === "Moderately"){ activityLevelValue = 1.55 }
+    if(activityLevel.split(' ')[0] === "Very"){ activityLevelValue = 1.725 }
+    if(activityLevel.split(' ')[0] === "Extra") { activityLevelValue = 1.9 }
+    let goal = this.props.currentUserStatsNewCalc.goal
+    let weightToManage = this.props.currentUserStatsNewCalc.weight_to_manage.split(' ')[0]
+    let caloriesToMaintain;
+    bmr !== "" && activityLevel !== null ? caloriesToMaintain = Math.round(bmr * activityLevelValue) : caloriesToMaintain = null
+    let caloriesForGoal;
+    if(goal === "Lose Weight/Get Lean" && weightToManage === "Slow"){
+      caloriesForGoal = caloriesToMaintain - 250
+    } else if (goal === "Lose Weight/Get Lean" && weightToManage === "Steady"){
+      caloriesForGoal = caloriesToMaintain - 500
+    } else if (goal === "Lose Weight/Get Lean" && weightToManage === "Accelerated"){
+      caloriesForGoal = caloriesToMaintain - 1000
+    } else if (goal === "Gain Muscle" && weightToManage === "Slow"){
+      caloriesForGoal = caloriesToMaintain + 250
+    } else if (goal === "Gain Muscle" && weightToManage === "Steady"){
+      caloriesForGoal = caloriesToMaintain + 500
+    } else if (goal === "Gain Muscle" && weightToManage === "Accelerated"){
+      caloriesForGoal = caloriesToMaintain + 1000
+    } else {
+      caloriesForGoal = caloriesToMaintain
+    }
+    if(this.props.currentUserStatsNewCalc.user.gender === "Male" && caloriesForGoal < 1500) {
+      this.setState({
+        safeCalories: false,
+        caloriesToMaintain: caloriesToMaintain,
+        caloriesForGoal: 1500
+      }, () => this.getSafePoundsPerWeek(caloriesToMaintain))
+    } else if (this.props.currentUserStatsNewCalc.user.gender === "Female" && caloriesForGoal < 1200) {
     this.setState({
       safeCalories: false,
       caloriesToMaintain: caloriesToMaintain,
       caloriesForGoal: 1200
     }, () => this.getSafePoundsPerWeek(caloriesToMaintain))
-  } else {
+    } else {
     this.setState({
       caloriesToMaintain: caloriesToMaintain,
       caloriesForGoal: caloriesForGoal

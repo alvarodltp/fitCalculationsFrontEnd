@@ -4,6 +4,7 @@ import FoodList from '../Foodlist/FoodList'
 import FoodListCard from '../Foodlist/FoodListCard'
 import SavedFoodList from '../Foodlist/SavedFoodList'
 import swal from 'sweetalert'
+import './FoodList.css'
 
 const foodTypes = [
   {id: 1, value: "Lean Beef", category: "Meat And Poultry", isChecked: false}, {id: 2, value: "Chicken", category: "Meat And Poultry", isChecked: false},
@@ -98,7 +99,9 @@ class FoodListContainer extends React.Component {
       disabled: true,
       emailValid: "",
       message: "",
-      createNew: false
+      createNew: false,
+      foodListName: "Grocery List",
+      foodListTotalCost: 0
     }
   }
 
@@ -113,24 +116,12 @@ class FoodListContainer extends React.Component {
     })
   }
 
-  // getUsersWithLists = () => {
-  //   fetch("https://fitcalculations-api.herokuapp.com/users")
-  //   .then(response => response.json())
-  //   .then(json => {
-  //     let usersWithLists = json.filter(user => user["food_lists"].length > 0)
-  //     this.setState({
-  //       usersWithList: usersWithLists,
-  //       loading: false
-  //     })
-  //   })
-  // }
-
   getUserFoodList = () => {
     fetch("https://fitcalculations-api.herokuapp.com/food_lists")
     .then(response => response.json())
     .then(json => {
       let foodList = json.filter(list => list["user"].id === this.props.currentUserStatsNewCalc.user.id)
-      debugger
+      // debugger
       this.setState({
         foodList: foodList
       })
@@ -158,74 +149,18 @@ class FoodListContainer extends React.Component {
 
   unCheckAllFoods = () => {
     let foodTypes = this.state.foodTypes
+    // debugger
     foodTypes.forEach(food => {
           food.isChecked = false
     })
   }
 
-  // checkIfUserExists = () => {
-  //   let userEmail = this.state.userEmail
-  //   let usersWithLists = this.state.usersWithList
-  //   let filteredUser = usersWithLists.filter(user => user.email === userEmail)[0] //either an object or undefined
-  //   let userFoodLists;
-  //   filteredUser !== undefined ? userFoodLists = filteredUser.food_lists : userFoodLists = null
-  //   this.setState({
-  //     user: filteredUser,
-  //     foodList: userFoodLists
-  //   }, () => this.createUser(filteredUser, userEmail))
-  // }
-
-  // validateEmail = (e) => {
-  //   let email = e.target.value.replace(/\s*$/,'')
-  //   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //   this.setState({
-  //     emailValid: re.test(email)
-  //   })
-  // }
-  //
-  // errorMessage = () => {
-  //   if(this.state.emailValid === "" || this.state.emailValid === false) {
-  //     this.setState({
-  //       message: "Please enter a valid email."
-  //     })
-  //   }
-  // }
-
-  // listOrError = (e) => {
-  //   if(this.state.emailValid === true){
-  //     this.checkIfUserExists()
-  //   } else {
-  //     this.errorMessage()
-  //   }
-  // }
-
-  // createUser = (user, email) => { //need to convert this to create or update user based on if the user already has his/her stats
-  //   if(user === undefined){
-  //     fetch("https://fitcalculations-api.herokuapp.com/users", {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Accept': 'application/json'
-  //       },
-  //       body: JSON.stringify({
-  //         email: email.toLowerCase()
-  //         })
-  //       }).then(response => response.json())
-  //       .then(user => {
-  //         debugger
-  //         this.setState({
-  //           user: user,
-  //           foodTypes: foodTypes
-  //         })
-  //       })
-  //   }
-  // }
-
   createFoodList = () => {
     let foodList;
     this.state.foodList === null ? foodList = new Array(0) : foodList = this.state.foodList
     let userId = this.props.currentUserStatsNewCalc.user.id
-    debugger
+    let totalCost;
+    this.state.foodListTotalCost === 0 ? totalCost = "-" : totalCost = this.state.totalCost
     if(this.state.foodList === null || this.state.foodList.length < 9) {
       fetch("https://fitcalculations-api.herokuapp.com/food_lists", {
         method: 'POST',
@@ -235,11 +170,13 @@ class FoodListContainer extends React.Component {
         },
         body: JSON.stringify({
           date: new Date(),
-          user_id: userId
+          user_id: userId,
+          name: this.state.foodListName,
+          total_cost: totalCost
           })
         }).then(response => response.json())
         .then(json => {
-          debugger
+          // debugger
           let lastFoodListAddedId = json.id
           this.setState({
             foodList: [...foodList, json],
@@ -256,6 +193,7 @@ class FoodListContainer extends React.Component {
 
   getAllFoodsChecked = (lastFoodListAddedId) => {
     let selectedFoods = this.state.foodTypes.filter(food => food.isChecked === true)
+    // debugger
     this.setState({
       foodsChecked: selectedFoods
     }, () => this.saveFoods(lastFoodListAddedId, selectedFoods))
@@ -280,7 +218,7 @@ class FoodListContainer extends React.Component {
       })
       .then(response => response.json())
       .then(json => {
-        debugger
+        // debugger
       })
     } //end of loop
     swal("Success!", "Your list has been saved!", "success")
@@ -302,20 +240,6 @@ class FoodListContainer extends React.Component {
       foodTypes: foodTypes
     })
   }
-
-  // getUserEmail = (e) => {
-  //   this.setState({
-  //     userEmail: e.target.value.toLowerCase()
-  //   })
-  // }
-
-  // validateEmail = (e) => {
-  //   let email = e.target.value.replace(/\s*$/,'')
-  //   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //   this.setState({
-  //     emailValid: re.test(email)
-  //   })
-  // }
 
   backToSavedLists = () => {
     this.setState({
@@ -377,5 +301,3 @@ createNew = () => {
 }
 
 export default FoodListContainer
-
-// <FoodListForm validateEmail={this.validateEmail} emailValid={this.state.emailValid} message={this.state.message} listOrError={this.listOrError} loading={this.state.loading} checkIfUserExists={this.checkIfUserExists} getUserEmail={this.getUserEmail} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/>
