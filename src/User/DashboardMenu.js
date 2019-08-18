@@ -28,6 +28,11 @@ const DashboardMenu = (props) => {
         <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Groceries</p>
       </div>
 
+      <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
+        <FaApple style={{color: "blue", display: "inline"}}/>
+        <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Order Food</p>
+      </div>
+
       <div onClick={props.handleMenuClick}>
         <Button style={{color: "white", background: "blue"}}>Start New Calculation</Button>
       </div>

@@ -12,9 +12,8 @@ const FoodListCard = (props) => {
         <Message style={{marginTop: "40px"}} color='yellow'>You have reached your limit of 10 lists. Delete a list to create a new one</Message> }
       </div>
       <div style={{alignItems: "left"}}>
-        <ExistingFoodLists getAllFoodsForSelectedList={props.getAllFoodsForSelectedList} foodList={props.foodList} removeFoodList={props.removeFoodList} user={props.user}/>
+        <ExistingFoodLists getDollarAmount={props.getDollarAmount} addPriceToList={props.addPriceToList} getAllFoodsForSelectedList={props.getAllFoodsForSelectedList} foodList={props.foodList} removeFoodList={props.removeFoodList} user={props.user}/>
       </div>
-      
     </React.Fragment>
   )
 }

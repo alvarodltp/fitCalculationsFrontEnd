@@ -289,12 +289,42 @@ createNew = () => {
   })
 }
 
+getDollarAmount = (e) => {
+  this.setState({
+    totalCost: e.target.value
+  })
+}
+
+addPriceToList = (e, listId) => {
+  debugger
+  let foodListCopy = this.state.foodList;
+  fetch(`https://fitcalculations-api.herokuapp.com/food_lists/${listId}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      total_cost: this.state.totalCost
+    })
+  })
+  .then(response => response.json())
+  .then(json => {
+    debugger
+    let foodListAfterEdit = foodListCopy.filter(foodList => foodList["id"] != json.id)
+    console.log(foodListAfterEdit)
+    this.setState({
+      foodList: [...foodListAfterEdit, json]
+    })
+  })
+}
+
   render() {
     return(
       <React.Fragment>
         {this.state.createNew === true ? <FoodList disabled={this.state.disabled} foodList={this.state.foodList} maxListLimit={this.state.maxListLimit} filteredFoodTypes={this.state.filteredFoodTypes} handleDropdownClick={this.handleDropdownClick} getName={this.getName} createFoodList={this.createFoodList} backToSavedLists={this.backToSavedLists} foodTypes={this.state.foodTypes} foodsChecked={this.state.foodsChecked} handleChange={this.handleChange} getAllFoodsChecked={this.getAllFoodsChecked}/> : null }
-        {this.state.foodsForSelectedList === null && this.state.foodList != null && this.state.createNew === false ? <FoodListCard createNew={this.createNew} getAllFoodsForSelectedList={this.getAllFoodsForSelectedList} foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
-        {this.state.foodsForSelectedList !== null ? <SavedFoodList handleChangeOnSavedList={this.handleChangeOnSavedList} clearSelectedFoods={this.clearSelectedFoods} foodsForSelectedList={this.state.foodsForSelectedList} backToSavedLists={this.backToSavedLists} handleChange={this.handleChange}/> : null}
+        {this.state.foodsForSelectedList === null && this.state.foodList != null && this.state.createNew === false ? <FoodListCard getDollarAmount={this.getDollarAmount} addPriceToList={this.addPriceToList} createNew={this.createNew} getAllFoodsForSelectedList={this.getAllFoodsForSelectedList} foodListName={this.state.foodListName} setFoodTypes={this.setFoodTypes} foodList={this.state.foodList} removeFoodList={this.removeFoodList} user={this.state.user} /> : null }
+        {this.state.foodsForSelectedList !== null ? <SavedFoodList handleChangeOnSavedList={this.handleChangeOnSavedList} clearSelectedFoods={this.clearSelectedFoods} foodsForSelectedList={this.state.foodsForSelectedList}backToSavedLists={this.backToSavedLists} handleChange={this.handleChange}/> :   null}
       </React.Fragment>
     )
   }
