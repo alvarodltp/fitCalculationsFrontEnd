@@ -34,11 +34,11 @@ const meals = [
   },
   {
     id: 4,
-    name: 'Vegan Goodness',
+    name: 'Vegan Pasta',
     description: '100% vegan.',
     price: 10.00,
     calories: 350,
-    image: "invest.png",
+    image: "veganpasta.png",
     quantity: 0
   },
   {
@@ -116,6 +116,7 @@ class OrderFoodContainer extends React.Component {
       orderDetails: false
     })
   }
+
 
   render(){
     return(

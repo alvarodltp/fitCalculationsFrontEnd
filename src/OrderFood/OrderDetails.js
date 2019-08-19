@@ -1,5 +1,7 @@
-import React from 'react'
-import { Message, Button, Select, Input, Form } from 'semantic-ui-react'
+import React from 'react';
+import { Message, Button, Select, Input, Form } from 'semantic-ui-react';
+import swal from 'sweetalert';
+import {Link} from 'react-router-dom';
 
 class OrderDetails extends React.Component {
   constructor(){
@@ -30,7 +32,6 @@ class OrderDetails extends React.Component {
   handleChange = (data, name) => {
     let taxes = ((this.state.subtotal * data.value) / 100).toFixed(2)
     let total = (parseFloat(taxes) + parseFloat(this.state.subtotal) + parseFloat(this.state.delivery)).toFixed(2)
-    debugger
     this.setState({
       taxes: taxes,
       total: total
@@ -60,6 +61,10 @@ class OrderDetails extends React.Component {
         disabled: true
       })
     }
+  }
+
+  completeOrder = () => {
+    swal("Success!", "Your Order Has Been Placed!", "success")
   }
 
 
@@ -119,6 +124,9 @@ class OrderDetails extends React.Component {
             <h4 className="meal-name">TOTAL:</h4>
             <h4 className="meal-price">${this.state.total}</h4> 
           </div>
+          <Link to="/">
+            <Button style={{float: "left", marginLeft: "20px"}} onClick={() => {this.completeOrder(); this.props.editOrder()}} id="button">Complete Order</Button>
+          </Link>
         </div>
       </React.Fragment>
     )
