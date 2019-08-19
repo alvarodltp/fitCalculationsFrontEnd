@@ -9,7 +9,7 @@ const meals = [
     id: 1,
     name: 'Chicken Tika Masala & Rice',
     description: 'Delicious chicken with rice!',
-    price: "$10.00",
+    price: 10.00,
     image: "tika.jpeg",
     calories: 450,
     quantity: 0
@@ -18,7 +18,7 @@ const meals = [
     id: 2,
     name: 'Bison Burger',
     description: 'Lean bison with sweet potatoes.',
-    price: "$12.00",
+    price: 12.00,
     image: "bison.jpeg",
     calories: 500,
     quantity: 0
@@ -27,7 +27,7 @@ const meals = [
     id: 3,
     name: 'Healthy Tacos',
     description: 'Beef tacos with goat cheese.',
-    price: "$12.00",
+    price: 12.00,
     image: "tacos.jpeg",
     calories: 380,
     quantity: 0
@@ -36,7 +36,7 @@ const meals = [
     id: 4,
     name: 'Vegan Goodness',
     description: '100% vegan.',
-    price: "$9.00",
+    price: 10.00,
     calories: 350,
     image: "invest.png",
     quantity: 0
@@ -45,7 +45,7 @@ const meals = [
     id: 5,
     name: 'Ceviche',
     description: 'Lime cooked fish with sweet potato.',
-    price: "$10.00",
+    price: 12.00,
     calories: 420,
     image: "ceviche.png",
     quantity: 0
@@ -54,7 +54,7 @@ const meals = [
     id: 6,
     name: 'Paella',
     description: 'Protein packed paella!.',
-    price: "$12.00",
+    price: 12.00,
     calories: 400,
     image: "paella.jpg",
     quantity: 0
@@ -69,19 +69,24 @@ class OrderFoodContainer extends React.Component {
       meals: meals,
       orderDetails: false,
       message: "",
-      color: ""
+      color: "",
+      disabled: true
     }
   }
 
   addOrRemoveMeal = (e, mealId) => {
+    let buttonDisabled;
     let firstAddButton = e.target.innerText
     let symbol = e.target.innerText
     let meals = [...this.state.meals]
     debugger
     let meal = meals.filter(meal => meal.id === mealId).pop()
     symbol === "+" || firstAddButton === "+ Add" ? meal["quantity"] += 1 : meal["quantity"] -= 1
+    let quantityOfMeals = meals.map(meal => meal.quantity).reduce((a,b) => a + b)
+    quantityOfMeals > 0 ? buttonDisabled = false : buttonDisabled = true
     this.setState({
-      meals: meals
+      meals: meals,
+      disabled: buttonDisabled
     })
   }
 
@@ -115,7 +120,7 @@ class OrderFoodContainer extends React.Component {
   render(){
     return(
       <React.Fragment>
-        {this.state.orderDetails === false ? <OrderNutrientsInfo showOrderDetails={this.showOrderDetails} currentUserStatsNewCalc={this.props.currentUserStatsNewCalc} meals={this.state.meals} /> : null }
+        {this.state.orderDetails === false ? <OrderNutrientsInfo disabled={this.state.disabled} showOrderDetails={this.showOrderDetails} currentUserStatsNewCalc={this.props.currentUserStatsNewCalc} meals={this.state.meals} /> : null }
         {this.state.orderDetails === false ? <Meals addOrRemoveMeal={this.addOrRemoveMeal} meals={this.state.meals} /> : null }
         {this.state.orderDetails === true && <OrderDetails editOrder={this.editOrder} color={this.state.color} message={this.state.message} currentUserStatsNewCalc={this.props.currentUserStatsNewCalc} meals={this.state.meals} /> }
       </React.Fragment>

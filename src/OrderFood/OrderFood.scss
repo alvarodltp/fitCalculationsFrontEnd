@@ -22,3 +22,38 @@
   margin: 10px;
   flex: 0 0 auto;
 }
+
+.order-details {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.meal-name {
+  text-align: left;
+  margin-left: 20px;
+  grid-column: 1/2;
+  margin: 0px 0px 14px 20px;
+}
+
+.meal-price {
+  grid-column: 2/3;
+  text-align: left;
+  margin: 0px 0px 14px 20px;
+}
+
+.order-titles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.store {
+  grid-column: 1/2;
+}
+
+.delivery {
+  grid-column: 2/3;
+}
+
+.coupon {
+  grid-column: 3/4;
+}

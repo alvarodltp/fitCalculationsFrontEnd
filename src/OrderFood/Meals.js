@@ -13,7 +13,7 @@ class Meals extends React.Component {
             <div style={{padding: "15px", textAlign: "left"}}>
               <h4 style={{margin: "0", marginBottom: "8px", fontSize: "14px"}}>{meal.name}</h4>
               <p style={{margin: "0", fontSize: "12px"}}>{meal.description}</p>
-              <p style={{margin: "0", fontSize: "12px"}}>{meal.price}</p>
+              <p style={{margin: "0", fontSize: "12px"}}>${meal.price}</p>
             </div>
 
             <div style={{bottom: "0", textAlign: "center", background: "blue", color: "white"}}>

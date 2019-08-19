@@ -8,7 +8,7 @@ const OrderNutrientsInfo = (props) => {
       <div className="nutrition-info" style={{display: "flex", justifyContent: "space-between"}}>
         <div style={{margin: "25px", textAlign: "left"}}>
           <h4>Weekly Goal Calories to <br/>{props.currentUserStatsNewCalc.goal}</h4>  
-          <p>{props.currentUserStatsNewCalc.calories_for_goal * 7}</p>
+          <p>{props.currentUserStatsNewCalc.calories_for_goal} x 7 days = {props.currentUserStatsNewCalc.calories_for_goal * 7}</p>
         </div>
 
         <div style={{margin: "25px", textAlign: "left"}}>
@@ -16,7 +16,7 @@ const OrderNutrientsInfo = (props) => {
             <p>{caloriesAdded}</p>
           </div>
           <div style={{margin: "25px"}}>
-            <Button onClick={() => {props.showOrderDetails(caloriesAdded)}} style={{marginTop: "20px"}} id="button">Continue To Order</Button>
+            <Button disabled={props.disabled} onClick={() => {props.showOrderDetails(caloriesAdded)}} style={{marginTop: "20px"}} id="button">Continue To Order</Button>
         </div>
       </div>
     </React.Fragment>
