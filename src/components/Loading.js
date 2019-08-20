@@ -9,7 +9,7 @@ class Loading extends React.Component {
           <BeatLoader
             sizeUnit={"px"}
             size={13}
-            color={this.props.gender === "Female" ? '#e80aaa' : '#2761f1'}
+            color={this.props.gender === "Female" ? '#F1B727' : '#2761f1'}
             loading={this.props.loading}
           />
         </div>

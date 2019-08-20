@@ -16,7 +16,7 @@ class Meals extends React.Component {
               <p style={{margin: "0", fontSize: "12px"}}>${meal.price}</p>
             </div>
 
-            <div style={{bottom: "0", textAlign: "center", background: "blue", color: "white"}}>
+            <div style={{bottom: "0", textAlign: "center", background: "#F1B727", color: "white"}}>
               <h4 style={{margin: "0"}}>{meal.calories} Calories</h4>
             </div><br/>
 

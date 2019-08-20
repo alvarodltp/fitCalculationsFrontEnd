@@ -10,32 +10,32 @@ const DashboardMenu = (props) => {
   return (
     <div className="dash-menu">
       <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
-        <Icon style={{color: "blue", display: "inline"}} name="user" />
+        <Icon style={{color: "#F1B727", display: "inline"}} name="user" />
         <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Profile</p>
       </div>
 
       <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
-        <FaChartPie  style={{color: "blue", display: "inline"}}/>
+        <FaChartPie  style={{color: "#F1B727", display: "inline"}}/>
         <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Stats</p>
       </div>
 
       <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
-        <FaLock style={{color: "blue", display: "inline"}}/>
+        <FaLock style={{color: "#F1B727", display: "inline"}}/>
         <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Programs</p>
       </div>
 
       <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
-        <FaApple style={{color: "blue", display: "inline"}}/>
+        <FaApple style={{color: "#F1B727", display: "inline"}}/>
         <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Groceries</p>
       </div>
 
       <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
-        <FaUtensils style={{color: "blue", display: "inline"}}/>
+        <FaUtensils style={{color: "#F1B727", display: "inline"}}/>
         <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Order Food</p>
       </div>
 
       <div onClick={props.handleMenuClick}>
-        <Button style={{color: "white", background: "blue"}}>Start New Calculation</Button>
+        <Button style={{color: "white", background: "#F1B727"}}>Start New Calculation</Button>
       </div>
     </div>
   )

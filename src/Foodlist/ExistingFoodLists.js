@@ -12,7 +12,7 @@ class ExistingFoodLists extends React.Component {
     return(
       <React.Fragment>
       {this.props.foodList.map(list =>
-      <div listId={list.id} className="grocery-list-card">
+      <div key={list.id} className="grocery-list-card">
         <div style={{padding: "20px"}}>
           <h4>{list.name}</h4>
           <p style={{fontSize: "12px"}}>{list.date}</p>

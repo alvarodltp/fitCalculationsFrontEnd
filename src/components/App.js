@@ -57,6 +57,7 @@ class App extends React.Component {
       message: "",
       posts: null,
       allFields: null,
+      userFoodLists: null,
       programs: [
         {
           name: '8-Week Lean',
@@ -106,7 +107,7 @@ componentDidMount() {
   this.logPageView();
   this.isMobileDevice();
   this.getAllStats();
-  this.fetchPosts().then(this.setPosts)
+  this.fetchPosts().then(this.setPosts);
   // this.initializeIntercom()
   ReactPixel.init('433459070732534');
 }
@@ -131,18 +132,18 @@ getUserStats = (user) => {
   } else {
     userId = user.id
   }
-  debugger
+  
   if(userId != ""){
     fetch("https://fitcalculations-api.herokuapp.com/stats")
     .then(response => response.json())
     .then(json => {
       let currentUserStats = json.filter(stat => stat.user_id === userId)
       let lastStat = currentUserStats[currentUserStats.length - 1]
-      debugger
+     
       this.setState({
         currentUserStats: currentUserStats,
         currentUserStatsNewCalc: lastStat
-      }, () => this.props.history.push('/profile'))
+      }, () => this.props.history.push('/profile'), this.getUserFoodLists())
     })
   }
 }
@@ -275,8 +276,19 @@ handleChangeDropdown = (value, fieldName) => {
   })
 }
 
+getUserFoodLists = () => {
+  fetch("https://fitcalculations-api.herokuapp.com/food_lists")
+  .then(response => response.json())
+  .then(json => {
+    let userFoodLists = json.filter(foodList => foodList.user.id === this.state.user.id)
+    this.setState({
+      userFoodLists: userFoodLists
+    });
+  })
+}
+
+
   render() {
-    debugger
     return (
       <React.Fragment>
       <div className="App">
@@ -300,7 +312,7 @@ handleChangeDropdown = (value, fieldName) => {
           <Route exact path="/contact" render={() => <Contact/> } />
           <Route exact path="/signup" render={props => <SignUp {...props} updateNewUser={this.updateNewUser}/> } />
           <Route exact path='/login' render={props=> <Login {...props} getUserStats={this.getUserStats} updateUser={this.updateUser} />} />
-          {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDashboard {...props} getUserStats={this.getUserStats} handleChange={this.handleChange} handleChangeDropdown={this.handleChangeDropdown} currentUserStatsNewCalc={this.state.currentUserStatsNewCalc} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }
+          {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDashboard {...props} userFoodLists={this.state.userFoodLists} getUserStats={this.getUserStats} handleChange={this.handleChange} handleChangeDropdown={this.handleChangeDropdown} currentUserStatsNewCalc={this.state.currentUserStatsNewCalc} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>

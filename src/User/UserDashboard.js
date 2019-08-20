@@ -1,9 +1,7 @@
 import React from 'react'
 import './UserDashboard.css'
-import DashboardNav from './DashboardNav'
 import DashboardMenu from './DashboardMenu'
 import DashboardContent from './DashboardContent'
-import NewCalculationForm from './NewCalculationForm'
 import { ToastContainer, toast } from 'react-toastify';
 
 
@@ -41,7 +39,6 @@ class UserDashboard extends React.Component {
   }
 
   calculateBmr = () => {
-    console.log(this.state)
     let formType = this.state.formType
     let weight;
     let height;
@@ -257,11 +254,10 @@ getProgram = (e) => {
 }
 
   render(){
-    // debugger
     return(
       <div id="user-dashboard">
         <DashboardMenu handleMenuClick={this.handleMenuClick} currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]}/>
-        <DashboardContent programSelected={this.state.programSelected} getProgram={this.getProgram} currentUserStatsNewCalc={this.props.currentUserStatsNewCalc} calculateBmr={this.calculateBmr} handleChange={this.props.handleChange} handleChangeDropdown={this.props.handleChangeDropdown} page={this.state.page} currentUserStats={this.props.currentUserStats}/>
+        <DashboardContent userFoodLists={this.props.userFoodLists} programSelected={this.state.programSelected} getProgram={this.getProgram} currentUserStatsNewCalc={this.props.currentUserStatsNewCalc} calculateBmr={this.calculateBmr} handleChange={this.props.handleChange} handleChangeDropdown={this.props.handleChangeDropdown} page={this.state.page} currentUserStats={this.props.currentUserStats}/>
       </div>
     )
   }
@@ -269,4 +265,3 @@ getProgram = (e) => {
 
 export default UserDashboard
 
-// <DashboardNav currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]} logOut={this.props.logOut}/>

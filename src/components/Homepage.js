@@ -21,7 +21,7 @@ class Homepage extends React.Component {
               <Image className="startimage" style={{margin: "0 auto", height: "auto"}} src="/iphone-front.png" />
             </div>
             <div className="starttext" style={{textAlign: "left", paddingLeft: "30px"}}>
-              <h1 style={{ width: "90%", fontSize:"30px", marginBottom:"20px", textDecoration: "underline", textDecorationColor: "#e80aaa", paddingTop: "10px"}}>Take  The 60 Second Assesment</h1>
+              <h1 style={{ width: "90%", fontSize:"30px", marginBottom:"20px", textDecoration: "underline", textDecorationColor: "#F1B727", paddingTop: "10px"}}>Take  The 60 Second Assesment</h1>
               <p style={{ width: "90%", marginBottom:"20px"}}>This FREE assesment will get you a complete fitness report and recommendations based on your results.</p><br/>
               <Link to="/calories-and-macros">
                 <Button onClick={this.props.scrollToTop} size="large" id="button-mobile" type="submit">
@@ -32,7 +32,7 @@ class Homepage extends React.Component {
           </div>
 
           <div className="blog-section-home">
-            <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", textDecoration: "underline", textDecorationColor: "#e80aaa"}}>Latest Posts</h1>
+            <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", textDecoration: "underline", textDecorationColor: "#F1B727"}}>Latest Posts</h1>
             { this.props.posts.slice(0, 3).map(({fields}, i) => <BlogItem key={i} {...fields}/> )}
             <div>
               <Link to="/blog">
@@ -79,7 +79,7 @@ export default Homepage
 
 // <div id="second-header-home">
 //   <div>
-//     <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Training & Nutrition</h1>
+//     <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#F1B727", marginBottom:"20px"}}>Training & Nutrition</h1>
 //     <Programs programs={this.props.programs} scrollToTop={this.props.scrollToTop} />
 //   </div>
 // </div>
@@ -102,7 +102,7 @@ export default Homepage
 
   // <div id="second-header-home">
   //   <div>
-  //     <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#e80aaa", marginBottom:"20px"}}>Tools</h1>
+  //     <h1 style={{margin: "0 auto", width: "90%", fontSize:"40px", paddingTop: "40px", fontStyle: "italic", textDecoration: "underline", textDecorationColor: "#F1B727", marginBottom:"20px"}}>Tools</h1>
   //     <p style={{margin: "0 auto", width: "80%", textAlign: "left", marginBottom: "40px"}}>We empower you to be your best self by providing the most useful, to the point, and up to date fitness and nutrition information out there. If you understand your body enough to make a few changes to your lifestyle, you will get amazing results in a matter of weeks, and we want to be part of your journey.</p>
   //     <AllTools scrollToTop={this.props.scrollToTop} allStats={this.props.allStats}/>
   //   </div>

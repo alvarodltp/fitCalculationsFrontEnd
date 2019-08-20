@@ -12,8 +12,8 @@ class MacroPercentage extends React.Component {
       ],
       datasets: [{
         data: [this.props.currentUserStats.protein_percentage, this.props.currentUserStats.carb_percentage, this.props.currentUserStats.fat_percentage],
-        backgroundColor: ['#2761f1','#e80aaa','#D3D3D3'],
-        hoverBackgroundColor: ['#2761f1','#e80aaa','#D3D3D3']
+        backgroundColor: ['#2761f1','#F1B727','#D3D3D3'],
+        hoverBackgroundColor: ['#2761f1','#F1B727','#D3D3D3']
       }]
     }
 

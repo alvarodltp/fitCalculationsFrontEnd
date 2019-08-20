@@ -12,22 +12,22 @@ class BmiChart extends React.Component {
         fill: true,
         lineTension: 0.1,
         backgroundColor: Array(bmi.length).fill('#2761f1'),
-        borderColor: ['#e80aaa'],
+        borderColor: ['#F1B727'],
         borderCapStyle: 'butt',
         borderDash: [],
         borderDashOffset: 0.0,
         borderJoinStyle: 'miter',
-        pointBorderColor: ['#e80aaa','#e80aaa','#e80aaa'],
+        pointBorderColor: ['#F1B727','#F1B727','#F1B727'],
         pointBackgroundColor: '#fff',
         pointBorderWidth: 1,
         pointHoverRadius: 5,
-        pointHoverBackgroundColor: ['#e80aaa','#e80aaa','#e80aaa'],
-        pointHoverBorderColor: ['#e80aaa','#e80aaa','#e80aaa'],
+        pointHoverBackgroundColor: ['#F1B727','#F1B727','#F1B727'],
+        pointHoverBorderColor: ['#F1B727','#F1B727','#F1B727'],
         pointHoverBorderWidth: 2,
         pointRadius: 3,
         pointHitRadius: 10,
         data: bmi,
-        hoverBackgroundColor: Array(bmi.length).fill('#e80aaa')
+        hoverBackgroundColor: Array(bmi.length).fill('#F1B727')
       }]
   }
 debugger

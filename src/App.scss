@@ -194,11 +194,11 @@ a:hover {
   #content .maintitle {
     margin-top: 50px;
     font-size: 30px;
-    color: white;
+    color: #2761f1;
   }
   #content .maintitle-two{
     font-size: 50px;
-    color: #e80aaa;
+    color: #F1B727;
     font-style: italic;
   }
   #blog-container {
@@ -291,17 +291,18 @@ a:hover {
     grid-template-rows: repeat(1, minmax(400px, auto));
     margin: 0 auto;
     align-items: center;
-    background: linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
+    background: linear-gradient(180deg, rgba(39,97,241,1) 0%, rgba(240,240,240,1) 100%);
+
     grid-template-areas:
     "image text"
   }
   #content .maintitle {
     font-size: 30px;
-    color: white;
+    color: #2761f1;
   }
   #content .maintitle-two{
     font-size: 50px;
-    color: #e80aaa;
+    color: #F1B727;
     font-style: italic;
   }
   .post-signup{
@@ -358,7 +359,7 @@ a:hover {
   }
 
   nav li:hover {
-    color: #e80aaa;
+    color: #F1B727;
   }
 
   nav a {
@@ -370,7 +371,7 @@ a:hover {
   //   content: "";
   //   display: block;
   //   height: 5px;
-  //   background: #e80aaa;
+  //   background: #F1B727;
   //   position: absolute;
   //   top : -.20em;
   //   left: 0;
@@ -390,7 +391,7 @@ a:hover {
     grid-template-rows: repeat(1, minmax(400px, auto));
     margin: 0 auto;
     align-items: center;
-    background: linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
+    background: linear-gradient(180deg, rgba(39,97,241,1) 0%, rgba(240,240,240,1) 100%);
     grid-template-areas:
     "image text"
   }
@@ -399,29 +400,31 @@ a:hover {
   }
   #content .maintitle {
     font-size: 35px;
-    color: white;
+    color: #F1B727;
   }
   #content .maintitle-two{
     font-size: 60px;
-    color: #e80aaa;
+    color: #2761f1;
     font-style: italic;
   }
   .post-signup{
     border-radius: 5px;
-    background: linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
+    background: linear-gradient(180deg, rgba(241,183,39,1) 0%, rgba(240,240,240,1) 100%);
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 15px;
   }
   .post-quiz {
     border-radius: 5px;
-    background: linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
+    background: linear-gradient(180deg, rgba(241,183,39,1) 0%, rgba(240,240,240,1) 100%);
+
     padding-top: 15px;
     padding-bottom: 20px;
   }
   .blog-about {
     border-radius: 5px;
-    background: linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
+    background: linear-gradient(180deg, rgba(241,183,39,1) 0%, rgba(240,240,240,1) 100%);
+
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 15px;
@@ -644,7 +647,7 @@ span {
 
 #button {
   border: 2px solid;
-  border-color: #e80aaa;
+  border-color: #F1B727;
   background-color: transparent;
   color: black;
   margin-bottom: 20px;
@@ -652,7 +655,7 @@ span {
 
 #button-mobile {
   border: 2px solid;
-  border-color: #e80aaa;
+  border-color: #F1B727;
   background-color: transparent;
   color: black;
   margin-bottom: 20px;
@@ -663,7 +666,7 @@ span {
 
 #button:hover {
   color: white;
-  background: #e80aaa;
+  background: #F1B727;
   -webkit-transition: background .6s;
   -moz-transition: background .6s;
   -ms-transition: background .6s;
@@ -855,12 +858,12 @@ span {
 }
 
 .ui.checkbox .box:after, .ui.checkbox label:after {
-  color: #e80aaa;
+  color: #F1B727;
 }
 
 #button-get-email{
   border: 2px solid;
-  border-color: #e80aaa;
+  border-color: #F1B727;
   background-color: transparent;
   color: black;
   width: 65%;
@@ -869,7 +872,7 @@ span {
 
 #button-get-email:hover {
   color: white;
-  background: #e80aaa;
+  background: #F1B727;
   -webkit-transition: background .6s;
   -moz-transition: background .6s;
   -ms-transition: background .6s;
@@ -1026,7 +1029,7 @@ box-shadow: none;
   top: 0;
   width: 100%;
   height: 100px;
-  background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
+  background: linear-gradient(to right, #F1B727, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
   box-shadow: none;
 }
 
@@ -1038,7 +1041,7 @@ box-shadow: none;
   background: linear-gradient(
                      rgba(20,20,20, .3),
                      rgba(20,20,20, .3)),
-                     url(/iphone-blue.png);
+                     url(/iphone-#F1B727.png);
 }
 
 #header-thankyou-bcm h1 {
@@ -1156,18 +1159,18 @@ box-shadow: none;
   margin-top: 40px;
   background: transparent;
   border: 2px solid;
-  border-color: #e80aaa;
+  border-color: #F1B727;
   -webkit-transition: background .6s;
   -moz-transition: background .6s;
   -ms-transition: background .6s;
   -o-transition: background .6s;
   transition: background .6s;
   /* color: white;
-  background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1); */
+  background: linear-gradient(to right, #F1B727, #ce2dc2, #ac43d6, #7d54e7, #2761f1); */
 }
 
 #gender-button:hover {
-  background: #e80aaa;
+  background: #F1B727;
   color: white;
 }
 
@@ -1177,7 +1180,7 @@ box-shadow: none;
   margin-top: 40px;
   background: transparent;
   border: 2px solid;
-  border-color: #e80aaa;
+  border-color: #F1B727;
   -webkit-transition: background .6s;
   -moz-transition: background .6s;
   -ms-transition: background .6s;
@@ -1186,7 +1189,7 @@ box-shadow: none;
 }
 
 #gender-button-mobile:hover {
-  background: #e80aaa;
+  background: #F1B727;
 }
 
 #intro-results {
@@ -1235,7 +1238,7 @@ box-shadow: none;
 }
 
 .ui.progress{
-  background: blue
+  background: #F1B727
 }
 
 .vertical-timeline::before {
@@ -1258,13 +1261,13 @@ box-shadow: none;
 
 
 #invite-page {
-  background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
+  background: linear-gradient(to right, #F1B727, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
   /* background: url("https://image.shutterstock.com/image-photo/side-view-muscular-couple-doing-450w-296937782.jpg") no-repeat center center fixed; */
   height: 300px;
 }
 
 #invite-page-mobile{
-  background: linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
+  background: linear-gradient(to right, #F1B727, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
   height: 450px;
 }
 
@@ -1300,7 +1303,7 @@ box-shadow: none;
 
 #invite-button:hover {
   filter: brightness(110%);
-  /* background-color: #e80aaa; */
+  /* background-color: #F1B727; */
   cursor: pointer;
   /* text-transform: uppercase; */
 }
@@ -1339,7 +1342,7 @@ box-shadow: none;
   margin-top: 15px;
   width: 80%;
   border: 3px solid;
-  border-color: #e80aaa;
+  border-color: #F1B727;
   height: 45px;
   border-radius: 15px !important;
 }
@@ -1349,7 +1352,7 @@ box-shadow: none;
   margin: 0 auto;
   margin-top: 15px;
   width: 80%;
-  background: #e80aaa;
+  background: #F1B727;
   height: 40px;
   border-radius: 15px !important;
 }
@@ -1366,7 +1369,7 @@ box-shadow: none;
 }
 
 #take-action-card:hover {
-  background:  #e80aaa;
+  background:  #F1B727;
 }
 
 #start-today-card {
@@ -1388,7 +1391,7 @@ box-shadow: none;
   width: 80%;
   background: red;
   border: 2px solid;
-  border-color: #e80aaa;
+  border-color: #F1B727;
   height: 45px;
   border-radius: 15px !important;
 }
@@ -1426,7 +1429,7 @@ box-shadow: none;
 }
 
 #cta-button:hover {
-  background-color: blue;
+  background-color: #F1B727;
 }
 
 #title-faq {
@@ -1436,7 +1439,7 @@ box-shadow: none;
 }
 
 #icon-faq:hover {
-  color: #e80aaa;
+  color: #F1B727;
 }
 
 #loading {
@@ -1512,7 +1515,7 @@ box-shadow: none;
 
 #button-mobile:hover {
   color: white;
-  background: #e80aaa;
+  background: #F1B727;
   -webkit-transition: background .4s;
   -moz-transition: background .4s;
   -ms-transition: background .4s;
@@ -1537,7 +1540,7 @@ box-shadow: none;
 }
 
 .blog-section-home {
-  background: #f0f0f0;
+  background: linear-gradient(180deg, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 100%);
 }
 
 .blog-item-grid{
@@ -1546,6 +1549,7 @@ box-shadow: none;
 }
 
 #content{
+  background-image: url('/healthier.jpg');
   display: grid;
   margin: 0 auto;
   grid-template-columns: 100%;

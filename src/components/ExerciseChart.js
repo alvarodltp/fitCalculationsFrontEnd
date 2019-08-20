@@ -13,8 +13,8 @@ class ExerciseChart extends React.Component {
       datasets: [{
         label: 'Bmr and Calories Results',
         data: [this.props.bmr, this.props.caloriesToMaintain, this.props.caloriesForGoal],
-        backgroundColor: ['#2761f1','#e80aaa','#D3D3D3'],
-        hoverBackgroundColor: ['#2761f1','#e80aaa','#D3D3D3']
+        backgroundColor: ['#2761f1','#F1B727','#D3D3D3'],
+        hoverBackgroundColor: ['#2761f1','#F1B727','#D3D3D3']
       }]
     }
 

@@ -26,7 +26,7 @@ const TheNav = (props) => {
            </Link>
 
            <a href="https://fitcalculations.trainerize.com/app/logon.aspx">
-             <li style={{color: "#e80aaa"}}>Log In</li>
+             <li style={{color: "#F1B727"}}>Log In</li>
            </a>
 
          </ul>

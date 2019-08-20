@@ -88,7 +88,7 @@ class NoDietsProgram  extends React.Component {
           </p>
 
           <h1 style={{fontSize: "40px", color: "#2761f1"}}>Understanding Your Results</h1>
-          <h2 style={{fontSize: "30px", color: "#e80aaa", textAlign: "left"}}>Your BMR - {this.props.currentUserStatsNewCalc.bmr}</h2>
+          <h2 style={{fontSize: "30px", color: "#F1B727", textAlign: "left"}}>Your BMR - {this.props.currentUserStatsNewCalc.bmr}</h2>
           <h4 style={{textAlign: "left"}}>What is BMR?</h4>
           <p style={{textAlign: "left", lineHeight: "2.5"}}>
             Your Bаѕаl Metabolic Rаtе іѕ the number оf calories you need tо kеер уоur body funсtіоnіng at rеѕt. It is аlѕо knоwn аѕ уоur body’s mеtаbоlіѕm. You can increase your body's metabolism and burn more calories throughout the day.
@@ -102,7 +102,7 @@ class NoDietsProgram  extends React.Component {
             An important part to accomplishing your fitness goals is to understand how your body works at least at a basic level. Knowing what your BMR is and how you can actually increase it with exercise and good nutrition can result in accelerated progress and more energy to make you feel better.
           </p>
 
-          <h2 style={{fontSize: "30px", color: "#e80aaa", textAlign: "left"}}>Calories</h2>
+          <h2 style={{fontSize: "30px", color: "#F1B727", textAlign: "left"}}>Calories</h2>
           <p style={{textAlign: "left", lineHeight: "2.5"}}>
             A саlоrіе іѕ an unіt of еnеrgу. In nutrіtіоn, calories are thе еnеrgу реорlе gеt frоm thе foods and drіnks thеу соnѕumе as well as the еnеrgу thеу uѕе in рhуѕісаl асtіvіtу. In a nutritional ѕеnѕе, аll tуреѕ оf fооd such as fats, рrоtеіnѕ and саrbоhуdrаtеѕ, are an important source of calories, which you need tо live аnd function.
           </p>
@@ -115,16 +115,16 @@ class NoDietsProgram  extends React.Component {
             <li>You need a deficit of 3500 calories per week from your maintenance calories to lose one pound weekly</li>
           </ul>
 
-          <h2 style={{fontSize: "30px", color: "#e80aaa", textAlign: "left"}}>Your Maintenance Calories - {this.props.currentUserStatsNewCalc.calories_to_maintain}</h2>
+          <h2 style={{fontSize: "30px", color: "#F1B727", textAlign: "left"}}>Your Maintenance Calories - {this.props.currentUserStatsNewCalc.calories_to_maintain}</h2>
           <p style={{textAlign: "left", lineHeight: "2.5"}}>Once we have calculated your BMR and we know the number of calories your body needs to perform basic life functions, we determine how many calories on top of your BMR your body needs to maintain your body weight with no gain or losses in fat and/or muscle tissue.</p>
           <h4 style={{textAlign: "left"}}>We do so by using the activity factor:</h4>
           <p style={{textAlign: "left", lineHeight: "2.5"}}>In your case, you are {this.props.currentUserStatsNewCalc.activity_level}. This means we multiply your BMR by {this.activityLevel()}. The result is {this.props.currentUserStatsNewCalc.calories_to_maintain} as your maintnance calories.</p>
 
-          <h2 style={{fontSize: "30px", color: "#e80aaa", textAlign: "left"}}>Your Goal Calories - {this.props.currentUserStatsNewCalc.calories_for_goal}</h2>
+          <h2 style={{fontSize: "30px", color: "#F1B727", textAlign: "left"}}>Your Goal Calories - {this.props.currentUserStatsNewCalc.calories_for_goal}</h2>
           <p style={{textAlign: "left", lineHeight: "2.5"}}>As mentioned above, you need {this.props.currentUserStatsNewCalc.calories_for_goal} calories in order to reach your goal. Based on your goal to {this.props.currentUserStatsNewCalc.goal}, we need to {this.increaseOrReduce()} your calorie intake.</p>
           <p style={{textAlign: "left", lineHeight: "2.5"}}>As mentioned previously, it takes {this.extraOrDeficit()} 3500 calories per week to {this.increaseOrReduce()} a pound per week at a safe rate. Based on your choice to {this.increaseOrReduce()} {this.props.currentUserStatsNewCalc.weight_to_manage.split("-")[1]}, we {this.increaseOrReduce()} {this.deficitForGoal()} calories to maintenance calories in order to get to your goal in a safe and effective way.</p>
 
-          <h2 style={{fontSize: "30px", color: "#e80aaa", textAlign: "left"}}>Your BMI - {this.props.currentUserStatsNewCalc.bmi}</h2>
+          <h2 style={{fontSize: "30px", color: "#F1B727", textAlign: "left"}}>Your BMI - {this.props.currentUserStatsNewCalc.bmi}</h2>
           <p style={{textAlign: "left", lineHeight: "2.5"}}>BMI or Body Mass Index is mostly used by doctors and nurses to help determine if a person has a weight problem. It gives an estimate of total body fat for most people, but it does not work well for individuals who have more muscle than the average person.</p>
           <p style={{textAlign: "left", lineHeight: "2.5"}}>Even though, it is a good way to have an idea of a person’s weight status, it should not always be the final word.</p>
           <ul style={{textAlign: "left"}}>
@@ -134,7 +134,7 @@ class NoDietsProgram  extends React.Component {
             <li>Obese: BMI is 30 or more</li>
           </ul>
 
-          <h2 style={{fontSize: "30px", color: "#e80aaa", textAlign: "left"}}>Your Macronutrients</h2>
+          <h2 style={{fontSize: "30px", color: "#F1B727", textAlign: "left"}}>Your Macronutrients</h2>
           <ul style={{textAlign: "left"}}>
             <li>Protein: {this.props.currentUserStatsNewCalc.protein_grams} grams</li>
             <li>Carbs: {this.props.currentUserStatsNewCalc.carb_grams} grams</li>
@@ -150,9 +150,9 @@ class NoDietsProgram  extends React.Component {
             <li>1 gram of alcohol = 7 calories</li>
           </ul>
           <h4 style={{textAlign: "left"}}>So given the information above, let’s calculate your calories based on your macros:</h4>
-          <h4 style={{textAlign: "left", color: "#e80aaa"}}>{this.props.currentUserStatsNewCalc.protein_grams}g of protein x 4 calories = {this.props.currentUserStatsNewCalc.protein_grams * 4} calories from protein</h4>
-          <h4 style={{textAlign: "left", color: "#e80aaa"}}>{this.props.currentUserStatsNewCalc.carb_grams}g of carbs x 4 calories = {this.props.currentUserStatsNewCalc.carb_grams * 4} calories from carbs</h4>
-          <h4 style={{textAlign: "left", color: "#e80aaa"}}>{this.props.currentUserStatsNewCalc.fat_grams}g of fats x 4 calories = {this.props.currentUserStatsNewCalc.fat_grams * 9} calories from fats</h4>
+          <h4 style={{textAlign: "left", color: "#F1B727"}}>{this.props.currentUserStatsNewCalc.protein_grams}g of protein x 4 calories = {this.props.currentUserStatsNewCalc.protein_grams * 4} calories from protein</h4>
+          <h4 style={{textAlign: "left", color: "#F1B727"}}>{this.props.currentUserStatsNewCalc.carb_grams}g of carbs x 4 calories = {this.props.currentUserStatsNewCalc.carb_grams * 4} calories from carbs</h4>
+          <h4 style={{textAlign: "left", color: "#F1B727"}}>{this.props.currentUserStatsNewCalc.fat_grams}g of fats x 4 calories = {this.props.currentUserStatsNewCalc.fat_grams * 9} calories from fats</h4>
           <p style={{textAlign: "left", lineHeight: "2.5"}}>The reason why we mainly focus on macronutrients and not on calories when it comes to either losing weight or gaining muscle is due to the fact that macronutrients make up 100% of your calories.</p>
           <p style={{textAlign: "left", lineHeight: "2.5"}}>As you can see in the example above, if you focus on getting as close to your macros as possible on a daily basis, you will also get the needed number of calories to accomplish your goal.</p>
 

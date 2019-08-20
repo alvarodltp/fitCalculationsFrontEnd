@@ -12,8 +12,8 @@ class Macros extends React.Component {
       ],
       datasets: [{
         data: [this.props.currentUserStats.protein_grams, this.props.currentUserStats.carb_grams, this.props.currentUserStats.fat_grams],
-        backgroundColor: ['#2761f1','#e80aaa','#D3D3D3'],
-        hoverBackgroundColor: ['#2761f1','#e80aaa','#D3D3D3']
+        backgroundColor: ['#2761f1','#F1B727','#D3D3D3'],
+        hoverBackgroundColor: ['#2761f1','#F1B727','#D3D3D3']
       }]
     }
 

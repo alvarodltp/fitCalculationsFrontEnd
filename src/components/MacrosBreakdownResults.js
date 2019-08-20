@@ -14,8 +14,8 @@ class MacrosBreakdownResults extends React.Component {
       ],
       datasets: [{
         data: [this.props.caloriesInMeal, this.props.proteinInMeal, this.props.carbsInMeal, this.props.fatsInMeal],
-        backgroundColor: ['#2761f1','#A9A9A9','#e80aaa','#D3D3D3'],
-        hoverBackgroundColor: ['#2761f1','#A9A9A9','#e80aaa','#D3D3D3']
+        backgroundColor: ['#2761f1','#A9A9A9','#F1B727','#D3D3D3'],
+        hoverBackgroundColor: ['#2761f1','#A9A9A9','#F1B727','#D3D3D3']
       }]
     }
 

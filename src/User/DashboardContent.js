@@ -9,11 +9,10 @@ import NoDietsProgram from './NoDietsProgram'
 import OrderFoodContainer from '../OrderFood/OrderFoodContainer';
 
 const DashboardContent = (props) => {
-  // debugger
   return (
     <div className="nested-content">
       { props.page === "Profile" ? <UserProfile currentUserStats={props.currentUserStatsNewCalc} /> : null }
-      { props.page === "Stats" ? <UserStats currentUserStats={props.currentUserStats} /> : null }
+      { props.page === "Stats" ? <UserStats userFoodLists={props.userFoodLists}  currentUserStats={props.currentUserStats} /> : null }
       { props.page === "Start New Calculation" ? <NewCalculationContainer currentUserStatsNewCalc={props.currentUserStatsNewCalc} calculateBmr={props.calculateBmr} handleChangeDropdown={props.handleChangeDropdown} handleChange={props.handleChange} currentUserStats={props.currentUserStats[props.currentUserStats.length - 1]} /> : null }
       { props.page === "Groceries" ? <FoodListContainer currentUserStatsNewCalc={props.currentUserStatsNewCalc}/> : null }
       { props.page === "Programs" ?  <ProgramsContainer getProgram={props.getProgram} currentUserStatsNewCalc={props.currentUserStatsNewCalc}/> : null }

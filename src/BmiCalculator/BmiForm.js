@@ -13,7 +13,7 @@ class BmiForm extends React.Component {
         <Feet setFeet={this.props.setFeet} feet={this.props.feet}/>
         <Inches setInches={this.props.setInches} inches={this.props.inches}/><br/>
         {this.props.error !== "" ? <p style={{color: "red", fontSize: "10px", textAlign: "center"}}>{this.props.error}</p> : null}
-        <Button onClick={this.props.calculateBmi} id="button-mobile" style={{width: "100%", backgroundColor: "#e80aaa"}}>Calculate BMI</Button>
+        <Button onClick={this.props.calculateBmi} id="button-mobile" style={{width: "100%", backgroundColor: "#F1B727"}}>Calculate BMI</Button>
       </div>
     )
   }

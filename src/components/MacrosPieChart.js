@@ -16,12 +16,12 @@ class MacrosPieChart extends React.Component {
         data: [this.props.protein, this.props.carbs, this.props.fats],
         backgroundColor: [
         '#2761f1',
-        '#e80aaa',
+        '#F1B727',
         '#D3D3D3'
         ],
         hoverBackgroundColor: [
         '#2761f1',
-        '#e80aaa',
+        '#F1B727',
         '#D3D3D3'
         ]
       }]

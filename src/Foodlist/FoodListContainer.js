@@ -48,7 +48,7 @@ const foodTypes = [
   {id: 76, value: "Green Beans", category: "Leafy Greens", isChecked: false}, {id: 77, value: "Snap Peas", category: "Grains And Pasta", isChecked: false},
   {id: 78, value: "Apples", category: "Fruit", isChecked: false}, {id: 79, value: "Avocado", category: "Fruit", isChecked: false},
   {id: 80, value: "Apricot", category: "Fruit", isChecked: false}, {id: 81, value: "Banana", category: "Fruit", isChecked: false},
-  {id: 82, value: "Blueberries", category: "Fruit", isChecked: false}, {id: 83, value: "Blackberries", category: "Fruit", isChecked: false},
+  {id: 82, value: "#F1B727berries", category: "Fruit", isChecked: false}, {id: 83, value: "Blackberries", category: "Fruit", isChecked: false},
   {id: 84, value: "Cantaloupe", category: "Fruit", isChecked: false}, {id: 85, value: "Cherries", category: "Fruit", isChecked: false},
   {id: 86, value: "Cranberries", category: "Fruit", isChecked: false}, {id: 87, value: "Grapefruit", category: "Fruit", isChecked: false},
   {id: 88, value: "Grapes", category: "Fruit", isChecked: false}, {id: 89, value: "Kiwi", category: "Fruit", isChecked: false},
@@ -296,8 +296,8 @@ getDollarAmount = (e) => {
 }
 
 addPriceToList = (e, listId) => {
-  debugger
-  let foodListCopy = this.state.foodList;
+  let foodListCopy = [...this.state.foodList];
+  let filteredArr = foodListCopy.filter(foodList => foodList["id"] != listId)
   fetch(`https://fitcalculations-api.herokuapp.com/food_lists/${listId}`, {
     method: 'PATCH',
     headers: {
@@ -310,11 +310,8 @@ addPriceToList = (e, listId) => {
   })
   .then(response => response.json())
   .then(json => {
-    debugger
-    let foodListAfterEdit = foodListCopy.filter(foodList => foodList["id"] != json.id)
-    console.log(foodListAfterEdit)
     this.setState({
-      foodList: [...foodListAfterEdit, json]
+      foodList: [...filteredArr, json]
     })
   })
 }

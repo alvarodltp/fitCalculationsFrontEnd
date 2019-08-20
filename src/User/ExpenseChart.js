@@ -1,14 +1,14 @@
 import React from 'react';
 import {Line} from 'react-chartjs-2';
 
-class WeightChart extends React.Component {
+class ExpenseChart extends React.Component {
   render() {
-      let dates = this.props.currentUserStats.map(stat => stat.date)
-      let weight = this.props.currentUserStats.map(stat => stat.weight_in_lb)
+      let dates = this.props.userFoodLists.map(list => list.date);
+      let expense = this.props.userFoodLists.map(list => list.total_cost);
       const data = {
       labels: dates,
       datasets: [{
-        label: 'Weight',
+        label: 'Expense',
         fill: true,
         lineTension: 0.1,
         backgroundColor: ['#2761f1'],
@@ -26,13 +26,11 @@ class WeightChart extends React.Component {
         pointHoverBorderWidth: 2,
         pointRadius: 3,
         pointHitRadius: 10,
-        data: weight,
+        data: expense,
         hoverBackgroundColor: ['#F1B727']
       }]
   }
-debugger
     return (
-
       <Line
          data={data}
          width={100}
@@ -41,9 +39,8 @@ debugger
          maintainAspectRatio: false
          }}
          />
-
     )
   }
 }
 
-export default WeightChart
+export default ExpenseChart

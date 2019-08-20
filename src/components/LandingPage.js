@@ -85,7 +85,7 @@ class LandingPage extends React.Component {
       <React.Fragment>
       <div style={{width: "80%", margin: "0 auto", paddingTop: "70px"}}>
         <h1 style={{fontSize:"36px"}}>You Are One Step From Getting In The Best Shape Of Your Life</h1>
-        <h2 style={{color: "blue", fontStyle: "italic"}}>INTRODUCING THE STEP-BY-STEP GUIDE TO DROP BODY FAT, GET LEAN, AND FEEL AMAZING.</h2>
+        <h2 style={{color: "#F1B727", fontStyle: "italic"}}>INTRODUCING THE STEP-BY-STEP GUIDE TO DROP BODY FAT, GET LEAN, AND FEEL AMAZING.</h2>
 
         <h2>Just a few questions for you:</h2>
       </div>
@@ -200,7 +200,7 @@ class LandingPage extends React.Component {
           </div>
         </div><br/><br/>
 
-        <div style={{width: "100%", background: "linear-gradient(to right, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1)"}}>
+        <div style={{width: "100%", background: "linear-gradient(to right, #F1B727, #ce2dc2, #ac43d6, #7d54e7, #2761f1)"}}>
           <div style={{marginBottom: "50px"}} id="landing-main-benefits">
             <Grid stackable columns={2}>
               <Grid.Row style={{padding: "0"}}>
@@ -417,7 +417,7 @@ class LandingPage extends React.Component {
           </div>
         </div>
 
-        <div style={{marginBottom: "0px", width: "100%", backgroundColor: "#e80aaa"}}>
+        <div style={{marginBottom: "0px", width: "100%", backgroundColor: "#F1B727"}}>
           <div style={{paddingBottom: "30px"}}>
             <h1 style={{fontSize:"36px", paddingTop: "20px", color: "white", fontStyle: "italic"}}>Are You Ready?</h1>
             <a target="_self" href="https://fit-calculations.thrivecart.com/fck-diets/">

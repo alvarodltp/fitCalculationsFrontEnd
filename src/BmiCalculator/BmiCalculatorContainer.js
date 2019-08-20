@@ -77,7 +77,7 @@ class BmiCalculatorContainer extends React.Component {
           <BmiForm style={{margin: "0 auto"}} error={this.state.error} calculateBmi={this.calculateBmi} setPounds={this.setPounds} pounds={this.state.pounds} setFeet={this.setFeet} feet={this.state.feet} setInches={this.setInches} inches={this.state.inches}/>
         </div>
       </div>
-      <div style={{height: "5px", background: "linear-gradient(270deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%)"}}>
+      <div style={{height: "5px", background: "#f1b727"}}>
       </div>
       <div className="bmi-table" style={{marginTop: "15px"}}>
         <BmiTable style={{margin: "0 auto"}} bmi={this.state.bmi}/>

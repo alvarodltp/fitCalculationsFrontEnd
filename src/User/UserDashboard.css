@@ -15,7 +15,7 @@ span {
 .login {
   padding: 40px;
   margin: 0 auto;
-  background: linear-gradient(to top, #e80aaa, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
+  background: linear-gradient(to top, #F1B727, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -53,6 +53,14 @@ span {
   margin: 10px;
 }
 
+#card-dashboard-new-calc{
+  width: 100%;
+  align-items: middle;
+  background: linear-gradient(180deg, rgba(39,97,241,1) 0%, rgba(240,240,240,1) 100%);
+  padding: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 #card-dashboard-programs {
   width: 250px;
   height: 270px;
@@ -63,7 +71,7 @@ span {
   margin: 10px;
 }
 
-#card-dashboard-blue {
+#card-dashboard-#F1B727 {
   background: #2761f1;
   border-radius: 0px;
   padding: 5px;
@@ -72,7 +80,7 @@ span {
 }
 
 #card-dashboard-pink {
-  background: #e80aaa;
+  background: #F1B727;
   border-radius: 0px;
   padding: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -80,7 +88,8 @@ span {
 }
 
 #card-dashboard-gradient {
-  background: linear-gradient(0deg, rgba(232,10,170,1) 0%, rgba(39,97,241,1) 80%);
+  background: #F1B727;
+
   border-radius: 0px;
   padding: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -218,7 +227,7 @@ span {
   .nested-content .user-stats-dash {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(11, minmax(50px, auto));
+    grid-template-rows: repeat(13, minmax(50px, auto));
   }
   .weight-chart-title {
     grid-column: 1/7;
@@ -235,5 +244,13 @@ span {
   .bmi-chart {
     grid-column: 7/13;
     grid-row: 2/7;
+  }
+  .expense-chart-title {
+    grid-column: 1/7;
+    grid-row: 7/8;
+  }
+  .expense-chart {
+    grid-column: 1/7;
+    grid-row: 8/13;
   }
 }
