@@ -35,7 +35,7 @@ const DashboardMenu = (props) => {
       </div>
 
       <div onClick={props.handleMenuClick}>
-        <Button style={{color: "white", background: "#F1B727"}}>Start New Calculation</Button>
+        <Button style={{color: "white", background: "#2761f1"}}>Start New Calculation</Button>
       </div>
     </div>
   )

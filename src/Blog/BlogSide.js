@@ -15,7 +15,7 @@ const BlogSide = (props) => {
         <h1 style={{margin: "0 auto", width: "90%"}}>Ready To Get Lean, Fit, And Sexy?</h1>
         <p style={{margin: "0 auto", width: "80%"}}>Take the free assesment and we'll tell you where to start.</p><br/>
         <Link to='/calories-and-macros'>
-          <Button onClick={props.scrollToTop}>START THE ASSESMENT</Button>
+          <Button id="button" onClick={props.scrollToTop}>START THE ASSESMENT</Button>
         </Link>
       </div>
     </div>

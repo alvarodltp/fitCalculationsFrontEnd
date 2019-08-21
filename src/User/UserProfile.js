@@ -1,28 +1,42 @@
 import React from 'react'
 import Macros from './Macros'
 import MacroPercentage from './MacroPercentage'
+import ResultDescription from './ResultDescription'
 
 class UserProfile extends React.Component {
+  constructor(){
+    super()
+    this.state={
+      description: "weight"
+    }
+  }
+
+  handleClick = (name) => {
+    this.setState({
+      description: name
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
         <div className="user-profile-dash-calories">
-          <div id="card-dashboard-gradient" className="weight-dash">
+          <div onClick={() => this.handleClick("weight")} id="card-dashboard-gradient" className="weight-dash">
             <p style={{color: "white", fontSize: "14px"}}>Weight</p>  
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.weight_in_lb} lb.</h2>
           </div>
 
-          <div id="card-dashboard-gradient" className="goal-cal-dash">
+          <div onClick={() => this.handleClick("calories")} id="card-dashboard-gradient" className="goal-cal-dash">
             <p style={{color: "white", fontSize: "14px"}}>Goal Calories</p>
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.calories_for_goal}</h2>
           </div>
 
-          <div id="card-dashboard-gradient" className="bmr-dash">
+          <div onClick={() => this.handleClick("bmr")} id="card-dashboard-gradient" className="bmr-dash">
             <p style={{color: "white", fontSize: "14px"}}>BMR</p>
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.bmr}</h2>
           </div>
 
-          <div id="card-dashboard-gradient" className="bmi-dash">
+          <div onClick={() => this.handleClick("bmi")} id="card-dashboard-gradient" className="bmi-dash">
             <p style={{color: "white", fontSize: "14px"}}>BMI</p>
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.bmi}</h2>
           </div>
@@ -60,15 +74,15 @@ class UserProfile extends React.Component {
             <p style={{color: "black", fontSize: "14px"}}>Fats %</p>
             <h2 style={{fontSize: "20px", color: "#2761f1", marginTop: "0px"}}>{this.props.currentUserStats.fat_percentage}%</h2>
           </div>
+          
+          {this.state.description != "" ?
+          <div id="card-dashboard-blue" className="description-container">
+            <ResultDescription description={this.state.description} allStats={this.props.allStats} currentUserStats={this.props.currentUserStats} />
+          </div> : null }
         </div>
-
       </React.Fragment>
     )
   }
 }
 
 export default UserProfile
-
-// <div id="card-dashboard" className="macros-chart">
-//   <Macros currentUserStats={this.props.currentUserStats}/>
-// </div>

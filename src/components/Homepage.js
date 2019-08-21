@@ -46,7 +46,7 @@ class Homepage extends React.Component {
           <div id="free-guide-section">
             <h1 style={{margin: "0 auto", fontSize:"40px", marginBottom: "40px", width: "90%"}}>Get your portion control guide and a 100+ healthy food list...FOR FREE!</h1>
             <Grid stackable columns={2}>
-              <Grid.Row >
+              <Grid.Row>
                 <Grid.Column width={7}>
                   <Image id="alvaro-home-image" style={{margin: "0 auto"}} src='/books-3.png' size='medium' />
                 </Grid.Column>

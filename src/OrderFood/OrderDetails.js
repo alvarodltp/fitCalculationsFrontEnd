@@ -84,7 +84,7 @@ class OrderDetails extends React.Component {
         <div>
           <Message style={{textAlign: "left"}} color={this.props.color}>
             {this.props.message}<br/>
-            <Button style={{marginTop: "10px"}} onClick={this.props.editOrder}>Add or Remove Items</Button>
+            <Button id="button" style={{marginTop: "10px"}} onClick={this.props.editOrder}>Add or Remove Items</Button>
           </Message>
           
           <div className="order-titles">

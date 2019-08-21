@@ -15,7 +15,7 @@ span {
 .login {
   padding: 40px;
   margin: 0 auto;
-  background: linear-gradient(to top, #F1B727, #ce2dc2, #ac43d6, #7d54e7, #2761f1);
+  background: #F1B727;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -33,12 +33,12 @@ span {
 }
 
 #user-dashboard > * {
-  background: #f0f0f0;
+  background: white;
   padding: 5px;
 }
 
 #user-dashboard .dash-menu{
-  background: white;
+  background: #f0f0f0;
 }
 
 #user-dashboard .dash-nav{
@@ -71,7 +71,7 @@ span {
   margin: 10px;
 }
 
-#card-dashboard-#F1B727 {
+#card-dashboard-blue {
   background: #2761f1;
   border-radius: 0px;
   padding: 5px;
@@ -79,7 +79,7 @@ span {
   margin: 10px;
 }
 
-#card-dashboard-pink {
+#card-dashboard-orange {
   background: #F1B727;
   border-radius: 0px;
   padding: 5px;
@@ -89,7 +89,6 @@ span {
 
 #card-dashboard-gradient {
   background: #F1B727;
-
   border-radius: 0px;
   padding: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -171,7 +170,7 @@ span {
   .nested-content .user-profile-dash-calories {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(11, minmax(50px, auto));
+    grid-template-rows: repeat(12, minmax(50px, auto));
   }
   .weight-dash {
     grid-column: 1/4;
@@ -221,6 +220,11 @@ span {
     grid-column: 10/13;
     grid-row: 7/9;
   }
+  .description-container {
+    position: relative;
+    grid-column: 1/13;
+    grid-row: 9/12;
+  }
   .dash-menu div {
     margin: 30px;
   }
@@ -252,5 +256,17 @@ span {
   .expense-chart {
     grid-column: 1/7;
     grid-row: 8/13;
+  }
+  .description {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 20px;
+  }
+  .result-description {
+    text-align: left;
+    color: white;
   }
 }

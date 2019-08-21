@@ -2,9 +2,7 @@ import React from 'react'
 import {Image, Icon, Button, Card, Grid} from 'semantic-ui-react'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import ReactCompareImage from 'react-compare-image';
 import { FaCheck } from "react-icons/fa";
-import WeightChart from './WeightChart'
 import CountDown from './CountDown'
 import Fade from 'react-reveal/Fade';
 import ReactGA from 'react-ga';

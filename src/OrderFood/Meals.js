@@ -22,9 +22,9 @@ class Meals extends React.Component {
 
             {meal.quantity > 0 ? 
             <div style={{display:"flex", justifyContent: "center", marginBottom: "20px"}}>
-              <Button onClick={(e) => {this.props.addOrRemoveMeal(e, meal.id)}}>-</Button>
+              <Button id="button-meals" onClick={(e) => {this.props.addOrRemoveMeal(e, meal.id)}}>-</Button>
               <h4 style={{padding: "15px", margin: "0px 15px"}}>{meal.quantity}</h4>
-              <Button onClick={(e) => {this.props.addOrRemoveMeal(e, meal.id)}}>+</Button>
+              <Button id="button-meals" onClick={(e) => {this.props.addOrRemoveMeal(e, meal.id)}}>+</Button>
             </div> :
             <Button style={{margin: "0 auto", width: "80%", marginBottom: "20px"}} onClick={(e) => {this.props.addOrRemoveMeal(e, meal.id)}} id="button-mobile">+ Add</Button> }
           </div> )}
