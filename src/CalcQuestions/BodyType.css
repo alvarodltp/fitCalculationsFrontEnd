@@ -1,0 +1,27 @@
+
+.body-type-points-card{
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.body-type-points {
+  text-align: left;
+}
+#title-body-type {
+  font-size: 30px;
+  font-style: italic;
+  margin: 0 auto;
+  width: 85%;
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+.body-imgs-container {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.body-img-container {
+  width: 250px;
+}

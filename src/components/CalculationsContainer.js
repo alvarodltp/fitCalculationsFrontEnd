@@ -1,7 +1,7 @@
 import React from 'react'
 import UserInfoForm from './UserInfoForm'
 import BmrCalorieResults from './BmrCalorieResults'
-import PersonalizedMacros from './PersonalizedMacros'
+import BodyType from '../CalcQuestions/BodyType'
 import NutritionPackageDetails from './NutritionPackageDetails'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import SignUpForm from './SignUpForm'
@@ -378,11 +378,12 @@ class CalculationsContainer extends React.Component {
   }
 }
 
-calculateMacros = (e) => {
+calculateMacros = (body) => {
+  debugger
   let protein;
   let fats;
   let carbs;
-  let bodyType = e.target.parentElement.getElementsByClassName("header")[0].innerText
+  let bodyType = body
   let proteinPercentage;
   let carbPercentage;
   let fatPercentage;
@@ -716,7 +717,7 @@ confirmPassword = (e) => {
         <ToastContainer autoClose={false} draggable={true}/>
         {this.props.stepNumber === 5 && this.state.user != null ? <BmrCalorieResults bmr={this.state.bmr} caloriesToMaintain={this.state.caloriesToMaintain} caloriesForGoal={this.state.caloriesForGoal} proteinPercentage={this.state.proteinPercentage} carbPercentage={this.state.carbPercentage} fatPercentage={this.state.fatPercentage} protein={this.state.protein} carbs={this.state.carbs} fats={this.state.fats} showMacroCalculator={this.showMacroCalculator} macroCalculatorShown={this.state.macroCalculatorShown} motivationToGetFit={this.state.motivationToGetFit} dietType={this.state.dietType} goal={this.state.goal} maxHeartRate={this.state.maxHeartRate} age={this.state.age} showLandingPage={this.showLandingPage} landingPageShown={this.state.landingPageShown} showExercise={this.showExercise} exerciseShown={this.state.exerciseShown} showMacros={this.showMacros} macrosShown={this.state.macrosShown} showCardio={this.showCardio} cardioShown={this.state.cardioShown} showDiet={this.showDiet} dietShown={this.state.dietShown} showCalories={this.showCalories} caloriesShown={this.state.caloriesShown} safeCalories={this.state.safeCalories} dietType={this.state.dietType} motivationToGetFit={this.state.motivationToGetFit} user={this.state.user} displayCalories={this.state.displayCalories} displayCaloriesInfo={this.displayCaloriesInfo} displayDiet={this.state.displayDiet} displayDietInfo={this.displayDietInfo} cardInfo={this.state.cardInfo} /> : null }
         {this.props.stepNumber === 4 && this.state.loading === "" ? <SignUpForm handleOnSubmit={this.handleOnSubmit} passwordMessage={this.state.passwordMessage} confirmPassword={this.confirmPassword} handleOnSubmit={this.handleOnSubmit} getPassword={this.getPassword} setLoadingToTrue={this.setLoadingToTrue} requiredFieldsMessage={this.requiredFieldsMessage} message={this.state.message} getAllUsers={this.getAllUsers} safeCalories={this.state.safeCalories} notify={this.notify} getName={this.getName} getEmail={this.getEmail} validateEmail={this.props.validateEmail} checkCheckbox={this.checkCheckbox} saveEmailToUser={this.saveEmailToUser} activateConfetti={this.activateConfetti} scrollToTop={this.props.scrollToTop} name={this.state.name} email={this.state.email} checked={this.state.checked}/> : null }
-        {this.props.stepNumber === 1 ? <PersonalizedMacros setFormToTrue={this.setFormToTrue} substractOneFromStep={this.props.substractOneFromStep} user={this.state.user} scrollToTop={this.props.scrollToTop} updateUser={this.updateUser} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
+        {this.props.stepNumber === 1 ? <BodyType setFormToTrue={this.setFormToTrue} substractOneFromStep={this.props.substractOneFromStep} addOneToStep={this.props.addOneToStep} calculateMacros={this.calculateMacros} /> : null }
         {this.state.loading === true ? <Loading loading={this.state.loading} name={this.state.name}/> : null }
       </React.Fragment>
     )

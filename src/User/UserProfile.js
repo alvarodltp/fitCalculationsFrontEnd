@@ -14,14 +14,14 @@ class UserProfile extends React.Component {
   handleClick = (name) => {
     this.setState({
       description: name
-    })
+    });
   }
 
   render() {
     return (
       <React.Fragment>
         <div className="user-profile-dash-calories">
-          <div onClick={() => this.handleClick("weight")} id="card-dashboard-gradient" className="weight-dash">
+          <div onClick={() => this.handleClick("weight")} id="card-dashboard-gradient"      className="weight-dash">
             <p style={{color: "white", fontSize: "14px"}}>Weight</p>  
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.weight_in_lb} lb.</h2>
           </div>

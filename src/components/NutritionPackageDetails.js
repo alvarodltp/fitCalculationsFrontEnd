@@ -37,7 +37,7 @@ class NutritionPackageDetails extends React.Component {
       <React.Fragment>
       <div id="header-main-landing">
       <Bounce left>
-        <h1 style={{margin: "0 auto", fontSize:"55px", paddingTop: "80px", width: "100%", fontStyle: "italic", color: "white", marginBottom: "30px"}}>Let's Get Started!</h1>
+        <h1 style={{margin: "0 auto", fontSize:"50px", paddingTop: "80px", width: "100%", fontStyle: "italic", color: "white", marginBottom: "30px"}}>Let's Get Started!</h1>
         <span style={{margin: "0 auto", fontStyle: "italic", color: "white"}}>I identify as</span>
       </Bounce>
         {this.props.mobileDevice === false ?
@@ -53,51 +53,41 @@ class NutritionPackageDetails extends React.Component {
 
       <div style={{height: "5px", background: "#F1B727"}}>
       </div>
-
-
         <h2 style={{margin: "0 auto", marginBottom: "20px", marginTop: "30px", fontSize: "30px", fontStyle: "italic", width: "80%"}}>LIFE CHANGING INFORMATION IN LESS THAN 60 SECONDS</h2>
-        <div>
-          <Card id="benefits-bcm">
+        <div className="start-here-benefits">
+          <div id="benefits-bcm">
             <Image id="img-motivation" src={'../calories.png'} />
-            <Card.Content>
-              <h4>Calculate your calorie needs based on science</h4>
-              <Card.Description style={{width: "70%", margin: "0 auto"}}>Get the exact numbers you need to reach your goal.</Card.Description>
-            </Card.Content>
-          </Card>
-          <Card id="benefits-bcm">
+            <h4>Calculate your calorie needs based on science</h4>
+            <p style={{width: "90%", margin: "0 auto"}}>Get the exact numbers you need to reach your goal.</p>
+          </div>
+          <div id="benefits-bcm">
             <Image id="img-motivation" src={'../macros-breakdown.png'} />
-            <Card.Content>
-              <h4>Perfect breakdown of daily personalized macronutrients</h4>
-              <Card.Description style={{width: "70%", margin: "0 auto"}}>The amount of proteins, carbs, and fats you need to eat based on your calorie results and body type are key for success.</Card.Description>
-            </Card.Content>
-          </Card>
-          <Card id="benefits-bcm">
-            <Image id="img-motivation" src={'../personalized-info.png'} />
-            <Card.Content>
+            <h4>Perfect breakdown of daily personalized macronutrients</h4>
+            <p style={{width: "90%", margin: "0 auto"}}>The amount of proteins, carbs, and fats you need to eat based on your calorie results and body type are key for success.</p>
+          </div>
+            <div id="benefits-bcm">
+              <Image id="img-motivation" src={'../personalized-info.png'} />
               <h4>Powerful recommendations based on your results</h4>
-              <Card.Description style={{width: "70%", margin: "0 auto"}}>Either you want to get lean and muscular or start your weight loss journey, the key is right here.</Card.Description>
-            </Card.Content>
-          </Card>
-          <Card id="benefits-bcm">
-            <Image id="img-motivation" src={'../email-results.png'} />
-            <Card.Content>
+              <p style={{width: "90%", margin: "0 auto"}}>Either you want to get lean and muscular or start your weight loss journey, the key is right here.</p>
+            </div>
+            <div id="benefits-bcm">
+              <Image id="img-motivation" src={'../email-results.png'} />
               <h4>Your results sent right to your inbox so you can apply them and start seeing results fast </h4>
-              <Card.Description style={{width: "70%", margin: "0 auto"}}>Health professionals charge hundreds, if not thousands of dollars for information you will get absolutely FREE.</Card.Description>
-            </Card.Content>
-          </Card>
-        </div>
+              <p style={{width: "90%", margin: "0 auto"}}>Health professionals charge hundreds, if not thousands of dollars for information you will get absolutely FREE.</p>
+            </div>
+          </div>
 
         <h2 id="lets-get-numbers">GET YOUR NUMBERS!</h2>
 
         <div>
           {this.props.mobileDevice === false ?
           <div>
-            <Button style={{width: "30%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Female" size="large" id="button">I'M A WOMAN</Button>
-            <Button style={{width: "30%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Male" size="large" id="button">I'M A MAN</Button>
+            <Button style={{width: "30%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Female" size="large" id="button">WOMAN</Button>
+            <Button style={{width: "30%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Male" size="large" id="button">MAN</Button>
           </div> :
           <div>
-            <Button style={{width: "45%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Female" size="small" id="button-mobile">I'M A WOMAN</Button>
-            <Button style={{width: "45%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Male" size="small" id="button-mobile">I'M A MAN</Button>
+            <Button style={{width: "45%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Female" size="small" id="button-mobile">WOMAN</Button>
+            <Button style={{width: "45%", marginTop: "20px"}} onClick={(e) => {this.props.getGenderOnButton(e); this.props.displayForm()}} value="Male" size="small" id="button-mobile">MAN</Button>
           </div> }
 
           {this.props.showForm === false ?

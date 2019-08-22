@@ -51,10 +51,10 @@ class Nav extends React.Component {
                 <li style={{color: "#F1B727"}}>Login</li>
               </Link> }
             </ul>
-           {this.props.currentUserStats != null &&
+           {this.props.currentUserStats != null && this.props.user != null ?
            <div>
             <Dropdown style={{paddingLeft: "40px"}} onChange={this.handleClick} trigger={this.trigger()} options={options} pointing='top left' icon={null} />
-           </div> }
+           </div> : null }
           </nav>
         </header>
      </React.Fragment>
