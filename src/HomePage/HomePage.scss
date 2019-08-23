@@ -1,4 +1,4 @@
-.header {
+.header-home {
   height: 100vh;
   background-image: linear-gradient(to right bottom,rgba(246,211,101,0.801), rgba(241,183,39,0.801)), url('/header-image.png');
   background-size: cover;
@@ -21,7 +21,7 @@
   display: block;
   font-size: 60px;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 28px;
   animation-name: moveInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-out;
@@ -142,8 +142,17 @@
   animation-fill-mode: backwards;
 }
 
-.blog-section-home {
+.blog-section-home-container {
+  height: 100vh;
   background: white;
+  position: absolute;
+}
+
+.blog-section-home {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .latest-posts-title {

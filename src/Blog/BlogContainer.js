@@ -1,7 +1,6 @@
 import React from 'react'
-import BlogItem from './BlogItem'
+import './Blog.css'
 import AllBlogs from './AllBlogs'
-import BlogHeader from './BlogHeader'
 import BlogSide from './BlogSide'
 
 class BlogContainer extends React.Component {

@@ -9,10 +9,11 @@ class ExistingFoodLists extends React.Component {
   handleClose = () => this.setState({ modalOpen: false })
 
   render(){
+    debugger
     return(
       <React.Fragment>
       {this.props.foodList.map(list =>
-      <div key={list.id} className="grocery-list-card">
+      <div id={list.id} className="grocery-list-card">
         <div style={{padding: "20px"}}>
           <h4>{list.name}</h4>
           <p style={{fontSize: "12px"}}>{list.date}</p>

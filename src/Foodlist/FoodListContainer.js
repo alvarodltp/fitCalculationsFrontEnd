@@ -296,8 +296,10 @@ getDollarAmount = (e) => {
 }
 
 addPriceToList = (e, listId) => {
+  debugger
   let foodListCopy = [...this.state.foodList];
-  let filteredArr = foodListCopy.filter(foodList => foodList["id"] != listId)
+  let filteredArr = foodListCopy.filter(foodList => foodList.id != listId)
+  debugger
   fetch(`https://fitcalculations-api.herokuapp.com/food_lists/${listId}`, {
     method: 'PATCH',
     headers: {

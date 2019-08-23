@@ -1,5 +1,5 @@
 import React from 'react'
-import {Form, Button, Grid, Image} from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import MainHeaderHome from './MainHeaderHome';
 import BlogItem from '../Blog/BlogItem';
@@ -10,7 +10,8 @@ class Homepage extends React.Component {
       <React.Fragment>
         <div>
           <MainHeaderHome scrollToTop={this.props.scrollToTop}/>
-          <div className="blog-section-home">
+          <div className="blog-section-home-container">
+            <div className="blog-section-home">
             <h1 className="latest-posts-title">Latest Posts</h1>
             { this.props.posts.slice(0, 3).map(({fields}, i) => <BlogItem key={i} {...fields}/> )}
             <div>
@@ -19,10 +20,8 @@ class Homepage extends React.Component {
                   SEE MORE
                 </Button>
               </Link>
-            </div><br/>
-          </div>
-
-          <div id="fourth-header-home">
+            </div>
+            </div>
           </div>
         </div>
       </React.Fragment>

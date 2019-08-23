@@ -61,16 +61,16 @@ class Login extends React.Component {
 
   render() {
   return (
-    <div className="login-container" style={{paddingTop: "100px"}}>
+    <div className="login-container">
       <div className="login">
-        <h2>Login</h2>
+        <h2>Log In</h2>
         <div className="login-inputs">
           <Input className="login-input" fluid onChange={this.handleChangeEmail} name='email' placeholder='email' />
           <Input className="login-input" fluid onChange={this.handleChangePassword} name='password' type="password" placeholder='password' />
         </div>
         <div className="login-buttons">
           <Button onClick={this.handleSubmit}>
-            Login
+            Log In
           </Button>
           <Button onClick={this.signUpForm}>
             Create An Account
