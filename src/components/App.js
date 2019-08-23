@@ -3,7 +3,7 @@ import React from 'react';
 import '../App.scss';
 import CalculationsContainer from './CalculationsContainer'
 import { Route, Switch } from 'react-router-dom'
-import Homepage from './Homepage'
+import Homepage from '../HomePage/Homepage'
 import MacrosBreakdownForm from './MacrosBreakdownForm'
 import ThankYouBcm from './ThankYouBcm'
 import Invite from './Invite'
