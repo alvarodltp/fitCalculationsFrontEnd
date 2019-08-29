@@ -7,35 +7,36 @@ import { FaApple } from "react-icons/fa";
 import { FaUtensils } from "react-icons/fa";
 
 const DashboardMenu = (props) => {
+  const { activeMenu, menuStyle } = props
   return (
-    <div className="dash-menu">
-      <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
-        <Icon style={{color: "#F1B727", display: "inline"}} name="user" />
-        <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Profile</p>
+    <div className="dash-menu"> 
+      <div style={activeMenu === "Profile" ? menuStyle : null} className="dash-menu-item" onClick={(e) => {props.handleMenuClick(e, "Profile")}}>
+        <Icon className="dash-menu-icon" name="user" />
+        <p>Profile</p>
       </div>
 
-      <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
-        <FaChartPie  style={{color: "#F1B727", display: "inline"}}/>
-        <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Stats</p>
+      <div style={activeMenu === "Stats" ? menuStyle : null} className="dash-menu-item" onClick={(e) => {props.handleMenuClick(e, "Stats")}}>
+        <FaChartPie className="dash-menu-icon"/>
+        <p>Stats</p>
       </div>
 
-      <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
-        <FaLock style={{color: "#F1B727", display: "inline"}}/>
-        <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Programs</p>
+      <div style={activeMenu === "Programs" ? menuStyle : null} className="dash-menu-item" onClick={(e) => {props.handleMenuClick(e, "Programs")}}>
+        <FaLock className="dash-menu-icon"/>
+        <p>Programs</p>
       </div>
 
-      <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
-        <FaApple style={{color: "#F1B727", display: "inline"}}/>
-        <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Groceries</p>
+      <div style={activeMenu === "Groceries" ? menuStyle : null} className="dash-menu-item" onClick={(e) => {props.handleMenuClick(e, "Groceries")}}>
+        <FaApple className="dash-menu-icon"/>
+        <p>Groceries</p>
       </div>
 
-      <div style={{textAlign: "left"}} onClick={props.handleMenuClick}>
-        <FaUtensils style={{color: "#F1B727", display: "inline"}}/>
-        <p style={{fontSize: "14px", display: "inline", padding: "10px"}}>Order Food</p>
+      <div style={activeMenu === "Order Food" ? menuStyle : null} className="dash-menu-item" onClick={(e) => {props.handleMenuClick(e, "Order Food")}}>
+        <FaUtensils className="dash-menu-icon"/>
+        <p>Order Food</p>
       </div>
 
-      <div onClick={props.handleMenuClick}>
-        <Button style={{color: "white", background: "#2761f1"}}>Start New Calculation</Button>
+      <div onClick={(e) => {props.handleMenuClick(e, "Start New Calculation")}}>
+        <Button className="dash-menu-button">Start New Calculation</Button>
       </div>
     </div>
   )

@@ -84,15 +84,7 @@ span {
   margin: 10px;
 }
 
-#card-dashboard-orange {
-  background: #F1B727;
-  border-radius: 0px;
-  padding: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin: 10px;
-}
-
-#card-dashboard-gradient {
+.card-dashboard-orange {
   background: #F1B727;
   border-radius: 0px;
   padding: 5px;
@@ -162,8 +154,39 @@ span {
     grid-row: 0/1;
   }
   .dash-menu {
+    padding: 0 !important;
     grid-column: 1/3;
     grid-row: 2/13;
+  }
+  .dash-menu .dash-menu-item {
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    margin: 0;
+    padding: 10px 30px 10px 30px;
+    display: flex;
+    align-items: center;
+  }
+  .dash-menu .dash-menu-item:hover {
+    background: silver;
+    color: white;
+    cursor: pointer;
+  }
+  .dash-menu-item p {
+    font-size: 14px; 
+    padding: 10px;
+  }
+  .dash-menu .dash-menu-icon {
+    color: #2761f1;
+  }
+  .dash-menu .dash-menu-button {
+    color: white;
+    background: #2761f1;
+    cursor: pointer;
+  }
+  .dash-menu .dash-menu-button:hover {
+    background: #F1B727;
+    cursor: pointer;
   }
   .nested-content{
     display: grid;

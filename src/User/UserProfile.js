@@ -18,25 +18,26 @@ class UserProfile extends React.Component {
   }
 
   render() {
+    const cardStyle = {background: "#2761f1"}
     return (
       <React.Fragment>
         <div className="user-profile-dash-calories">
-          <div onClick={() => this.handleClick("weight")} id="card-dashboard-gradient"      className="weight-dash">
+          <div style={this.state.description === "weight" ? cardStyle : null} onClick={() => this.handleClick("weight")} className="card-dashboard-orange weight-dash">
             <p style={{color: "white", fontSize: "14px"}}>Weight</p>  
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.weight_in_lb} lb.</h2>
           </div>
 
-          <div onClick={() => this.handleClick("calories")} id="card-dashboard-gradient" className="goal-cal-dash">
+          <div style={this.state.description === "calories" ? cardStyle : null} onClick={() => this.handleClick("calories")} className="card-dashboard-orange goal-cal-dash">
             <p style={{color: "white", fontSize: "14px"}}>Goal Calories</p>
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.calories_for_goal}</h2>
           </div>
 
-          <div onClick={() => this.handleClick("bmr")} id="card-dashboard-gradient" className="bmr-dash">
+          <div style={this.state.description === "bmr" ? cardStyle : null} onClick={() => this.handleClick("bmr")} className="card-dashboard-orange bmr-dash">
             <p style={{color: "white", fontSize: "14px"}}>BMR</p>
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.bmr}</h2>
           </div>
 
-          <div onClick={() => this.handleClick("bmi")} id="card-dashboard-gradient" className="bmi-dash">
+          <div style={this.state.description === "bmi" ? cardStyle : null} onClick={() => this.handleClick("bmi")} className="card-dashboard-orange bmi-dash">
             <p style={{color: "white", fontSize: "14px"}}>BMI</p>
             <h2 style={{fontSize: "20px", color: "white", marginTop: "0px"}}>{this.props.currentUserStats.bmi}</h2>
           </div>

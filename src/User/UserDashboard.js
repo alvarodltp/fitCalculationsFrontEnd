@@ -3,13 +3,14 @@ import './UserDashboard.css'
 import DashboardMenu from './DashboardMenu'
 import DashboardContent from './DashboardContent'
 import { ToastContainer, toast } from 'react-toastify';
+import { MenuItem } from 'semantic-ui-react';
 
 
 class UserDashboard extends React.Component {
   constructor(){
     super()
     this.state={
-      page: 'Profile',
+      page: "Profile",
       formType: 'Imperial',
       maxHeartRate: "",
       safeCalories: "",
@@ -28,13 +29,18 @@ class UserDashboard extends React.Component {
       fatsBreakdown: "",
       approxPoundsToLoseSafely: "",
       maxHeartRate: "",
-      programSelected: ""
+      programSelected: "",
+      activeMenu: "Profile",
+      menuStyle: null
     }
   }
 
-  handleMenuClick = (e) => {
+  handleMenuClick = (e, menuName) => {
+    console.log(menuName)
     this.setState({
-      page: e.target.parentElement.innerText
+      page: e.target.parentElement.innerText,
+      activeMenu: menuName,
+      menuStyle: {background: "#F1B727", color: "white"}
     })
   }
 
@@ -241,7 +247,7 @@ saveStats = () => {
     .then(json => {
       this.setState({
         stats: json,
-        page: "Profile"
+        activeMenu: "Profile"
       }, this.props.getUserStats(stat.user))
   })
 }
@@ -254,10 +260,11 @@ getProgram = (e) => {
 }
 
   render(){
+    const { activeMenu, menuStyle, programSelected, page} = this.state
     return(
       <div id="user-dashboard">
-        <DashboardMenu handleMenuClick={this.handleMenuClick} currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]}/>
-        <DashboardContent userFoodLists={this.props.userFoodLists} programSelected={this.state.programSelected} getProgram={this.getProgram} currentUserStatsNewCalc={this.props.currentUserStatsNewCalc} calculateBmr={this.calculateBmr} handleChange={this.props.handleChange} handleChangeDropdown={this.props.handleChangeDropdown} page={this.state.page} currentUserStats={this.props.currentUserStats}/>
+        <DashboardMenu activeMenu={activeMenu} menuStyle={menuStyle} handleMenuClick={this.handleMenuClick} currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]}/>
+        <DashboardContent userFoodLists={this.props.userFoodLists} programSelected={programSelected} getProgram={this.getProgram} currentUserStatsNewCalc={this.props.currentUserStatsNewCalc} calculateBmr={this.calculateBmr} handleChange={this.props.handleChange} handleChangeDropdown={this.props.handleChangeDropdown} activeMenu={this.state.activeMenu} page={page} currentUserStats={this.props.currentUserStats}/>
       </div>
     )
   }
