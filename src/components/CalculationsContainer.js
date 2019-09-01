@@ -26,15 +26,12 @@ class CalculationsContainer extends React.Component {
       heightCm: "",
       age: "",
       activityLevel: null,
-      goal: "",
       weightToManage: "",
       bmr: "",
       bmi: "",
       caloriesForGoal: "",
       safeCalories: true,
       caloriesToMaintain: "",
-      feet: null,
-      inches: "",
       protein: "",
       carbs: "",
       fats: "",
@@ -44,7 +41,7 @@ class CalculationsContainer extends React.Component {
       bodyType: "",
       user: null,
       stats: null,
-      buttonDisabled: true,
+      buttonDisabled: false,
       modalOpen: false,
       showBcmForm: true,
       proteinPercentage: "",
@@ -64,13 +61,6 @@ class CalculationsContainer extends React.Component {
       confetti: false,
       checked: true,
       approxPoundsToLoseSafely: "",
-      caloriesShown: false,
-      dietShown: false,
-      macrosShown: false,
-      cardioShown: false,
-      exerciseShown: false,
-      macroCalculatorShown: false,
-      landingPageShown: false,
       maxHeartRate: 0,
       showForm: false,
       users: null,
@@ -79,7 +69,8 @@ class CalculationsContainer extends React.Component {
       loading: "",
       showNutritionPackageDetails: true,
       password: "",
-      passwordMessage: ""
+      passwordMessage: "",
+      goal: ""
     }
   }
 
@@ -91,83 +82,6 @@ class CalculationsContainer extends React.Component {
     this.setState({
       formType: e.target.innerText
     })
-  }
-
-  showCalories = () => {
-    this.setState({
-      caloriesShown: !this.state.caloriesShown,
-      dietShown: false,
-      macrosShown: false,
-      cardioShown: false,
-      exerciseShown: false,
-      macroCalculatorShown: false
-    })
-  }
-
-  showExercise = () => {
-    this.setState({
-      exerciseShown: !this.state.exerciseShown,
-      caloriesShown: false,
-      dietShown: false,
-      macrosShown: false,
-      cardioShown: false,
-      macroCalculatorShown: false
-    })
-  }
-
-  showMacros = () => {
-    this.setState({
-      macrosShown: !this.state.macrosShown,
-      caloriesShown: false,
-      dietShown: false,
-      cardioShown: false,
-      exerciseShown: false,
-      macroCalculatorShown: false
-    })
-  }
-
-  showDiet = () => {
-    this.setState({
-      dietShown: !this.state.dietShown,
-      caloriesShown: false,
-      macrosShown: false,
-      cardioShown: false,
-      exerciseShown: false,
-      macroCalculatorShown: false
-    })
-  }
-
-  showCardio = () => {
-    this.setState({
-      cardioShown: !this.state.cardioShown,
-      caloriesShown: false,
-      macrosShown: false,
-      dietShown: false,
-      exerciseShown: false,
-      macroCalculatorShown: false
-    })
-  }
-
-  showMacroCalculator = () => {
-    this.setState({
-      macroCalculatorShown: !this.state.macroCalculatorShown,
-      cardioShown: false,
-      caloriesShown: false,
-      macrosShown: false,
-      dietShown: false,
-      exerciseShown: false
-    })
-  }
-
-  showLandingPage = () => {
-    this.setState({
-      landingPageShown: !this.state.landingPageShown,
-      cardioShown: false,
-      caloriesShown: false,
-      macrosShown: false,
-      dietShown: false,
-      exerciseShown: false
-    }, this.updateIntercom())
   }
 
   activateConfetti = () => {
@@ -187,14 +101,6 @@ class CalculationsContainer extends React.Component {
   handleOpen = () => this.setState({ modalOpen: true })
 
   handleClose = () => this.setState({ modalOpen: false })
-
-  enableButton = (e) => {
-    if(this.state.weightToManage !== "" && this.state.gender !== "" && this.state.age !== "" && this.state.weightLb !== "" && this.state.feet !== "" && this.state.inches !== "" && this.state.activityLevel !== null && this.state.goal !== ""){
-      this.setState({
-        buttonDisabled: false
-      })
-    }
-  }
 
   enableButtonMetricForm = (e) => {
     if(this.state.weightToManage !== "" && this.state.gender !== "" && this.state.age !== "" && this.state.weightKg !== "" && this.state.heightCm !== "" && this.state.activityLevel !== null && this.state.goal !== "") {
@@ -240,28 +146,10 @@ class CalculationsContainer extends React.Component {
     })
   }
 
-  getGoal = (e) => {
+  handleFormDropdown = (data) => {
+    let name = data.name;
     this.setState({
-    goal: e.target.innerText
-    })
-  }
-
-  getWeightToLose = (e) => {
-    debugger
-    this.setState({
-      weightToManage: e.target.innerText
-    })
-  }
-
-  getFeet = (e) => {
-    this.setState({
-      feet: parseInt(e.target.innerText)
-    })
-  }
-
-  getInches = (e) => {
-    this.setState({
-      inches: parseInt(e.target.innerText)
+    [name]: data.value
     })
   }
 
@@ -279,22 +167,10 @@ class CalculationsContainer extends React.Component {
     })
   }
 
-
-  getActivityLevel = (e) => {
-    let activityLevel = e.target.innerText
-    let activityLevelValue;
-    if(activityLevel === "Sedentary (little or no exercise)") {
-      activityLevelValue = 1.2
-    } else if (activityLevel === "Lightly active (light exercise/sports 1-3 days/week)") {
-      activityLevelValue = 1.375
-    } else if (activityLevel === "Moderately active (moderate exercise/sports 3-5 days/week)") {
-      activityLevelValue = 1.55
-    } else if (activityLevel === "Very active (hard exercise/sports 6-7 days a week)") {
-      activityLevelValue = 1.725
-    } else {
-      activityLevelValue = 1.9
-    }
-    debugger
+  getActivityLevel = (data) => {
+    let activityLevel = data.value.split(",")[0]
+    let activityLevelValue = data.value.split(",")[1]
+    console.log(activityLevel, activityLevelValue);
     this.setState({
       activityLevel: {name: activityLevel, value: activityLevelValue},
       activityLevelText: activityLevel
@@ -306,8 +182,8 @@ class CalculationsContainer extends React.Component {
     let weight;
     let height;
     let weightInKg = (this.state.weightLb/2.2046).toFixed(2)
-    let heightInFeet = this.state.feet * 30.48
-    let heightInInches = this.state.inches * 2.54
+    let heightInFeet = parseInt(this.state.feet) * 30.48
+    let heightInInches = parseInt(this.state.inches) * 2.54
     let heightInCm = heightInFeet + heightInInches
     let heightInm2 = heightInCm / 100
     let heightInm2FromState = this.state.heightCm / 100
@@ -335,23 +211,23 @@ class CalculationsContainer extends React.Component {
   }
 
   calculateCalories = (bmr) => {
-  let activityLevel = this.state.activityLevel
-  let goal = this.state.goal
-  let weightToManage = this.state.weightToManage.split(' ')[0]
+  let activityLevel = this.state.activityLevel;
+  let goal = this.state.goal;
+  let weightToManage = this.state.weightToManage;
   let caloriesToMaintain;
   bmr !== "" && activityLevel !== null ? caloriesToMaintain = Math.round(bmr * activityLevel["value"]) : caloriesToMaintain = null
   let caloriesForGoal;
-  if(goal === "Lose Weight/Get Lean" && weightToManage === "Slow"){
+  if(goal === "lose" && weightToManage === "Slow - 0.5 lb. Per Week,0.5"){
     caloriesForGoal = caloriesToMaintain - 250
-  } else if (goal === "Lose Weight/Get Lean" && weightToManage === "Steady"){
+  } else if (goal === "lose" && weightToManage === "Steady - 1 lb. To 1.5 lb. Per Week,1 to 1.5"){
     caloriesForGoal = caloriesToMaintain - 500
-  } else if (goal === "Lose Weight/Get Lean" && weightToManage === "Accelerated"){
+  } else if (goal === "lose" && weightToManage === "Accelerated - 2 lb. Per Week,2.0"){
     caloriesForGoal = caloriesToMaintain - 1000
-  } else if (goal === "Gain Muscle" && weightToManage === "Slow"){
+  } else if (goal === "gain" && weightToManage === "Slow - 0.5 lb. Per Week,0.5"){
     caloriesForGoal = caloriesToMaintain + 250
-  } else if (goal === "Gain Muscle" && weightToManage === "Steady"){
+  } else if (goal === "gain" && weightToManage === "Steady - 1 lb. To 1.5 lb. Per Week,1 to 1.5"){
     caloriesForGoal = caloriesToMaintain + 500
-  } else if (goal === "Gain Muscle" && weightToManage === "Accelerated"){
+  } else if (goal === "gain" && weightToManage === "Accelerated - 2 lb. Per Week,2.0"){
     caloriesForGoal = caloriesToMaintain + 1000
   } else {
     caloriesForGoal = caloriesToMaintain
@@ -428,7 +304,6 @@ getAllUsers = () => {
   .then(json => {
     let email = this.state.email
     let userExists = json.filter(user => user.email === email.toLowerCase())
-    // console.log(userExists)
     this.setState({
       users: json,
       userExists: userExists
@@ -442,7 +317,6 @@ saveOrUpdateUser = (userExists) => {
     this.updateUser(userExists)
   } else if (this.props.emailValid === true && this.state.name !== "" && this.state.checked === true && userExists.length === 0){
     this.handleOnSubmit()
-    //before it was saveOrUpdateUser()
   } else {
 
   }
@@ -509,8 +383,6 @@ updateUser = (userExists) => {
   }
 
 saveStats = (user) => {
-  let weightToManage = this.state.weightToManage
-  let today = new Date()
   // debugger
   // let formatedDate = ((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear())
   fetch("https://fitcalculations-api.herokuapp.com/stats", {
@@ -703,11 +575,12 @@ confirmPassword = (e) => {
     return(
       <React.Fragment>
         <Confetti id="confetti" active={this.state.confetti} config={config}/>
-        {this.props.stepNumber === 0 && this.state.showNutritionPackageDetails === true ? <NutritionPackageDetails displayForm={this.displayForm} showForm={this.state.showForm} mobileDevice={this.props.mobileDevice} getGenderOnButton={this.getGenderOnButton} showBcmForm={this.showBcmForm}/> : null }
+        {this.props.stepNumber === 0 && this.state.showNutritionPackageDetails === true ? 
+        <NutritionPackageDetails displayForm={this.displayForm} showForm={this.state.showForm} mobileDevice={this.props.mobileDevice} getGenderOnButton={this.getGenderOnButton} showBcmForm={this.showBcmForm}/> : null }
         <div className="stepper">{this.state.showForm === true || this.props.stepNumber === 1 || this.props.stepNumber === 2 || this.props.stepNumber === 3 || this.props.stepNumber === 4 ? <Stepper completeColor={"#2761f1"} activeColor={"#F1B727"} steps={ [{title: 'Info'}, {title: 'Body'}, {title: 'Diet'}, {title: 'Motivation'}, {title: 'Results'}] } activeStep={ this.props.stepNumber } /> : null }</div>
         {this.state.showForm === true ? 
-        <UserInfoForm enableButtonMetricForm={this.enableButtonMetricForm} getFormType={this.getFormType} formType={this.state.formType} getCm={this.getCm} heightCm={this.state.heightCm} age={this.state.age} weightLb={this.state.weightLb} weightKg={this.state.weightKg} feet={this.state.feet} inches={this.state.inches} goal={this.state.goal} activityLevelText={this.state.activityLevelText} weightToManage={this.state.weightToManage} hideForm={this.hideForm} mobileDevice={this.props.mobileDevice} getWeightToLose={this.getWeightToLose} gender={this.state.gender} getGenderOnButton={this.getGenderOnButton} scrollToTop={this.props.scrollToTop} enableButton={this.enableButton} buttonDisabled={this.state.buttonDisabled} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm}
-        handleChange={this.handleChange} getFeet={this.getFeet} getInches={this.getInches} getGoal={this.getGoal} goal={this.state.goal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories} /> : null }
+        <UserInfoForm enableButtonMetricForm={this.enableButtonMetricForm} getFormType={this.getFormType} formType={this.state.formType} getCm={this.getCm} heightCm={this.state.heightCm} age={this.state.age} weightLb={this.state.weightLb} weightKg={this.state.weightKg} feet={this.state.feet} inches={this.state.inches} goal={this.state.goal} activityLevelText={this.state.activityLevelText} weightToManage={this.state.weightToManage} hideForm={this.hideForm} mobileDevice={this.props.mobileDevice} getWeightToLose={this.getWeightToLose} gender={this.state.gender} getGenderOnButton={this.getGenderOnButton} scrollToTop={this.props.scrollToTop} buttonDisabled={this.state.buttonDisabled} resetForm={this.resetForm} addOneToStep={this.props.addOneToStep} hideForm={this.hideForm} resetFormInput={this.resetFormInput} resetForm={this.resetForm}
+        handleChange={this.handleChange} handleFormDropdown={this.handleFormDropdown} goal={this.state.goal} getGender={this.getGender} getActivityLevel={this.getActivityLevel} calculateBmr={this.calculateBmr} calculateCalories={this.calculateCalories} /> : null }
         {this.props.stepNumber === 2 ? 
         <DietType substractOneFromStep={this.props.substractOneFromStep} getDietType={this.getDietType} addOneToStep={this.props.addOneToStep} scrollToTop={this.props.scrollToTop} stepNumber={this.props.stepNumber}/> : null}
         {this.props.stepNumber === 3 ? 

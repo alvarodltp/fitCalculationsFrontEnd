@@ -90,17 +90,17 @@ class UserDashboard extends React.Component {
     let caloriesToMaintain;
     bmr !== "" && activityLevel !== null ? caloriesToMaintain = Math.round(bmr * activityLevelValue) : caloriesToMaintain = null
     let caloriesForGoal;
-    if(goal === "Lose Weight/Get Lean" && weightToManage === "Slow"){
+    if(goal === "lose" && weightToManage === "Slow"){
       caloriesForGoal = caloriesToMaintain - 250
-    } else if (goal === "Lose Weight/Get Lean" && weightToManage === "Steady"){
+    } else if (goal === "lose" && weightToManage === "Steady"){
       caloriesForGoal = caloriesToMaintain - 500
-    } else if (goal === "Lose Weight/Get Lean" && weightToManage === "Accelerated"){
+    } else if (goal === "lose" && weightToManage === "Accelerated"){
       caloriesForGoal = caloriesToMaintain - 1000
-    } else if (goal === "Gain Muscle" && weightToManage === "Slow"){
+    } else if (goal === "gain" && weightToManage === "Slow"){
       caloriesForGoal = caloriesToMaintain + 250
-    } else if (goal === "Gain Muscle" && weightToManage === "Steady"){
+    } else if (goal === "gain" && weightToManage === "Steady"){
       caloriesForGoal = caloriesToMaintain + 500
-    } else if (goal === "Gain Muscle" && weightToManage === "Accelerated"){
+    } else if (goal === "gain" && weightToManage === "Accelerated"){
       caloriesForGoal = caloriesToMaintain + 1000
     } else {
       caloriesForGoal = caloriesToMaintain
