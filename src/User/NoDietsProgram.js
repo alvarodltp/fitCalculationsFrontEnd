@@ -17,7 +17,7 @@ class NoDietsProgram  extends React.Component {
   }
 
   increaseOrReduce = () => {
-    if(this.props.currentUserStatsNewCalc.goal === "Lose Weight/Get Lean"){
+    if(this.props.currentUserStatsNewCalc.goal === "lose"){
       return "reduce"
     } else {
       return "increase"
@@ -35,7 +35,7 @@ class NoDietsProgram  extends React.Component {
   }
 
   extraOrDeficit = () => {
-    if(this.props.currentUserStatsNewCalc.goal === "Lose Weight/Get Lean"){
+    if(this.props.currentUserStatsNewCalc.goal === "lose"){
       return "a deficit of"
     } else {
       return "an extra"
