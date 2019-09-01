@@ -1,7 +1,6 @@
 import React from 'react'
-import {Image, Icon, Card, Button, Input, Checkbox, Form, Divider, Grid} from 'semantic-ui-react'
+import { Icon, Button, Input, Checkbox, Form, Divider} from 'semantic-ui-react'
 import ReactGA from 'react-ga';
-import Loading from './Loading';
 
 class SignUpForm extends React.Component {
 
@@ -21,7 +20,7 @@ class SignUpForm extends React.Component {
             <Divider style={{margin: "0 auto", fontSize: "20px", marginTop: "25px", width: "80%"}} horizontal>
               Your Results Are Ready
             </Divider>
-            <p>Sign up for a FREE account to keep track of your calculations or view your results as a guest.</p>
+            <p>Sign up for a FREE account and get access to your results in your dashboard.</p>
           </div>
 
           <div id="sign-up-form-card">
@@ -48,7 +47,3 @@ class SignUpForm extends React.Component {
 }
 
 export default SignUpForm
-
-// {this.props.safeCalories === true ?
-// <Button size="medium" id="button-get-email" type='submit'
-// onClick={() => {this.getEvent(); this.props.scrollToTop(); this.props.requiredFieldsMessage()}}>SUBMIT!</Button> :
