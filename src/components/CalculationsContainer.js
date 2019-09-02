@@ -41,7 +41,7 @@ class CalculationsContainer extends React.Component {
       bodyType: "",
       user: null,
       stats: null,
-      buttonDisabled: false,
+      buttonDisabled: true,
       modalOpen: false,
       showBcmForm: true,
       proteinPercentage: "",
@@ -70,12 +70,28 @@ class CalculationsContainer extends React.Component {
       showNutritionPackageDetails: true,
       password: "",
       passwordMessage: "",
-      goal: ""
+      goal: "",
+      formValues: {
+        weightToManage: false,
+        age: false,
+        goal: false,
+        feet: false,
+        inches: false,
+        activityLevel: false,
+        weightLb: false
+      }
     }
   }
 
   componentDidMount(){
     this.getAllUsers()
+  }
+
+  manageButton = (formType) => {
+    let enabled = Object.values(formType).includes(false)
+    this.setState({
+      buttonDisabled: enabled
+    })
   }
 
   getFormType = (e) => {
@@ -117,9 +133,12 @@ class CalculationsContainer extends React.Component {
   }
 
   handleChange = (e) => {
+    let formValues = this.state.formValues;
+    e.target.value != "" ? formValues[e.target.name] = true : formValues[e.target.name] = false
     this.setState({
-      [e.target.name]: parseInt(e.target.value)
-    })
+      [e.target.name]: parseInt(e.target.value),
+      formValues: formValues
+    }, () => this.manageButton(formValues))
   }
 
   getEmail = (e) => {
@@ -135,9 +154,12 @@ class CalculationsContainer extends React.Component {
   }
 
   getGender = (e) => {
+    let formValues = this.state.formValues
+    formValues["gender"] = true
     this.setState({
-      gender: e.target.parentElement.innerText
-    })
+      gender: e.target.parentElement.innerText,
+      formValues: formValues
+    }, () => this.manageButton(formValues))
   }
 
   getPassword = (e) => {
@@ -148,9 +170,12 @@ class CalculationsContainer extends React.Component {
 
   handleFormDropdown = (data) => {
     let name = data.name;
+    let formValues = this.state.formValues
+    formValues[name] = true
     this.setState({
-    [name]: data.value
-    })
+    [name]: data.value,
+    formValues: formValues
+    }, () => this.manageButton(formValues))
   }
 
   getDietType = (e) => {
@@ -168,13 +193,16 @@ class CalculationsContainer extends React.Component {
   }
 
   getActivityLevel = (data) => {
+    let name = data.name
     let activityLevel = data.value.split(",")[0]
     let activityLevelValue = data.value.split(",")[1]
-    console.log(activityLevel, activityLevelValue);
+    let formValues = this.state.formValues
+    formValues[name] = true
     this.setState({
       activityLevel: {name: activityLevel, value: activityLevelValue},
-      activityLevelText: activityLevel
-    })
+      activityLevelText: activityLevel,
+      formValues: formValues
+    }, () => this.manageButton(formValues))
   }
 
   calculateBmr = () => {
@@ -253,7 +281,6 @@ class CalculationsContainer extends React.Component {
 }
 
 calculateMacros = (body) => {
-  debugger
   let protein;
   let fats;
   let carbs;
@@ -420,7 +447,7 @@ saveStats = (user) => {
       })
     }).then(response => response.json())
     .then(json => {
-      debugger
+      // debugger
       this.setState({
         stats: json,
         loading: false
@@ -538,7 +565,7 @@ handleOnSubmit = () => {
   })
   .then(res => res.json())
   .then(res => {
-    debugger
+    // debugger
     this.setState({
       user: res.user
     }, this.props.updateNewUser(res), this.saveStats(res.user), this.notify())
