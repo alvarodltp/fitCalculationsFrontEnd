@@ -6,19 +6,19 @@ import ExpenseChart from './ExpenseChart'
 const UserStats = (props) => {
   return(
     <div className="user-stats-dash">
-      <div id="card-dashboard-orange" className="weight-chart-title">
+      <div className="weight-chart-title card-dashboard-orange">
         <h2 style={{color: "white"}}>Weight History</h2>
       </div>
       <div id="card-dashboard" className="weight-chart">
         <WeightChart currentUserStats={props.currentUserStats}/>
       </div>
-      <div id="card-dashboard-orange" className="bmi-chart-title">
+      <div className="bmi-chart-title card-dashboard-orange">
         <h2 style={{color: "white"}}>BMI History</h2>
       </div>
-      <div id="card-dashboard" className="bmi-chart">
+      <div className="bmi-chart card-dashboard">
         <BmiChart currentUserStats={props.currentUserStats}/>
       </div>
-      <div id="card-dashboard-orange" className="expense-chart-title">
+      <div className="expense-chart-title card-dashboard-orange">
         <h2 style={{color: "white"}}>Food Expense History</h2>
       </div>
       <div id="card-dashboard" className="expense-chart">
