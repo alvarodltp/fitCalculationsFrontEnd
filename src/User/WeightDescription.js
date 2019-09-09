@@ -16,25 +16,25 @@ const WeightDescription = (props) => {
             <p>Congrats on your first calculation. You weight status will appear here when you have more than one calculation in your account.</p> 
           </div> : null }
 
-          { moreThanOneStat === true && Math.sign(weightDifference) === -1 && currentUserStats.goal === "Lose Weight/Get Lean" ?
+          { moreThanOneStat === true && Math.sign(weightDifference) === -1 && currentUserStats.goal === "lose" ?
           <div className="result-description">
             <h4>Your Weight</h4>
             <p>Congrats, you have lost {Math.abs(weightDifference)} pounds since your last measurement! Keep up the great work and make sure to start a new calculation every two weeks so you can follow up to date calorie and macronutrient needs.</p> 
           </div> : null }
 
-          { moreThanOneStat === true && Math.sign(weightDifference) === -1 && currentUserStats.goal === "Gain Muscle" ?
+          { moreThanOneStat === true && Math.sign(weightDifference) === -1 && currentUserStats.goal === "gain" ?
           <div className="result-description">
             <h4>Your Weight</h4>
             <p>Your goal is to gain muscle, but you have lost {Math.abs(weightDifference)} pounds since your last measurement. Make sure to get close to your goal calories in a consistent basis.</p> 
           </div> : null }
 
-          { moreThanOneStat === true && Math.sign(weightDifference) === 1 && currentUserStats.goal === "Lose Weight/Get Lean" ?
+          { moreThanOneStat === true && Math.sign(weightDifference) === 1 && currentUserStats.goal === "lose" ?
           <div className="result-description">
             <h4>Your Weight</h4>
             <p>Your goal is to lose weight and get lean, but you have gained {Math.abs(weightDifference)} pounds since your last measurement. Make sure to get close to your goal calories in a consistent basis.</p> 
           </div> : null }
 
-          { moreThanOneStat === true && Math.sign(weightDifference) === 1 && currentUserStats.goal === "Gain Muscle" ?
+          { moreThanOneStat === true && Math.sign(weightDifference) === 1 && currentUserStats.goal === "gain" ?
           <div className="result-description">
             <h4>Your Weight</h4>
             <p>Congrats, you have gained {Math.abs(weightDifference)} pounds since your last measurement. Keep up the great work and make sure to start a new calculation every two weeks so you can follow up to date calorie and macronutrient needs.</p> 

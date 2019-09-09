@@ -6,6 +6,7 @@ import BmiDescription from './BmiDescription';
 
 class ResultDescription extends React.Component {
   render(){
+    console.log(this.props.description)
     return(
       <React.Fragment>
         {this.props.description === "weight" && <WeightDescription {...this.props} /> }

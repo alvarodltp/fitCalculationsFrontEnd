@@ -260,7 +260,7 @@ getProgram = (e) => {
 }
 
   render(){
-    const { activeMenu, menuStyle, programSelected, page} = this.state
+    const { activeMenu, menuStyle, programSelected, page} = this.state;
     return(
       <div id="user-dashboard">
         <DashboardMenu activeMenu={activeMenu} menuStyle={menuStyle} handleMenuClick={this.handleMenuClick} currentUserStats={this.props.currentUserStats[this.props.currentUserStats.length - 1]}/>
