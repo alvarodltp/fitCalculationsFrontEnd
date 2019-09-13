@@ -26,18 +26,3 @@ class NavBar extends React.Component {
 }
 
 export default NavBar
-
-// <Link to="/about">
-//   <Menu.Item style={{fontSize: "18px"}} name='About' active={activeItem === 'About'} onClick={this.handleItemClick} />
-// </Link>
-// <Link to="/tools">
-//   <Menu.Item style={{fontSize: "18px"}} name='Tools' active={activeItem === 'Tools'} onClick={this.handleItemClick} />
-// </Link>
-// <Link to="/products">
-//   <Menu.Item
-//     style={{fontSize: "18px"}}
-//     name='Products'
-//     active={activeItem === 'Products'}
-//     onClick={this.handleItemClick}
-//   />
-// </Link>
