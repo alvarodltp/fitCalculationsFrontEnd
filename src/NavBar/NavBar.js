@@ -16,7 +16,7 @@ class NavBar extends React.Component {
       <React.Fragment>
         <div id="navbar">
           <Link to="/">
-            <Image  id="logo" src={'../fit-calculations-logo-2'} />
+            <Image id="logo" src={'../fit-calculations-logo-2'} />
           </Link>
       </div>
      </React.Fragment>

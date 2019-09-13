@@ -2,7 +2,6 @@ import React from 'react'
 import {Grid, Icon, Button, Image, Dropdown} from 'semantic-ui-react'
 import { BrowserView } from "react-device-detect";
 import { Link } from "react-router-dom"
-import { FaHeart } from "react-icons/fa";
 
 class Nav extends React.Component {
 
@@ -14,7 +13,7 @@ class Nav extends React.Component {
   trigger = () => {
     return(
       <span style={{color: "#F1B727"}}>
-        <FaHeart/> Welcome, {this.props.user.name}
+        Welcome, {this.props.user.name}!
       </span>
     )
   }

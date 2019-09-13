@@ -232,12 +232,6 @@ showResultsPage = () => {
   });
 }
 
-// initializeIntercom = () => {
-//     window.Intercom("boot", {
-//     app_id: "miq7epik"
-//   })
-// }
-
 validateEmail = (e) => {
   let email = e.target.value.replace(/\s*$/,'')
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -260,20 +254,19 @@ requiredEmailMessage = () => {
 }
 
 handleChange = (e) => {
-  let lastStat = this.state.currentUserStatsNewCalc
+  let lastStat = this.state.currentUserStatsNewCalc;
   lastStat[e.target.name] = e.target.value
   this.setState({
     currentUserStatsNewCalc: lastStat
-  })
+  });
 }
 
 handleChangeDropdown = (value, fieldName) => {
   let lastStat = this.state.currentUserStatsNewCalc
   lastStat[fieldName] = value
-  debugger
   this.setState({
     currentUserStatsNewCalc: lastStat
-  })
+  });
 }
 
 getUserFoodLists = () => {
@@ -289,30 +282,47 @@ getUserFoodLists = () => {
 
 
   render() {
+    const {
+      currentUserStats,
+      user,
+      posts,
+      programs,
+      mobileDevice,
+      message,
+      loading,
+      allStats,
+      emailValid,
+      auth,
+      showResults,
+      stepNumber,
+      userFoodLists,
+      currentUserStatsNewCalc
+    } = this.state;
+    
     return (
       <React.Fragment>
       <div className="App">
-          <Route render={props => <Nav {...props} currentUserStats={this.state.currentUserStats} user={this.state.user} logOut={this.logOut}/> } />
+          <Route render={props => <Nav {...props} currentUserStats={currentUserStats} user={user} logOut={this.logOut}/> } />
         <Switch>
-          {this.state.posts != null ? <Route exact path="/" render={() => <Homepage programs={this.state.programs} posts={this.state.posts} mobileDevice={this.state.mobileDevice} scrollToTop={this.scrollToTop}
-          requiredEmailMessage={this.requiredEmailMessage} message={this.state.message} validateEmail={this.validateEmail} loading={this.state.loading} allStats={this.state.allStats}/> } /> : null }
-          <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} updateNewUser={this.updateNewUser} validateEmail={this.validateEmail} emailValid={this.state.emailValid} auth={this.state.auth} loading={this.state.loading} showResultsPage={this.showResultsPage}
-          showResults={this.state.showResults} mobileDevice={this.state.mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={this.state.stepNumber} addOneToStep={this.addOneToStep}/> } />
+          {posts != null ? <Route exact path="/" render={() => <Homepage programs={programs} posts={posts} mobileDevice={mobileDevice} scrollToTop={this.scrollToTop}
+          requiredEmailMessage={this.requiredEmailMessage} message={message} validateEmail={this.validateEmail} loading={loading} allStats={allStats}/> } /> : null }
+          <Route path="/calories-and-macros" render={props => <CalculationsContainer {...props} updateNewUser={this.updateNewUser} validateEmail={this.validateEmail} emailValid={emailValid} auth={auth} loading={loading} showResultsPage={this.showResultsPage}
+          showResults={showResults} mobileDevice={mobileDevice} substractOneFromStep={this.substractOneFromStep} scrollToTop={this.scrollToTop} stepNumber={stepNumber} addOneToStep={this.addOneToStep}/> } />
           <Route path="/macros-breakdown" render={() => <MacrosBreakdownForm /> } />
           <Route path="/thank-you" render={() => <ThankYouBcm /> } />
-          <Route path="/invite" render={props => <Invite mobileDevice={this.state.mobileDevice} {...props} /> } />
+          <Route path="/invite" render={props => <Invite mobileDevice={mobileDevice} {...props} /> } />
           <Route path="/no-diets" render={() => <LandingPage /> } />
           <Route path="/thank-you-purchase-completed" render={() => <ThankYouAfterPurchase /> } />
           <Route path="/food-list" render={props => <FoodListContainer {...props}/> } />
           <Route path="/bmi-calculator" render={props => <BmiCalculatorContainer {...props}/> } />
-          {this.state.posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} scrollToTop={this.scrollToTop} posts={this.state.posts }/> } /> : null}
-          {this.state.posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={this.state.posts} scrollToTop={this.scrollToTop}/> } /> : null}
+          {posts != null ? <Route exact path="/blog" render={props => <BlogContainer {...props} scrollToTop={this.scrollToTop} posts={posts }/> } /> : null}
+          {posts != null ? <Route path='/blog/:blogPage' render={props => <BlogPage {...props} posts={posts} scrollToTop={this.scrollToTop}/> } /> : null}
           <Route exact path="/tools" render={props => <AllToolsContainer {...props}/> } />
-          <Route exact path="/programs" render={props => <AllProgramsContainer {...props} programs={this.state.programs} scrollToTop={this.scrollToTop}/> } />
+          <Route exact path="/programs" render={props => <AllProgramsContainer {...props} programs={programs} scrollToTop={this.scrollToTop}/> } />
           <Route exact path="/contact" render={() => <Contact/> } />
           <Route exact path="/signup" render={props => <SignUp {...props} updateNewUser={this.updateNewUser}/> } />
           <Route exact path='/login' render={props=> <Login {...props} getUserStats={this.getUserStats} updateUser={this.updateUser} />} />
-          {this.state.currentUserStats != null ? <Route exact path="/profile" render={props => <UserDashboard {...props} userFoodLists={this.state.userFoodLists} getUserStats={this.getUserStats} handleChange={this.handleChange} handleChangeDropdown={this.handleChangeDropdown} currentUserStatsNewCalc={this.state.currentUserStatsNewCalc} currentUserStats={this.state.currentUserStats} logOut={this.logOut}/> } /> : null }
+          {currentUserStats != null ? <Route exact path="/profile" render={props => <UserDashboard {...props} userFoodLists={userFoodLists} getUserStats={this.getUserStats} handleChange={this.handleChange} handleChangeDropdown={this.handleChangeDropdown} currentUserStatsNewCalc={currentUserStatsNewCalc} currentUserStats={currentUserStats} logOut={this.logOut}/> } /> : null }
           <MessengerCustomerChat pageId="404467583623796" appId="1076264422567096" />
           <Route path="*" component={NotFound} />
         </Switch>

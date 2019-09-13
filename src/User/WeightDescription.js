@@ -11,7 +11,7 @@ const WeightDescription = (props) => {
 
         <div className="description">
         { moreThanOneStat === false ?
-          <div className="result-description">npo
+          <div className="result-description">
             <h4>Your Weight</h4>
             <p>Congrats on your first calculation. You weight status will appear here when you have more than one calculation in your account.</p> 
           </div> : null }
