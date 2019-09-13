@@ -31,7 +31,7 @@ class UserDashboard extends React.Component {
       maxHeartRate: "",
       programSelected: "",
       activeMenu: "Profile",
-      menuStyle: null
+      menuStyle: {background: "#F1B727", color: "white"}
     }
   }
 

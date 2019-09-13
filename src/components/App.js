@@ -137,25 +137,24 @@ getUserStats = (user) => {
     fetch("https://fitcalculations-api.herokuapp.com/stats")
     .then(response => response.json())
     .then(json => {
-      let currentUserStats = json.filter(stat => stat.user_id === userId)
-      let lastStat = currentUserStats[currentUserStats.length - 1]
-     
+      let currentUserStats = json.filter(stat => stat.user_id === userId);
+      let lastStat = currentUserStats[currentUserStats.length - 1];
       this.setState({
         currentUserStats: currentUserStats,
         currentUserStatsNewCalc: lastStat
       }, () => this.props.history.push('/profile'), this.getUserFoodLists())
-    })
+    });
   }
 }
 
 logOut = () => {
-  localStorage.clear()
+  localStorage.clear();
   this.setState({
     user: null,
     currentUserStats: null,
     currentUserStatsNewCalc: null
-  })
-  this.props.history.push('/')
+  });
+  this.props.history.push('/');
 }
 
 client = contentful.createClient({
@@ -163,7 +162,7 @@ client = contentful.createClient({
   accessToken: 'O7n9vC7nnluKegqPfYuD78Cbt3a0sEHXznkuK_HRdl8'
 })
 
-fetchPosts = () => this.client.getEntries()
+fetchPosts = () => this.client.getEntries();
 
 setPosts = response => {
   this.setState({
@@ -202,12 +201,12 @@ addOneToStep = (stats) => {
   if(stats === undefined) {
     this.setState({
       stepNumber: this.state.stepNumber + 1
-    })
+    });
   } else {
     this.setState({
       stepNumber: this.state.stepNumber + 1,
       currentUserStats: stats
-    }, () => this.getUserStats())
+    }, () => this.getUserStats());
   }
 }
 
@@ -218,12 +217,8 @@ substractOneFromStep = () => {
 }
 
 scrollToTop = () => {
- window.scrollTo(0, 0)
+ window.scrollTo(0, 0);
 }
-
-// scrollToBottom = () => {
-//   window.scrollTo(0,9999);
-// }
 
 showResultsPage = () => {
   this.setState({
@@ -244,12 +239,12 @@ requiredEmailMessage = () => {
   if(this.state.emailValid === "" || this.state.emailValid === false) {
     this.setState({
       message: "Please enter a valid email address."
-    })
+    });
   } else {
     window.location.href = "https://drive.google.com/file/d/1-lq43IW3cTCafFvhTm6RrutJvju0J4k6/view?usp=sharing";
     this.setState({
       message: ""
-    })
+    });
   }
 }
 
@@ -279,7 +274,6 @@ getUserFoodLists = () => {
     });
   })
 }
-
 
   render() {
     const {

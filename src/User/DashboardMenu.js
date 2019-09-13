@@ -7,7 +7,7 @@ import { FaApple } from "react-icons/fa";
 import { FaUtensils } from "react-icons/fa";
 
 const DashboardMenu = (props) => {
-  const { activeMenu, menuStyle } = props
+  const { activeMenu, menuStyle } = props;
   return (
     <div className="dash-menu"> 
       <div style={activeMenu === "Profile" ? menuStyle : null} className="dash-menu-item" onClick={(e) => {props.handleMenuClick(e, "Profile")}}>
